@@ -388,6 +388,7 @@
             position: absolute
             right: 0
             bottom: 6px
+
   .list-mask
     position: fixed
     top: 0
