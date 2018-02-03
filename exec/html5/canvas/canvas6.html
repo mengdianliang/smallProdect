@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>canvas定时器</title>
+    <style>
+        body{
+            background-color: #000000;
+        }
+        #c1{
+            background-color: #ffffff;
+        }
+        span{
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="c1" width="400" height="400">
+        <span>不支持canvas浏览器</span>
+        <!--
+            画布的实际宽高实在标签里写的，在样式中写的话，会等比例缩放图形大小（实际原始大小为300 X 150）
+        -->
+    </canvas>
+</body>
+<script>
+    window.onload = function(){
+        var oc = document.getElementById('c1');
+        var context = oc.getContext('2d');
+        context.fillStyle = '#ff8080';
+
+        context.fillRect(0,0,100,100);
+        var num = 0;
+        var timer =setInterval(function(){
+            context.clearRect(num,num,100,100);
+            num++;
+            context.fillRect(num,num,100,100);
+            if(num >= oc.width - 100){
+                clearInterval(timer);
+                num = oc.width - 100
+            }
+        },30);
+
+    };
+</script>
+</html>

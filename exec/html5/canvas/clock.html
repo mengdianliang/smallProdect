@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>canva时钟</title>
+    <style>
+        body{
+            background-color: #000000;
+        }
+        #c1{
+            background-color: #ffffff;
+        }
+        span{
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="c1" width="400" height="400">
+        <span>不支持canvas浏览器</span>
+        <!--
+            画布的实际宽高实在标签里写的，在样式中写的话，会等比例缩放图形大小（实际原始大小为300 X 150）
+        -->
+    </canvas>
+</body>
+<script>
+    window.onload = function(){
+        var oc = document.getElementById('c1');
+        var context = oc.getContext('2d');
+        var x = 200;
+        var y = 200;
+        var r = 150;
+
+        toDraw();
+        function toDraw(){
+
+            context.clearRect(0,0,oc.width,oc.height);
+            var dt = new Date();
+            var h = dt.getHours();
+            var m = dt.getMinutes();
+            var s = dt.getSeconds();
+
+            var hVal = ( h * 30 - 90 + m/2) * Math.PI/180;
+            var mVal = (m * 6 - 90 + s/10) * Math.PI/180;
+            var sVal = (s * 6 - 90) * Math.PI/180;
+
+            context.save();
+            context.beginPath();
+            for(var i = 0;i < 60;i++){
+                context.moveTo(x,y);
+                context.arc(x,y,r,(6 * i) * Math.PI/180,(6 * (i+ 1)) * Math.PI/180,false);
+            }
+            context.closePath();
+            context.stroke();
+
+            context.beginPath();
+            context.fillStyle = '#ffffff';
+            context.moveTo(x,y);
+            context.arc(x,y,r * 19/20,0,360 * Math.PI/180,false);
+            context.closePath();
+            context.fill();
+
+            context.beginPath();
+            context.lineWidth = 5;
+            for(var i = 0;i < 12;i++){
+                context.moveTo(x,y);
+                context.arc(x,y,r,(30 * i) * Math.PI/180,(30 * (i+ 1)) * Math.PI/180,false);
+            }
+            context.closePath();
+            context.stroke();
+
+            context.beginPath();
+            context.fillStyle = '#ffffff';
+            context.moveTo(x,y);
+            context.arc(x,y,r * 18/20,0,360 * Math.PI/180,false);
+            context.closePath();
+            context.fill();
+
+            context.beginPath();
+            context.lineWidth = 5;
+            context.moveTo(x,y);
+            context.arc(x,y,r * 10/20,hVal,hVal,false);
+            context.closePath();
+            context.stroke();
+
+            context.beginPath();
+            context.strokeStyle = '#0000ff';
+            context.lineWidth = 3;
+            context.moveTo(x,y);
+            context.arc(x,y,r * 14/20,mVal,mVal,false);
+            context.closePath();
+            context.stroke();
+
+            context.beginPath();
+            context.strokeStyle = '#ff8080';
+            context.lineWidth = 1;
+            context.moveTo(x,y);
+            context.arc(x,y,r * 18/20,sVal,sVal,false);
+            context.closePath();
+            context.stroke();
+
+            context.beginPath();
+            context.fillStyle = '#ff0000';
+            context.moveTo(x,y);
+            context.arc(x,y,r * 1/30,0,360 * Math.PI/180,false);
+            context.closePath();
+            context.fill();
+            context.restore();
+        }
+
+        setInterval(function(){
+            toDraw();
+        },1000);
+    };
+</script>
+</html>

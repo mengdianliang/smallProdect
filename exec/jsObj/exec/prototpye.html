@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>原型链</title>
+</head>
+<body>
+
+</body>
+<script>
+    function Fn(name){
+        this.name = name;
+        /*this.say = function(){
+            alert(this.name);
+        };*/
+    }
+    Fn.prototype.say = function(){
+        alert(this.name);
+    };
+    Object.prototype.say = function(){
+        alert(this.name);
+    };
+    var per = new Fn('张三');
+    per.say();
+    var per1 = new Fn('张三');
+    per1.say();
+    console.log(per);
+    console.log(per.say == per1.say);
+</script>
+</html>

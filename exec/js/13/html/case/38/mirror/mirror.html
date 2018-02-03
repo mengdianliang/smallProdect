@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>放大镜</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        img{
+            vertical-align: top;
+            border: none;
+        }
+        #magnifier{
+            position: relative;
+            top: 10px;
+            left: 150px;
+            width: 402px;
+            height: 402px;
+        }
+        .winSelector{
+            position: absolute;
+            width: 220px;
+            height: 200px;
+            background-color: #333333;
+            opacity:.5;
+            filter:alpha(opacity=50);
+            display: none;
+        }
+        .bigImg{
+            width: 400px;
+            height: 400px;
+            border: 1px solid #dddddd;
+        }
+        .bigView{
+            position: absolute;
+            top:0;
+            right:-450px;
+            width:402px;
+            height:402px;
+            border:1px solid #333333;
+            overflow:hidden;
+            display: none;
+        }
+        .bigView img{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="magnifier">
+        <div class="bigImg">
+            <span class="winSelector"></span>
+            <img src="img/1.jpg" width="400" height="400"/>
+        </div>
+        <div class="bigView">
+            <img src="img/1.jpg" width="800" height="800"/>
+        </div>
+    </div>
+</body>
+<script>
+    window.onload = function(){
+        var magnifier = document.querySelector('#magnifier');  //整个区域
+        var bigImg = document.querySelector('.bigImg');  //图片展示区域
+        var winSelector = document.querySelector('.winSelector'); //扫描背景
+        var bigView = document.querySelector('.bigView');  //图片视图区域
+        var imgMove = bigView.querySelector('img');  //图片视图区域
+        init();
+        //初始化代码
+        function init(){
+            onOver();
+            onOut();
+            onMove();
+        }
+
+        //移入图片区域事件
+        function onOver(){
+            bigImg.onmouseover = function(){
+                winSelector.style.display = 'block';
+                bigView.style.display = 'block';
+            };
+        }
+        //移出图片区域事件
+        function onOut(){
+            bigImg.onmouseout = function(){
+                winSelector.style.display = '';
+                bigView.style.display = '';
+            };
+        }
+        //移动扫描区域
+        function onMove(){
+            bigImg.onmousemove = function (evt){
+                evt = window.event || evt;
+                //获取扫描区坐标点
+                var prevLeft = evt.clientX - magnifier.offsetLeft - winSelector.offsetWidth/2;
+                var prevTop = evt.clientY - magnifier.offsetTop - winSelector.offsetHeight/2;
+
+                if(prevLeft < 0){
+                    prevLeft = 0;
+                }
+                if(prevTop < 0){
+                    prevTop = 0;
+                }
+                //获取可移动的最大值
+                var maxWid = bigImg.offsetWidth - winSelector.offsetWidth;
+                var maxHgt = bigImg.offsetHeight - winSelector.offsetHeight;
+                if(prevLeft > maxWid) {
+                    prevLeft = maxWid;
+                }
+                if(prevTop > maxHgt) {
+                    prevTop = maxHgt;
+                }
+                //设置移动区域鼠标居中
+                winSelector.style.left = prevLeft + 'px';
+                winSelector.style.top = prevTop + 'px';
+
+
+                //获取移动百分比
+                var widPer = prevLeft/maxWid;
+                var hgtPer = prevTop/maxHgt;
+                console.log(widPer,hgtPer);
+
+                //设置视图区域图片显示的位置
+                imgMove.style.left = - widPer * (imgMove.offsetWidth - bigView.offsetWidth) + 'px';
+                imgMove.style.top = -hgtPer * (imgMove.offsetHeight - bigView.offsetHeight) + 'px';
+            };
+        }
+    };
+</script>
+</html>

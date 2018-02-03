@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>clone节点</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+</head>
+<body>
+    <div>div</div>
+    <span>span</span>
+</body>
+<script>
+    $(function(){
+        $('div').click(function(){
+            alert(11111);
+        });
+        $('div').clone(true).appendTo($('span'));
+    });
+</script>
+</html>

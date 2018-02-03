@@ -1,0 +1,170 @@
+/*最外层容器的样式*/
+.photo_wall{
+    width: 100%;
+    height: 600px;
+    background: url('../imgs/bg.jpg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+/*照片的容器样式*/
+.photo{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+
+    transition: 1s;
+}
+/*每一张照片的样式*/
+.singlePic,.pic_3d,.pic_side{
+    width: 336px;
+    height: 392px;
+    position: absolute;
+    left: 0;
+    top: 0;
+ }
+.singlePic{
+    transition: 800ms;
+    perspective: 750px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(.5) rotate(0deg);
+}
+.pic_3d{
+    transform-style: preserve-3d;
+    transition: 500ms;
+    transform-origin: 0 50%;
+}
+.pic_side{
+    background-color: #ffffff;
+    border-radius: 6px;
+    padding: 26px 24px;
+    box-sizing: border-box;
+    backface-visibility: hidden;
+}
+/*照片的正面样式*/
+.pic_front{
+    transform: rotateY(0deg);
+}
+.pic_front p{
+    width: 286px;
+    height: 286px;
+    border: 2px solid #d8536d;
+    display: flex;
+    overflow: hidden;
+}
+.pic_front img{
+    width: 100%;
+    align-self: center;
+}
+.pic_front h3{
+    width: 166px;
+    height: 44px;
+    background: #d8536d;
+    border-radius: 0 0 6px 6px;
+    margin: 0 auto;
+    text-align: center;
+    font: 16px/44px Arial;
+    color: #fff;
+}
+/*照片的反面样式*/
+.pic_back{
+    transform: rotateY(-180deg);
+}
+.desc{
+    font-size: 14px;
+    line-height: 20px;
+    color: #d8536d;
+}
+.photo_back a{
+    color: #d8356d;
+}
+
+/*照片的居中样式*/
+.photo .center {
+    z-index: 9999;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(1) rotate(0);
+}
+/*照片正面的class*/
+.photo .front .pic_3d {
+    transform: translateX(0) rotateY(0);
+}
+/*照片反面的calss*/
+.photo .back .pic_3d {
+    transform: translateX(100%) rotateY(-180deg);
+}
+
+/*导航栏的样式*/
+.nav {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 888;
+    width: 100%;
+    height: 200px;
+    padding-top: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    background: -webkit-linear-gradient(top,rgba(0,0,0,.5),transparent);
+}
+@font-face {
+    font-family: "miaov";
+    src: url(../font/iconfont.woff) format("woff");
+}
+.item{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.5);
+    font-family: "miaov";
+    text-align: center;
+    line-height: 30px;
+    color: rgba(255,255,255,0);
+    cursor: pointer;
+    transform: scale(.5);
+    transition: 500ms;
+}
+.nav .active {
+    color: rgba(255,255,255,1);
+    transform: scale(.9) rotateY(0);
+}
+
+.nav .back {
+    transform: scale(.8) rotateY(-180deg);
+}
+
+/*遮罩层*/
+.photo_wall .shade {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.photo_wall .hide {
+    transition: 1s;
+    opacity: 0;
+    transform: scale(0) rotateY(360deg);
+}
+.photo_wall .shade .start {
+    width: 200px;
+    height: 60px;
+    border: 2px solid #d8536d;
+    border-radius: 10px;
+    background: rgba(248,229,227,.5);
+    text-align: center;
+    font: 22px/60px Arial;
+    cursor: pointer;
+}

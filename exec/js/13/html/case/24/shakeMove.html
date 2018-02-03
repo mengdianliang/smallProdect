@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>抖动一练</title>
+    <style>
+        body{
+            margin: 0;
+            font-family: 'MICROSOFT YAHEI';
+            font-size: 12px;
+            color: #ffffff;
+        }
+        h3{
+            margin: 0;
+        }
+        a{
+            text-decoration: none;
+            color: #ffffff;
+        }
+        img{
+            vertical-align: top;
+            border: 2px solid #ffffff;
+            width: 50px;
+            border-radius: 50px;
+        }
+        .wrapper{
+            width: 750px;
+            height: 500px;
+            padding: 20px;
+            margin: 50px auto 0;
+            background-image: -webkit-linear-gradient(left,#A63BD1 0%,#836BE7 100%);
+        }
+        .tit{
+            font-size: 26px;
+            text-align: center;
+            line-height: 30px;
+            font-weight: normal;
+        }
+        .box{
+            height: 370px;
+            margin-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        .con{
+            width: 600px;
+            height: 360px;
+            margin-left: 120px;
+            background-color: rgba(0,0,0,0.4);
+            border: 5px solid #ffffff;
+            border-radius: 5px;
+        }
+        .nav{
+            position: absolute;
+            top: 0;
+            left: 140px;
+            width: 100px;
+            height: 150px;
+        }
+        .nav a{
+            display: block;
+            width: 30px;
+            height: 30px;
+            padding: 10px;
+            border-radius: 50px;
+            border: 2px solid #ffffff;
+            text-align:center;
+            line-height: 15px;
+            margin-top: 20px;
+        }
+        .got{
+            background-color: #AE31D2;
+        }
+        .lost{
+            background-color: #8D67E8;
+        }
+        .btn{
+            width: 100px;
+            height: 32px;
+            position: absolute;
+            bottom: 20px;
+            left: 360px;
+            border-radius: 32px;
+            text-align: center;
+            line-height: 32px;
+            border: 2px solid #ffffff;
+        }
+        img{
+            position: absolute;
+            top: -80px;
+            left: 140px;
+        }
+    </style>
+</head>
+<body>
+    <section class="wrapper">
+        <h3 class="tit">抖动一练</h3>
+        <div class="box">
+            <div class="con">
+                <img src="img/1.jpg"/>
+            </div>
+            <nav class="nav">
+                <a href="javascript:void(0);" class="got">0分得分</a>
+                <a href="javascript:void(0);" class="lost">0分失分</a>
+            </nav>
+            <a href="javascript:void(0);" class="btn">开始游戏</a>
+        </div>
+    </section>
+</body>
+<script src="js/MTween.js"></script>
+<script src="js/shakeMove.js"></script>
+<script>
+    window.onload = function(){
+        var box = $('.box')[0];  //获取大盒子区域
+        var pic = $('.con img')[0]; //获取图片
+        var sc = $('.nav')[0];  //获取分数区域
+        var scores = $('a',sc);  //获取得分与失分
+        var btn = $('.btn')[0];  //获取开始游戏按钮
+        var picArr = ['./img/1.jpg','./img/2.jpg','./img/3.jpg'];
+        var got = 0;  //得分
+        var lost = 0; //失分
+
+        init();
+        //页面初始化
+        function init(){
+            start();
+        }
+        //初始化内容
+        function initVal(){
+            got = 0;
+            lost = 0;
+            scores[0].innerHTML = got +'分得分';
+            scores[1].innerHTML = lost +'分失分';
+            sc.style.left = '140px';
+            btn.style.bottom = '20px';
+        }
+        //随机选择图片
+        function picRan(){
+            var num = Math.round(Math.random() * 2);
+            var lft = Math.round(Math.random() * 520) + 140;
+            pic.src = picArr[num];
+            pic.style.left = lft + 'px';
+            pic.style.top = '0px';
+            pic.style.display = 'block';
+            btn.isClick = true;
+        }
+        //图片下落动画封装
+        function downPic(){
+            picRan();
+            MTween(pic,450,3000,'top','linear',function(){
+                lost++;
+                scores[1].innerHTML = lost +'分失分';
+                shakeMove({obj:box,attr:'top',fn:function(){
+                    if(lost < 2){
+                        downPic();
+                    }else{
+                       initVal();
+                    }
+                }});
+            });
+        }
+        //开始游戏操作
+        function start(){
+            btn.isClick = true;
+            btn.onclick = function(){
+
+                if(!this.isClick) return;
+                this.isClick = false;
+
+                MTween(this,-56,500,'bottom','linear');
+                MTween(sc,-140,500,'left','linear',function(){
+                    downPic();
+                });
+            };
+            //点击图片
+           pic.isClick = true;
+            pic.onclick = function(){
+                if(!this.isClick) return;
+                this.isClick = false;
+                got++;
+                scores[0].innerHTML = got +'分得分';
+                clearInterval(this.timer);
+                var _this = this;
+                shakeMove({obj:this,attr:'left',fn:function(){
+                    _this.style.display = 'none';
+                    downPic();
+                    _this.isClick = true;
+                }});
+            };
+        }
+
+        //元素获取方法的重写
+        function $(element,obj){
+            if(obj == null){
+                return document.querySelectorAll(element);
+            }else{
+                return obj.querySelectorAll(element);
+            }
+        }
+    };
+</script>
+</html>

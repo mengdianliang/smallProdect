@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>重复子项</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*var str = '我的名字是${name},年龄是${age},性别${sex}';
+
+     var obj = {
+     name: '张三',
+     age: '18',
+     sex: '男'
+     };
+
+     var info = str.replace(/\${(\w+)}/g,function($0,$1){
+     return obj[$1];
+     });
+     console.log(info);*/
+
+   /* var str = 'abca';
+    var re = /(a)(b)(c)\1/;
+
+    alert(re.test(str));*/
+/*
+    var re1 = /\w\w/;
+    var re2 = /(\w)\1/;
+    var str = 'c9';
+    alert(re1.test(str));  //true
+    alert(re2.test(str));  //false*/
+
+
+    var str = 'abcsssgfgftrerssghgsss';
+    //存储重复次数最多的值
+    var value = '';
+    //存储重复次数最多的索引
+    var index = 0;
+
+    //对字符串进行排序
+    var arr = str.split("");
+    str = arr.sort().join("");
+    //console.log(str);
+    //匹配规则
+    var re = /(\w)\1*/g;
+    //字符串
+    str.replace(re,function($0,$1){
+        //如果匹配字符串的重复次数大于index,获取重复次数较多的索引和值
+		console.log($0,$1)
+        if(index < $0.length){
+            index = $0.length;
+            value = $1;
+        }
+    });
+    console.log(value);
+
+    var str = 'abcsssgfgftrerssghgsss';
+    var value = '';
+    var index = 0;
+
+    //用来存储字符，及其出现次数
+    /* var json = {};
+    for(var i = 0;i < str.length;i++){
+        if(!json[str.charAt(i)]){
+            json[str.charAt(i)] = 1;
+        }else{
+            json[str.charAt(i)]++;
+        }
+    }
+    //for循环遍历输出重复次数最多的索引和值
+    for(var attr in json){
+        if(json[attr] > index){
+            index = json[attr];
+            value = attr;
+        }
+    }
+    console.log('重复次数最多的是：' + value + "重复次数：" + index); */
+/*
+*思考：如果我要输出重复次数同样最多的情况，就需要用再追加一个循环，用数组存储相同index(最大)的字符。
+* */
+</script>
+</html>

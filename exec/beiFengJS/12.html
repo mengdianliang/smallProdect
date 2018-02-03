@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>函数式与面向对象</title>
+</head>
+<body>
+    <script>
+        /*
+        *   函数：是一组可以随时随地运行的语句。 是ECMAScript的核心。
+        *   ()括号的作用，将括号中的表达式求值返回给上下文
+        * */
+
+        /*function fnOne(){  //具有名称的函数，函数名必须符合变量名命名规范
+
+        }
+        var fnTwo = function(){  //匿名函数
+
+        };
+        fnTwo();
+        *//*function (){ //创建匿名函数而不立即创建其引用
+
+        }*//*
+        (function fnThree(){
+
+        })();   //创建函数并立即执行一次*/
+
+        /*alert(a=123);
+        alert(a=function() {alert('fn2')});*/
+
+        //var a;
+        /*a="abc";
+        alert((a).length);*/
+
+       /* var c = (a=Math).sqrt(2);
+        alert(c);
+        alert(a);*/
+
+        /*(function (p){
+            alert(p);
+        })(123);      //后括号起到传参数的作用*/
+
+        /*(function abc() {})();
+        alert(abc);    //这里是访问不到的，函数闭包*/
+
+
+        /*
+        表达式与语句区别：
+            表达式一般存在于等号的右边
+        */
+
+       /* function msg(){   //将所有传进来的值都作为字符串用换行符分割输出
+            var s = "";
+            for(var i = 0;i < arguments.length;i++){
+                s += arguments[i] + "\n";
+            }
+            alert(s);
+        }
+
+        function  msg() {
+            for(var i = 0,a = [];i < arguments.length;i++){
+                a.push(arguments[i]);
+            }
+            alert(a.join("\n"));
+        }
+        function arg(a,b,c){
+            //函数执行时有个arguments对象,保存所有的参数
+            //alert(a + "\n" + b + "\n" + c);
+           // alert(arguments[1]);
+            for(var i = 0;i < arguments.length;i++){
+                alert(arguments[i]);
+            }
+        }*/
+        //arg(1,2,3,4);
+        //arg(1,2);
+        //arg("adf","adfgfg",3,4,5,6,7,8);
+
+/*
+        function fnTest(){
+            var args = arguments;
+            switch (args.length) {
+                case 0:
+                    return "没有输入！！！";
+                case 1:
+                    return "一个参数：" + args[0];
+                case 2:
+                    return "两个参数：" + args[0] + "和" + args[1];
+            }
+        }
+        alert(1111111111);
+        alert(fnTest());
+        alert(fnTest(1));
+        alert(fnTest(1,2));*/
+
+        /*
+        * arguments的callee属性指向他所在的函数
+        * caller:指的是调用该函数的函数
+        * */
+       /* function fn1(){
+         fn1();
+         }
+         fn1();    // too much rcursion */
+         function abc(n){
+            alert(arguments.callee.caller);
+            return n?n*arguments.callee(n-1):1;
+        }
+       // alert(abc(5));
+
+        /*var c= abc;
+        abc = null;
+        alert(c(5));
+        alert(abc);*/
+        //alert(abc.length);
+
+       /* function  callOther(){
+            abc(5);
+        }
+        callOther();*/
+
+
+        /*
+        * 闭包：指的是在函数声明处向函数外部看到的声明的所有变量，在函数内部都能访问到它们的最终值！   //解决方法： return
+        * */
+
+        /*var g = "全局变量！！！";
+        function  fnA(){
+            var a = "A";
+            function  fnB(){
+                var b = "B";
+                alert(a);
+                //alert(c);
+                function fnC(){
+                    var c = "C";
+                    alert(a + "\n" + b);
+                }
+                return fnC();
+            }
+            return fnB();
+        }
+        fnA();*/
+
+        /*function each(){
+            var i = 0;
+            for(;i < 10;i++){ }
+            function inner(){
+                alert(i);
+            }
+            return inner;
+        }
+        each()();*/
+
+        /*function each(){
+            var i = 0,inner;
+            for(;i < 10;i++){
+                alert(i);
+                inner = function (){alert(i);}
+            }
+            return inner;
+        }
+        var fn = each();
+        fn();*/
+        /*function each(){
+            var i = 0,inner,a=[];
+            for(;i < 10;i++){
+                //alert(i);
+                cache(i);
+            }
+            function cache(i){
+                a.push(function (){alert(i);});
+            }
+            return a;
+        }
+        var a = each();
+        for(var i in a){
+           a[i]();
+        }*/
+
+       /* function outer(){
+            var a = 123,b = 1234;
+            function inner() {return a;}
+            //inner.function_closure = {a:123,b=1234};   //虚构的函数
+            return inner;
+        }
+        outer()();*/
+
+        /*function fnTest(num1,num2){
+            var num3 = num1 + num2;
+            return function(){
+                alert("num1+num2的结果是：" + num3);
+            };
+        }
+        var result = fnTest(23,56);
+        result();*/
+
+        /*function fnTest(){
+            var a = 123;
+            return {
+                set: function(param){ a = param;},
+                get: function(){ return a;}
+            };
+        }
+        var obj = fnTest();
+        alert(obj.get());
+        obj.set(4);
+        alert(obj.get());*/
+
+        /*//var obj = new Object();   //Object是构造函数
+        //alert(obj);
+        function Demo(){
+            //alert('Demo');
+            this.name = 'cj';
+            this.age = 18;
+            //return 123;
+            //return [123,456];    //在构造函数中如果返回一个对象(不是基本类型)，那么new出来的新对象。
+        }
+        var d = new Demo();
+       // alert(d);
+       alert(d.name);*/
+
+       function Demo(name,age){
+            alert(this);
+            this.name = name;
+            this.age = age;
+        }
+        //执行一个全局函数，函数内部的this指向window
+        /*var d = new Demo('zhangsan');
+        alert(d.name);
+        alert(d.age);   //undefined*//*
+        alert(d);*/
+
+
+       /*var obj = {};
+       obj.method = Demo;
+       var c = {abc:obj.method};
+        c.abc("cj",18);
+        alert(c.name + "|" + c.age);
+        var d = Demo("cj",18);   //不用new this指向window
+        alert(window.name + "\n" + window.age);*/
+
+       /* function ClassA(){
+            this.a = "A";
+        }
+        function ClassB(){
+            this.b = "B";
+        }
+        ClassB.prototype = new ClassA();  //让ClassB继承ClassA
+        var b = new ClassB();
+        alert(b.a);   // "A"
+        alert(b instanceof ClassB);  //true
+        alert(b instanceof ClassA);  //true
+        alert(ClassB.prototype.isPrototypeOf(b));
+        alert(ClassA.prototype.isPrototypeOf(b));*/
+
+       /* function Demo(){
+            this.toString = 123;
+        }
+        Demo.prototype.ver = 1;
+        Demo.prototype.toString = function(){
+            return "Demo";
+        };
+        var d = new Demo();
+        alert(d.toString);*/
+        function Demo(){
+        }
+        Demo.prototype = {
+            name: "cj",
+            getName:function(){
+                return this.name;
+            }
+        };
+        var d = new Demo();
+        alert(d.getName());
+        </script>
+</body>
+</html>

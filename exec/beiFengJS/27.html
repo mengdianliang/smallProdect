@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>弹出菜单</title>
+    <style>
+        .menu li{
+            float: left;
+            width: 80px;
+            height: 20px;
+            background-color: yellow;
+            border: 2px solid #aaaaaa;
+            list-style: none;
+            margin: 0 2px;
+            text-align: center;
+        }
+        .menu li a{
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .clearfix{
+            *zoom: 1;
+        }
+        .clearfix:after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        .menu li div{
+            display: none;
+            width: 80px;
+            height: 60px;
+            background-color: pink;
+        }
+    </style>
+    <script>
+
+        window.onload = function(){
+            //console.log(document.getElementsByClassName('menu'));
+            /* var lists = getByClass('menu');
+            alert(lists.length);*/
+            var lists,menus = [];
+            lists = getByClass('menu');
+            for(var l = 0;l < lists.length;l++){
+                var lis = lists[l].childNodes;
+                var li, a,div,obj;
+                for(var i = 0;i < lis.length;i++){
+                    if(lis[i].tagName == 'LI') {
+                        a = firstChild(lis[i]);
+                        div = next(a);
+                        obj = {
+                            btn: a,
+                            item: div
+                        };
+                        menus.push(obj);
+                        a.relatedItems = obj;
+
+                        div.relatedItems = obj;
+                        a.onmouseover = function() {
+                            this.relatedItems.item.style.display = "block";
+                        };
+                        a.onmouseout = function(evt){
+                            //console.log(evt.relatedTarget);  //返回与事件的目标节点相关的节点，凡是有事件的地方，就返回事件对应的元素
+                            if(!evt) {
+                                evt = window.event;
+                                evt.relatedTarget = evt.relatedTarget || evt.toElement;
+                            }
+                            if(evt.relatedTarget == this.relatedItems.item) return;
+                            this.relatedItems.item.style.display = "none";
+                        };
+                        div.onmouseout = function(){
+                            this.style.display = "none";
+                        };
+                    }
+                }
+            }
+
+        };
+        function $(id) {
+            return document.getElementById(id);
+        }
+        function getByClass(className,context) {
+            context = context || document;
+            if(context.getElementsByClassName) {
+                return context.getElementsByClassName(className);
+            }
+            var nodes = context.getElementsByTagName('*'),
+                    ret = [];
+            for(var i= 0;i < nodes.length;i++) {
+                if(hasClass(nodes[i],className)){
+                    ret.push(nodes[i]);
+                }
+            }
+            return ret;
+        }
+        function hasClass(node,className){
+            var names = node.className.split(/\s+/);
+            for(var i = 0;i < names.length;i++){
+                if(names[i]==className) return true;
+            }
+            return false;
+        }
+        function firstChild(node){
+            var n = node.firstChild;
+            if(n){
+                if(n.nodeType == 1){
+                    return n;
+                }else{
+                    while(n=n.nextSibling) {
+                        if(n.nodeType == 1) return n;
+                    }
+                    return null;
+                }
+            }
+            return null;
+        }
+        function lastChild(node){
+
+        }
+        function next(node) {
+            var n = node.nextSibling;
+            if(n){
+                if(n.nodeType == 1){
+                    return n;
+                }else{
+                    while(n=n.nextSibling) {
+                        if(n.nodeType == 1) return n;
+                    }
+                    return null;
+                }
+            }
+            return null;
+        }
+    </script>
+</head>
+<body>
+    <h1>弹出菜单</h1>
+    <ul class="menu clearfix">
+        <li>
+            <a href="#">按钮A</a>
+            <div>内容A</div>
+        </li>
+        <li>
+            <a href="#">按钮B</a>
+            <div>内容B</div>
+        </li>
+        <li>
+            <a href="#">按钮C</a>
+            <div>内容C</div>
+        </li>
+        <li>
+            <a href="#">按钮D</a>
+            <div>内容D</div>
+        </li>
+        <li>
+            <a href="#">按钮E</a>
+            <div>内容E</div>
+        </li>
+    </ul>
+    <ul class="menu clearfix">
+        <li>
+            <a href="#">按钮A</a>
+            <div>内容A</div>
+        </li>
+        <li>
+            <a href="#">按钮B</a>
+            <div>内容B</div>
+        </li>
+        <li>
+            <a href="#">按钮C</a>
+            <div>内容C</div>
+        </li>
+        <li>
+            <a href="#">按钮D</a>
+            <div>内容D</div>
+        </li>
+        <li>
+            <a href="#">按钮E</a>
+            <div>内容E</div>
+        </li>
+    </ul>
+
+</body>
+</html>

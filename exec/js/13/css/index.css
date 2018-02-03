@@ -1,0 +1,263 @@
+body{
+    background-color: #f1f1f1;
+}
+.wrapper{
+    width: 920px;
+    margin:0 auto;
+    padding: 0 20px;
+}
+/*头部引用开始*/
+.top_info{
+    height: 100px;
+    background-color: #ffffcc;
+    padding: 10px 0;
+    border-radius: 5px;
+}
+.logo{
+    padding-left: 40px;
+}
+.logo img{
+    width: 120px;
+    border-radius: 5px;
+}
+.tit_txt{
+    font-weight:normal;
+    margin: 10px 10px 0;
+}
+.h_desc{
+    font-size: 30px;
+    line-height: 40px;
+    display: block;
+    color: #002952;
+    font-family: '幼圆';
+    font-style: italic;
+    font-weight: bold;
+}
+.desc_author{
+    font-size: 24px;
+    color: #f0f1f1;
+    display: block;
+    line-height: 30px;
+    margin-top: 10px;
+}
+.words{
+    font-size: 16px;
+    padding-right: 40px;
+    padding-top: 20px;
+    color: #aaaaaa;
+}
+.words p{
+    line-height: 30px;
+}
+.red_bg{
+    color: #ff2020;
+}
+.txt3{
+    text-align: right;
+}
+/*头部引用开始*/
+/*页面导航开始*/
+.h_nav{
+    padding: 5px 0;
+
+}
+.h_nav_inner{
+    background-color: #66cccc;
+    border-radius: 5px;
+}
+.h_nav a{
+    padding: 0 30px;
+    border-radius: 5px;
+    margin-right: 2px;
+    line-height: 50px;
+    font-size: 16px;
+}
+.h_nav a:hover,.h_nav a.active{
+    background-color: #f15694;
+    color: #ffffff;
+}
+/*页面导航结束*/
+/*轮播区域开始*/
+.banner_list{
+    width: 480px;
+    height: 300px;
+    position: relative;
+}
+.banner_list li{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+    cursor: pointer;
+}
+.banner_list li.hov{
+   opacity: 1;
+}
+.banner_oper{
+    width: 120px;
+    position: relative;
+    overflow: hidden;
+}
+.banner_oper_list{
+    width: 100px;
+    margin-left: 10px;
+}
+.banner_oper_list li{
+    width: 100px;
+    height: 50px;
+    padding: 5px 0;
+}
+.banner_oper_list img{
+    width: 100px;
+    height: 50px;
+}
+.outer_line{
+    position: absolute;
+    width: 120px;
+    height: 60px;
+    top: 0;
+    left: -6px;
+    background: url('../img/banner_flag.png') no-repeat;
+    cursor: pointer;
+}
+.contact{
+    width: 300px;
+    height: 280px;
+    background: url('../img/bg2.jpg') -200px 0 no-repeat;
+    background-size: auto 100%;
+    border: 5px solid #ffffff;
+    border-radius: 3px;
+}
+.contact_tit{
+    font-size: 20px;
+    font-weight: normal;
+    text-align: center;
+    padding-top: 30px;
+}
+.contact_info p{
+    font-size: 14px;
+    line-height: 20px;
+}
+.by_one{
+    width: 160px;
+    background-color: #53ad3f;
+    color: #ffffff;
+    border-radius: 30px 0;
+    text-indent: 15px;
+    margin: 40px auto 0;
+
+}
+.by_two{
+    color: #ff0000;
+    text-indent: 60px;
+    padding-top: 40px;
+}
+/*轮播区域结束*/
+/*作品预览区域开始*/
+.main{
+    padding-top: 20px;
+    background-color: #00a3d8;
+}
+.works_txt_wrap{
+    display: inline-block;
+    position: relative;
+    transform-style: preserve-3d;
+    width: 250px;
+    height: 50px;
+    transition: 1s;
+}
+.works_txt{
+    display: inline-block;
+    background-color: #06a7e1;
+    line-height: 50px;
+    border-radius: 5px;
+    padding: 0 20px;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: normal;
+    box-shadow: 3px 3px 10px #666666;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.angl{
+    transform: translateY(-50px) rotateX(135deg);
+    transform-origin: left bottom;
+    background-color: #16094e;
+    color: #ffffff;
+}
+.works_txt_wrap:hover{
+    transform: rotateX(-135deg);
+}
+.work_list{
+    padding-top: 20px;
+    margin-right: -40px;
+}
+.work_list li{
+    width: 180px;
+    height: 180px;
+    margin: 0 15px 20px;
+    position: relative;
+    border-radius: 5px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 10px;
+}
+.work_list li a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 5px;
+    position: relative;
+}
+.s_100{
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+.v_100{
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+}
+.work_list li:hover .desc{
+    transform: rotate(0deg);
+}
+.desc{
+    transition: transform 1s;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 160px;
+    height: 160px;
+    background-color: rgba(0,0,0,0.6);
+    padding: 10px;
+    color: #ffffff;
+    transform-origin: 10px 10px;
+    transform: rotate(180deg);
+}
+.desc_tit{
+    display: block;
+    line-height: 80px;
+    text-align: center;
+    font-size: 20px;
+}
+.desc_txt{
+    display: block;
+}
+/*作品预览区域结束*/
+/*底部区域开始*/
+.foot{
+    padding: 10px 0;
+}
+.copyright{
+    line-height: 50px;
+    background-color: #66cccc;
+    font-size: 16px;
+    text-align: center;
+    color: #ffffff;
+}
+/*底部区域结束*/

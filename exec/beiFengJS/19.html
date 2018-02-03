@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>事件</title>
+    <style>
+        #oDiv{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+        #para{
+            height: 20px;
+            background-color: yellow;
+        }
+    </style>
+    <!--
+        事件对象的属性：
+        1.    button        Integer     R       表示按下的鼠标按钮，        W3C规定：0表示左键，1表示中键，2表示右键；
+                                                                              IE8及以下规定： 0表示没有任何键，1表示左键，2表示右键，4表示中键，同时摁下左右键为3
+        2.    clientX/clientY  Integer   R      鼠标在可视区域的坐标
+        3.    screenX/screenY  Integer   R(IE)、R/W(W3C)   相对屏幕的鼠标坐标
+        4.    x/y(仅IE)     Integer     R       鼠标相对引起事件的父元素的坐标
+        5.    offsetX/offsetY(IE)、layerX/layerY(W3C)   Integer   R  鼠标相对引起事件的对象的坐标
+        6.    pageX/pageY(W3C)   Integer   R    鼠标相对页面的坐标
+
+        快捷键：
+        1. altKey     Boolean  R    Alt键
+        2. ctrlKey    Boolean  R
+        3. shiftKey   Boolean  R
+        4. keyCode    Integer  对于keypress，表示按下按钮的Unicode字符；对于keydown/keyup，表示按下按钮的数字代号
+        5.charCode    Integer  对于keypress，表示按下按钮的Unicode字符；如果不是字符键，则该属性为0，并且当CapsLock打开与关闭时charCode的值也对应着大小写字母
+
+        其他：
+        srcElement(IE)/target(W3C)     Element   R    引起事件的元素
+        fromElement(IE)                Element   R    某些事件中(mouseover与mouseout)，鼠标所离开的元素
+        toElement(IE)                  Element   R    某些事件中(mouseover与mouseout)，鼠标所进入的元素
+        relatedTarget(W3C)             Element   R    某些事件中(mouseover与mouseout)，返回与事件的目标节点相关的节点
+        repeat(IE)                     Element   R    如果不断触发keydown事件，则为true，否则为false
+        returnValue(IE)                Element   R    将其设为false以取消事件的默认动作
+        preventDefault(W3C)            Element   R    执行方法以取消事件的默认动作
+        type                           Element   R    事件的名称，不带on前缀
+        cancelable（W3C）              Element   R    为true时，事件的默认动作可以被取消（用preventDefault）
+        cancelBubble（IE）             Element   R    设置为true,将取消事件冒泡
+        stopPropagation（W3C）         Element   R    执行方法取消事件冒泡
+        bubbles（W3C）                 Element   R    返回true，表示事件是冒泡类型
+
+
+
+
+        //Netscape   捕获事件流(由外向内)
+        //IE   冒泡事件流(由内到外)
+        //W3C  二者都有
+    -->
+</head>
+<body>
+    <script>
+
+        window.onload = function(evt){
+            document.onmousedown = function(evt){
+//                evt = evt || event;
+//                console.log(evt.button);
+                //alert(evt.button);
+                //alert(window.event);
+                if( evt&&evt.button == 2) {
+                    alert("按下了右键");
+                }
+                if((window.event && window.event.button == 4) || (evt&&evt.button == 1)) {   //???????????????
+                    alert("按下了中键");
+                }
+
+                //alert("X:" + evt.clientX +"\nY:" + evt.clientY);
+            };
+            /*document.onkeydown = function(evt) {
+                evt = evt || event;
+                //alert(evt.altKey);
+                alert(evt.keyCode);
+                alert(String.fromCharCode(evt.keyCode));
+            };
+            document.onkeypress = function(evt) {
+                evt = evt || event;
+                //alert(evt.altKey);
+                alert(evt.keyCode);
+                alert(String.fromCharCode(evt.keyCode));
+                alert(evt.charCode);
+                alert(String.fromCharCode(evt.charCode));
+            }*/
+
+            var oDiv = document.getElementById("oDiv");
+            var para = document.getElementById("para");
+            /*oDiv.onclick = function(evt) {
+               var target = evt.target || evt.srcElement;
+                alert(this.tagName);  //oDiv.tagName
+                alert(target.tagName); //要看运行时事件由哪个触发的
+            };*/
+//            document.onclick = function(evt) {
+//                evt = fixEvt(evt);
+//                alert("document:" + evt.target.tagName);
+//            };
+            oDiv.onclick = function(evt) {
+                evt = fixEvt(evt);
+                alert("div:" + evt.target.tagName);
+            };
+            para.onclick = function(evt) {
+                evt = fixEvt(evt);
+                alert("p:" + evt.target.tagName);
+                //停止事件流
+                evt.stopPropagation();
+            };
+            function fixEvt(evt){
+                evt = evt || window.event;
+                if(!evt.target) { //IE
+                    evt.target = evt.srcElement;
+                    evt.layerX = evt.offsetX;
+                    evt.layerY = evt.offsetY;
+                    evt.stopPropagation = function() {
+                        this.cancelBubble = true;
+                    };
+                }
+                return evt;
+            }
+        };
+    </script>
+    <div id="oDiv">oDiv
+        <p id="para">P</p>
+    </div>
+</body>
+</html>

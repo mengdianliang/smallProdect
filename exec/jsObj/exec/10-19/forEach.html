@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>forEach重写</title>
+</head>
+<body>
+
+</body>
+    <script>
+        var arr =[1,2,3,4,5];
+        Array.prototype.forEachT = function(callback,that){
+            for(var i= 0;i < this.length;i++){
+                callback.call(that,this[i],i,this);
+            }
+        };
+        //参数相互传递，call之后，获取call中参数的值
+        arr.forEachT(function(e,i,all){
+            console.log(e,i,all,this);
+        },document);
+    </script>
+</html>

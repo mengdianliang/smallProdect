@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>prototype</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*unction Aaa(){
+        this.name = '小明';
+    }
+    Aaa.prototype.showName = function(){
+        alert(this.name);
+    };
+
+    var a1 = new Aaa();
+    a1.showName();
+
+    var arr = new Array();
+
+    arr.push();
+    arr.sort();*/
+
+    /*var arr = [1,2,3];
+    Array.prototype.push = function(){
+        for(var i = 0;i < arguments.length;i++){
+            this[this.length] = arguments[i];
+        }
+        return this.length;
+    };
+    arr.push(4,5,6);
+    alert(arr);*/
+
+//    var str = 'hello';
+//    str.number = 10;
+//    alert(str.number);
+
+
+    //原型链
+  /*  function Aaa(){
+
+    }
+    Aaa.prototype.num = 10;
+    Object.prototype.num = 30;
+    var a1 = new Aaa();
+    alert(a1.num);*/
+
+    //hasOwnProperty()
+    /*var arr = [];
+    arr.num = 10;
+    Array.prototype.num2 = 20;
+    alert(arr.hasOwnProperty('num'));  //true
+    alert(arr.hasOwnProperty('num2'));  //false*/
+
+    //constructor查看对象的构造函数  可以用来做类型判断
+
+   /* function Aaa(){}
+
+    var a1 = new Aaa();
+    alert(a1.constructor);  //Aaa
+
+    var arr = [];
+    alert(arr.constructor);  //Array*/
+
+    /*function Aaa(){
+
+    }
+    Aaa.prototype.constructor = Array();
+
+    var a1 = new Aaa();
+    alert(a1.constructor);   // Array
+    alert(a1.hasOwnProperty == Object.prototype.hasOwnProperty);   //true*/
+
+
+   /*function Aaa(){
+
+   }
+    //这里是添加原型
+    Aaa.prototype.name = '小明';
+    Aaa.prototype.age = 20;
+    //这里是修改
+    *//* Aaa.prototype = {
+        name: '小明',
+        age: 20
+    };*//*
+   //解决方法
+    Aaa.prototype = {
+        constructor: Aaa,
+        name: '小明',
+        age: 20
+    };
+
+    var a1 = new Aaa();
+    alert(a1.constructor);*/
+
+
+    /*function Aaa(){
+
+     }
+     Aaa.prototype.name = '小明';
+     Aaa.prototype.age = 20;
+     Aaa.prototype.constructor = Aaa;
+     for(var attr in Aaa.prototype){
+     alert(attr);
+     }*/
+
+
+    /*//instanceof对象与某个构造函数在原型链上是否有关系
+
+    function Aaa(){
+
+    }
+    var a1 = new Aaa();
+    alert(a1 instanceof Aaa);
+
+    alert(a1 instanceof Object);*/
+
+
+    //toString()
+    /*var arr = [];
+    alert(arr.toString == Object.prototype.toString);   //false
+
+    function Aaa(){
+
+    }
+    var a1 = new Aaa();
+    alert(a1.toString == Object.prototype.toString);  //true*/
+
+    /*var arr = [1,2,3];
+     Array.prototype.toString = function(){
+     return this.join('+');
+     };
+     alert(arr.toString());*/
+
+    //进制转换
+
+    /*var num = 255;
+    alert(num.toString(16));*/
+
+    //类型判断
+    var arr = [];
+    alert(Object.prototype.toString.call(arr));
+</script>
+</html>

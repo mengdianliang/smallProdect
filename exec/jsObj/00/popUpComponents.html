@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>弹框组件</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .login{
+            width: 300px;
+            height: 300px;
+            background-color: white;
+            border: 1px solid #000000;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+        .title{
+            height: 30px;
+            background-color: #eeeeee;
+            color: #ffffff;
+        }
+        .title .close{
+            float: right;
+        }
+        #mark{
+            width: 500px;
+            height: 500px;
+            background-color: #eeeeee;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value = "1"/>
+    <input type="button" value = "2"/>
+    <input type="button" value = "3"/>
+</body>
+<!--<div class="login">
+    <div class="title">
+        <span>标题</span><span class="close">X</span>
+    </div>
+    <div class="content"></div>
+</div>-->
+<!--<div id="mark"></div>-->
+<script>
+    window.onload = function(){
+        var inputs = document.getElementsByTagName('input');
+
+        inputs[0].onclick = function(){
+            var d1 = new Dialog();
+            d1.init({
+                no: 0,
+                title: '登录'
+            });
+        };
+        inputs[1].onclick = function(){
+            var d2 = new Dialog();
+            d2.init({
+                no: 1,
+                w: 100,
+                h: 400,
+                dir: 'right',
+                title: '公告'
+            });
+        };
+        inputs[2].onclick = function(){
+            var d3 = new Dialog();
+            d3.init({
+                no: 2,
+                mark: true
+            });
+        };
+    };
+    function Dialog(){
+        this.log = null;
+        this.settings = {  //默认参数
+            w: 300,
+            h: 300,
+            dir: 'center',
+            title: null,
+            mark: false
+        };
+    }
+    Dialog.prototype.json  = {}; //存储判断弹窗是否存在的标记
+    Dialog.prototype.init = function(opt){
+        extend(this.settings,opt);
+        if(this.json[opt.no]) return;
+        this.json[opt.no] = true;
+        this.create();
+        this.fnClose();
+        if(this.settings.mark){
+            this.createMark();
+        }
+    };
+    Dialog.prototype.create = function(){
+        this.log = document.createElement('div');
+        this.log.className = 'login';
+        this.log.innerHTML = `<div class="title">
+                            <span>${this.settings.title}</span><span class="close">X</span>
+                        </div>
+                        <div class="content"></div>`;
+        document.body.appendChild(this.log);
+        this.setData();
+    };
+    Dialog.prototype.setData = function(){
+        this.log.style.width = this.settings.w + 'px';
+        this.log.style.height = this.settings.h + 'px';
+        if(this.settings.dir == 'center'){
+            this.log.style.left = (viewScreen().wid - this.log.offsetWidth)/2 + 'px';
+            this.log.style.top = (viewScreen.hgt - this.log.offsetHeight)/2 + 'px';
+        }else if(this.settings.dir == 'right'){
+            this.log.style.left = viewScreen().wid - this.log.offsetWidth + 'px';
+            this.log.style.top = viewScreen.hgt - this.log.offsetHeight + 'px';
+        }
+    };
+    Dialog.prototype.fnClose = function(){
+        var close = this.log.getElementsByTagName('span')[1];
+        var _this = this;
+        close.onclick = function(){
+            document.body.removeChild(_this.log);
+            if(_this.settings.mark){
+                document.body.removeChild(_this.mark);
+                _this.json[_this.settings.no] = false;
+            }
+        };
+    };
+    Dialog.prototype.createMark = function(){
+        var mark = document.createElement('div');
+        mark.id = 'mark';
+        document.body.appendChild(mark);
+        this.mark = mark;
+        mark.style.width = viewScreen().wid + "px";
+        mark.style.height = viewScreen().hgt + "px";
+    };
+    function viewScreen(){
+        return {
+            wid: document.documentElement.clientWidth || document.body.clientWidth,
+            hgt: document.documentElement.clientHeight || document.body.clientHeight
+        };
+    }
+
+    function extend(obj1,obj2){
+        for(var attr in obj2){
+            obj1[attr] = obj2[attr];
+        }
+    }
+</script>
+</html>

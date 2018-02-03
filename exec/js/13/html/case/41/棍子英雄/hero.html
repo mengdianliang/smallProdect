@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>棍子英雄</title>
+    <style>
+        #wrap{
+            width: 300px;
+            height: 500px;
+            border: 1px solid #000000;
+            margin: 50px auto 0;
+            overflow: hidden;
+        }
+        #gameContent{
+            width: 600px;
+            height: 500px;
+            background-color: yellow;
+            position: relative;
+            left: 0;
+        }
+        #leftdiv{
+            width: 80px;
+            height: 200px;
+            background-color: black;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+        #middlediv{
+            width: 80px;
+            height: 200px;
+            background-color: black;
+            position: absolute;
+            left: 200px;
+            bottom: 0;
+        }
+        #rightdiv{
+            width: 80px;
+            height: 200px;
+            background-color: black;
+            position: absolute;
+            left: 400px;
+            bottom: 0;
+        }
+        #hero{
+            width: 40px;
+            height: 40px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            bottom: 200px;
+        }
+        #stick{
+            width: 0;
+            height: 6px;
+            background-color: green;
+            position: absolute;
+            left: 40px;
+            bottom: 200px;
+            transform: rotate(-90deg);
+            transform-origin: 0 6px;
+        }
+    </style>
+</head>
+<body>
+     <div id="wrap">
+         <div id="gameContent">
+             <div id="leftdiv"></div>
+             <div id="middlediv"></div>
+             <div id="rightdiv"></div>
+             <div id="hero"></div>
+             <div id="stick"></div>
+         </div>
+     </div>
+</body>
+<script>
+    window.onload = function(){
+        var timer = null;
+        var onoff = true;
+        var num = 0;
+        var step = 0;
+        var middleLeft = 0;
+        var next = '';
+        var isPlaying = false;
+        var gameContent = document.getElementById('gameContent');
+        var stick = document.getElementById('stick');
+        var middlediv = document.getElementById('middlediv');
+        var leftdiv = document.getElementById('leftdiv');
+        var rightdiv = document.getElementById('rightdiv');
+        var hero = document.getElementById('hero');
+        middlediv.style.width = createRandom(40,80) + "px";
+        middlediv.style.left = createRandom(80,220) + "px";
+
+        document.onmousedown = function(){
+            if(isPlaying){
+                return;
+            }
+            clearInterval(timer);
+            timer = setInterval(function(){
+                num += 2;
+                stick.style.width = num + 'px';
+            },20);
+        };
+        document.onmouseup = function(){
+            if(isPlaying){
+                return;
+            }
+            isPlaying = true;
+            clearInterval(timer);
+
+            middleLeft = middlediv.offsetLeft;
+            next = createNext();
+            console.log(next);
+            rightdiv.style.width = next[1] + 'px';
+            rightdiv.style.left = next[0] + 'px';
+            stick.style.transition = '0.5s';
+            stick.style.transform = 'rotate(0deg)';
+
+            if(num < middlediv.offsetLeft - hero.offsetWidth || num > middlediv.offsetLeft + middlediv.offsetWidth - hero.offsetWidth){
+                onoff = false;
+            }else{
+                onoff = true;
+            }
+        };
+
+        stick.addEventListener('transitionend',function(){
+            if(onoff){
+                hero.style.transition = '1s';
+                hero.style.left = middlediv.offsetLeft + 'px';
+            }
+        });
+        hero.addEventListener('transitionend',function(evt){
+            evt = window.event || evt;
+            gameContent.style.transition = '1s';
+            gameContent.style.left = - middlediv.offsetLeft + 'px';
+            step = 1;
+            evt.cancelBubble = true || evt.stopPropagation();
+        });
+        gameContent.addEventListener('transitionend',function(){
+            if(step == 1){
+                gameContent.style.transition = '';
+                gameContent.style.left = '0px';
+                hero.style.transition = '';
+                hero.style.left = '0px';
+                stick.style.transition = '';
+                stick.style.width = '0px';
+                stick.style.transform = 'rotate(-90deg)';
+                leftdiv.style.width = middlediv.offsetWidth + 'px';
+                middlediv.style.width = next[1] + 'px';
+                middlediv.style.left = next[0] - middleLeft + 'px';
+                isPlaying = false;
+                num = 0;
+                step = 0;
+            }
+        });
+
+        function createRandom(startNum,endNum){
+            return parseInt(Math.random()*(endNum - startNum) + startNum);
+        }
+
+        function createNext(){
+            var wid = createRandom(40,80);
+            var lft = createRandom(300,220 + middleLeft);
+            return [lft,wid];
+        }
+    };
+</script>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>弹出层</title>
+    <style>
+        html,body,.wrap{
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            margin: 0;
+            font-size: 12px;
+            font-family: 'microsoft yahei';
+            color: #ffffff;
+        }
+        h3,p{
+            margin: 0;
+        }
+        h3{
+            font-weight: normal;
+        }
+        a{
+            text-decoration: none;
+            color: #ffffff;
+        }
+        .main{
+            width: 100%;
+            height: 100%;
+            background: url('./img/bj.jpg') no-repeat;
+            background-attachment: fixed;
+            position: relative;
+        }
+        .tit{
+            line-height: 100px;
+            font-size: 40px;
+            color: #ffffff;
+            text-align: center;
+        }
+        .btn{
+            display: block;
+            width: 150px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            font-size: 16px;
+            background-color: #ff8080;
+            border-radius: 40px;
+            margin: 20px auto;
+        }
+        .modal{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.3);
+        }
+        .pop_main{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300px;
+            border-radius: 5px;
+            border: 2px solid #ff8080;
+            box-shadow: 0 0 5px #ffffff;
+            background-color: rgba(0,0,0,0.6);
+        }
+        .pop_con{
+            padding: 20px;
+        }
+        .close{
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 18px;
+            text-align: center;
+            line-height: 20px;
+        }
+        .pop_tit{
+            width: 60px;
+            height: 60px;
+            margin: 40px auto;
+            border: 2px solid #ffffff;
+            border-radius: 60px;
+            text-align: center;
+            line-height: 60px;
+            font-size: 60px;
+         }
+        .desc{
+            text-align: center;
+            line-height: 40px;
+            font-size: 20px;
+        }
+        .about{
+            font-size: 16px;
+            line-height: 26px;
+            text-align: center;
+            color: #ff2020;
+        }
+        .confirm{
+            width: 100px;
+            height: 32px;
+            display: block;
+            border-radius: 32px;
+            line-height: 32px;
+            text-align: center;
+            margin: 40px auto 0;
+            background-color: #ff8080;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="main">
+            <h3 class="tit">弹出层一练</h3>
+            <a href="javascript:void(0);" class="btn">提交</a>
+        </div>
+        <!--<div class="modal">
+            <div class="pop_main">
+                <div class="pop_con">
+                    <h3 class="pop_tit">√</h3>
+                    <p class="desc">恭喜你，提交成功！</p>
+                    <p class="about">已扣除10微币</p>
+                    <a href="javascript:void(0);" class="confirm">确定</a>
+                </div>
+                <a href="javascript:void(0)" class="close">X</a>
+            </div>
+        </div>-->
+    </div>
+</body>
+<script>
+    window.onload = function (){
+        var btn = document.querySelector('.btn');
+        var wrap = document.querySelector('.wrap');
+
+        //元素居中显示
+        function centerBlock(obj){
+            var popWid = obj.offsetWidth;
+            var popHgt = obj.offsetHeight;
+            var viewWid = document.body.clientWidth || document.documentElement.clientWidth;
+            var viewHgt = document.body.clientHeight || document.documentElement.clientHeight;
+            obj.style.left = (viewWid - popWid)/2 + 'px';
+            obj.style.top = (viewHgt - popHgt)/2 + 'px';
+        }
+
+        init();
+        //初始化代码
+        function init(){
+            subEvt();
+        }
+
+        //提交按钮事件
+        function subEvt(){
+            btn.onclick = function(){
+                createModal();
+            };
+        }
+        function createModal(){
+            /*<div class="modal">
+             <div class="pop_main">
+             <div class="pop_con">
+             <h3 class="pop_tit">√</h3>
+             <p class="desc">恭喜你，提交成功！</p>
+             <p class="about">已扣除10微币</p>
+             <a href="javascript:void(0);" class="confirm">确定</a>
+             </div>
+             <a href="javascript:void(0)" class="close">X</a>
+             </div>
+             </div>*/
+            var h1 = document.createElement('h3');
+            h1.className = 'pop_tit';
+            h1.innerHTML = '√';
+
+            var p1 = document.createElement('p');
+            p1.className = 'desc';
+            p1.innerHTML = '恭喜你，提交成功！';
+
+            var p2 = document.createElement('p');
+            p2.className = 'about';
+            p2.innerHTML = '已扣除10微币';
+
+            var a1 = document.createElement('a');
+            a1.href = "javascript:void(0);";
+            a1.className = 'confirm';
+            a1.innerHTML = '确定';
+
+            var div1 = document.createElement('div');
+            div1.className = 'pop_con';
+            div1.appendChild(h1);
+            div1.appendChild(p1);
+            div1.appendChild(p2);
+            div1.appendChild(a1);
+
+            var a2 = document.createElement('a');
+            a2.href = "javascript:void(0);";
+            a2.className = 'close';
+            a2.innerHTML = 'X';
+
+            var div2 = document.createElement('div');
+            div2.className = 'pop_main';
+            div2.appendChild(div1);
+            div2.appendChild(a2);
+
+            var div3 = document.createElement('div');
+            div3.className = 'modal';
+            div3.appendChild(div2);
+
+            wrap.appendChild(div3);
+
+            centerBlock(div2);
+            resize(div2);
+
+            close(a2,div3);
+            close(a1,div3);
+        }
+
+        //窗口重置大小
+        function resize(obj){
+            window.onresize = function(){
+                centerBlock(obj);
+            };
+        }
+
+        //关闭删除弹框
+        function close(obj,target){
+            obj.onclick = function(){
+                wrap.removeChild(target);
+            };
+        }
+
+    };
+</script>
+</html>

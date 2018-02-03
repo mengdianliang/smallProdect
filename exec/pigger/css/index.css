@@ -1,0 +1,429 @@
+/*首页样式*/
+/*命名空间*/
+html {
+  height: 100%;
+  overflow: hidden;
+}
+body {
+  height: 100%;
+  overflow: auto;
+}
+.index .wrapper {
+  background-color: #ffffff;
+}
+/*头部区域开始*/
+.index .header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3rem;
+  background-color: #ffc300;
+  z-index: 999;
+}
+.index .dropdown {
+  margin-left: 0.925rem;
+  margin-right: 0.8rem;
+}
+.index .dropdown_txt {
+  font-size: 0.9rem;
+  line-height: 2.9rem;
+  color: #403d34;
+}
+.index .down_arrow {
+  width: 0.625rem;
+  height: 0.425rem;
+  background-image: url("../img/down_arrow.png");
+  background-repeat: no-repeat;
+  margin: 1.275rem 0 0 1.8rem;
+  background-size: 100%;
+}
+.index .search {
+  margin-top: 0.35rem;
+  padding-left: 2.5rem;
+  background: #fff9e6 url('../img/magnifier.png') 0.7rem 0.625rem no-repeat;
+  background-size: 1.125rem;
+  border-radius: 1.15rem;
+  height: 2.25rem;
+  border: 1px solid #e3c155;
+}
+.index .search .link_info {
+  display: block;
+  width: 17.7rem;
+  height: 100%;
+  font-size: 0.95rem;
+  line-height: 2.25rem;
+}
+/*头部区域结束*/
+/*内容区域开始*/
+.index .content {
+  margin: 3rem 0 3.825rem;
+}
+.index .content_ad {
+  width: 27rem;
+  height: 8.4rem;
+  position: relative;
+  overflow: hidden;
+}
+.index .content_ad_list {
+  width: 99999px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.index .content_ad img {
+  width: 27rem;
+}
+.index .point {
+  width: 3rem;
+  height: 0.5rem;
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.45rem;
+}
+.index .point li {
+  width: 0.5rem;
+  height: 0.5rem;
+  margin: 0 0.175rem;
+  border-radius: 0.5rem;
+  background-color: #9FD371;
+}
+.index .point li.active {
+  background-color: #ffc300;
+}
+.index .nav {
+  margin: 0.85rem 0 0 0.3rem;
+}
+.index .nav .item {
+  width: 5.15rem;
+  height: 1.95rem;
+  font-size: 0.85rem;
+  line-height: 1.95rem;
+  padding-top: 3.15rem;
+  margin: 0 0.075rem;
+  color: #666666;
+  text-align: center;
+  background-position: 1rem 0;
+  background-repeat: no-repeat;
+  background-size: 3.15rem;
+}
+.index .nav .item:nth-child(1) {
+  background-image: url('../img/air_ticket.png');
+}
+.index .nav .item:nth-child(2) {
+  background-image: url('../img/lodge.png');
+}
+.index .nav .item:nth-child(3) {
+  background-image: url('../img/train_ticket.png');
+}
+.index .nav .item:nth-child(4) {
+  background-image: url('../img/bus_ticket.png');
+}
+.index .nav .item:nth-child(5) {
+  background-image: url('../img/car_service.png');
+}
+.index .nav .item:nth-child(6) {
+  background-image: url('../img/tourist_route.png');
+}
+.index .nav .item:nth-child(7) {
+  background-image: url('../img/local_travel.png');
+}
+.index .nav .item:nth-child(8) {
+  background-image: url('../img/gate_ticket.png');
+}
+.index .nav .item:nth-child(9) {
+  background-image: url('../img/mileage.png');
+}
+.index .nav .item:nth-child(10) {
+  background-image: url('../img/more.png');
+}
+.index .model {
+  border-bottom: 0.45rem solid #f6f6f6;
+}
+.index .model_head {
+  padding-top: 0.85rem;
+  height: 1.95rem;
+}
+.index .market .model_head {
+  background: url('../img/market_bg.png') repeat-x;
+  background-size: 100% 2.8rem;
+}
+.index .model h3 {
+  margin-left: 0.9rem;
+  padding-left: 0.5rem;
+  line-height: 1.15rem;
+  height: 1.15rem;
+  border-left: 0.15rem solid #fec900;
+  font-size: 1rem;
+}
+.index .market .model_logo {
+  width: 4.55rem;
+  height: 0;
+  overflow: hidden;
+  padding-top: 1.125rem;
+  margin: 0 1.05rem 0 1.25rem;
+  border: none;
+}
+.index .market .model_head .model_logo {
+  background: url('../img/market_logo.jpg') no-repeat;
+  background-size: 4.55rem 1.125rem;
+}
+.index .model_desc {
+  font-size: 0.75rem;
+  color: #a5a5a5;
+  line-height: 1.125rem;
+}
+.index .more {
+  color: #3d3d3f;
+  font-size: 0.8rem;
+  margin-right: 0.625rem;
+}
+.index .more .right_arrow {
+  width: 0.45rem;
+  height: 0.725rem;
+  background: url('../img/right_arrow.png') no-repeat;
+  background-size: 100%;
+  display: inline-block;
+  margin-left: 0.4rem;
+}
+.index .model_nav {
+  height: 5.025rem;
+  margin-bottom: 0.575rem;
+}
+.index .market .model_nav a {
+  width: 5.6rem;
+  height: 2.2rem;
+  border: 0.1rem solid #fec900;
+  border-radius: 1.15rem;
+  text-align: center;
+  line-height: 2.2rem;
+  font-size: 0.75rem;
+  color: #666666;
+  margin: 0 0.475rem 0.5rem;
+}
+.index .nation_travel .model_nav {
+  overflow: hidden;
+  height: 10.8rem;
+  position: relative;
+}
+.index .banner_list {
+  width: 2499.975rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.index .banner_list li {
+  width: 19.05rem;
+  margin-right: 0.675rem;
+}
+.index .banner_list li img {
+  width: 19.05rem;
+}
+.index .hot a img {
+  width: 13.5rem;
+}
+.index .true_ad img {
+  width: 27rem;
+}
+.index .model_con_list {
+  width: 25.75rem;
+  margin: 0 auto;
+}
+.index .model_con_list li {
+  margin-bottom: 1.65rem;
+}
+.index .model_con_list li.wid_1030 .wid1030_pic {
+  width: 25.75rem;
+}
+.index .model_con_list li .model_con_l {
+  width: 17.5rem;
+}
+.index .model_con_list li .model_con_r {
+  width: 6.975rem;
+}
+.index .model_con_desc {
+  display: block;
+  width: 100%;
+  padding-top: 0.225rem;
+}
+.index .model_con_desc_tit {
+  display: block;
+  margin-bottom: 0.95rem;
+  font-size: 1.1rem;
+  line-height: 1.35rem;
+  height: 2.7rem;
+  overflow: hidden;
+}
+.index .model_con_list li.wid_1030 .model_con_desc_tit {
+  height: 1.35rem;
+}
+.index .model_con_desc_txt {
+  display: block;
+  margin-top: 1.5rem;
+}
+.index .model_con_desc_txt img {
+  vertical-align: bottom;
+  width: 1.15rem;
+  margin-right: 0.2rem;
+}
+.index .desc_name {
+  color: #a5a5a5;
+  font-size: 0.85rem;
+  line-height: 1.15rem;
+}
+.index .scan {
+  background: url('../img/scan.jpg') no-repeat;
+  background-size: 1.05rem;
+  padding-left: 1.25rem;
+  margin-right: 0.4rem;
+}
+.index .agree {
+  background: url('../img/agree.jpg') no-repeat;
+  background-size: 1.05rem;
+  padding-left: 1.25rem;
+}
+.index .month_hot_con li {
+  margin-left: 0.75rem;
+  margin-bottom: 1rem;
+  width: 12.375rem;
+  height: 11.95rem;
+}
+.index .month_hot_con li img {
+  width: 12.375rem;
+}
+.index .month_hot_con li .pic_desc {
+  text-align: center;
+}
+.index .month_hot_con li .pic_desc .pic_tit {
+  display: block;
+  font-size: 0.95rem;
+  line-height: 2.15rem;
+}
+.index .month_hot_con li .pic_desc .pic_txt {
+  display: block;
+  font-size: 0.85rem;
+  line-height: 1.1rem;
+  color: #a5a5a5;
+}
+.index .area_link,
+.index .favor_item {
+  width: 25.75rem;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.index .area_link_inner {
+  margin-right: -1.25rem;
+}
+.index .area_link a {
+  width: 5.5rem;
+  height: 2.35rem;
+  line-height: 2.35rem;
+  border-radius: 1.175rem;
+  background-color: #ffc300;
+  text-align: center;
+  margin: 1.25rem 1.25rem 1.25rem 0;
+}
+.index .favor_item_list {
+  margin-right: -1rem;
+}
+.index .favor_item li {
+  width: 12.375rem;
+  height: 18.3rem;
+  margin-bottom: 0.45rem;
+  margin-right: 1rem;
+}
+.index .favor_item li img {
+  width: 12.375rem;
+}
+.index .favor_item li .pic_desc {
+  padding-top: 0.225rem;
+}
+.index .favor_item li .pic_desc_tit {
+  display: block;
+  font-size: 0.95rem;
+  line-height: 1.5rem;
+  height: 3rem;
+  overflow: hidden;
+}
+.index .favor_item li .pic_desc_txt {
+  display: block;
+  padding-top: 0.65rem;
+}
+.index .price {
+  color: #ff5000;
+}
+.index .price .doll {
+  font-size: 0.55rem;
+}
+.index .price .doll_num {
+  font-size: 0.85rem;
+}
+.index .sell_num {
+  font-size: 0.85rem;
+  color: #a5a5a5;
+}
+/*内容区域结束*/
+/*尾部区域开始*/
+.index .footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3.75rem;
+  border-top: 3px solid #dfdfdf;
+  background-color: #ffffff;
+  z-index: 999;
+}
+.index .footer .item {
+  width: 2.7rem;
+  height: 0.55rem;
+  text-align: center;
+  font-size: 0.7rem;
+  line-height: 1.55rem;
+  padding-top: 1.8rem;
+  background-position: 0.5rem 0.5rem;
+  background-repeat: no-repeat;
+  background-size: 1.7rem 1.55rem;
+  margin: 0 2.025rem;
+}
+.index .footer .item:nth-child(1) {
+  background-image: url('../img/home.png');
+}
+.index .footer .item:nth-child(2) {
+  background-image: url('../img/find.png');
+}
+.index .footer .item:nth-child(3) {
+  background-image: url('../img/destination.png');
+}
+.index .footer .item:nth-child(4) {
+  background-image: url('../img/distance.png');
+}
+/*尾部区域结束*/
+/*固定定位开始*/
+.index .to_top {
+  position: absolute;
+  bottom: 5.175rem;
+  right: 1rem;
+  width: 3.25rem;
+  height: 3.25rem;
+  border: 1px solid #333333;
+  border-radius: 1.65rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  overflow: hidden;
+}
+.index .to_top a {
+  display: block;
+  width: 100%;
+  height: 1.5rem;
+  padding-top: 1.75rem;
+  line-height: 1.5rem;
+  color: #949494;
+  font-size: 0.8rem;
+  text-align: center;
+  background-image: url('../img/top_arrow.png');
+  background-repeat: no-repeat;
+  background-size: 1.2rem 1.3rem;
+  background-position: 1.025rem 0.45rem;
+}
+/*固定定位结束*/

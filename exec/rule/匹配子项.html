@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>匹配子项</title>
+    <!--
+        匹配子项：小括号（）（另外一个意思是分组操作）
+    -->
+</head>
+<body>
+    <script>
+        /*var str = '2013-6-7';
+
+        *//*var re = /\d+-/g;*//*
+       *//* var re = /(\d-)+/g;*//*
+        var re = /(\d+)(-)/g;
+        var change = str.replace(re,function($0,$1,$2){
+            //console.log($0,$1,$2);
+            return $1 + ".";
+        });
+        alert(change);*/
+
+        var str = "abc";
+        var re = /(a)(b)(c)/;
+        alert(str.match(re));
+    </script>
+</body>
+</html>

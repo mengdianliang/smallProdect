@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>弹出层</title>
+    <style>
+        html,body,.wrap{
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            margin: 0;
+            font-size: 12px;
+            font-family: 'microsoft yahei';
+            color: #333333;
+        }
+        h3,p{
+            margin: 0;
+        }
+        h3{
+            font-weight: normal;
+        }
+        a{
+            text-decoration: none;
+            color: #333333;
+        }
+        img{
+            display: inline-block;
+            border: none;
+        }
+        input{
+            padding: 0;
+            border: none;
+            outline: none;
+        }
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        .clearfix{
+            *zoom: 1;
+        }
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .main{
+            width: 100%;
+            height: 100%;
+            background: url('./img/bj.jpg') no-repeat;
+            background-attachment: fixed;
+            position: relative;
+        }
+        .tit{
+            line-height: 100px;
+            font-size: 40px;
+            color: #ffffff;
+            text-align: center;
+        }
+        .btn{
+            display: block;
+            width: 150px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            font-size: 16px;
+            background-color: #ff8080;
+            border-radius: 40px;
+            margin: 20px auto;
+        }
+        .modal{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.3);
+        }
+        .pop_main{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 640px;
+            border-radius: 5px;
+            border: 2px solid #ff8080;
+            box-shadow: 0 0 5px #ffffff;
+            background-color: #ffffff;
+        }
+        .pop_con{
+            padding: 20px 0;
+        }
+        .con_l,.con_r{
+            padding: 20px;
+        }
+        .con_l{
+            border-right: 1px solid #dddddd;
+            width: 359px;
+        }
+        .con_r{
+            width: 200px;
+        }
+        .close{
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            font-size: 18px;
+            text-align: center;
+            line-height: 40px;
+            width: 40px;
+            height: 40px;
+            border-radius: 40px;
+            background-color: #ff6600;
+            color: #ffffff;
+        }
+        .pop_head{
+            height: 40px;
+            padding: 10px 0;
+        }
+        .logo{
+            width: 100px;
+            line-height: 40px;
+            font-size: 30px;
+            text-align: center;
+        }
+        .ad_link{
+            color: #ff2020;
+            line-height: 40px;
+            font-size: 16px;
+        }
+        .pop_nav{
+            height: 40px;
+            padding: 10px 0;
+        }
+        .nav_list a{
+            width: 150px;
+            height: 40px;
+            margin-right: 10px;
+            text-align: center;
+            line-height: 40px;
+        }
+        .nav_list a:nth-of-type(1){
+            background-color: #F66060;
+        }
+        .nav_list a:nth-of-type(2){
+            background-color: #4A9CF8;
+        }
+        .wei{
+            display: inline-block;
+            width: 37px;
+            height: 33px;
+            background: url('./img/wei.jpg') no-repeat;
+            background-position: 0 4px;
+            vertical-align: top;
+        }
+        .qq{
+            display: inline-block;
+            width: 37px;
+            height: 33px;
+            background: url('./img/qq.jpg') no-repeat;
+            background-position: 0 4px;
+            vertical-align: top;
+        }
+        .item{
+            color: #ffffff;
+            line-height: 40px;
+            font-size: 20px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .next{
+            font-size: 40px;
+            color: #dddddd;
+            line-height: 40px;
+        }
+        .in_con{
+            margin-top: 10px;
+            width: 346px;
+            height: 40px;
+            border: 1px solid #dddddd;
+            padding: 0 5px;
+        }
+        .in_con input{
+            line-height: 40px;
+            width: 100%;
+            height: 100%;
+        }
+        .sub{
+            display: block;
+            width: 100%;
+            height: 40px;
+            background-color: #FF6600;
+            line-height: 40px;
+            text-align: center;
+            color: #ffffff;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        .selection{
+            margin-top: 20px;
+        }
+        .chk_login{
+            line-height: 20px;
+            width: 119px;
+            border-right: 1px solid #dddddd;
+            text-align: center;
+        }
+        .chk_login:last-child{
+            border: none;
+        }
+        .chk{
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            text-align: center;
+            line-height: 16px;
+            border: 1px solid #dddddd;
+        }
+        .txt{
+            font-size: 16px;
+        }
+        .con_r_tit{
+            line-height: 40px;
+            font-size: 16px;
+        }
+        .con_r img{
+            width: 150px;
+            display: block;
+            margin: 20px auto;
+        }
+        .con_r_desc{
+            padding: 10px;
+            line-height: 26px;
+            border-radius: 26px;
+            background-color: #dddddd;
+            text-align: center;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <section class="wrap">
+        <div class="main">
+            <h3 class="tit">弹出层一练</h3>
+            <a href="javascript:void(0);" class="btn">提交</a>
+        </div>
+        <!--<section class="modal">
+            <section class="pop_main">
+                <section class="pop_con clearfix">
+                    <section class="con_l fl">
+                        <header class="pop_head clearfix">
+                            <h3 class="logo fl">登录</h3>
+                            <a href="javascript:void(0);" class="ad_link fl">支持优酷和土豆账号</a>
+                        </header>
+                        <nav class="pop_nav">
+                            <div class="nav_list fl">
+                                <a href="javascript:void(0);" class="fl">
+                                    <span class="icon wei"></span>
+                                    <span class="item">微博登录</span>
+                                </a>
+                                <a href="javascript:void(0);" class="fl">
+                                    <span class="icon qq"></span>
+                                    <span class="item">QQ登录</span>
+                                </a>
+                            </div>
+                            <a href="javscript:void(0);" class="next fl">&gt;</a>
+                        </nav>
+                        <section class="info_in">
+                            <form action="" method="post">
+                                <div class="in_con">
+                                    <input type="text" name="username" placeholder="手机号码或邮箱地址"/>
+                                </div>
+                                <div class="in_con">
+                                    <input type="password" name="pwd" placeholder="固定密码"/>
+                                </div>
+                                <a href="javascript:void(0);" class="sub">登录</a>
+                            </form>
+                        </section>
+                        <section class="selection clearfix">
+                            <a href="javascript:void(0)" class="chk_login fl">
+                                <span class="chk">√</span>
+                                <span class="txt">自动登录</span>
+                            </a>
+                            <a href="javascript:void(0)" class="chk_login fl">
+                                <span class="txt">忘记密码</span>
+                            </a>
+                            <a href="javascript:void(0)" class="chk_login fl">
+                                <span class="txt">免费注册</span>
+                            </a>
+                        </section>
+                    </section>
+                    <div class="con_r fl">
+                        <h3 class="con_r_tit">用土豆APP扫描，安全登录</h3>
+                        <img src="./img/seek.jpg"/>
+                        <p class="con_r_desc">也支持其他扫描工具</p>
+                    </div>
+                </section>
+                <a href="javascript:void(0)" class="close">X</a>
+            </section>
+        </section>-->
+    </section>
+</body>
+<script>
+    window.onload = function (){
+        var btn = document.querySelector('.btn');
+        var wrap = document.querySelector('.wrap');
+
+        //元素居中显示
+        function centerBlock(obj){
+            var popWid = obj.offsetWidth;
+            var popHgt = obj.offsetHeight;
+            var viewWid = document.body.clientWidth || document.documentElement.clientWidth;
+            var viewHgt = document.body.clientHeight || document.documentElement.clientHeight;
+            obj.style.left = (viewWid - popWid)/2 + 'px';
+            obj.style.top = (viewHgt - popHgt)/2 + 'px';
+        }
+
+        init();
+        //初始化代码
+        function init(){
+            subEvt();
+        }
+
+        //提交按钮事件
+        function subEvt(){
+            btn.onclick = function(){
+                createModal();
+            };
+        }
+        function createModal(){
+            /*
+         <section class="modal">
+         <section class="pop_main">
+         <section class="pop_con clearfix">
+         <section class="con_l fl">
+         <header class="pop_head clearfix">
+         <h3 class="logo fl">登录</h3>
+         <a href="javascript:void(0);" class="ad_link fl">支持优酷和土豆账号</a>
+         </header>
+         <nav class="pop_nav">
+         <div class="nav_list fl">
+         <a href="javascript:void(0);" class="fl">
+         <span class="icon wei"></span>
+         <span class="item">微博登录</span>
+         </a>
+         <a href="javascript:void(0);" class="fl">
+         <span class="icon qq"></span>
+         <span class="item">QQ登录</span>
+         </a>
+         </div>
+         <a href="javscript:void(0);" class="next fl">&gt;</a>
+         </nav>
+         <section class="info_in">
+         <form action="" method="post">
+         <div class="in_con">
+         <input type="text" name="username" placeholder="手机号码或邮箱地址"/>
+         </div>
+         <div class="in_con">
+         <input type="password" name="pwd" placeholder="固定密码"/>
+         </div>
+         <a href="javascript:void(0);" class="sub">登录</a>
+         </form>
+         </section>
+         <section class="selection clearfix">
+         <a href="javascript:void(0)" class="chk_login fl">
+         <span class="chk">√</span>
+         <span class="txt">自动登录</span>
+         </a>
+         <a href="javascript:void(0)" class="chk_login fl">
+         <span class="txt">忘记密码</span>
+         </a>
+         <a href="javascript:void(0)" class="chk_login fl">
+         <span class="txt">免费注册</span>
+         </a>
+         </section>
+         </section>
+         <div class="con_r fl">
+         <h3 class="con_r_tit">用土豆APP扫描，安全登录</h3>
+         <img src="./img/seek.jpg"/>
+         <p class="con_r_desc">也支持其他扫描工具</p>
+         </div>
+         </section>
+         <a href="javascript:void(0)" class="close">X</a>
+         </section>
+         </section>
+            */
+
+            var section1 = document.createElement('section');
+            section1.className = 'pop_main';
+            section1.innerHTML = `<section class="pop_con clearfix">
+         <section class="con_l fl">
+         <header class="pop_head clearfix">
+         <h3 class="logo fl">登录</h3>
+         <a href="javascript:void(0);" class="ad_link fl">支持优酷和土豆账号</a>
+         </header>
+         <nav class="pop_nav">
+         <div class="nav_list fl">
+         <a href="javascript:void(0);" class="fl">
+         <span class="icon wei"></span>
+         <span class="item">微博登录</span>
+         </a>
+         <a href="javascript:void(0);" class="fl">
+         <span class="icon qq"></span>
+         <span class="item">QQ登录</span>
+         </a>
+         </div>
+         <a href="javscript:void(0);" class="next fl">&gt;</a>
+         </nav>
+         <section class="info_in">
+         <form action="" method="post">
+         <div class="in_con">
+         <input type="text" name="username" placeholder="手机号码或邮箱地址"/>
+         </div>
+         <div class="in_con">
+         <input type="password" name="pwd" placeholder="固定密码"/>
+         </div>
+         <a href="javascript:void(0);" class="sub">登录</a>
+         </form>
+         </section>
+         <section class="selection clearfix">
+         <a href="javascript:void(0)" class="chk_login fl">
+         <span class="chk">√</span>
+         <span class="txt">自动登录</span>
+         </a>
+         <a href="javascript:void(0)" class="chk_login fl">
+         <span class="txt">忘记密码</span>
+         </a>
+         <a href="javascript:void(0)" class="chk_login fl">
+         <span class="txt">免费注册</span>
+         </a>
+         </section>
+         </section>
+         <div class="con_r fl">
+         <h3 class="con_r_tit">用土豆APP扫描，安全登录</h3>
+         <img src="./img/seek.jpg"/>
+         <p class="con_r_desc">也支持其他扫描工具</p>
+         </div>
+         </section>`;
+
+
+            var a1 = document.createElement('a');
+            a1.href = "javascript:void(0);";
+            a1.className = 'close';
+            a1.innerHTML = 'X';
+            section1.appendChild(a1);
+            var section2 = document.createElement('section');
+            section2.className = 'modal';
+
+            section2.appendChild(section1);
+
+            wrap.appendChild(section2);
+
+            centerBlock(section1);
+            resize(section1);
+            close(a1,section2);
+        }
+
+        //窗口重置大小
+        function resize(obj){
+            window.onresize = function(){
+                centerBlock(obj);
+            };
+        }
+
+        //关闭删除弹框
+        function close(obj,target){
+            obj.onclick = function(){
+                wrap.removeChild(target);
+            };
+        }
+
+    };
+</script>
+</html>

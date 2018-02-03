@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>数组与对象</title>
+	</head>
+	<body>
+		<script>
+			var a = new Array();
+			//a[0] = 123;
+			//a[1] = 456;
+			//a[2] = 789;
+			
+			//alert(a[0]);
+			//alert(a[1]);
+			//alert(a[2]);
+			
+			a[999] = 0;
+			//alert(a.length);
+			
+			//alert(a[a.length - 1]);
+			
+			/*for(var i = 0;i < a.length;i++){
+				if(a[i] != undefined){
+					console.log(a[i]);
+				}	
+			}*/
+			
+			
+			//条件就是当遇上undefined的时候，循环直接停止了
+			/*for(var i = 0;i < a.length && a[i] != undefined;i++){
+				console.log(a[i]);
+			}*/
+			
+			var c = new Array(2);
+			//alert(c.length);
+			
+			var d = [];
+			d[0] = 12;
+			d[1] = 123;
+			d[d.length] = 1234;
+			//console.log(d[d.length-1]);
+			//var l = d.push();   
+			
+			/*
+			1.push()向数组末尾添加元素 ，返回值为数组新的长度
+			2.可以一次添加多个元素*/
+			
+			// delete[d[1]]   //不会改变数组的长度
+			//d.push(123,123,13,546);
+			
+			//alert(d.join("#"));  //把数组元素以“#”拼接成字符串
+			
+			
+			//UTC 1970 1 1 0 0 0 0
+			var d = new Date();
+			//d.setFullYear(1000);
+			//alert(d.getTime()); //从1970年到现在的毫秒数，可以为负值
+			
+			/*var start = d.getTime();
+			for(var i = 0;i < 999999;i++){
+				Math.pow(i,i);
+			}
+			//alert('adfs');
+			alert((new Date()).getTime() - start);*/
+			
+			
+			
+			/*使用字符串相连的时候   考虑到性能问题   经常使用*/
+			/*var a = [];
+			var 是= "";
+			for(vari= 0;i < 9999999;i++){
+				a.push("ABC");
+			}
+			s.join("");*/
+			
+			
+		</script>
+	</body>
+</html>

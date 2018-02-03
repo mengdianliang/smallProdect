@@ -1,0 +1,84 @@
+body{
+    background-color: #f1f1f1;
+}
+.wrapper{
+    width: 350px;
+    margin: 50px auto 0;
+    background-color: #292B2A;
+    border-radius: 10px;
+}
+.tit{
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: normal;
+    color: #ffffff;
+}
+.con{
+    padding: 20px;
+    height: 210px;
+    overflow: auto;
+}
+.goods_list li{
+    padding: 10px 0;
+}
+.minusBtn,.addBtn,.goodNum{
+    width: 25px;
+    border-radius: 3px;
+    text-align: center;
+}
+.minusBtn,.addBtn{
+    height: 20px;
+    background-color: #202020;
+    box-shadow: 0 0 1px #dddddd;
+    color: #ffffff;
+    font-size: 20px;
+    line-height: 20px;
+    cursor: pointer;
+}
+.goodNum{
+    height: 22px;
+    line-height: 22px;
+    background-color: #ffffff;
+    margin: 0 10px;
+
+}
+.bg{
+    height: 20px;
+    width: 180px;
+    line-height: 20px;
+    background-color: #171717;
+    color: #dddddd;
+    padding-left: 10px;
+}
+.pays{
+    margin-left: 15px;
+}
+.info{
+    line-height:30px;
+    text-align: center;
+    background-color: #3C3C3C;
+    color: #dddddd;
+    font-size: 14px;
+}
+.allNum,.allPrice,.best{
+    display: inline-block;
+    vertical-align: top;
+    height: 22px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    line-height: 22px;
+    text-align: center;
+    margin: 4px 5px 0 4px;
+    color: #333333;
+}
+.allNum{
+    width: 25px;
+}
+.allPrice{
+    width: 50px;
+}
+.best{
+    width: 50px;
+}

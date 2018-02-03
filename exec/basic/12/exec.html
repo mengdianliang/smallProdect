@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--
+        margin:负值
+        不占内容
+    -->
+    <style>
+        body{
+            margin: 0;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        div{
+            width: 460px;
+            height:220px;
+        }
+        ul{
+            margin-right: -20px;
+            margin-bottom:-20px;
+        }
+        .clearfix{
+            *zoom: 1;
+        }
+        .clearfix:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        li{
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+            margin-bottom: 20px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div style="float:left;">
+        <ul class="clearfix">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+        </ul>
+    </div>
+    <div style="float:left;width:100px;">sdfdfdfdfdfdf</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>考试题10</title>
+    <style>
+       
+        #content{
+            height: 300px;
+            background: yellow;
+            border: 10px solid red;
+            padding: 20px 0;
+            margin: 50px 0;
+        }
+
+        body{
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="content"></div>
+    </div>
+    <script>
+        var box = document.getElementById('box');
+        var content = document.getElementById('content');
+
+        console.log(content.offsetHeight);
+		//clientHeight 正确的理解是元素的高度，不包含边框
+        console.log(content.clientHeight);
+        console.log(content.scrollHeight);
+		
+		//可视区高度,得看浏览器的支持度
+		console.log(document.documentElement.clientHeight || window.innerHeight ||  document.body.clientHeight);
+
+        // console.log(document.body.clientWidth || );
+        // console.log(document.documentElement.clientWidth);
+        // console.log(window.innerWidth);
+    </script>
+</body>
+</html>

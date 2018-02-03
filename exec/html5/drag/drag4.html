@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>拖拽文件</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background-color: #ff0000;
+            margin: 200px;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">将文件拖拽到此区域</div>
+<ul id="ul1"></ul>
+</body>
+<script>
+    /*
+    * FileReader(读取文件信息)
+    *
+    * readAsDataURL：
+    *   --参数为要读取的文件对象，将文件读取为DataUrl
+    * onload:
+    *    --当读取文件成功完成时，触发此事件
+    *    --this.result，来获取读取的文件数据，如果是图片，将返回base64格式的图片数据
+    * */
+    window.onload = function(){
+        var div1 = document.getElementById('div1');
+        var ul1 = document.getElementById('ul1');
+        div1.ondragenter = function(){
+            this.innerHTML = '可以释放';
+        };
+        div1.ondragover = function(evt){
+            //document.title = num++;
+            /*要想触发drop事件，必须在dragover当中阻止默认事件*/
+            evt.preventDefault();
+        };
+        div1.ondragleave = function(){
+            this.innerHTML = '将文件拖拽到此区域';
+        };
+        div1.ondrop = function(evt){
+            evt = window.event || evt;
+            var files = evt.dataTransfer.files;
+            //alert(files.length);
+            //alert(files[0].type);
+
+            /*var fd = new FileReader();
+            fd.readAsDataURL(files[0]);
+            fd.onload = function(){
+                alert(this.result);
+            };*/
+            /*if(files[0].type.indexOf('image') != -1){
+                fd.readAsDataURL(files[0]);
+                fd.onload = function(){
+                    var li = document.createElement('li');
+                    var img = document.createElement('img');
+                    img.src = this.result;
+                    li.appendChild(img);
+                    ul1.appendChild(li);
+                };
+            }else{
+                alert('请上传图片类型！');
+            }
+*/
+            for(var i = 0;i < files.length;i++){
+                if(files[i].type.indexOf('image') != -1){
+                    var fd = new FileReader();
+                    fd.readAsDataURL(files[i]);
+                    fd.onload = function(){
+                        var li = document.createElement('li');
+                        var img = document.createElement('img');
+                        img.src = this.result;
+                        li.appendChild(img);
+                        ul1.appendChild(li);
+                    };
+                }else{
+                    alert('请上传图片类型！');
+                }
+            }
+            evt.preventDefault();
+        };
+
+    };
+</script>
+</html>

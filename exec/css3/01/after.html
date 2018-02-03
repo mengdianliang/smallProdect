@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>after/before伪类</title>
+    <style>
+        p{
+            width: 300px;
+            border: 1px solid #000000;
+            font-size: 12px;
+            line-height: 20px;
+        }
+        p:first-line{
+            background-color: red;
+        }
+        p:first-letter{
+            font-size: 30px;
+        }
+        p::selection{
+            color: #00ff00;
+        }
+        p::before{
+            content: "Miaov";
+        }
+    </style>
+</head>
+<body>
+    <p>梵蒂冈多多多多多多多多多多多多多多多多多，多多多多多多多，多多付风高放，火规范化更改和丰东股份很反。感回复贵航股份换行，符</p>
+</body>
+</html>

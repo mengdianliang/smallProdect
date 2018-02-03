@@ -1,0 +1,73 @@
+body{
+    background-color: #f1f1f1;
+}
+.wrapper{
+    width: 790px;
+    margin: 50px auto 0;
+}
+.tit{
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: normal;
+    color: #ffffff;
+}
+.con{
+    height:425px;
+    position: relative;
+    overflow: hidden;
+}
+.pic_list li{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.prev,.next{
+   position: absolute;
+   top: 50%;
+   margin-top: -35px;
+   width: 40px;
+   height: 69px;
+   background: url('../img/arrow.png') no-repeat;
+    z-index: 9;
+    cursor: pointer;
+ }
+.prev{
+    left: 0;
+    background-position: -82px;
+}
+.next{
+    right: 0;
+    background-position: -163px;
+}
+.prev:hover{
+    background-position: 0;
+}
+.next:hover{
+    background-position: -41px;
+}
+.point{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    margin-left: -100px;
+    width: 200px;
+    height: 40px;
+    z-index: 9;
+    overflow: hidden;
+}
+.point li{
+    position: relative;
+    float: left;
+    top: 20px;
+    left: 0;
+    width: 20px;
+    height: 40px;
+    background-color: #ffffff;
+    margin-left: 20px;
+    cursor: pointer;
+    cursor: pointer;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>找出字符串中的所有数字</title>
+</head>
+<body>
+    <script>
+        var str = 'fdgfgf123fdffg6789gfhhg10fgfgf';
+        /*function findNum(str){
+            var arr = [];
+            var conat = '';
+            for(var i = 0;i < str.length;i++){
+                if(str.charAt(i) <= '9' && str.charAt(i) >= '0'){
+                    conat += str.charAt(i);
+                }else{
+                    if(conat){
+                        arr.push(conat);
+                        conat = '';
+                    }
+                }
+            }
+            if(conat){
+                arr.push(conat);
+            }
+            return arr;
+        }*/
+
+        function findNum(str){
+            return str.match(/\d+/g);
+        }
+
+        alert(findNum(str));
+    </script>
+</body>
+</html>

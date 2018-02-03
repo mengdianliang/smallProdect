@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>节点</title>
+    <style>
+    </style>
+</head>
+<body>
+    <ul class="wrap">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</body>
+<script>
+    window.onload = function(){
+        var wrap = document.querySelector('.wrap');
+        console.log(wrap.childNodes.length); //不能消除空格节点
+        console.log(wrap.children.length);  //可以消除空格节点
+        var myli = wrap.querySelector('li');
+        console.log(myli.nextElementSibling);  //previousElementSibling  可以消除空格  常用浏览器
+        console.log(myli.nextSibling);     //previousSibling 不能消除空格   IE
+        console.log(wrap.firstElementChild);  //lastElementChild 消除空格   常用浏览器
+        console.log(wrap.firstChild);    //lastChild  不能消除空格   IE
+    };
+</script>
+</html>

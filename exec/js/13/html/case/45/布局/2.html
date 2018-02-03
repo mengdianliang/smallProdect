@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title></title>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	font-family: "微软雅黑";
+}
+body{
+	background: #2f2a78;
+	overflow: hidden;
+}	
+.warp{
+	width:101px;
+	height: 387px;
+	background: #fff;
+	margin: 50px auto;
+}
+#box{
+	width:88px;
+	height: 387px;
+	float:left;
+	overflow: hidden;
+	position: relative;
+}
+#div1{
+	width:13px;
+	height: 387px;
+	float: right;
+	position:relative;
+	background: #ccc;
+}
+#div3{
+	width:9px;
+	height:128px;
+	background:url(bg.png) 0px -12px no-repeat;
+    background-size: auto 128px;
+	position: absolute;
+	top:0;
+	left: 2px;
+}
+#div2{
+	width:13px;
+	height: 367px;
+	margin-top: 10px;
+	position: relative;
+}
+#top{
+	width:11px;
+	height: 10px;
+	background:url(bg.png) 0 0 no-repeat;
+	position: absolute;
+	top:0;
+	left:1px;
+}
+#bottom{
+	width:11px;
+	height: 10px;
+	background:url(bg.png) -12px 0 no-repeat;
+	position: absolute;
+	bottom:0;
+	left:1px;
+}
+#ul{
+	list-style: none;
+	width:88px;
+	position: absolute;
+	top:0;
+}
+li{
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<section class="warp">
+		<div id="box">
+			<ul id="ul">
+				<!--<li>北京</li>
+				<li>北京</li>
+				<li>北京</li>
+				<li>北京</li>
+				<li>北京</li>-->
+			</ul>
+		</div>
+		<div id="div1">
+			<div id="top"></div>
+			<div id="div2">
+				<div id="div3"></div>
+			</div>
+			<div id="bottom"></div>
+		</div>
+	</section>
+
+</body>
+</html>
+<script src="data.js" type="text/javascript" charset="utf-8"></script>
+<script src="MTween.js"></script>
+<script>
+    window.onload = function(){
+        var box = $('#box')[0];  //获取列表容器
+        var ul = $('ul',box)[0]; //获取列表
+        var dataCopy = [];
+        var scrollBarContain = $('#div1')[0];
+        var scrollBar = $('#div2')[0];
+        var bar = $('#div3')[0];
+        var topBar = $('#top')[0];
+        var bottomBar = $('#bottom')[0];
+
+        init();
+        //代码初始化
+        function init(){
+            initVal();
+            createEle();
+            mouseWheel(box);
+            mouseDrag(bar);
+            mouseEvt();
+        }
+
+        //内容初始化
+        function initVal(){
+            for(var i = 0;i < arrCity.length;i++){
+                dataCopy.push(arrCity[i].name);
+            }
+            console.log(dataCopy);
+        }
+        //创建li元素
+        function createEle(){
+            for(var i = 0;i < dataCopy.length;i++){
+                var li = document.createElement('li');
+                li.innerHTML = dataCopy[i];
+                ul.appendChild(li);
+            }
+            var hgt = ul.scrollHeight;
+            var boxHgt = box.offsetHeight;
+            var scrHgt = scrollBar.scrollHeight;
+            bar.style.height = scrHgt*boxHgt/hgt + 'px';
+
+        }
+        //滚动条滚动事件
+        function mouseWheel(obj){
+
+            var hgt = bar.scrollHeight;
+            var boxHgt = box.offsetHeight;
+            //console.log(hgt,scrHgt);
+            obj.onmousewheel = function(evt){
+                evt = evt || window.event;
+                //evt.wheelDelta  获取鼠标滚轮滚动的方向   向上滚 正值   向下滚 负值  (火狐中不支持，它使用 evt.detail,方向与前一个方法相反)
+                if(evt.wheelDelta > 0 || evt.detail < 0){
+                    //alert('向上滚');
+                    var top = bar.offsetTop - 10;
+                    if(top < 0){
+                        top = 0;
+                    }
+                    bar.style.top = top + "px";
+                }else{
+                    //alert('向下滚');
+                    var top = bar.offsetTop + 10;
+                    var slice = bar.parentNode.scrollHeight - bar.scrollHeight;
+                    if(top > slice){
+                        top = slice;
+                    }
+                    bar.style.top = top + "px";
+                }
+                ul.style.top = - top*boxHgt/hgt + 'px';
+                evt.preventDefault && evt.preventDefault();
+                return false;  //鼠标滚轮在有滚动条的情况下，也有默认行为，需要取消默认行为
+                //使用addEventListener()方法，取消默认行为不能用return false;需要使用evt.preventDefault();
+            };
+
+            //DOMMouseScroll火狐
+            bind(bar,'DOMMouseScroll',bar.onmousewheel);
+        }
+        //滚轮拖拽事件
+        function mouseDrag(obj){
+
+            var hgt = bar.scrollHeight;
+            var boxHgt = box.offsetHeight;
+
+            obj.onmousedown = function(evt){
+                evt = window.event || evt;
+                obj.setCapture && obj.setCapture();
+                var prevoffset = bar.offsetTop;
+                var prevTop = evt.clientY - prevoffset;
+                var slice = bar.parentNode.scrollHeight - bar.scrollHeight;
+                console.log(prevoffset,prevTop,slice);
+
+                document.onmousemove = function(evt) {
+                    evt = window.event || evt;
+                    var top = evt.clientY - prevTop;
+                    console.log(top);
+                    if(top < 0){
+                        top = 0;
+                    }else if(top > slice){
+                        top = slice;
+                    }
+                    bar.style.top = top + "px";
+                    ul.style.top = - top*boxHgt/hgt + 'px';
+                };
+                document.onmouseup = function(){
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                    obj.releaseCapture && obj.releaseCapture();
+                };
+                evt.cancelBubble = true || evt.stopPropagation();
+                return false;
+
+            };
+
+        }
+
+        //箭头点击滚动事件
+        function mouseEvt(){
+            var hgt = bar.scrollHeight;
+            var boxHgt = box.offsetHeight;
+            topBar.isClick = true;
+            topBar.onclick = function(){
+                if(!topBar.isClick) return false;
+                topBar.isClick = false;
+                var barAlter = -20;
+                var listAlter = - barAlter*boxHgt/hgt;
+                var top = bar.offsetTop;
+                console.log(top);
+                if(top <= 0){
+                    top = 0;
+                    bar.style.top = top + 'px';
+                    topBar.isClick = true;
+                    return;
+
+                }
+
+                MTween(bar,barAlter,500,'top','linear');
+                MTween(ul,listAlter,500,'top','linear',function(){
+                     topBar.isClick = true;
+                });
+            };
+            bottomBar.isClick = true;
+            bottomBar.onclick = function() {
+                if (!bottomBar.isClick) return false;
+                bottomBar.isClick = false;
+                var barAlter = 20;
+                var listAlter = -barAlter * boxHgt / hgt;
+                var slice = bar.parentNode.scrollHeight - bar.scrollHeight;
+                var top = bar.offsetTop;
+                if(top > slice){
+                    top = slice;
+                    bar.style.top = top + 'px';
+                    bottomBar.isClick = true;
+                    return;
+
+                }
+
+                MTween(bar, barAlter, 500, 'top', 'linear');
+                MTween(ul, listAlter, 500, 'top', 'linear', function () {
+                    bottomBar.isClick = true;
+                });
+            };
+            /*scrollBar.isClick = true;
+            scrollBar.onclick = function(evt){
+                if (!scrollBar.isClick) return false;
+                scrollBar.isClick = false;
+                evt = window.event || evt;
+                var tp = bar.offsetTop + scrollBar.offsetTop + bar.offsetHeight;
+                if(evt.clientY > tp){
+                    var barAlter = 10;
+                    var listAlter = -barAlter * boxHgt / hgt;
+                    var slice = bar.parentNode.scrollHeight - bar.scrollHeight;
+                    var top = bar.offsetTop;
+                    if(top > slice){
+                        top = slice;
+                        bar.style.top = top + 'px';
+                        scrollBar.isClick = true;
+                        return;
+
+                    }
+                    MTween(bar, barAlter, 500, 'top', 'linear');
+                    MTween(ul, listAlter, 500, 'top', 'linear', function () {
+                        scrollBar.isClick = true;
+                    });
+                }else{
+                    var barAlter = -10;
+                    var listAlter = - barAlter*boxHgt/hgt;
+                    var top = bar.offsetTop;
+                    console.log(top);
+                    if(top <= 0){
+                        top = 0;
+                        bar.style.top = top + 'px';
+                        scrollBar.isClick = true;
+                        return;
+
+                    }
+
+                    MTween(bar,barAlter,500,'top','linear');
+                    MTween(ul,listAlter,500,'top','linear',function(){
+                        scrollBar.isClick = true;
+                    });
+                }
+            };*/
+            var myTimer1 = 0;
+            var myTimer2 = 0;
+            scrollBar.onmousedown = function(evt){
+                clearInterval(myTimer1);
+                clearInterval(myTimer2);
+                evt = window.event || evt;
+                var tp = bar.offsetTop + scrollBarContain.offsetTop + bar.offsetHeight;
+                var disY = evt.clientY;
+
+                if(disY > tp){
+                    var barAlter = 5;
+                    var listAlter = -barAlter * boxHgt / hgt;
+
+                    myTimer1 = setInterval(function(){
+                        var top = bar.offsetTop + scrollBarContain.offsetTop + bar.offsetHeight;
+                        if(top > disY){
+                            top = disY;
+                            clearInterval(myTimer1);
+                        }
+                        MTween(bar, barAlter, 30, 'top', 'linear');
+                        MTween(ul, listAlter, 30, 'top', 'linear');
+                    },50);
+
+                }else{
+                    var barAlter = -5;
+                    var listAlter = - barAlter*boxHgt/hgt;
+
+                    myTimer2 = setInterval(function(){
+                        var top = bar.offsetTop + scrollBarContain.offsetTop;
+                        if(top < disY){
+                            top = disY;
+                            clearInterval(myTimer2);
+                        }
+                        MTween(bar, barAlter, 30, 'top', 'linear');
+                        MTween(ul, listAlter, 30, 'top', 'linear');
+                    },50);
+                }
+            };
+            document.onmouseup = function(){
+                clearInterval(myTimer1);
+                clearInterval(myTimer2);
+                document.onmosueup = null;
+            };
+        }
+
+
+
+        //事件绑定函数
+        function bind(obj,eventStr,callback) {
+            if (obj.addEventListener) {
+                obj.addEventListener(eventStr, callback, false);
+            } else {
+                obj.attachEvent('on' + eventStr, function () {
+                    //把this改为obj
+                    callback.call(obj);
+                });
+            }
+        }
+        //获取元素方法的重写
+        function $(element,obj){
+            if(obj == null){
+                return document.querySelectorAll(element);
+            }else{
+                return obj.querySelectorAll(element);
+            }
+        }
+    };
+</script>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>canvas图片操作</title>
+    <style>
+        body{
+            background-color: #000000;
+        }
+
+    </style>
+</head>
+<body>
+<input type="button" value="←"/>
+<input type="button" value="→"/>
+<div>
+    <img src="2.png" id="img1"/>
+</div>
+
+</body>
+<script>
+    window.onload = function(){
+        var inputs = document.getElementsByTagName('input');
+        var img = document.getElementById('img1');
+
+        var pic = new Image();
+
+        pic.onload = function(){
+            draw(img);
+        };
+        pic.src = img.src;
+
+        var cur = 0;
+
+        function draw(obj){
+            var oc = document.createElement('canvas');
+            var context = oc.getContext('2d');
+            oc.width = obj.width;
+            oc.height = obj.height;
+            obj.parentNode.replaceChild(oc,obj);
+            context.drawImage(obj,0,0);
+            inputs[1].onclick = function(){
+                cur++;
+                if(cur > 3){
+                    cur = 0;
+                }
+                toChange();
+            };
+            inputs[0].onclick = function(){
+                cur--;
+                if(cur < 0){
+                    cur = 3;
+                }
+                toChange();
+            };
+
+            function toChange(){
+                switch(cur){
+                    case 1:
+                        oc.width = obj.height;
+                        oc.height = obj.width;
+                        context.rotate(90 * Math.PI/180);
+                        context.drawImage(obj,0,-obj.height);
+                        break;
+                    case 2:
+                        oc.width = obj.width;
+                        oc.height = obj.height;
+                        context.rotate(180*Math.PI/180);
+                        context.drawImage(obj,-obj.width,-obj.height);
+                        break;
+                    case 3:
+                        oc.width = obj.height;
+                        oc.height = obj.width;
+                        context.rotate(270 * Math.PI/180);
+                        context.drawImage(obj,-obj.width,0);
+                        break;
+                    case 0:
+                        oc.width = obj.width;
+                        oc.height = obj.height;
+                        context.rotate(0);
+                        context.drawImage(obj,0,0);
+                        break;
+                }
+            }
+        }
+
+
+    };
+</script>
+</html>

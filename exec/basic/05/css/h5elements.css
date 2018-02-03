@@ -1,0 +1,44 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    font-family: "Microsoft YaHei";
+    font-size:16px;
+    text-align: center;
+}
+header,footer{
+    height:160px;
+    line-height:160px;
+}
+footer{
+    border-top:2px solid #dddddd;
+}
+nav{
+    height:60px;
+    line-height: 60px;
+    border-bottom: 2px solid #dddddd;
+    border-top: 2px solid #dddddd;
+}
+.content{
+    display: flex;
+}
+.clearfix{
+    *zoom:1;
+}
+.clearfix:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.slide{
+    flex: 250px 300px 0;
+    width:250px;
+    height:300px;
+    float:left;
+    border-right: 2px solid #ff0000;
+}
+section{
+    flex: 1;
+    width:70%;
+    height:300px;
+    float:left;
+}

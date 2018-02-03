@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>键盘事件</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: #ff8080;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var box = document.getElementById('box');
+
+            var dir = 0;
+            var speed= 10;
+            setInterval(function(evt){
+
+                evt = evt || window.event;
+                /*
+                 方向键   37 38 39 40
+                 * */
+                if(dir == 37){
+                    box.style.left = box.offsetLeft - speed + "px";
+                }else if(dir == 38){
+                    box.style.top = box.offsetTop - speed + "px";
+                }else if(dir == 39){
+                    box.style.left = box.offsetLeft + speed + "px";
+                }else if(dir == 40){
+                    box.style.top = box.offsetTop + speed + "px";
+                }
+            },30);
+            document.onkeydown = function(evt){
+                evt = evt || window.event;
+                dir = evt.keyCode;
+                if(evt.ctrlKey){
+                    speed = 500;
+                }else{
+                    speed = 10;
+                }
+            };
+            document.onkeyup = function(){
+                dir = 0;
+            };
+        };
+    </script>
+</head>
+<body>
+<div id ="box"></div>
+</body>
+</html>

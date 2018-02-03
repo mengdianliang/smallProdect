@@ -1,0 +1,28 @@
+/* 重置样式 */
+body{
+	margin: 0;
+	font-size: 12px;
+	font-family: 'Microsoft Yahei';
+	color: #5d5d5d;
+	background-color:#ffffff;
+}
+h1,h3{
+	margin: 0;
+}
+a{
+	text-decoration: none;
+	color: #5d5d5d;
+}
+ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+input{
+	padding: 0;
+	border: none;
+}
+img{
+	vertical-align: top;
+	border: none;
+}

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>3D图形</title>
+    <!--http://2013.miaov.com/miaov_demo/3dLable2015/-->
+    <style>
+        body{
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        #scene {
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            position: relative;
+            border: 1px solid #000000;
+        }
+        .box{
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+        }
+        .ring{
+            width: 100%;
+            height: 100%;
+            position: relative;
+
+        }
+        .ring li{
+            position: absolute;
+            list-style: none;
+            color: #ff2020;
+        }
+        li.all{
+            transition: all 1s ease;
+        }
+        li.one{
+            transition: transform 1s ease;
+        }
+        .item{
+            position: absolute;
+            width: 100%;
+            border: 1px solid #000000;
+            top: 100px;
+        }
+        .item p{
+            font: 14px/24px '微软雅黑';
+            word-break: break-all;
+            margin: 0;
+        }
+        .item a{
+            width: 19px;
+            height: 19px;
+            background: url(images/close.png) no-repeat center center;
+            position: absolute;
+            top: -30px;
+            right: -30px;
+        }
+        .table{
+            width: 400px;
+            margin: 20px auto 10px;
+            overflow: hidden;
+         }
+        .table a{
+            float: left;
+            width: 25%;
+            height: 12px;
+            padding-top: 94px;
+            font: 12px/1 'microsoft yahei';
+            text-align: center;
+            color: #889199;
+            background-position: center top;
+            background-repeat: no-repeat;
+        }
+        .table a:nth-of-type(1){
+            background-image: url(images/circle.png);
+        }
+        .table a:nth-of-type(2){
+            background-image: url(images/Cone.png);
+        }
+        .table a:nth-of-type(3){
+            background-image: url(images/Column.png);
+        }
+        .table a:nth-of-type(4){
+            background-image: url(images/Column2.png);
+        }
+        .table a:nth-of-type(1):hover{
+            background-image: url(images/circle-hover.png);
+        }
+        .table a:nth-of-type(2):hover{
+            background-image: url(images/Cone-hover.png);
+        }
+        .table a:nth-of-type(3):hover{
+            background-image: url(images/Column-hover.png);
+        }
+        .table a:nth-of-type(4):hover{
+            background-image: url(images/Column2-hover.png);
+        }
+        .table a:nth-of-type(1).active{
+            background-image: url(images/circle-active.png);
+        }
+        .table a:nth-of-type(2).active{
+            background-image: url(images/Cone-active.png);
+        }
+        .table a:nth-of-type(3).active{
+            background-image: url(images/Column-active.png);
+        }
+        .table a:nth-of-type(4).active{
+            background-image: url(images/Column2-active.png);
+        }
+        .line{
+            width: 734px;
+            height: 1px;
+            margin: 0 auto 14px;
+            background-image: -webkit-linear-gradient(left, #7ecdf4 0%,#8cca94 50%,#fff45c 100%);
+        }
+        .btn,.btn2{
+            width: 204px;
+            height: 30px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .btn button,.btn2 button{
+            width: 100px;
+            height: 100%;
+            border: 1px solid #cacaca;
+            float: left;
+            color: #889199;
+            cursor: pointer;
+        }
+        button{
+            background-image: -webkit-linear-gradient(top,#ffffff 0%,#d6e1eb 100%);
+        }
+        button:hover{
+            background-image: -webkit-linear-gradient(top,#bef5ff 0%,#77c5eb 100%);
+            color: #00a0e9;
+        }
+        button.active{
+            background-image: -webkit-linear-gradient(top,#77c5eb 0%,#bef5ff 100%);
+            color: #00a0e9;
+        }
+        button:nth-of-type(1){
+            border-radius: 15px 0 0 15px;
+        }
+        button:nth-of-type(2){
+            border-radius: 0 15px 15px 0;
+            margin-left: -1px;
+        }
+        .text{
+            width: 602px;
+            padding: 15px 18px;
+            border: 1px solid #b3b8bb;
+            position: absolute;
+            left:50%;
+            margin-left: -329px;
+            top: 30px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            display: none;
+        }
+        .text p{
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+        .text textarea{
+            resize: none;
+            width: 580px;
+            height: 220px;
+            padding: 10px;
+            border: 1px solid #cacaca;
+            border-radius: 8px;
+            background-color: #f3f7fa;
+            margin-bottom: 15px;
+        }
+        .close{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 19px;
+            height: 19px;
+            background: url(images/close.png) no-repeat center center;
+        }
+    </style>
+</head>
+<body>
+    <div id="scene">
+        <div class="box">
+            <ul class="ring"></ul>
+        </div>
+        <div class="item">
+            <p>符合人体日语泰语玉玉玉有密码后面还有奇偶哟和噢噢</p>
+            <a href="#"></a>
+        </div>
+    </div>
+
+    <div class="table">
+        <a href="javascript:void(0);" class="active">圆球</a>
+        <a href="javascript:void(0);">圆锥</a>
+        <a href="javascript:void(0);">柱状</a>
+        <a href="javascript:void(0);">柱状扭曲</a>
+    </div>
+    <div class="line"></div>
+    <div class="btn">
+        <button class="active">展开</button>
+        <button>自定义文字</button>
+    </div>
+    <div class="text">
+        <p>在下面输入你自己的文字（建议50-350字）</p>
+        <textarea></textarea>
+        <div class="btn2">
+            <button>提交</button>
+            <button>重置</button>
+        </div>
+        <a href="javascript:void(0);" class="close"></a>
+    </div>
+</body>
+<script>
+    //var arr = [1,3,5,7,9,11,9,7,5,3,1];
+    var s = '非官方个非官方分隔符软换行让他让他好尴尬过' +
+        '过过过过过过过过或或过不环境规划同人图突然突然仍然把' +
+        '方法根本骨灰盒共和国和共和国和观后感共和国和规划法规法规法' +
+        '规法规法规法规法规法规刚刚好好尴尬合格合格合格和';
+    window.onload = function(){
+        var oScene = document.getElementById('scene');
+        var oBox = oScene.querySelector('.box');
+
+        var oUl = oBox.getElementsByTagName('ul')[0];
+        var aLi = oUl.getElementsByTagName('li');
+        var oTable = document.querySelector('.table');
+        var aEle = oTable.getElementsByTagName('a');
+
+        var prevIndex = 0;
+        var timer = null;
+
+        var circleArr = [];
+        var num = 0;
+        var layer = 0;
+
+        var wordNum = -1;
+
+        var coneArr = [];
+        var coneNum = 0;
+        var liNum = 0;
+
+        var columnH = 0;
+        var columnNum = 0;
+
+        //球体
+        for(var i = 4;i < 13;i++){
+            num = i * i + (i+1)*(i+1);
+            if(num >= s.length){
+                layer = (i-1)*2 + 1;
+                break;
+            }
+            layer = (i-1)*2 + 1;
+        }
+
+        for(var i = 0;i < layer;i++){
+            if(i < (layer+1)/2){
+                wordNum += 2;
+            }else{
+                wordNum -= 2;
+            }
+            circleArr.push(wordNum);
+        }
+
+        var theta = Math.PI/(circleArr.length - 1);
+        var phi = 0;
+        var r = 150;
+        num = 0;
+        for(var i = 0;i < circleArr.length;i++){
+            phi = 2*Math.PI/circleArr[i];
+            for(var j = 0;j < circleArr[i];j++){
+                var li = document.createElement('li');
+                li.innerHTML = s[num];
+                num++;
+                drawCircle(li,theta,phi,i,j);
+                oUl.appendChild(li);
+            }
+        }
+
+        for(var i = 0;i < aLi.length;i++){
+            aLi[i].style.transform = 'translate3D(' + aLi[i].circleX + 'px,' + aLi[i].circleY + 'px,' + aLi[i].circleZ + 'px) rotateY('+ aLi[i].circlePhi +'rad) rotateX(' + aLi[i].circleTheta + 'rad)';
+        }
+        function drawCircle(obj,theta,phi,i,j){
+            obj.circleX = r*Math.sin(theta*i) * Math.sin(phi*j) + 160;
+            obj.circleY = -r*Math.cos(theta*i) + 160;
+            obj.circleZ = r*Math.sin(theta*i) * Math.cos(phi*j);
+            obj.circleTheta = theta*(circleArr.length - i) - Math.PI/2;
+            obj.circlePhi = phi*j;
+            obj.bigCircleX = (r+2000)*Math.sin(theta*i) * Math.sin(phi*j) + 160;
+            obj.bigCircleY = -(r+2000)*Math.cos(theta*i) + 160;
+            obj.bigCircleZ = (r+2000)*Math.sin(theta*i) * Math.cos(phi*j);
+            obj.maxX = obj.bigCircleX;
+            obj.maxY = obj.bigCircleY;
+            obj.maxZ = obj.bigCircleZ;
+            obj.maxTheta = obj.circleTheta;
+            obj.maxPhi = obj.circlePhi;
+        }
+
+        aEle[0].onclick = function(){
+            clearTimeout(timer);
+            aEle[prevIndex].className = '';
+            prevIndex = 0;
+            aEle[prevIndex].className = 'active';
+            startChange();
+            changeCircle();
+        };
+
+       //圆锥
+        for(var i = 0;i < aLi.length;i++){
+            coneNum += 2 * i - 1;
+            if(coneNum > aLi.length){
+                coneNum -= 2 * i - 1;
+                break;
+            }
+            coneArr.push(2*i-1);
+        }
+
+        for(var i = 0;i < coneArr.length;i++){
+            phi = 2 * Math.PI/coneArr[i];
+            for(var j = 0;j < coneArr[i];j++){
+                drawCone(aLi[liNum],phi,i,j);
+                liNum++;
+            }
+        }
+        for(var i = 0;i < aLi.length;i++){
+            aLi[i].style.display = 'none';
+        }
+        for(var i = 0;i < coneNum;i++){
+            aLi[i].style.display = '';
+            aLi[i].style.transform = 'translate3D('+ aLi[i].coneX +'px,'+ aLi[i].coneY +'px,'+ aLi[i].coneZ +'px) rotateY('+ aLi[i].conePhi +'rad) rotateX(' + aLi[i].coneTheta + 'rad)';
+        }
+        function drawCone(obj,phi,i,j){
+            obj.coneX = (2*r/coneArr.length)*i*Math.tan(30*Math.PI/180)*Math.sin(phi*j) + 160;
+            obj.coneY = (2*r/coneArr.length)*i;
+            obj.coneZ = (2*r/coneArr.length)*i*Math.tan(30*Math.PI/180)*Math.cos(phi*j);
+            obj.coneTheta = 30*Math.PI/180;
+            obj.conePhi = phi * j;
+            obj.bigConeX = (2*(r+2000)/coneArr.length)*i*Math.tan(30*Math.PI/180)*Math.sin(phi*j) + 160;
+            obj.bigConeY = (2*(r+2000)/coneArr.length)*i;
+            obj.bigConeZ = (2*(r+2000)/coneArr.length)*i*Math.tan(30*Math.PI/180)*Math.cos(phi*j);
+        }
+
+        aEle[1].onclick = function(){
+            clearTimeout(timer);
+            aEle[prevIndex].className = '';
+            prevIndex = 1;
+            aEle[prevIndex].className = 'active';
+            startChange();
+            changeCone();
+        };
+
+       //圆柱
+        columnH = Math.floor(aLi.length/(circleArr.length - 2));
+        columnNum = (circleArr.length - 2) * columnH;
+        liNum = 0;
+        for(var i = 0;i < circleArr.length - 1;i++){
+            phi = 2 * Math.PI /columnH;
+            for(var j = 0;j < columnH;j++){
+                drawColumn(aLi[liNum],phi,i,j);
+                liNum++;
+            }
+        }
+        for(var i = 0;i < aLi.length;i++){
+            aLi[i].style.display = 'none';
+        }
+        for(var i = 0;i < columnNum;i++){
+            aLi[i].style.display = '';
+            aLi[i].style.transform = 'translate3D('+ aLi[i].columnX +'px,'+ aLi[i].columnY +'px,'+ aLi[i].columnZ +'px) rotateY('+ aLi[i].columnPhi +'rad)';
+        }
+        function drawColumn(obj,phi,i,j) {
+            obj.columnX = r/1.5*Math.sin(phi*j) + 160;
+            obj.columnY = (2*r/(circleArr.length - 2))*i + 50;
+            obj.columnZ = r/1.5*Math.cos(phi*j);
+            obj.columnPhi = phi * j;
+            obj.bigColumnX = (r+2000)/1.5*Math.sin(phi*j) + 160;
+            obj.bigColumnY = (2*(r+2000)/(circleArr.length - 2))*i + 50 - 2000;
+            obj.bigColumnZ = (r+2000)/1.5*Math.cos(phi*j);
+        }
+        aEle[2].onclick = function(){
+            clearTimeout(timer);
+            aEle[prevIndex].className = '';
+            prevIndex = 2;
+            aEle[prevIndex].className = 'active';
+            startChange();
+            changeColumn();
+        };
+        liNum = 0;
+        for(var i = 0;i < circleArr.length - 1;i++){
+            phi = 2 * Math.PI /columnH;
+            for(var j = 0;j < columnH;j++){
+                drawColumn2(aLi[liNum],phi,i,j);
+                liNum++;
+            }
+        }
+        for(var i = 0;i < aLi.length;i++){
+            aLi[i].style.display = 'none';
+        }
+        for(var i = 0;i < columnNum;i++){
+            aLi[i].style.display = '';
+            aLi[i].style.transform = 'translate3D('+ aLi[i].columnX2 +'px,'+ aLi[i].columnY2 +'px,'+ aLi[i].columnZ2 +'px) rotateY('+ aLi[i].columnPhi2 +'rad)';
+        }
+        function drawColumn2(obj,phi,i,j) {
+            obj.columnX2 = r/1.5*Math.sin(phi*j + i*8*Math.PI/180) + 160;
+            obj.columnY2 = (2*r/(circleArr.length - 2))*i + 50;
+            obj.columnZ2 = r/1.5*Math.cos(phi*j + i*8*Math.PI/180);
+            obj.columnPhi2 = phi * j + i*8*Math.PI/180;
+            obj.bigColumnX2 = (r+2000)/1.5*Math.sin(phi*j + i*8*Math.PI/180) + 160;
+            obj.bigColumnY2 = (2*(r+2000)/(circleArr.length - 2))*i + 50 - 2000;
+            obj.bigColumnZ2 = (r+2000)/1.5*Math.cos(phi*j + i*8*Math.PI/180);
+        }
+        aEle[3].onclick = function(){
+            clearTimeout(timer);
+            aEle[prevIndex].className = '';
+            prevIndex = 3;
+            aEle[prevIndex].className = 'active';
+            startChange();
+            changeColumn2();
+        };
+
+        //旋转
+        var angleX = 0;
+        setInterval(function(){
+            angleX++;
+            oBox.style.transform = 'rotateX(' + angleX + 'deg) rotateY(' + angleX + 'deg)';
+        },60);
+        startChange();
+        changeCircle();
+        function startChange(){
+            for(var i = 0;i < aLi.length;i++){
+                aLi[i].className = 'all';
+                aLi[i].style.display = '';
+                aLi[i].style.transform = 'translate3D(' + aLi[i].maxX + 'px,' + aLi[i].maxY + 'px,' + aLi[i].maxZ + 'px) rotateY('+ aLi[i].maxPhi +'rad) rotateX(' + aLi[i].maxTheta + 'rad)';
+                aLi[i].style.opacity = '0';
+            }
+        }
+        function changeCircle(){
+            timer = setTimeout(function(){
+                for(var i = 0;i < aLi.length;i++){
+                    aLi[i].className = '';
+                    aLi[i].maxX = aLi[i].bigCircleX;
+                    aLi[i].maxY = aLi[i].bigCircleY;
+                    aLi[i].maxZ = aLi[i].bigCircleZ;
+                    aLi[i].maxTheta = aLi[i].circleTheta;
+                    aLi[i].maxPhi = aLi[i].circlePhi;
+                    aLi[i].style.transform = 'translate3D(' + aLi[i].maxX + 'px,' + aLi[i].maxY + 'px,' + aLi[i].maxZ + 'px) rotateY('+ aLi[i].maxPhi +'rad) rotateX(' + aLi[i].maxTheta + 'rad)';
+                }
+                setTimeout(function(){
+                    for(var i = 0;i < aLi.length;i++){
+                        aLi[i].className = 'one';
+                        aLi[i].style.opacity = '1';
+                        aLi[i].style.transform = 'translate3D('+ aLi[i].circleX +'px,'+ aLi[i].circleY +'px,'+ aLi[i].circleZ +'px) rotateY('+ aLi[i].circlePhi +'rad) rotateX(' + aLi[i].circleTheta + 'rad)';
+                    }
+                },50);
+
+            },1050);
+        }
+
+        function changeCone(){
+            timer = setTimeout(function(){
+                for(var i = 0;i <= coneNum;i++){
+                    aLi[i].className = '';
+                    aLi[i].maxX = aLi[i].bigConeX;
+                    aLi[i].maxY = aLi[i].bigConeY;
+                    aLi[i].maxZ = aLi[i].bigConeZ;
+                    aLi[i].maxTheta = aLi[i].coneTheta;
+                    aLi[i].maxPhi = aLi[i].conePhi;
+                    aLi[i].style.transform = 'translate3D(' + aLi[i].maxX + 'px,' + aLi[i].maxY + 'px,' + aLi[i].maxZ + 'px) rotateY('+ aLi[i].maxPhi +'rad) rotateX(' + aLi[i].maxTheta + 'rad)';
+                }
+                setTimeout(function(){
+                    for(var i = 0;i <= coneNum;i++){
+                        aLi[i].className = 'one';
+                        aLi[i].style.opacity = '1';
+                        aLi[i].style.transform = 'translate3D('+ aLi[i].coneX +'px,'+ aLi[i].coneY +'px,'+ aLi[i].coneZ +'px) rotateY('+ aLi[i].conePhi +'rad) rotateX(' + aLi[i].coneTheta + 'rad)';
+                    }
+                },50);
+            },1050);
+        }
+
+        function changeColumn(){
+            timer = setTimeout(function(){
+                for(var i = 0;i <= columnNum;i++){
+                    aLi[i].className = '';
+                    aLi[i].maxX = aLi[i].bigColumnX;
+                    aLi[i].maxY = aLi[i].bigColumnY;
+                    aLi[i].maxZ = aLi[i].bigColumnZ;
+                    aLi[i].maxPhi = aLi[i].columnPhi;
+                    aLi[i].style.transform = 'translate3D(' + aLi[i].maxX + 'px,' + aLi[i].maxY + 'px,' + aLi[i].maxZ + 'px) rotateY('+ aLi[i].maxPhi +'rad) rotateX(' + aLi[i].maxTheta + 'rad)';
+                }
+                setTimeout(function(){
+                    for(var i = 0;i <= columnNum;i++){
+                        aLi[i].className = 'one';
+                        aLi[i].style.opacity = '1';
+                        aLi[i].style.transform = 'translate3D('+ aLi[i].columnX +'px,'+ aLi[i].columnY +'px,'+ aLi[i].columnZ +'px) rotateY('+ aLi[i].columnPhi +'rad)';
+                    }
+                },50);
+            },1050);
+        }
+        function changeColumn2(){
+            timer = setTimeout(function(){
+                for(var i = 0;i <= columnNum;i++){
+                    aLi[i].className = '';
+                    aLi[i].maxX = aLi[i].bigColumnX2;
+                    aLi[i].maxY = aLi[i].bigColumnY2;
+                    aLi[i].maxZ = aLi[i].bigColumnZ2;
+                    aLi[i].maxPhi = aLi[i].columnPhi2;
+                    aLi[i].style.transform = 'translate3D(' + aLi[i].maxX + 'px,' + aLi[i].maxY + 'px,' + aLi[i].maxZ + 'px) rotateY('+ aLi[i].maxPhi +'rad) rotateX(' + aLi[i].maxTheta + 'rad)';
+                }
+                setTimeout(function(){
+                    for(var i = 0;i <= columnNum;i++){
+                        aLi[i].className = 'one';
+                        aLi[i].style.opacity = '1';
+                        aLi[i].style.transform = 'translate3D('+ aLi[i].columnX2 +'px,'+ aLi[i].columnY2 +'px,'+ aLi[i].columnZ2 +'px) rotateY('+ aLi[i].columnPhi2 +'rad)';
+                    }
+                },50);
+            },1050);
+        }
+    };
+</script>
+</html>

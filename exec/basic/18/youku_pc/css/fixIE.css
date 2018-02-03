@@ -1,0 +1,245 @@
+/* 处理兼容性样式 */
+.index .replay{
+	position: absolute;
+	top: 175px;
+	right: 20px;
+}
+.customer_service{
+	position: absolute;
+	bottom: 92px;
+	right: 10px;
+}
+.icon,.icon_movie{
+	overflow: hidden;
+}
+.trangle_down{
+	border: 5px dashed transparent; 
+	border-top: 5px solid #878787;
+	overflow: hidden;
+}
+.h_select_l input{
+	display: inline;
+	border: 0;
+}
+/*头部浮动样式兼容*/
+.h_tit,.h_top_nav,.h_top_nav a,.h_tools,.h_tools_user,.h_tools_user a,.h_tools_other,.h_tools_other a,.h_tools_other_bg,.trangle_down,
+.h_select,.h_select_l,.icon,.h_select_r,.more,.index .more_txt,.index .h_btn{
+	display: inline;
+}
+/*首页浮动样式兼容*/
+.index .hot_l,.index .hot_l li,.index .hot_r,.index .hot_r_item1,.index .hot_r_item2,.index .content_info_l,
+.index .content_head_tit,.index .content_tit_txt,.index .favor_info_l_head_txt,.index .favor_change,.index .change_txt,.index .content_info_l_details li,.index .content_play_num,.index .content_evaluate,
+.index .content_info_r,.index .content_info_r_head_tit_txt,.index .content_info_r_details_link,.index .content_info_r_details_link_tit_wrapper,.index .content_info_r_details_link_txt,
+.index .content_info_r_details_link_txt a,.index .content_nav,.index .content_nav a,.index .content_rank,.index .content_rank_logo,.index .content_rank_logo a,.index .content_rank_txt,.index .content_rank_txt_de,
+.index .content_banner_details_list li,.index .content_ad_cli{
+	display: inline;
+}
+/*电影浮动样式兼容*/
+.movie .nav_film_l,.movie .nav_film_l a,.movie .nav_film_r,.movie .banner_area_list li,.movie .hot_item,.movie .films_kinds_con a,.movie .content .content_info_list li,.movie .content .content_list li,
+.movie .content_l,.movie .content_header_l_slide_tit a,.movie .content_r,.movie .content_header_slide_tit,.movie .content_more,.movie .content_more,.movie .rec_desc,.movie .del_record,.movie .content .to_play,
+.movie .content .to_free,.movie .content .to_load_down,.movie .pic_desc_oper_num,.movie .pic_desc_oper_num_bg,.movie .pic_desc_oper_num_value,.movie .pic_desc_txt_l,.movie .pic_desc_txt_r,.movie .pic_desc_txt_evalue,
+.movie .pic_desc_txt_evalue_b,.movie .pic_desc_txt_evalue_s,.movie .link_point li,.movie .banner_link_point li,.movie .week_menu,.movie .anylise .content_info_list,.movie .margin_s .rec_pic,
+.movie .margin_b .rec_pic,.movie .rec_desc,.movie .rank_info .rank_num,.movie .rank_name,.movie .play_amount,.movie .companion_info li{
+	display: inline;
+}
+/*娱乐浮动样式兼容*/
+.entertainment .nav_film_l,.entertainment .nav_film_l a,.entertainment .nav_film_r,.entertainment .banner_area_l,.entertainment .content_l,.entertainment .banner_area_l_list li,
+.entertainment .link_point li,.entertainment .banner_area_r,.entertainment .content_r,.entertainment .banner_area_r_con a,.entertainment .pic_desc_r,.entertainment .play_num,.entertainment .evalue_num,
+.entertainment .play_num_bg,.entertainment .evalue_num_bg,.entertainment .play_num_txt,.entertainment .evalue_num_txt,.entertainment .content_l_header_tit,.entertainment .yule_img,
+.entertainment .kind_top .kind_topic,.entertainment .kind_top .book_num,.entertainment .content_r_pic,.entertainment .content_r_desc,.entertainment .evl_index,.entertainment .content_more,
+.entertainment .content_ad_desc_l, .entertainment .content_ad_desc_r,.entertainment .pic_pos_txt_l,.entertainment .pic_pos_txt_r,.entertainment .content_r_pic_bg,.entertainment .content .content_r_name li{
+	display: inline;
+}
+/*底部浮动样式兼容*/
+.foot_top_txt a,.foot_top_address a,.foot_top_links a,.about,.foot_top_tit a,.foot_top_address a,
+.foot_top_links a,.youku_hot,.pro_center,.user,.net_culture,.copyright,.jingIcp,.seek_wrapper,.net_culture_desc_l,.net_culture_desc_r,
+.seek_bg,.seek_bg_desc,.confirm_list li,..confirm_list li img,.confirm_list li .confirm_list_desc,.content_info_r_details_tit{
+	display: inline;
+} 
+.h_bottom_nav a{
+	display: inline;
+	border-bottom: 2px solid #ffffff;
+}
+.index .favor_change{
+	width: 56px;
+}
+.index .content_time_bg{
+	display: block;
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	padding: 2px 8px;
+	color: #ffffff;
+	opacity: 0.4;
+	filter: alpha(opacity=40);
+	background-color: #000000;
+}
+.index .hot_txt_area_ad_bg,.index .hot_txt_area_ad,.index .hot_txt_area_link,.index .hot_txt_area_link_bg{
+	position:absolute;
+	width: 34px;
+	height: 22px;
+	color: #ffffff;
+	font-size: 12px;
+	text-align: center;
+	line-height: 22px;
+	bottom: 0px;
+}
+.index .hot_txt_area_ad_bg{
+	display: block;
+	background-color: #000000;
+	opacity: 0.4;
+	filter: alpha(opacity=40);
+	left: 10px;
+}
+.index .hot_txt_area_ad{
+	left:0px;
+}
+.index .hot_txt_area_link_bg{
+	background-color: #000000;
+	display: block;
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+	right: 10px;
+}
+.index .hot_txt_area_link{
+	right: 0px;
+}
+.index .content_details_bg{
+	display: block;
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+	padding: 2px 6px;
+	opacity: 0.4;
+	filter: alpha(opacity=40);
+	color: #ffffff;
+	background-color: #000000;
+}
+.index .ad{
+	position: relative;
+}
+.index .ad .ad_txt_bg{
+	display: block;
+	position: absolute;
+	left: 10px;
+	bottom: 11px;
+	padding: 2px 5px;
+	color: #ffffff;
+	opacity: 0.4;
+	filter: alpha(opacity=40);
+	background-color: #000000;
+}
+.index .live_con .content_details_live_bg{
+	display: block;
+	position: absolute;
+	bottom: 10px;
+	padding: 4px 5px;
+	left: 10px;
+	background-color: #ff0000;
+	opacity: 0.4;
+	filter: alpha(opacity=40);
+	color: #ffffff;
+	border-radius: 3px;
+}
+.index .banner_arrow_l,.index .banner_arrow_r{
+	display: none;
+}
+.index .content_banner_l,.index .content_banner_r{
+	position:absolute;
+	width: 62px;
+	height: 62px;
+	top: 50%;
+	margin-top: -44px;
+	cursor: pointer;
+	z-index: 1;
+	background-color: rgba(255,255,255,0);
+}
+.index .topic_con .content_banner_l{
+	background: url("../img/index/topic_banner_l.jpg") no-repeat;
+	left: -31px;
+}.index .topic_con .content_banner_r{
+	background: url("../img/index/topic_banner_r.jpg") no-repeat;
+	right: -31px;
+}
+.index .tv_con .content_banner_l{
+	background: url("../img/index/tv_banner_l.jpg") no-repeat;
+	left: -31px;
+}.index .tv_con .content_banner_r{
+	background: url("../img/index/tv_banner_r.jpg") no-repeat;
+	right: -31px;
+}
+.index .official_con .content_banner_l{
+	background: url("../img/index/official_banner_l.jpg") no-repeat;
+	left: -31px;
+}.index .official_con .content_banner_r{
+	background: url("../img/index/official_banner_r.jpg") no-repeat;
+	right: -31px;
+}
+.index .film_con .content_top_banner_r{
+	background: url("../img/index/film_top_banner_r.jpg") no-repeat;
+	margin-top: -70px;
+	right: -31px;
+}
+.index .film_con .content_btm_banner_r{
+	background: url("../img/index/film_btm_banner_r.jpg") no-repeat;
+	margin-top: -70px;
+	right: -31px;
+}
+.index .culture_tit_txt,.index .economy_tit_txt,.index .life_tit_txt,.index .travel_tit_txt,.index .education_tit_txt,{
+	margin-top: 4px;
+}
+.index .b_point{
+	margin: 6px 4px 0 -4px;
+	overflow: hidden;
+	display: inline;
+	zoom: 1;
+	width: 8px;
+	height: 8px;
+	background: #f00 url('../img/index/link_line.jpg') no-repeat;
+}
+.movie .films_kinds_head a{
+	display: inline;
+	zoom: 1;
+}
+.movie .recommend_info_list .rec_pic{
+	overflow: hidden;
+	zoom: 1;
+}
+.movie .recommend_info_list li,.movie .rank_info li{
+	vertical-align: top;
+}
+.movie .week_menu .trangle_blue{
+	border: 8px dashed transparent;
+	overflow: hidden;
+}
+.movie .anylise .content_info_list,.movie .week_menu{
+	overflow: hidden;
+}
+.movie .week_menu a{
+	zoom: 1;
+}
+.movie .content .banner_area_l a,.movie .content .banner_area_r a,.movie .h_300 .banner_area_l a,.movie .h_300 .banner_area_r a,.movie .banner_area_l a,.movie .banner_area_r a{
+	zoom: 1;
+	overflow: hidden;
+	display: inline;
+}
+.movie .content .banner_area_l,.movie .content .banner_area_r,.movie .h_300 .banner_area_l,.movie .h_300 .banner_area_r,.movie .banner_area_l,.movie .banner_area_r{
+	text-align: center;
+}
+.movie .latest .content_info li, .anylise .content_info li.three_line{
+	overflow: hidden;
+	zoom: 1;
+}
+.movie .content .content_list li .pic_desc_tit, .movie .content .content_list li .pic_desc_txt, .movie .content .content_list li .pic_desc_role{
+	overflow: hidden;
+	white-space: nowrap;
+}
+.entertainment .content{
+	padding-top: 0;
+}
+.entertainment .content_l,.entertainment .content_r{
+	padding-top: 50px;
+}
+.entertainment .ad,.entertainment .content_ad_desc{
+	background-color: #cccccc;
+}

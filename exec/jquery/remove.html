@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>remove()和detach()</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+</head>
+<body>
+<div id="div1">div1</div>
+</body>
+<script>
+    $(function(){
+        $('div').click(function(){
+            alert(123);
+        });
+
+        //var div = $('div').remove();  //删除节点的同时，事件也被删除
+        var div = $('div').detach();  //只删除节点
+        $('body').append(div);
+    });
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>工具方法</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+</head>
+<body>
+
+</body>
+<script>
+    $(function(){
+       /* var str = ' hello ';
+        var arr = ['a','b','c'];
+        alert($.type(str));  //相当于js中的typeof
+        alert($.trim(str));
+        alert($.inArray('b',arr));*/
+
+        function show(n1,n2){
+            alert(n1);
+            alert(n2);
+            alert(this);
+        }
+        //show();
+        $.proxy(show,document)(3,4);
+    });
+</script>
+</html>

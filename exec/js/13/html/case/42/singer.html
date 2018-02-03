@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>我是歌手</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        img{
+            vertical-align: top;
+            border: none;
+        }
+        .wrap{
+            width: 1000px;
+            height: 700px;
+            margin: 10px auto;
+            border: 1px solid #ff8080;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap"></div>
+</body>
+<script src="move.js"></script>
+<script>
+    window.onload = function(){
+        var wrap = document.querySelector('.wrap');  //图片容器
+
+        var picArr = ['./img/1.png','./img/2.png','./img/3.png','./img/4.png','./img/5.png','./img/6.png','./img/7.png','./img/8.png','./img/9.png','./img/10.png','./img/11.png','./img/12.png','./img/13.png'];
+        var obj = [];  //存储图片的属性
+        init();
+        //代码初始化
+        function init(){
+            initVal();
+        }
+
+        //内容初始化
+        function initVal(){
+            for(var i = 0;i < picArr.length;i++){
+                var img = document.createElement('img');
+                img.style.position = 'absolute';
+                if(i <= parseInt(picArr.length/2)){
+                    img.style.left = Math.abs(parseInt(picArr.length/4) - i) * 100 + 180 + 'px';
+                    img.style.top = Math.abs(parseInt(picArr.length/2) - i) * 70 + 'px';
+
+                }else{
+                    img.style.left = ( parseInt(picArr.length/4 * 3) - Math.abs(parseInt(picArr.length/4*3) - i)) * 100 + 'px';
+                    img.style.top = Math.abs(parseInt(picArr.length/2) - i) * 70 - 80 + 'px';
+
+                }
+                img.style.width = Math.abs(parseInt(picArr.length/2) - i) * 20 + 100 + 'px';
+                img.style.zIndex = Math.abs(parseInt(picArr.length/2) - i + 1);
+                obj.push({lft:img.offsetLeft,tp:img.offsetTop,wid:img.offsetWidth,zIndex:img.style.zIndex});
+                img.src = picArr[i];
+                wrap.appendChild(img);
+            }
+            mouseWheel(wrap,upFn,downFn);
+
+        }
+
+        function mouseWheel(obj,upFn,downFn){
+            obj.onmousewheel = function(evt){
+                evt = evt || window.event;
+                //evt.wheelDelta  获取鼠标滚轮滚动的方向   向上滚 正值   向下滚 负值  (火狐中不支持，它使用 evt.detail,方向与前一个方法相反)
+                if(evt.wheelDelta > 0 || evt.detail < 0){
+                    //alert('向上滚');
+                    upFn && upFn();
+                }else{
+                    //alert('向下滚');
+                    downFn && downFn();
+                }
+                evt.preventDefault && evt.preventDefault();
+                return false;  //鼠标滚轮在有滚动条的情况下，也有默认行为，需要取消默认行为
+                //使用addEventListener()方法，取消默认行为不能用return false;需要使用evt.preventDefault();
+            };
+
+            //DOMMouseScroll火狐
+            bind(obj,'DOMMouseScroll',obj.onmousewheel);
+        }
+        //事件绑定函数
+        function bind(obj,eventStr,callback) {
+            if (obj.addEventListener) {
+                obj.addEventListener(eventStr, callback, false);
+            } else {
+                obj.attachEvent('on' + eventStr, function () {
+                    //把this改为obj
+                    callback.call(obj);
+                });
+            }
+        }
+        //上滚事件
+        function upFn(){
+            var b= 0;
+            var imgs = wrap.querySelectorAll('img');
+            for(var i = 0; i < picArr.length;i++){
+                b = i - 1;
+                if(b < 0){
+                    b = picArr.length - 1;
+                }
+                startMove(imgs[i],{top: imgs[b].tp,left: imgs[b].lft,width:imgs[b].wid,'z-index': imgs[b].zIndex});
+            }
+        }
+        //上滚事件
+        function downFn(){
+            var b= 0;
+            var imgs = wrap.querySelectorAll('img');
+            for(var i = 0; i < picArr.length;i++){
+                b = i + 1;
+                if(b > picArr.length - 1){
+                    b = 0;
+                }
+                startMove(imgs[i],{top: imgs[b].tp,left: imgs[b].lft,width:imgs[b].wid,'z-index': imgs[b].zIndex})
+            }
+        }
+    };
+</script>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>正则</title>
+</head>
+<body>
+    <script>
+        /*
+        * 1.正则可以：
+        *   (1)测试字符串的某个模式
+        *   (2)替换文本
+        *   (3)根据模式匹配从字符串中提取一个子字符串。
+        * 2.语法：
+        *   (1) \ 转义字符
+        *  （2）^ 匹配字符串的开始位置，如果设置他匹配多行，那么也配行的开头
+        *   (3) $ 匹配输入字符串的结束位置
+        *   (4) * 匹配前边的子表达式零次或多次
+        *  （5）+ 匹配前边的子表达式一次或多次
+        *   (6) ? 匹配前边的子表达式零次或一次
+        *   (7) {n}  匹配n次
+        *   (8) {n,} 至少匹配n次
+        *   (9) {n,m}
+        *   (10) ? 当该字符紧跟在任何一个其他限制符(*,+,?,{n},{n,},{n,m})后面时，匹配模式是非贪婪的，  eg: "oooo" 'o+?'只匹配一个
+        *   (11) . 匹配除"\n"之外的任何单个字符
+        *   (12) (pattern) 匹配pattern并获取这一匹配。
+        * 3.方法：
+        *   test(); 返回一个boolean值，他指出在被查找的字符串中是否存在模式。如果存在则返回true，否则返回false;
+        *   exec(): 用正则表达式在字符串中进行查找，并返回包含该结果的一个数组。
+        *
+        *
+        *
+        *
+        * 4. String对象一些和正则表达式相关的方法：
+          *   match,找到一个或多个正则表达式的匹配
+          *   replace 替换与正则表达式匹配的子串
+          *   search 检索与正则表达式匹配的值
+          *   split 把字符串分割成字符串数组
+        *
+        *
+        * 6. i  g   m
+        *
+        *
+        *
+        * */
+           /* var re = new RegExp('abc');   //RegExp是一个对象，和Array一样
+            // re = new RegExp("模式字符串","标志");
+            re = new RegExp("abc","i");
+            re = /abc/i;
+            alert(re.test("abcertrtrt"));
+             alert(re.test("ABCertrtrt"));*/
+
+         var re,s ="he is  lonely";
+        /* re = /^he/i;
+         alert(re.test(s));*/
+        // alert(s.indexOf("he")===0);  //以he开头
+
+       /* re = /\s/;   // \s匹配任何空白字符，包括空格、制表符、换页符等等
+        //alert(re.test( s));
+        re = /[a-zA-Z0-9]/;
+        alert(re.test(s));*/
+
+        re = /[a-zA-Z0-9_][0-9]]/;
+        re = /\w\d/;
+
+        var osVersion = "Ubuntu 8";
+        re = /^[a-z]+\s+\d+$/i;   //+号表示字符至少要出现1次，\s表示空白字符
+        //alert(re.test(osVersion));
+        //s = "#$%";
+        //re = /\w+/;
+        //alert(re.test(s));
+
+        //re = /^[a-z]+\s+\d+$/i;
+        /*re = /^([a-z]+)\s+(\d+)$/i;   //()  分组
+        alert(re.exec(osVersion));  //数组对象
+        alert("系统名称："+/\w+/.exec(osVersion));
+        alert("版本号："+/\d+/.exec(osVersion));*/
+
+        var re = /^([a-z]+)\d+/;
+        var s = '---abc123---';
+        //alert(re.test(s));
+        //alert(re.exec(s));
+        //alert(s.replace(/-/g,"#"));   //将字符串中的每一个‘-’替换成‘#’
+        //将字符串中的连续的‘-’替换成单个的‘#’
+        //alert(s.replace(/-+/g,'#'));
+
+      /*  s = '   dfgdfg   fgfgffg      ';
+        //去除字符串的前导空格与结尾空格
+        alert('|'+s.replace(/^\s+|\s+$/g,"")+'|');
+
+        s = '123,456,789';
+        alert(typeof s.aplit(','));*/
+
+       /* s = prompt("请输入单词与释义(用空格分割)：",'');
+        alert(s.split(/\s+/));*/
+
+        //s = prompt("请输入你的出生日期(如1990-9-28)：",'');
+        //var date = s.split('-');
+        /*var date = s.split(/[^0-9]+/);
+        var year = date[0],
+            month = date[1],
+            day = date[2];
+        alert("Year:"+year+",Month:"+month+",Day:"+day);*/
+
+       /* s = "My age is 18.";    //search与indexOf用途一样，但是search方法可以用正则表达式
+        alert(s.search(/\d+/));*/
+
+       /* s = 'Ubuntu 8.10';
+        re = /^([a-z]+)\s+(\d+)\.(\d+)$/i;     // .表示匹配任意一个字符，除了 \n
+        alert(re.test(s));*/
+
+        // s.indexOf('要查找的字符串','从字符串哪里查找');
+        //alert(s.indexOf('8',8));
+
+
+        re = /^\d+\./mg;    //仔细看看    全文每行开头(m作用只是识别\n,g作用全文检索)
+        s = "1.ABC\n2.DEF\n3.HIJK";
+        alert(s.replace(re,''));
+
+
+     </script>
+</body>
+</html>

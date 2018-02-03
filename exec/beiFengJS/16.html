@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>form</title>
+</head>
+<body>
+    <form name="formName">
+        <input type="text" name="info" id="info" value="123"/>
+        <input type="text" value="123"/>
+        <input type="radio" name="gender" value="1"/>
+        <input type="radio" name="gender" value="2"/>
+        <input type="reset" value="重置"/>
+        <input type="submit" value="提交"/>
+        <select name="city">
+            <option value="1">A</option>
+            <option value="2" selected="selected">B</option>
+            <option value="3">C</option>
+        </select>
+        <label>label</label>
+    </form>
+    <form name="formName2">
+
+    </form>
+    <script>
+        window.onload = function(){
+            var fm,t;
+            fm  = document.formName;
+            t = fm.info;
+            //alert(fm);
+            //alert(document.forms);
+            //alert(t.value);
+            //t.value="Abc";
+            //要访问一个表单中的所有表单控件
+            //alert(fm.elements.length);
+            //fm.gender[0].checked = true;
+            fm.gender[0].setAttribute("checked","checked");
+            var sel = fm.city;
+            //alert(sel.value);
+            //alert(sel.selectedIndex);   //被选中option的下标
+            var options = sel.getElementsByTagName('option');
+            //alert(options[sel.selectedIndex].innerHTML);
+            //alert(sel.options[sel.selectedIndex].value);
+            //alert(sel.options[sel.selectedIndex].innerHTML);
+            //alert(sel.options[sel.selectedIndex].text);
+
+           /* var opt = document.createElement("option");
+            opt.appendChild(document.createTextNode("上海"));
+            opt.value = sel.options.length;
+            sel.appendChild(opt);
+
+            var opts = sel.options;
+            opts[0] = new Option("Text","Value");
+            */
+
+           /* var opt = new Option("上海",sel.options.length + 1);
+            sel.add(opt);*/
+            /*
+            *  Firefox :      sel.add(新加入的option,null);
+            *                 sel.add(新加入的option,要放到哪个option之前);
+            *  IE :     sel.add(新加入的option);   //添加到最后
+            *           sel.add(新加入的option,要放到哪个option之前的那个option的下标);
+            *
+            * remove(index);
+            *
+            *
+            * focus()   blur()
+            * */
+
+
+             function addOpt(sel,opt,index){
+                //addOpt(select对象,新加入的option,插入的下标)
+                var IE = navigator.userAgent.indexOf("MISE") > -1;
+                if(IE){
+                    sel.add(opt,index);
+                }else{
+                    sel.add(opt,index==undefined?null:sel.options[index]);
+                }
+                return sel;
+            }
+
+            var info = fm.info;
+            info.onfocus = info.onclick = function(){
+                if(this.value == this.defaultValue){
+                    this.value = "";
+                }
+            };
+            info.onblur = function(){
+                if(this.value == ""){
+                    this.value = this.defaultValue;
+                }
+            };
+            sel.onchange = function(){
+                alert(this.value);
+            };
+
+            fm.onsubmit = function(){
+                /*for(var i = 0;i < this.elements.length;i++){
+                    alert(this.elements[i].value);
+                }*/
+                /*var gender;
+                if(fm.gender[0].checked){
+                    gender = fm.gender[0].value;
+                }else{
+                    gender = fm.gender[1].value;
+                }*/
+
+                if(/\s/.test(this.info.value)){
+                    alert("不能包含空格！");
+                    this.info.select();
+                }
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title></title>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	font-family: "微软雅黑";
+}
+body{
+	background: #2f2a78;
+	overflow: hidden;
+}	
+.warp{
+	width:101px;
+	height: 387px;
+	background: #fff;
+	margin: 50px auto;
+}
+#box{
+	width:88px;
+	height: 387px;
+	float:left;
+	overflow: hidden;
+	position: relative;
+}
+#div1{
+	width:13px;
+	height: 387px;
+	float: right;
+	position:relative;
+	background: #ccc;
+}
+#div3{
+	width:9px;
+	height:72px;
+	background:url(bg.png) 0px -12px no-repeat;
+
+	position: absolute;
+	top:0;
+	left: 2px;
+}
+#div2{
+	width:13px;
+	height: 367px;
+	margin-top: 10px;
+	position: relative;
+}
+#top{
+	width:11px;
+	height: 10px;
+	background:url(bg.png) 0 0 no-repeat;
+	position: absolute;
+	top:0;
+	left:1px;
+}
+#bottom{
+	width:11px;
+	height: 10px;
+	background:url(bg.png) -12px 0 no-repeat;
+	position: absolute;
+	bottom:0;
+	left:1px;
+}
+#ul{
+	list-style: none;
+	width:88px;
+	position: absolute;
+	top:0;
+}
+li{
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+}
+</style>
+</head>
+<body>
+	<section class="warp">
+		<div id="box">
+			<ul id="ul">
+				<!--<li>北京</li>
+				<li>北京</li>
+				<li>北京</li>
+				<li>北京</li>
+				<li>北京</li>-->
+			</ul>
+		</div>
+		<div id="div1">
+			<div id="top"></div>
+			<div id="div2">
+				<div id="div3"></div>
+			</div>
+			<div id="bottom"></div>
+		</div>
+	</section>
+
+</body>
+</html>
+<script src="data.js" type="text/javascript" charset="utf-8"></script>
+
+<script>
+    window.onload = function(){
+        var box = $('#box')[0];  //获取列表容器
+        var ul = $('ul',box)[0]; //获取列表
+        var dataCopy = [];
+        var scrollBarContain = $('#div1')[0];   //滚动条的容器
+        var scrollBar = $('#div2')[0];          //滚动条的父级
+        var bar = $('#div3')[0];                //滚动条
+
+
+        init();
+        //代码初始化
+        function init(){
+            initVal();
+            createEle();
+            wheel(box,fnUp,fnDown);
+            mouseEvt();
+        }
+
+        //内容初始化
+        function initVal(){
+            //添加数据
+            for(var i = 0;i < arrCity.length;i++){
+                dataCopy.push(arrCity[i].name);
+            }
+            console.log(dataCopy);
+        }
+        //创建li元素
+        function createEle(){
+            for(var i = 0;i < dataCopy.length;i++){
+                var li = document.createElement('li');
+                li.innerHTML = dataCopy[i];
+                ul.appendChild(li);
+            }
+
+
+
+        }
+        //滚轮函数
+        function wheel(obj,fnUp,fnDown){
+            //obj滚动区域，fnUp向上滚动执行函数，fnDown向下滚动滚轮事件
+            obj.onmousewheel = function(evt){
+                evt = window.event || evt;
+                //上滚动
+                if(evt.wheelDelta > 0 || evt.detail < 0){
+                    fnUp && fnUp();
+                }else if(evt.wheelDelta < 0 || evt.detail > 0){  //下滚动
+                    fnDown && fnDown();
+                }
+            };
+            //绑定事件执行函数
+            bind(obj,'DOMMouseScroll',obj.onmousewheel);
+        }
+        //向上滚动函数
+        function fnUp(){
+            //获取滚动条位置
+            var tp = bar.offsetTop;
+            tp -= 5;
+            //执行运动函数
+            move(tp);
+        }
+        //向下滚动函数
+        function fnDown(){
+            //获取滚动条位置
+            var tp = bar.offsetTop;
+            tp += 5;
+            //执行运动函数
+            move(tp);
+        }
+
+        //运动函数
+        function move(t){
+            //获取运动的最大范围值
+            var range = scrollBar.offsetHeight - bar.offsetHeight;
+            //如果滚动值小于0，或者大于滚动最大范围时，t变量值去临界值
+            if(t < 0){
+                t = 0;
+            }else if(t > range){
+                t = range;
+            }
+            //获取滚动比例
+            var scale = t/(range);
+            //获取列表和滚动条的位置
+            ul.style.top = scale * (box.offsetHeight - ul.scrollHeight) + 'px';
+            bar.style.top = t + 'px';
+        }
+
+        //鼠标事件
+        function mouseEvt(){
+            //滚动条上进行mousedown和mouseup是执行运动
+            var timer = null;
+            scrollBarContain.onmousedown = function(ev){
+                timer = setInterval(function(){
+                    //如果点击位置在滚动条上边，向上滚动
+                    if(ev.clientY < bar.getBoundingClientRect().top){
+                       fnUp();
+                    //如果点击位置在滚动条下边，向下滚动
+                    }else if(ev.clientY > bar.getBoundingClientRect().bottom){
+                        fnDown();
+                    //滚动到目标点时，停止定时器
+                    }else{
+                        clearInterval(timer);
+                    }
+                },30);
+            };
+            //鼠标抬起，停止定时器
+            scrollBarContain.onmouseup = function(ev){
+                clearInterval(timer);
+            };
+
+            //滚动条拖拽事件
+            bar.onmousedown = function(evt){
+                evt = window.event || evt;
+                //获取滚动条垂直方向的位置
+                var disY = evt.clientY - this.offsetTop;
+                //全局捕获
+                this.setCapture && this.setCapture();
+                //滚动条移动事件
+                document.onmousemove = function(ev){
+                    var tp = ev.clientY - disY;
+                    //通过运动设置滚动条位置
+                    move(tp);
+                };
+                //滚动条抬起事件
+                document.onmouseup = function(){
+                    //释放捕获
+                    bar.releaseCapture && bar.releaseCapture();
+                    //解绑事件
+                    document.onmouseup = document.onmousemove = null;
+                };
+                //阻止冒泡
+                evt.cancelBubble = true || evt.stopPropagation();
+                //阻止默认行为
+                return false;
+
+            };
+        }
+
+        //事件绑定函数
+        function bind(obj,eventStr,callback) {
+            if (obj.addEventListener) {
+                obj.addEventListener(eventStr, callback, false);
+            } else {
+                obj.attachEvent('on' + eventStr, function () {
+                    //把this改为obj
+                    callback.call(obj);
+                });
+            }
+        }
+        //获取元素方法的重写
+        function $(element,obj){
+            if(obj == null){
+                return document.querySelectorAll(element);
+            }else{
+                return obj.querySelectorAll(element);
+            }
+        }
+    };
+</script>

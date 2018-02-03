@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>拖拽</title>
+    <style>
+        li{
+            list-style: none;
+            width: 100px;
+            height: 30px;
+            background-color: #ffff00;
+            margin: 10px;
+        }
+        #div1{
+            width: 100px;
+            height: 100px;
+            background-color: #ff0000;
+            margin: 200px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li draggable="true">a</li>
+        <li draggable="true">b</li>
+        <li draggable="true">c</li>
+    </ul>
+    <div id="div1"></div>
+</body>
+<script>
+    /*
+    * 拖拽元素事件：
+    *  --dragstart: 拖拽之前触发
+    *  --drag: 拖拽前、拖拽结束之间，连续触发
+    *  --dragend: 拖拽结束触发
+    *
+    * 目标元素事件：
+    *  --dragenter: 进入目标元素触发，相当于mouseover
+    *  --dragover: 进入目标、离开目标之间，连续触发
+    *  --dragleave: 离开目标元素触发，相当于mouseout
+    *  --drop: 在元素上释放鼠标触发
+    *
+    *  拖放事件：
+    *   事件执行顺序：drop不触发的时候
+    *   -dragstart > drag > dragenter > dragover > dragleave > dragend
+    *
+    *   事件执行顺序：drop触发的时候（dragover的时候要阻止默认事件）
+    *   -dragstart > drag > dragenter > dragover > drop > dragend
+    *
+    *   不能释放的光标和能释放的光标（cursor）不一样
+    * */
+    window.onload = function(){
+        var div1 = document.getElementById('div1');
+        var lis = document.querySelectorAll('li');
+        var num = 0;
+        for(var i = 0;i < lis.length;i++){
+            lis[i].ondragstart = function (){
+                this.style.backgroundColor = 'green';
+            };
+            /* lis[i].ondrag = function(){
+                document.title = num++;
+            };*/
+            lis[i].ondragend = function(){
+                this.style.backgroundColor = '';
+            };
+        }
+        div1.ondragenter = function(){
+            this.style.backgroundColor = 'blue';
+        };
+        div1.ondragover = function(evt){
+            //document.title = num++;
+            /*要想触发drop事件，必须在dragover当中阻止默认事件*/
+            evt.preventDefault();
+        };
+        div1.ondragleave = function(){
+            this.style.backgroundColor = '';
+        };
+        div1.ondrop = function(){
+            alert(123);
+        };
+
+    };
+</script>
+</html>

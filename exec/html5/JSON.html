@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>JSON新方法</title>
+</head>
+<body>
+
+</body>
+<script>
+    window.onload = function(){
+        var str = '{"name": "hello"}';
+
+        var json = JSON.parse(str);
+        alert(json.name);
+
+        var str2 = JSON.stringify(json);
+        alert(str2);
+
+
+
+
+        //深度拷贝
+
+        /*var a = {
+            name: {age: 100}
+        };
+
+        var str = JSON.stringify(a);
+
+        var b = JSON.parse(str);
+
+        b.name.age = '200';
+
+        alert(a.name.age);*/
+        var a = [1,2,4,[6]];
+
+        var str = JSON.stringify(a);
+
+        var b = JSON.parse(str);
+
+        b[3][0] = 5;
+
+        alert(b);
+        alert(a);
+    };
+</script>
+</html>

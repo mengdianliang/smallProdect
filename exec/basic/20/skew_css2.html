@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>斜边</title>
+		<style>
+			.fl{
+				float: left;
+			}
+			.clearfix{
+				*zoom: 1;
+			}
+			.clearfix:after{
+				content: '';
+				display: block;
+				clear: both;
+			}
+			a{
+				text-decoration: none;
+			}
+			.skew_wrapper{
+				height: 40px;
+				margin: 50px auto;
+			}
+			.skew_wrapper a{
+				background-color: #333333;
+				height: 42px;
+				position: relative;
+			}
+			.skew_wrapper .text{
+				color: #ffffff;
+				line-height: 40px;
+				padding: 0 20px;
+				background-color: #F45DAC;
+				border-top: 1px solid #333333;
+				border-bottom: 1px solid #333333;
+			}
+			.angle_b{
+				width: 0;
+				height: 0;
+				margin-top: 1px;
+				border: 20px solid transparent;
+				border-top: 20px solid #F45DAC;
+				border-left: 20px solid #F45DAC;
+			}
+			.angle_pos1{
+				position: absolute;
+				left:1px;
+				top:1px;
+				width: 0;
+				height: 0;
+				border: 20px solid transparent;
+				border-right: 20px solid #F45DAC;
+				border-bottom: 20px solid #F45DAC;
+			}
+			.angle_pos3{
+				position: absolute;
+				right:-40px;
+				top: 1px;
+				width: 0;
+				height: 0;
+				border: 20px solid #333333;
+				border-left: 20px solid #F45DAC;
+				border-top: 20px solid #F45DAC;
+			}
+			.pos_5{
+				position: absolute;
+				display: block;
+				right:-40px;
+				top: 0;
+				width: 40px;
+				height: 40px;
+				background-color: #333333;
+			}
+			.angle_pos4{
+				position: absolute;
+				right:-40px;
+				bottom:1px;
+				width: 0;
+				height: 0;
+				border: 20px solid transparent;
+				border-right: 20px solid #ffffff;
+				border-bottom: 20px solid #ffffff;
+			}
+			.angle_c{
+				width: 0;
+				height: 0;
+				border: 20px solid transparent;
+				border-top: 20px solid #ffffff;
+				border-left: 20px solid #ffffff;
+			}
+			.angle_pos2{
+				position: absolute;
+				right:-40px;
+				bottom:1px;
+				width: 0;
+				height: 0;
+				border: 20px solid transparent;
+				border-left: 20px solid #F45DAC;
+				border-top: 20px solid #F45DAC;
+			}
+			.skew_wrapper a:hover .angle_pos1{
+				border-right: 20px solid #ff0000;
+				border-bottom: 20px solid #ff0000;
+				z-index: 1;
+			}
+			.skew_wrapper a:hover .text{
+				background-color: #ff0000;
+			}
+			.skew_wrapper a:hover .angle_pos2{
+				border-left: 20px solid #ff0000;
+				border-top: 20px solid #ff0000;
+				z-index: 1;
+			}
+			.skew_wrapper a:hover .angle_pos3{
+				border-left: 20px solid #ff0000;
+				border-top: 20px solid #ff0000;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="skew_wrapper clearfix">
+			<a href="#" class="fl">
+				<span class="angle_pos1"></span>
+				<span class="angle_pos2"></span>
+				<span class="angle_c fl"></span>
+				<span class="text fl">M</span>
+			</a>
+			<a href="#" class="fl">
+				<span class="angle_pos1"></span>
+				<span class="angle_pos2"></span>
+				<span class="angle_b fl"></span>
+				<span class="text fl">I</span>
+			</a>
+			<a href="#" class="fl">
+				<span class="angle_pos1"></span>
+				<span class="angle_pos2"></span>
+				<span class="angle_b fl"></span>
+				<span class="text fl">A</span>
+			</a>
+			<a href="#" class="fl">
+				<span class="angle_pos1"></span>
+				<span class="angle_pos2"></span>
+				<span class="angle_b fl"></span>
+				<span class="text fl">O</span>
+			</a>
+			<a href="#" class="fl">
+				<span class="pos_5"></span>
+				<span class="angle_pos1"></span>
+				<span class="angle_pos3"></span>
+				<span class="angle_pos4"></span>
+				<span class="angle_b fl"></span>
+				<span class="text fl">V</span>
+			</a>
+		</div>
+	</body>
+</html>

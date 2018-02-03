@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>常用方法</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            padding: 10px;
+            border: 10px solid #000000;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box1 box2">div</div>
+</body>
+<script>
+    $(function(){
+        //$('div').addClass('box2 box4');
+        //$('div').removeClass('box1');
+        alert($('div').width());  //100
+        alert($('div').innerWidth());  //120
+        alert($('div').outerWidth());  //140
+        alert($('div').outerWidth(true));  //160
+    });
+</script>
+</html>

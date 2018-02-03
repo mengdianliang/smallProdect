@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>单词边界</title>
+</head>
+<body>
+    <ul>
+        <li class="box1">1111111111</li>
+        <li>2222222222</li>
+        <li class="box1box2">3333333333333</li>
+        <li>4444444444</li>
+        <li class="box1 box2">5555555555555</li>
+    </ul>
+
+    <script>
+        /*var str = 'onetwo';
+        var re = /\bone/;
+        alert(re.test(str));*/
+
+        /*var str = 'onetwo';
+        var re = /two\b/;
+        alert(re.test(str));*/
+
+       /*var str = 'one two';
+        var re = /\btwo\b/;
+        alert(re.test(str));*/
+
+        window.onload = function(){
+            var lis = getByClass(document,'.box1');
+            for(var i = 0;i < lis.length;i++){
+                lis[i].style.backgroundColor = '#ff0000';
+            }
+            //通过class获取元素
+            function getByClass(context,selector){
+                var arr = [];
+                //获取context下所有的节点
+                var ele = context.getElementsByTagName("*");
+
+               /* for(var i = 0;i < ele.length;i++){
+                    var classes = ele[i].className.split(' ');
+                    for(var j = 0;j < classes.length;j++){
+                        if(classes[j] == selector){
+                            arr.push(ele[i]);
+                        }
+                    }
+                }*/
+                //匹配单词边界，参数拼接需要用正则全称
+                //var re = new RegExp('(^|\\s)' + selector.slice(1) + '(\\s|$)','g');
+                var re = new RegExp("\\b" +selector.slice(1) + "\\b",'g');  //转义字符
+                //console.log(re);
+                //判断是否有该类，通过arr存储
+                for(var i = 0;i < ele.length;i++){
+                    if(re.test(ele[i].className)){
+                        arr.push(ele[i]);
+                    }
+                }
+                return arr;
+            }
+        };
+    </script>
+</body>
+</html>

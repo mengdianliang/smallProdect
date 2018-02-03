@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>定时器</title>
+    <style>
+        *{
+            margin:0;
+        }
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: #ff0000;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var box = document.getElementById('box');
+            var timer = '';
+            box.onclick = function(){
+                clearInterval(timer);
+               timer = setInterval(function(){
+                   var oldValue = parseInt(getStyle(box,'left'));
+                   var newValue = oldValue + 10;
+
+                   if(newValue >= 800){
+                       newValue = 800;
+                       clearInterval(timer);
+                   }
+                   box.style.left = newValue + 'px';
+               },30);
+
+            };
+
+            function getStyle(obj,name){
+                if(window.getComputedStyle){
+                    return getComputedStyle(obj,null)[name];
+                }else{
+                    return obj.currentStyle[name];
+                }
+            }
+
+        };
+    </script>
+</head>
+<body>
+    <button id="btn01"></button>
+    <div id="box" class="styl"></div>
+</body>
+</html>

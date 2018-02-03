@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>动画</title>
+    <style type="text/css">
+        #oDiv {
+            width:200px;
+            height:200px;
+            border:3px ridge aqua;
+            background:blue;
+            position:absolute;
+            font-size:10px;
+            left:150px;
+            top:150px;
+            filter:alpha(opacity=40);
+        }
+    </style>
+</head>
+<body class="redStyle">
+    <h1>动画</h1>
+
+    <div id="oDiv">
+
+    </div>
+    <script>
+        function $(id) {
+            return document.getElementById(id);
+        }
+        function animate(o,attr,add,start,end,t){
+            //o 要进行动画的对象
+            //attr style属性
+            //add 增量
+            //t 时间间隔
+            //start 起始值
+            //end 结束值
+            var max = Math.max(start,end),
+                min = Math.min(start,end);
+            var timer = setInterval(function(){
+                if(add > 0) {
+                    if(min >= max){
+                        clearInterval(timer);
+                    }
+                    min += add;
+                    o.style[attr] = min + "px";
+                }else{
+                    if(max <= min){
+                        clearInterval(timer);
+                    }
+                    max += add;
+                    o.style[attr] = max + "px";
+                }
+            },t);
+        }
+        var Tween = {
+            Linear: function(start,alter,curTime,dur) {
+                return start+curTime/dur*alter;
+            },
+            'Quad': {
+                easeIn: function(start,alter,curTime,dur) {
+                    return start + Math.pow(curTime/dur,2)*alter;
+                },
+                easeOut: function(start,alter,curTime,dur) {
+                    var progress = curTime/dur;
+                    return start - (Math.pow(progress,2) - 2*progress)*alter;
+                }/*,
+                easeInOut: function(start,alter,curTime,dur) {
+                    var progress = curTime/dur*2;
+                    return (progress<1?Math.pow(progress,2):-(()));
+                }*/
+            }
+        };
+        function Linear(start,alter,curTime,dur) {
+            return start+curTime/dur*alter;
+        }
+        function easeIn(start,alter,curTime,dur) {
+            return start + Math.pow(curTime/dur,2)*alter;
+        }
+        function animate(o,start,alter,dur,fx){
+            var curTime = 0;
+            var t = setInterval(function(){
+                if(curTime >= dur) clearInterval(t);
+                //o.style[attr] = Linear(start,alter,curTime,dur) + "px";
+                for(var i in start) {
+                    o.style[i] = fx(start[i],alter[i],curTime,dur) + "px";
+                }
+                curTime += 50;
+            },50);
+        }
+
+        function opacityAnimate(o,start,alter,dur,fx){
+            var curTime = 0;
+            var t = setInterval(function(){
+                if(curTime >= dur) clearInterval(t);
+                setOpacity(o,fx(start,alter,curTime,dur));
+                curTime += 50;
+            },50);
+        }
+        var setOpacity = (document.documentElement.filters)?function(obj,val) {
+            obj.style.filter = "alpha(opacity=" + val + ")";
+        }:function(obj,val) {
+            obj.style.opacity = val/100 + "";
+        };
+        /*function setOpacity(o,opacity){
+            if(typeof o.style.opacity == "string") {
+                o.style.opacity = opacity/100;
+            }else{
+                o.style.filter = "alpha(opacity=" + opacity +")";
+            }
+        }*/
+        window.onload = function(){
+            var oDiv = $("oDiv");
+            /*setInterval(function(){
+                oDiv.style.left = oDiv.offsetLeft + 1 + "px";
+            },10);*/
+            /*animate(oDiv,'width',1,100,500,10);*/
+            /*animate(oDiv,'width',100,200,3000,easeIn);
+            animate(oDiv,'left',100,400,3000,easeIn);
+            animate(oDiv,'top',50,300,3000,easeIn);*/
+            /*animate(oDiv,{
+                'width': 100,
+                'left': 100,
+                'top': 50
+            },{
+                'width': 300,
+                'left': 400,
+                'top': 300
+            },3000,easeIn);*/
+            opacityAnimate(oDiv,0,100,1000,easeIn);
+        };
+    </script>
+</body>
+</html>

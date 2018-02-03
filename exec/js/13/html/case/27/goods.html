@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>商品下架</title>
+    <style>
+        body{
+            margin: 0;
+            font-family: 'MICROSOFT YAHEI';
+            font-size: 12px;
+            color: #ffffff;
+            background-color: #ff8080;
+        }
+        h3{
+            margin: 0;
+        }
+        ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+            color: #ffffff;
+        }
+        img{
+            vertical-align: top;
+            border: none;
+        }
+        input{
+            padding: 0;
+            border: none;
+            outline: none;
+        }
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        .clearfix{
+            *zoom: 1;
+        }
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .wrapper{
+            width: 1040px;
+            height: 500px;
+            margin: 50px auto 0;
+        }
+        .tit{
+            font-size: 26px;
+            font-weight: normal;
+            line-height: 60px;
+            text-align: center;
+        }
+        .list li{
+            width: 240px;
+            height: 280px;
+            margin: 0 10px;
+            position: relative;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .edit{
+            width: 100%;
+            height: 40px;
+            font-size: 14px;
+            background-color: #000000;
+        }
+        .newTime{
+            margin: 8px 10px;
+            text-indent:5px;
+            width: 160px;
+            height: 22px;
+            background-color: #000000;
+            color: #ff8080;
+            border-bottom: 1px solid #ff8080;
+        }
+        .confirm{
+            width:60px;
+            text-align: center;
+            line-height: 40px;
+            color: #ff8080;
+        }
+        .con{
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .list li img{
+            width: 240px;
+        }
+        .leave_time{
+            position: absolute;
+            top: 20px;
+            text-align: center;
+            color: #ffffff;
+            padding: 0 10px;
+            font-size: 14px;
+        }
+        .leaver{
+            line-height: 30px;
+        }
+        .time_interval .count{
+            width: 20px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: #ff8080;
+            margin-left: 4px;
+        }
+        .point{
+            width: 10px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            color: #ff8080;
+        }
+        .con_tit{
+            position: absolute;
+            width: 100%;
+            top: 120px;
+            left: 0;
+            font-size: 20px;
+            text-align: center;
+        }
+        .con_pri{
+            position: absolute;
+            width: 100%;
+            top: 150px;
+            left: 0;
+            font-size: 16px;
+            text-align: center;
+        }
+        .red{
+            color: #ff0000;
+        }
+        .modal{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height:100%;
+            display: none;
+            background-color: rgba(0,0,0,0.2);
+        }
+        .logo{
+            position: absolute;
+            top: 70px;
+            left: 70px;
+            border-radius: 60px;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(0,0,0,0.7);
+            display: none;
+        }
+        .calculate{
+            padding-top: 20px;
+            width: 1020px;
+            margin: 0 auto;
+            opacity:0;
+        }
+        .cal_header{
+            padding: 0 20px;
+            background-color: #000000;
+            height: 40px;
+            line-height: 40px;
+
+         }
+        .cal_header li{
+            width: 33%;
+            font-size: 16px;
+        }
+        .ig_pic{
+            text-align: right;
+        }
+        .cal_info{
+            background-color: #ffffff;
+        }
+        .cal_info li{
+            padding: 0 20px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 14px;
+        }
+        .gray{
+            background-color: #eeeeee;
+        }
+        .cal_info li span{
+            width: 33%;
+        }
+        .goods_name{
+            color: #000000;
+        }
+        .goods_pic{
+            width: 40px;
+            margin-top: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <section class="wrapper">
+        <h3 class="tit">商品下架</h3>
+        <ul class="list clearfix">
+            <li class="fl">
+                <div class="edit">
+                    <input type="text" class="newTime fl"/>
+                    <a href="javascript:void(0);" class="confirm fl">确定</a>
+                </div>
+
+                <div class="con">
+                    <div class="leave_time clearfix">
+                        <span class="leaver fl">剩余：</span>
+                        <div class="time_interval fl">
+                            <span class="count fl">00</span>
+                            <span class="count fl">00</span>
+                            <span class="point fl">:</span>
+                            <span class="count fl">00</span>
+                            <span class="count fl">00</span>
+                            <span class="point fl">:</span>
+                            <span class="count fl">00</span>
+                            <span class="count fl">00</span>
+                        </div>
+                    </div>
+                    <img src="img/1.jpg" class="con_pic"/>
+                    <div class="con_tit">外套1 7折起</div>
+                    <div class="con_pri">抢购价：<span class="red">￥</span><span class="red price">800</span></div>
+                </div>
+                <div class="modal"></div>
+                <div class="logo"></div>
+            </li>
+            <li class="fl">
+                <div class="edit">
+                    <input type="text" class="newTime fl"/>
+                    <a href="javascript:void(0);" class="confirm fl">确定</a>
+                </div>
+
+                <div class="con">
+                    <div class="leave_time clearfix">
+                        <span class="leaver fl">剩余：</span>
+                        <div class="time_interval fl">
+                            <span class="count fl">00</span>
+                            <span class="count fl">00</span>
+                            <span class="point fl">:</span>
+                            <span class="count fl">00</span>
+                            <span class="count fl">00</span>
+                            <span class="point fl">:</span>
+                            <span class="count fl">00</span>
+                            <span class="count fl">00</span>
+                        </div>
+                    </div>
+                    <img src="img/2.jpg" class="con_pic"/>
+                    <div class="con_tit">外套2 7折起</div>
+                    <div class="con_pri">抢购价：<span class="red">￥</span><span class="red price">600</span></div>
+                </div>
+                <div class="modal"></div>
+                <div class="logo"></div>
+            </li>
+            <li class="fl">
+                <div class="edit">
+                    <input type="text" class="newTime fl"/>
+                    <a href="javascript:void(0);" class="confirm fl">确定</a>
+                </div>
+
+                <div class="con">
+                    <div class="leave_time clearfix">
+                        <span class="leaver fl">剩余：</span>
+                        <div class="time_interval fl">
+                            <span class="count fl">00</span>
+                            <span class="count fl">00</span>
+                            <span class="point fl">:</span>
+                            <span class="count fl">00</span>
+                            <span class="count fl">00</span>
+                            <span class="point fl">:</span>
+                            <span class="count fl">00</span>
+                            <span class="count fl">00</span>
+                        </div>
+                    </div>
+                    <img src="img/3.jpg" class="con_pic"/>
+                    <div class="con_tit">外套2 7折起</div>
+                    <div class="con_pri">抢购价：<span class="red">￥</span><span class="red price">600</span></div>
+                </div>
+                <div class="modal"></div>
+                <div class="logo"></div>
+            </li>
+            <li class="fl">
+                <div class="edit">
+                    <input type="text" class="newTime fl"/>
+                    <a href="javascript:void(0);" class="confirm fl">确定</a>
+                </div>
+
+                <div class="con">
+                    <div class="leave_time clearfix">
+                        <span class="leaver fl">剩余：</span>
+                        <div class="time_interval fl">
+                            <span class="count fl">00</span>
+                            <span class="count fl">00</span>
+                            <span class="point fl">:</span>
+                            <span class="count fl">00</span>
+                            <span class="count fl">00</span>
+                            <span class="point fl">:</span>
+                            <span class="count fl">00</span>
+                            <span class="count fl">00</span>
+                        </div>
+                    </div>
+                    <img src="img/4.jpg" class="con_pic"/>
+                    <div class="con_tit">外套2 7折起</div>
+                    <div class="con_pri">抢购价：<span class="red">￥</span><span class="red price">600</span></div>
+                </div>
+                <div class="modal"></div>
+                <div class="logo"></div>
+            </li>
+        </ul>
+        <div class="calculate">
+            <ul class="cal_header clearfix">
+                <li class="fl">商品</li>
+                <li class="fl">价格</li>
+                <li class="fl ig_pic">简图</li>
+            </ul>
+            <ul class="cal_info">
+            </ul>
+        </div>
+    </section>
+</body>
+<script src="js/MTween.js"></script>
+<script src="js/shakeMove.js"></script>
+<script>
+    window.onload = function(){
+        var lists = $('.list li'); //获取商品集合
+        var newTime = $('.newTime');  //时间输入框
+        var confirm = $('.confirm');  //确定按钮
+        var pics = $('.con');  //获取商品图片
+        var logos = $('.logo'); //获取logo
+        var modals = $('.modal'); //获取遮罩层
+        var dTime = '';   //倒计时定时器
+
+
+        var imgs = ['./img/1.jpg','./img/2.jpg','./img/3.jpg','./img/4.jpg'];
+
+        init();
+        //代码初始化
+        function init(){
+            initVal();
+            getNewTime();
+        }
+        //初始化值
+        function initVal(){
+            var cals = $('.cal_info li');
+            for(var i = 0;i < cals.length;i++){
+                if(i % 2 != 0){
+                    cals[i].className = 'gray';
+                }
+            }
+        }
+        //代码去重
+        function commons(){}
+
+        //新时间获取
+        function getNewTime(){
+            for(var i = 0;i < confirm.length;i++){
+                confirm[i].index = i;
+                confirm[i].onclick = function(){
+                    var temp = (newTime[this.index].value).trim();
+                    var temp1 = temp.split(' ').join(':').split(':');
+                    var newT = new Date(temp1[0],temp1[1] - 1,temp1[2],temp1[3],temp1[4],temp1[5]).getTime();
+                    var _index = this.index;
+                    timeInterval(newT,function(){
+                            var index1 = _index;
+                            logos[_index].style.display = 'block';
+                            MTween(logos[_index],{
+                                    width: '-30',
+                                    height: '-30',
+                                    top: '15',
+                                    left: '15'
+                            },500,'linear',function(){
+                                modals[index1].style.display = 'block';
+                                shakeMove({obj:lists[index1],attr:'left',target:'10'});
+                            });
+                            $('.calculate')[0].style.opacity = 1;
+                            addGoods(_index);
+                    });
+                };
+            }
+        }
+        function timeInterval(newT,fn){
+            dTime = setInterval(function(){
+                var dt = new Date().getTime();
+                var lea = newT - dt;
+                var h = preZero(parseInt(lea / 3600000),2); //这里有问题
+                var m = preZero(parseInt(lea % 3600000/60000),2);
+                var s = preZero(parseInt(lea %60000/1000),2);
+                var str = h + m + s;
+                for(var j = 0;j < $('.count',pics[this.index]).length;j++){
+                    $('.count',pics[this.index])[j].innerHTML = str.charAt(j);
+                }
+                if(lea <=0){
+                    clearInterval(dTime);
+                    fn && fn();
+                }
+                //2017 7 25 16:45:00
+            },1000);
+        }
+        //前边补0
+        function preZero(num,len){
+            var str = "" + num;
+            while(len - str.length){
+                str = 0 + str;
+            }
+            return str;
+        }
+        //统计下架商品
+        function addGoods(index){
+            var calInfo = $('.cal_info')[0];
+            var tit = $('.con_tit',lists[index])[0].innerHTML;
+            var price = $('.price',lists[index])[0].innerHTML;
+            var pic = imgs[index];
+            calInfo.innerHTML += '<li><span class="goods_name fl">' + tit + '</span><span class="goods_price red fl">￥' + price + '</span><img class="goods_pic fr" src="' + pic + '"/></li>';
+        }
+
+        //元素获取方法的重写
+        /*
+         * element是obj下的子元素
+         * */
+        function $(element,obj){
+            if(obj == null){
+                return document.querySelectorAll(element);
+            }else{
+                return obj.querySelectorAll(element);
+            }
+        }
+    };
+</script>
+</html>

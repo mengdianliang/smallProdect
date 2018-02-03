@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>动画</title>
+    <style>
+        @keyframes move{
+            0%{
+                width: 100px;
+            }
+            100%{
+                width: 500px;
+            }
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: #ff0000;
+        }
+        .move{
+            animation: 2s move;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" id="box"></div>
+</body>
+<script>
+    window.onload = function(){
+        document.getElementById('box').onclick = function(){
+            this.className = 'box move';
+            addEnd(this,end);
+        };
+        function end(){
+            alert('end');
+        }
+        function addEnd(obj,fn){
+            obj.addEventListener('webkitAnimationEnd',fn,false);
+        }
+    };
+</script>
+</html>

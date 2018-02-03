@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+        input{
+            width: 60px;
+            height: 30px;
+            border: 1px solid #333333;
+        }
+        input.active{
+            background-color: #ff2020;
+        }
+        .tabs div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #333333;
+            display: none;
+        }
+        .tabs div.active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="tabs" id="tabs">
+        <input type="button" class="tab active" value="1"/>
+        <input type="button" class="tab" value="2"/>
+        <input type="button" class="tab" value="3"/>
+        <div class="item active">1111111111</div>
+        <div class="item">2222222222</div>
+        <div class="item">3333333333</div>
+    </div>
+</body>
+<script>
+    window.onload = function(){
+
+        function Tab(){
+            this.inputs = document.getElementsByTagName('input');
+            this.tab = document.getElementById('tabs');
+            this.tabs = this.tab.getElementsByTagName('div');
+            this.num = 0;
+            this.timer = null;
+        }
+
+        Tab.prototype.change = function(){
+            var _this = this;
+            for(var i  = 0;i < this.inputs.length;i++){
+                this.inputs[i].index = i;
+                this.inputs[i].onmouseover = function(){
+                    clearInterval(_this.timer);
+                    _this.oper(this);
+                    _this.num = this.index;
+                };
+            }
+
+        };
+        Tab.prototype.oper = function(obj){
+            for(var j = 0;j < this.inputs.length;j++){
+                this.tabs[j].className = 'item';
+                this.inputs[j].className = 'tab';
+            }
+            obj.className = 'tab active';
+            this.tabs[obj.index].className = 'item active';
+        };
+        Tab.prototype.autoPlay = function(){
+            clearInterval(this.timer);
+            var _this = this;
+            this.timer = setInterval(function(){
+                _this.num++;
+                if(_this.num > _this.inputs.length - 1){
+                    _this.num = 0;
+                }
+                //console.log(_this.num);
+                _this.oper(_this.inputs[_this.num]);
+            },1000);
+        };
+        var tb = new Tab();
+        tb.change();
+        tb.autoPlay();
+    };
+</script>
+</html>

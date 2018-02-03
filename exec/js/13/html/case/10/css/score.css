@@ -1,0 +1,44 @@
+body{
+    background-color: #f1f1f1;
+}
+.wrapper{
+    width: 300px;
+    margin: 50px auto 0;
+    background-color: #ffffff;
+    border: 1px solid #ff0000;
+}
+.tit{
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: normal;
+}
+.con{
+    padding: 20px 40px;
+}
+.star_list li{
+    font-size: 20px;
+    padding: 0 10px;
+    width: 14px;
+    color: #ffffff;
+   text-shadow: 0 0 1px #333333;
+    cursor: pointer;
+}
+.score_val{
+    width: 50px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    background-color: #ff0000;
+    color: #ffffff;
+   opacity: 0;
+}
+.info{
+    height:50px;
+    line-height: 50px;
+    text-align: center;
+    background-color: #ff0000;
+    color: #ffffff;
+    font-size: 14px;
+}

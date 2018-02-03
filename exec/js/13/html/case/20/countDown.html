@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>倒计时</title>
+    <style>
+        html{
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            width: 100%;
+            height: 100%;
+            background: url('img/bj.jpg') no-repeat;
+            background-size: 100% 100%;
+            margin: 0;
+            font-family: 'Microsoft Yahei';
+            font-size: 12px;
+            color: #000000;
+        }
+        h3{
+            margin: 0;
+            font-weight: normal;
+        }
+        img{
+            vertical-align: top;
+            border: none;
+        }
+        a{
+            text-decoration: none;
+            color: #000000;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        .clearfix{
+            *zoom: 1;
+        }
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .wrapper{
+            width: 322px;
+            height: 322px;
+            padding: 20px;
+            border: 1px solid #ffffff;
+            background-color: rgba(255,255,255,0.2);
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            box-shadow: 0 0 5px #333333;
+            border-radius: 5px;
+        }
+        .canl{
+            border: 1px solid #dddddd;
+            background-color: #ffffff;
+        }
+        .tit{
+            line-height: 50px;
+            text-align: center;
+            font-size: 16px;
+            color: #06a7e1;
+        }
+        .main_l{
+            width: 180px;
+            padding:  0 10px;;
+        }
+        .top{
+            height: 26px;
+            padding: 7px;
+            text-align: center;
+        }
+        .prev{
+            width: 26px;
+            height: 26px;
+            background: url('img/prev.png')  no-repeat;
+            background-size: 100% 100%;
+        }
+        .next{
+            width: 26px;
+            height: 26px;
+            background: url('img/next.png') 100% 100% no-repeat;
+            background-size: 100% 100%;
+        }
+        .txt{
+            display: inline-block;
+            line-height: 26px;
+            text-align: center;
+        }
+        .list_head{
+            background-color: #ff8080;
+            border-radius: 20px 20px 0 0;
+        }
+        .list_body{
+            background-color: #03a7e1;
+        }
+        .list_head li,.list_body li{
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 20px;
+            margin: 0 2.8px 4px;
+         }
+        .list_body li{
+            cursor: pointer;
+        }
+        .red{
+            color: #ff0000;
+        }
+        .list_body li:hover{
+            background-color: #ff8080;
+            color: #ffffff;
+        }
+        .main_r{
+            width: 120px;
+        }
+        .anim{
+            width: 100px;
+            height: 100px;
+            margin: 9px auto;
+            border-radius: 50px;
+            background-color: #06a7e1;
+            border: 1px solid #dddddd;
+            padding: 2px;
+        }
+        .clock{
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+            position: relative;
+            background-color: #ffffff;
+        }
+        img{
+            width: 100px;
+        }
+        .mark{
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .mark li{
+            position: absolute;
+            top: 0;
+            left: 49px;
+            width: 2px;
+            height: 5px;
+            background-color: #333333;
+            transform-origin: 1px 50px;
+        }
+        .hArrow,.mArrow,.sArrow{
+            position: absolute;
+        }
+        .hArrow{
+            left: 47px;
+            top: 22px;
+            width: 6px;
+            height: 28px;
+            background-color: #000000;
+            transform-origin: 3px 28px;
+        }
+        .mArrow{
+            left: 48px;
+            top: 16px;
+            width: 4px;
+            height: 34px;
+            background-color: #03a7e1;
+            transform-origin: 2px 34px;
+        }
+        .sArrow{
+            left: 49px;
+            top: 8px;
+            width: 2px;
+            height: 44px;
+            background-color: #ff0000;
+            transform-origin: 1px 42px;
+        }
+        .circle{
+            position: absolute;
+            top: 46px;
+            left: 46px;
+            width: 4px;
+            height: 4px;
+            border-radius: 5px;
+            border: 2px solid #ff0000;
+            background-color: #ffffff;
+        }
+        .time,.week{
+            text-align: center;
+            line-height: 26px;
+        }
+        .footer{
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            background-color: #c5c5c5;
+            margin-top: 10px;
+        }
+        .footer a{
+            color: #06a7e1;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <section class="canl">
+            <h3 class="tit">
+                <a href="javascript：void(0);"></a>
+            </h3>
+            <div class="main clearfix">
+                <div class="main_l fl">
+                    <div class="top">
+                        <a href="javascript:void(0);" class="prev fl"></a>
+                        <a href="javascript:void(0);" class="txt"></a>
+                        <a href="javascript:void(0);" class="next fr"></a>
+                    </div>
+                    <ul class="list_head clearfix">
+                        <li class="fl">日</li>
+                        <li class="fl">一</li>
+                        <li class="fl">二</li>
+                        <li class="fl">三</li>
+                        <li class="fl">四</li>
+                        <li class="fl">五</li>
+                        <li class="fl">六</li>
+                    </ul>
+                    <ul class="list_body clearfix">
+
+                    </ul>
+                </div>
+                <div class="main_r fr">
+                    <div class="anim">
+                        <div class="clock">
+                            <div class="hArrow"></div>
+                            <div class="mArrow"></div>
+                            <div class="sArrow"></div>
+                            <div class="circle"></div>
+                            <ul class="mark">
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="time">16:53:24</div>
+                    <div class="week">星期三</div>
+                </div>
+            </div>
+            <div class="footer">
+                <a href="javascript:void(0);">更改日期和时间设置</a>
+            </div>
+        </section>
+    </div>
+</body>
+<script>
+    window.onload = function(){
+
+        var tit = $('.tit a')[0];   //主标题元素
+        var time = $('.time')[0];  //存储事件的元素
+        var week = $('.week')[0];  //存储星期的元素
+        var list_body = $('.list_body')[0];  //存放日历的区域
+        var txt = $('.txt')[0];    //显示年和月的区域
+        var prev = $('.prev')[0];  //左切换按钮
+        var next = $('.next')[0];  //右切换按钮
+        var mark = $('.mark li');  //获取刻度盘
+        var hArrow = $('.hArrow')[0]; //获取时针
+        var mArrow = $('.mArrow')[0]; //获取分针
+        var sArrow = $('.sArrow')[0]; //获取秒针
+        var num = 0;  //记录切换的月份差
+
+
+        init();  //初始化
+        function init(){
+            showCal();
+            mouseEvt();
+            nowDate();
+            initMark();
+            timeRotate();
+            sInterval();
+            dayInterval();
+            timeInterval();
+        }
+        //切换月份的事件
+        function mouseEvt(){
+            prev.onclick = function(){
+                num--;
+                showCal();
+            };
+            next.onclick = function(){
+                num++;
+                showCal();
+            };
+        }
+        //初始化刻度
+        function initMark(){
+            for(var i = 0;i < mark.length;i++){
+                if(i % 5 == 0){
+                    mark[i].style.height = '8px';
+                }
+                mark[i].style.transform += ' rotate('+ (6 * i + 90) +'deg)';
+            }
+        }
+        //秒钟定时器
+        function sInterval(){
+            setInterval(function(){
+                nowDate();
+            },1000);
+        }
+        //每天定时器
+        function dayInterval(){
+            setInterval(function(){
+                showCal();
+            },86400000);
+        }
+        //获取当前时间
+        function nowDate(){
+            var dt = new Date();
+            var weekArr = ['星期日','星期-','星期二','星期三','星期四','星期五','星期六'];
+            var y = dt.getFullYear();
+            var m = dt.getMonth() + 1;
+            var d = dt.getDate();
+            var w = weekArr[dt.getDay()];
+            var h = preZero(dt.getHours(),2);
+            var i = preZero(dt.getMinutes(),2);
+            var s = preZero(dt.getSeconds(),2);
+            tit.innerHTML = y + '年' + m + '月' + d + '日';
+            time.innerHTML = h + ':' + i  + ':' + s;
+            week.innerHTML = w;
+        }
+        //补零位
+        function preZero(num,len){
+            var str = "" + num;
+            while(len - str.length){
+                str = 0 + str;
+            }
+            return str;
+        }
+        //显示日历
+        function showCal(){
+            list_body.innerHTML = '';
+
+            var dt = new Date();
+            dt.setMonth(dt.getMonth() + num);
+            var y = dt.getFullYear();
+            var m = dt.getMonth() + 1;
+            txt.innerHTML = y + "年" + m + "月";
+
+            dt.setDate(1);
+            var preDay = dt.getDay();
+            dt.setDate(0);
+            var last = dt.getDate();
+            for(var i = preDay;i > 0;i--){
+                list_body.innerHTML = '<li class="fl">' +(last--) + '</li>' + list_body.innerHTML;
+            }
+
+            dt = new Date();
+            dt.setMonth(dt.getMonth() + num + 1);
+            dt.setDate(0);
+            var dayNum = dt.getDate();
+            //console.log(dayNum);
+            for(var i = 0;i < dayNum;i++){
+                list_body.innerHTML += '<li class="fl red">' + (i + 1) + '</li>';
+            }
+            var len = $('.list_body li').length;
+            for(var i = 0;i < 42 - len;i++){
+                list_body.innerHTML += '<li class="fl">' + (i + 1) + '</li>';
+            }
+        }
+        function timeInterval(){
+            setInterval(function(){
+                timeRotate();
+            },1000);
+        }
+        //旋转时针//旋转分针//旋转秒针
+        function timeRotate(){
+            var dt = new Date();
+            var h = dt.getHours();
+            var m = dt.getMinutes();
+            var s =dt.getSeconds();
+            hArrow.style.transform = 'rotate('+ (h * 30) + 'deg)';
+            mArrow.style.transform = 'rotate('+ (m * 6) + 'deg)';
+            sArrow.style.transform = 'rotate('+ (s * 6) + 'deg)';
+        }
+
+        //元素获取方法的重写
+        /*
+        * element 相当于obj下边的一个元素
+        * 比如：
+        * ul ,li
+        * 我想直接获取li
+        * var lis = $('li');   //这里获取的是一个数组
+        * 如果我想获取某个ul下的li;
+        * var myUl= $('ul')[0];
+        * var lis = $('li',myUl);
+        * */
+        function $(element,obj){
+            if(obj == null){
+                return document.querySelectorAll(element);
+            }else{
+                return obj.querySelectorAll(element);
+            }
+        }
+    };
+</script>
+</html>

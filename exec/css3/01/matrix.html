@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>matrix</title>
+    <!--
+        matrix(a,b,c,d,e,f)
+            e: x轴平移
+            f: y轴平移
+
+            a: x轴放缩
+            d: y轴放缩
+
+            b: y轴斜切   b = Math.tan(yDeg/180*Math.PI)
+            c: x轴斜切   c = Math.tan(xDeg/180*Math.PI)
+
+            旋转         a = Math.cos(Deg/180*Math.PI)
+                         b = Math.sin(Deg/180*Math.PI)
+                         c = -Math.sin(Deg/180*Math.PI)
+                         d = Math.cos(Deg/180*Math.PI)
+    -->
+    <style>
+        body{
+            height: 300px;
+            border: 1px solid #000000;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transition: 1s;
+        }
+        .box:hover{
+            -webkit-transform: matrix(1,0,0,1,100,0);
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+<script>
+    window.onload = function(){
+        var box = document.querySelector('.box');
+        //box.style.WebkitTransform = 'matrix(1,0,0,1,100,100)';
+        //box.style.WebkitTransform = 'matrix(0.5,0,0,0.5,0,0)';
+
+        toRotate(box,30);
+        //兼容IE
+        function toRotate(obj,iDeg){
+            var a = Math.round(Math.cos(iDeg/180*Math.PI)*100)/100;
+            var b = Math.round(Math.sin(iDeg/180*Math.PI)*100)/100;
+            var c = -b;
+            var d = a;
+
+            obj.style.WebkitTransform = 'matrix(' + a + ',' + b + ',' + c + ',' + d + ',0,0)';
+            obj.style.MozTransform = 'matrix(' + a + ',' + b + ',' + c + ',' + d + ',0,0)';
+            obj.style.transform = 'matrix(' + a + ',' + b + ',' + c + ',' + d + ',0,0)';
+            obj.style.filter = 'progid:DXIamgeTransform.Microsoft.Matrix(M11 = ' + a + ',M12 = ' + c + ',M21 = ' + b + ',M22 = ' + d + ',SizingMethod="auto expand")';
+            obj.style.left = (obj.parentNode.offsetWidth - obj.offsetWidth)/2;
+            obj.style.top = (obj.parentNode.offsetHeight - obj.offsetHeight)/2;
+        }
+    };
+</script>
+</html>

@@ -1,0 +1,220 @@
+/*首页样式*/
+.icon{
+    width: 30px;
+    height: 17px;
+    background: url('../img/ico-message.png') no-repeat;
+    vertical-align: top;
+    margin-top: 7px;
+}
+body,html{
+    width: 100%;
+    height: 100%;
+}
+.wrapper{
+    width: 100%;
+    height: 100%;
+}
+.header{
+    height:60px;
+    padding: 10px 30px;
+    background-color: #eeeeee;
+}
+.logo{
+    margin-top: 16px;
+    width: 160px;
+    height: 28px;
+    background:url('../img/logo.png') no-repeat;
+    text-indent: -99999px;
+}
+.selection{
+    margin-left: 50px;
+}
+.exchange{
+    width: 20px;
+    height: 20px;
+    border: 1px solid #dddddd;
+    padding: 10px;
+    margin: 9px 20px;
+    border-radius: 40px;
+    background: url('../img/exchange.jpg') no-repeat;
+    background-position: 10px 10px;
+    background-color: #ffffff;
+}
+.select{
+    width: 160px;
+    height: 40px;
+    margin-top: 9px;
+    border: 1px solid #dddddd;
+    border-radius: 40px;
+    padding: 0 20px 0 40px;
+    position: relative;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+.sel_icon{
+    position: absolute;
+    top: 9px;
+    left: 9px;
+    width: 21px;
+    height: 21px;
+    background: url('../img/sel.jpg') no-repeat;
+}
+.sel{
+    width: 100%;
+    height: 100%;
+    color: #dddddd;
+}
+.list_change{
+    margin-left: 200px;
+    height: 40px;
+}
+.time_change{
+    margin-left: 40px;
+    height: 40px;
+}
+.list_change .active,.time_change .active{
+    background-color: #ffffff;
+}
+.list_change a,.time_change a{
+    background-color: #dddddd;
+}
+.lis{
+    padding: 10px 20px;
+    width: 20px;
+    height: 20px;
+    background: url('../img/lis.jpg') no-repeat;
+    margin-top: 10px;
+    border-radius: 40px 0 0 40px;
+    background-position: 20px 10px;
+}
+
+.lis_icon{
+    padding: 9px 19px;
+    width: 21px;
+    height: 21px;
+    background: url('../img/icon_lis.jpg') no-repeat;
+    margin-top: 10px;
+    border-radius: 0 40px 40px 0;
+    background-position: 19px 9px;
+}
+.lis_time{
+    padding: 10px 20px;
+    width: 20px;
+    height: 20px;
+    background: url('../img/time_lis.jpg') no-repeat;
+    margin-top: 10px;
+    border-radius: 40px 0 0 40px;
+    background-position: 20px 10px;
+}
+.lis_down{
+    padding: 10px 20px;
+    width: 20px;
+    height: 20px;
+    background: url('../img/ex.jpg') no-repeat;
+    margin-top: 10px;
+    border-radius: 0 40px 40px 0;
+    background-position: 20px 10px;
+}
+.addtion{
+    width: 140px;
+    height: 40px;
+    margin-top: 10px;
+    background-color: #06a7e1;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.add_icon{
+    display: inline-block;
+    vertical-align: top;
+    width: 22px;
+    height: 22px;
+    background: url('../img/add.jpg') no-repeat;
+    margin-top: 10px;
+}
+.add_txt{
+    display: inline-block;
+    font-size: 16px;
+    color: #ffffff;
+}
+.main{
+    background-color: #ffffff;
+}
+
+.menu{
+    width: 250px;
+    border-right: 1px solid #dddddd;
+}
+.user_center img{
+    display: block;
+    width:120px;
+    border-radius: 160px;
+    margin: 20px auto;
+}
+.op_user{
+    width: 130px;
+    height: 40px;
+    border-radius: 40px;
+    background-color: #06a7e1;
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+    line-height: 40px;
+    display: block;
+    margin: 0 auto;
+}
+.menu_info{
+    padding-left: 60px;
+}
+.menu_info a{
+    display: block;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+}
+.menu_info span{
+    display: inline-block;
+}
+.menu_tit{
+    font-size: 16px;
+    line-height: 40px;
+    text-indent: 60px;
+    color: #999999;
+}
+.menu_txt{
+    font-size: 14px;
+}
+.latest{
+    background-position: 0 -39px;
+}
+.alls{
+     background-position: 0 -7px;
+ }
+.doc{
+    background-position: 0 -104px;
+}
+.menu_pic{
+    background-position: 0 -70px;
+}
+.tv{
+    background-position: 0 -168px;
+}
+.note{
+    background-position: 0 -135px;
+}
+.music{
+    background-position: 0 -200px;
+}
+.menu_time{
+     background-position: 0 -263px;
+ }
+.menu_safe{
+    background-position: 0 -553px;
+}
+.menu_pass{
+    background-position: 0 -390px;
+}
+.menu_rubbish{
+    background-position: 0 -328px;
+}

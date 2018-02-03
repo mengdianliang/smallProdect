@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>总结</title>
+</head>
+<body>
+<pre>
+
+    <canvas id="c1" width="400" height="400">
+        <span>不支持canvas浏览器</span>
+        <!--
+            fillRect()、strokeRect()、fillStyle、strokeStyle、lineWidth
+        -->
+    </canvas>
+    var oc = document.getElementById('c1');
+    var context = oc.getContext('2d');
+
+
+
+    1.fillRect()、strokeRect()、fillStyle、strokeStyle、lineWidth
+    2. beginPath: 开始绘制路径
+       closePath: 结束绘制路径
+       moveTo: 移动到绘制的新目标点
+       lineTo: 绘制到新的目标点
+    3.
+        rect()    fill()   stroke()
+        clearRect()
+        save()  保存路径
+        restore() 恢复路径
+    4.
+        lineJoin：边界连接点  miter(默认)、round(圆角)、bevel(斜角)  (只对stroke起作用)
+        lineCap：端点样式 butt(默认)、round(圆角）、square（高度多出的为宽一半的值）（对线条 stroke起作用）
+    5.
+        画布的实际宽高实在标签里写的，在样式中写的话，会等比例缩放图形大小（实际原始大小为300 X 150）
+        //context.arc(200,200,100,0,Math.PI * 2/4,true);  //顺时针的话，结束与起始的差值就是绘制的度数，逆时针的话，取差值的负值
+        //context.arc(200,200,100,0,Math.PI * 2/4,false);
+        //context.arc(200,200,100,0,Math.PI * 3,true);
+        //context.arc(200,200,100,0,Math.PI * 3,false);
+        //context.arc(200,200,100,0,Math.PI * 2/4,false);
+    6.
+        arcTo(x1,y1.x2,y2,r);
+        quadraticCurveTo(dx,dy,x1,y1);   // 贝塞尔曲线，第一组控制点、第二组结束坐标
+        bezierCurveTo(dx1,dy1,dx2,dy2,x1,y1);  // 贝塞尔曲线，第一组控制点、第二组控制点、第三组结束坐标
+    7.  图形变换
+        context.translate(100,100);
+        context.rotate(45 * Math.PI/180);
+        context.scale(2,2);
+    8.  绘制图片：
+        var img = new Image();
+
+        img.src = '2.png';
+
+        img.onload = function(){
+            draw(this);
+        };
+        function draw(obj){
+            context.drawImage(obj,0,0);
+        }
+    9.  背景平铺
+        var obj = context.createRadialGradient(200,200,100,200,200,150);
+
+        obj.addColorStop(0,'red');
+        obj.addColorStop(0.5,'yellow');
+        obj.addColorStop(1,'blue');
+
+        context.fillStyle = obj;
+        context.fillRect(0,0,oc.width,oc.height);
+    10. 设置文字：
+        strokeText(文字，x,y);
+        fillText(文字,x,y);
+        font : 文字大小 、文字字体
+        textAlign:
+        textBaeline: 文字的上下的位置的方式  默认：alphabetic
+        measureText(str).width;只有宽度，没有高度
+        阴影：
+        shadowOffsetX/shadowOffsetY   x轴偏移/Y轴偏移
+        shadowBlur:    高斯模糊值
+        shadowColor:   阴影颜色
+    11. 图像数据
+        getImageData(x,y,w,h);  获取图像像素
+        putImageData(获取图像,x,y);  设置新图像数据
+        属性：
+        width: 一行的像素个数
+        height：一列的像素个数
+        data:一个数组，包含每个像素的rgba值
+
+        createImageData(w,h):
+            生成新的像素矩阵，初始值是全透明的黑色，即（0,0,0,0）
+        获取和设置指定坐标：
+            getXY/setXY
+        图片的像素操作：
+            必须是同源下
+    12.
+</pre>
+</body>
+</html>

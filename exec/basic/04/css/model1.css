@@ -1,0 +1,59 @@
+html,body{
+    width:100%;
+    height:100%;
+    margin:0;
+    padding:0;
+    font-size:12px;
+    font-family: "宋体";
+    background-color:#ffffff;
+}
+.box{
+    margin: 50px auto 0;
+    width: 300px;
+    border-top: 2px solid #206f96;
+}
+.head{
+    width:298px;
+    border-left: 1px solid #cfcfcf;
+    border-right: 1px solid #cfcfcf;
+    line-height:29px;
+    text-indent: 9px;
+    font-size:14px;
+    font-weight: bold;
+    color:#000000;
+    background: url("../img/head3.jpg") repeat-x;
+}
+.content{
+    border-left: 1px solid #cfcfcf;
+    border-right: 1px solid #cfcfcf;
+}
+.item{
+    border-bottom: 1px solid #ebe7f6;
+    word-spacing: 4px;
+}
+.item a{
+    text-decoration: none;
+    line-height: 25px;
+    font-size: 12px;
+    color: #333333;
+    white-space: nowrap;
+}
+.item a:hover{
+    color: #f40a30;
+}
+.item1{
+    padding:16px 0 16px 50px;
+    background:#ffffff url('../img/email1.jpg') 16px 21px no-repeat;
+}
+.item2{
+    padding:13px 0 13px 50px;
+    background:#f7f7f7 url('../img/mouse1.jpg') 16px 51px no-repeat;
+}
+.item3{
+    padding:13px 0 13px 50px;
+    background:#ffffff url('../img/smile1.jpg') 16px 26px no-repeat;
+}
+.item4{
+    padding:13px 0 13px 50px;
+    background:#f7f7f7 url('../img/star1.jpg') 12px 51px no-repeat;
+}

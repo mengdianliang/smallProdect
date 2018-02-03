@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>插件扩展</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">dfdfd</div>
+</body>
+<script>
+    /*$.extend({
+        leftTrim: function(str){
+            return str.replace(/^\s+/,'');
+        },
+        rightTrim: function(str){
+            return str.replace(/\s+$/,'');
+        }
+    });
+    var str = '  hello   ';
+    alert('('+ $.leftTrim(str) +')');*/
+    $(function(){
+        $.fn.extend({
+            drag: function(){
+
+                var disX = 0;
+                var disY = 0;
+                var This = this;
+                this.mousedown(function(evt){
+                    disX = evt.pageX - $(this).offset().left;
+                    disY = evt.pageY - $(this).offset().top;
+
+                    $(document).mousemove(function(evt){
+                        This.css('left',evt.pageX - disX);
+                        This.css('top',evt.pageY - disY);
+                    });
+                    $(document).mouseup(function(){
+                        $(this).off();
+                    });
+                    return false;
+                })
+            }
+        });
+        $('#div1').drag();
+    });
+</script>
+</html>

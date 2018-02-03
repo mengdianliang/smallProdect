@@ -1,0 +1,104 @@
+body{
+    margin: 0;
+    font-size: 12px;
+    color: #333333;
+    font-family: "Microsoft YaHei";
+    background-color: #efefef;
+}
+h3{
+    margin: 0;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+img{
+    vertical-align: top;
+    border: none;
+}
+a{
+    text-decoration: none;
+    color: #333333;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.clearfix{
+    *zoom: 1;
+}
+.clearfix:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+i{
+    font-style: normal;
+}
+.wrapper{
+    background-color: #ffffff;
+    width: 694px;
+    padding: 6px 20px;
+    margin: 20px auto 0;
+}
+.header{
+    height: 36px;
+    border-bottom: 1px solid #dddddd;
+}
+.tit{
+    line-height: 36px;
+    font-size: 16px;
+}
+.tit a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: #666666;
+}
+.link_tit{
+    line-height: 36px;
+    margin-top: 4px;
+    color: #825d5b;
+}
+.book_list{
+    margin-right: -36px;
+}
+.book_list li{
+    width: 110px;
+    margin-top: 24px;
+    margin-right: 36px;
+    height: 280px;
+}
+.book_list li a{
+    display: block;
+    width:100%;
+    height:100%;
+ }
+.book_tit{
+    display: block;
+    padding-top: 4px;
+    line-height: 22px;
+    font-size: 14px;
+    color: #825d5b;
+    font-weight: bold;
+}
+.book_author{
+    display: block;
+    padding-top: 4px;
+    line-height: 18px;
+}
+.book_price{
+    display: block;
+    padding-top: 4px;
+    line-height: 18px;
+    color: #825d5b;
+}
+.name_en{
+    font-size: 12px;
+    line-height: 22px;
+    margin-top: 2px;
+    color: #999999;
+}

@@ -1,0 +1,84 @@
+body{
+    background-color: #eeeeee;
+}
+.modal{
+    width: 300px;
+    height: 440px;
+    background-color: #cfcfcf;
+    border: 1px solid #dddddd;
+    box-shadow: 0 0 5px #ffffff;
+    margin: 50px auto;
+    border-radius: 5px;
+    padding: 20px;
+}
+.wrapper{
+    height: 400px;
+    overflow-y: auto;
+    background-color: #ffffff;
+
+}
+.list li{
+    line-height: 40px;
+}
+.showInfo{
+    padding: 5px 40px;
+    position: relative;
+}
+.showInfo a{
+    position: absolute;
+    top: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.showInfo a.lft{
+    left: 5px;
+}
+.showInfo a.rft{
+    right: 5px;
+}
+.showTxt{
+   line-height: 20px;
+   display: block;
+   padding: 0 5px;
+   border-radius: 3px;
+   word-wrap: break-word;
+   word-break: break-all;
+}
+.ltxt{
+    background-color: #eeeeee;
+}
+.rtxt{
+    color: #ffffff;
+    background-color: #05b600;
+}
+.info{
+    height: 30px;
+    padding-top: 10px;
+}
+.img_info{
+    width:30px;
+    height: 30px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+img{
+    width: 30px;
+}
+.msg{
+    width: 200px;
+    height: 28px;
+    margin-left: 8px;
+    border: 1px solid #eeeeee;
+    color: #666666;
+}
+.btn{
+    width: 58px;
+    height: 30px;
+    border: 1px solid #eeeeee;
+    margin-left: -1px;
+    cursor: pointer;
+    background-color: #05b600;
+    color:#ffffff;
+}

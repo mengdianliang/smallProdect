@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>查找与替换</title>
+    <style>
+        html{
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            margin: 0;
+            font-family: 'Microsoft Yahei';
+            font-size: 12px;
+            color: #000000;
+        }
+        h3{
+            margin: 0;
+            font-weight: normal;
+        }
+        img{
+            vertical-align: top;
+            border: none;
+        }
+        a{
+            text-decoration: none;
+            color: #000000;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        input{
+            padding: 0;
+            border: 2px solid #03a7e1;
+        }
+        textarea{
+            padding: 0;
+        }
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        .clearfix{
+            *zoom: 1;
+        }
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+       .wrapper{
+           width: 700px;
+           height: 600px;
+           margin: 5px auto 0;
+           background-color: #9ED8E4;
+           border: 1px solid #ffffff;
+           box-shadow: 0 0 5px #333333;
+           position: relative;
+       }
+        .main_top{
+            width: 460px;
+            height: 322px;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #ffffff;
+            margin: 30px auto;
+        }
+        .content{
+            width: 300px;
+            height: 300px;
+            border: 1px solid #9ED8E4;
+            background-color: #03a7e1;
+            border-radius: 5px;
+            color:#ffffff;
+            padding: 10px;
+            line-height: 26px;
+            word-break: break-all;
+            word-wrap: break-word;
+        }
+        .btns{
+            width: 100px;
+            height: 100px;
+            margin-left: 30px;
+            overflow: hidden;
+        }
+        .btns a{
+            display: block;
+            width: 96px;
+            height: 96px;
+            border-radius: 3px;
+            color: #03a7e1;
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 10px;
+            background-color: #ffffff;
+            border: 2px solid #03a7e1;
+        }
+        .add_icon{
+            display: block;
+            width: 96px;
+            height: 70px;
+            background: url('./img/add.jpg') no-repeat;
+            background-size: 36px auto;
+            background-position: 30px 20px;
+        }
+        .search_icon{
+            display: block;
+            width: 96px;
+            height: 70px;
+            background: url('./img/search.jpg') no-repeat;
+            background-size: 36px auto;
+            background-position: 30px 20px;
+        }
+        .replace_icon{
+            display: block;
+            width: 96px;
+            height: 70px;
+            background: url('./img/arrow.jpg') no-repeat;
+            background-size: 36px auto;
+            background-position: 30px 30px;
+        }
+        .main_btm{
+            width: 460px;
+            background-color: #ffffff;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+            opacity: 0;
+        }
+        .slide{
+            padding-bottom: 10px;
+        }
+        .slide a{
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            color: #ffffff;
+            text-align: center;
+            margin-right: 10px;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+        .to_search{
+            background-color: #16094e;
+        }
+        .to_repl{
+            background-color: #03a7e1;
+        }
+
+        .close{
+            font-size: 20px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #222222;
+        }
+        .oper input{
+            height: 40px;
+            border-radius: 3px;
+            text-indent: 5px;
+            color: #999999;
+            width: 165px;
+            font-size: 14px;
+        }
+        .oper .searchIn{
+            width: 340px;
+        }
+        .preIn{
+            margin-right: 6px;
+        }
+        .confirm{
+            width: 100px;
+            height: 44px;
+            background-color: #16094e;
+            line-height: 44px;
+            text-align: center;
+            font-size: 16px;
+            color: #ffffff;
+            border-radius: 3px;
+            margin-left: 10px;
+        }
+        .err{
+            height: 20px;
+            line-height: 20px;
+            color: #ff4040;
+        }
+        .none{
+            display: none;
+        }
+        .red{
+            background-color: #ff4040;
+        }
+        .warn{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0,0,0,.1);
+            display: none;
+        }
+        .warn_inner{
+            width: 180px;
+            height: 120px;
+            padding: 10px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -70px;
+            margin-left: -100px;
+        }
+        .warn_tit{
+            font-size: 20px;
+            text-align: center;
+            line-height: 40px;
+        }
+        .info{
+            color: #03a7e1;
+            line-height: 26px;
+            font-size: 16px;
+            text-align: center;
+        }
+        .btm a{
+            display: block;
+            width: 60px;
+            height: 30px;
+            background-color: #03a7e1;
+            border-radius: 5px;
+            line-height: 30px;
+            text-align: center;
+            color: #ffffff;
+            font-size: 16px;
+            margin: 10px auto 0;
+        }
+    </style>
+</head>
+<body>
+    <section class="wrapper">
+        <div class="main_top clearfix">
+            <div class="content fl">方法反反复复凤飞飞反复反复付付付付付付付付付付付付付付付付付付付付付javascript方法反反复复凤飞飞反复反复付付付付付付付付付付付付付付付付付付付付付付付付付付付付付付付付付付付付付付付付付付付付付付付付付付付，javascript</div>
+            <div class="btns fl">
+                <a href="javascript:void(0);" class="toggle_btn">
+                    <span class="add_icon"></span>
+                    <span class="spread">展开</span>
+                </a>
+                <a href="javascript:void(0);" class="search">
+                    <span class="search_icon"></span>
+                    <span class="seek">查找</span>
+                </a>
+                <a href="javascript:void(0);" class="replace_btn">
+                    <span class="replace_icon"></span>
+                    <span class="repl">替换</span>
+                </a>
+            </div>
+        </div>
+        <div class="main_btm">
+            <nav class="slide clearfix">
+                <a href="javascript:void(0);" class="to_search fl">查找</a>
+                <a href="javascript:void(0);" class="to_repl fl">替换</a>
+            </nav>
+            <div class="oper clearfix">
+                <input type="text" name="searchIn"  class="searchIn fl" value="请输入要查找的内容"/>
+                <input type="text" name="preIn"  class="preIn none" value="请输入被替换的内容"/>
+                <input type="text" name="nextIn"  class="nextIn none" value="请输入替换的内容"/>
+                <a href="javascript:void(0);" class="confirm fl">确认</a>
+            </div>
+            <div class="err"></div>
+            <a href="javascript:void(0);" class="close">×</a>
+        </div>
+        <div class="warn">
+            <div class="warn_inner">
+                <h3 class="warn_tit">提示信息</h3>
+                <div class="info"></div>
+                <div class="btm">
+                    <a href="javascript:void(0);">确定</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<script src="js/MTween.js"></script>
+<script>
+    window.onload = function(){
+
+        var inCon = $('.inCon')[0]; //获取文本域
+        var btns = $('.btns')[0];  //获取操作区域
+        var toggleBtn = $('.toggle_btn')[0];  //展开与收缩按钮
+        var sear = $('.search')[0];  //查找按钮
+        var repl = $('.replace_btn')[0];    //替换按钮
+        var searchBtn = $('.to_search')[0];  //查找按钮
+        var replaceBtn = $('.to_repl')[0];  //替换按钮
+        var searchIn = $('.searchIn')[0];  //查找操作的输入框
+        var preIn = $('.preIn')[0]; //替换操作被替换输入框
+        var nextIn = $('.nextIn')[0]; //替换操作替换输入框
+        var confirm = $('.confirm')[0]; //确认执行操作
+        var mainBtm = $('.main_btm')[0];  //底部操作区域
+        var close = $('.close')[0]; //底部操作区域关闭按钮
+        var err = $('.err')[0];  //错误信息显示区域
+        var content = $('.content')[0]; //获取内容
+        var warn = $('.warn')[0]; //信息提示框
+        var warnClose = $('.btm a')[0]; //关闭信息提示框
+        var info = $('.info')[0];  //提示信息内容
+        var flag = false;  //设置操作按钮是否展开
+        var isRepl = false; //设置是否执行替换操作
+        var val = content.innerHTML;
+        var cons = val;
+
+        init();  //初始化
+        function init(){
+            mouseEvt();
+        }
+        function mouseEvt(){
+            //展开收缩鼠标点击切换操作
+            toggleBtn.isclick = true;
+            toggleBtn.onclick = function(){
+                if(!this.isclick) return;
+                this.isclick = false;
+                var _this = this;
+                if(!flag){
+                    $('.add_icon',this)[0].style.backgroundImage = 'url(./img/del.jpg)';
+                    $('.spread',this)[0].innerHTML = '收缩';
+                    flag = true;
+                    searchIn.value = '请输入要查找的内容';
+                    preIn.value = '请输入被替换的内容';
+                    nextIn.value = '请输入替换的内容';
+                    err.innerHTML = '';
+                    mainBtm.style.opacity = 1;
+                    MTween(btns,220,500,'height','linear',function(){
+                        _this.isclick = true;
+                    });
+                }else{
+                    $('.add_icon',this)[0].style.backgroundImage = 'url(./img/add.jpg)';
+                    $('.spread',this)[0].innerHTML = '展开';
+                    flag = false;
+                    mainBtm.style.opacity = 0;
+                    MTween(btns,-220,500,'height','linear',function(){
+                        _this.isclick = true;
+                        content.innerHTML = cons;
+                    });
+                }
+            };
+
+            //查找按钮操作
+            searchBtn.onclick = sear.onclick = function(){
+                isRepl = false;
+                searchIn.className = 'searchIn fl';
+                preIn.className = 'preIn none';
+                nextIn.className = 'nextIn none';
+                searchIn.value = '请输入要查找的内容';
+                preIn.value = '请输入被替换的内容';
+                nextIn.value = '请输入替换的内容';
+                mainBtm.style.opacity = 1;
+                err.innerHTML = '';
+            };
+            //替换按钮操作
+            repl.onclick = replaceBtn.onclick = function(){
+                isRepl = true;
+                searchIn.className = 'searchIn none';
+                preIn.className = 'preIn fl';
+                nextIn.className = 'nextIn fl';
+                searchIn.value = '请输入要查找的内容';
+                preIn.value = '请输入被替换的内容';
+                nextIn.value = '请输入替换的内容';
+                mainBtm.style.opacity = 1;
+                err.innerHTML = '';
+            };
+            //关闭按钮操作
+            close.onclick = function(){
+                isRepl = false;
+                mainBtm.style.opacity = 0;
+                content.innerHTML = cons;
+            };
+            //查找操作和替换操作输入框
+            searchIn.onfocus = preIn.onfocus = nextIn.onfocus = function(){
+                this.value = '';
+            };
+            //失去焦点事件重写
+            reBlur(searchIn,'请输入要查找的内容');
+            reBlur(preIn,'请输入被替换的内容');
+            reBlur(nextIn,'请输入替换的内容');
+            function reBlur(obj,con){
+                obj.onblur = function(){
+                    if(this.value.trim() == ''){
+                        this.value = con;
+                    }
+                };
+            }
+            //确认操作按钮
+            confirm.onclick = function(){
+                if(!isRepl){
+                    var str = searchIn.value.trim();
+                    if(str == '' || str == '请输入要查找的内容'){
+                        err.innerHTML = '您还没有输入要查找的内容！';
+                    }else{
+                        if(cons.indexOf(str) == '-1'){
+                            info.innerHTML = '您查找的内容不存在！';
+                            warn.style.display = 'block';
+                        }else{
+                            content.innerHTML = cons.split(str).join('<span class="red">' + str + '</span>');
+                        }
+                    }
+                }else{
+                    var str1 = preIn.value.trim();
+                    var str2 = nextIn.value.trim();
+                    if(str1 == '' || str1 == '请输入被替换的内容'){
+                        err.innerHTML = '您还没有输入被替换的内容！';
+                    }else if(str2 == '' || str2 == '请输入替换的内容'){
+                        err.innerHTML = '您还没有输入替换的内容！';
+                    }else{
+                        if(cons.indexOf(str1) == '-1'){
+                            info.innerHTML = '您被替换的内容不存在！';
+                            warn.style.display = 'block';
+                        }else {
+                            content.innerHTML = cons.split(str1).join('<span class="red">' + str2 + '</span>');
+                            cons = cons.split(str1).join(str2);
+                        }
+                    }
+                }
+            };
+            warnClose.onclick = function(){
+                warn.style.display = '';
+            };
+        }
+
+        //元素获取方法的重写
+        function $(element,obj){
+            if(obj == null){
+                return document.querySelectorAll(element);
+            }else{
+                return obj.querySelectorAll(element);
+            }
+        }
+    };
+</script>
+</html>

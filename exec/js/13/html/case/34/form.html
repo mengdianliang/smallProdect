@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>表单</title>
+    <style>
+        body{
+            margin: 0;
+            font-size: 12px;
+            font-family: 'microsoft yahei';
+            color: #ffffff;
+        }
+        h3,p{
+            margin: 0;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        input{
+            padding: 0;
+            outline: none;
+            border: 1px solid #31DCFF;
+        }
+        a{
+            text-decoration: none;
+            color: #ffffff;
+        }
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        .clearfix{
+            *zoom: 1;
+        }
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .wrap{
+            width: 800px;
+            padding: 50px;
+            background-image: -webkit-linear-gradient(top,#48B5EC 0%,#5AD8F7 100%);
+            box-shadow: 0 0 5px #333333;
+            margin: 50px auto;
+            position: relative;
+        }
+        .tit{
+            font-weight: normal;
+            font-size: 40px;
+            line-height: 60px;
+            text-align: center;
+        }
+        .form_info{
+            margin: 0 auto;
+            width: 500px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            padding: 20px;
+        }
+        .form_list li{
+            width: 200px;
+            margin-left: 17px;
+            margin-top: 20px;
+        }
+        .info_name{
+            width: 40px;
+            color: #333333;
+            font-size: 16px;
+            line-height: 34px;
+            text-align: center;
+        }
+        input{
+            overflow: hidden;
+            font-size: 16px;
+            background-color: #ffffff;
+            white-space: nowrap;
+        }
+        input,.menu_list {
+            width: 138px;
+            height: 32px;
+            margin-left: 10px;
+            border: 1px solid #5AD8F7;
+            color: #666666;
+            padding: 0 5px;
+            border-radius: 5px;
+        }
+        .menu_list{
+            position: relative;
+        }
+        .menu_val{
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            margin: 0;
+            border:none;
+            text-align: left;
+        }
+        .trangle{
+            position: absolute;
+            top: 15px;
+            right: 10px;
+            width: 0;
+            height: 0;
+            border: 5px solid transparent;
+            border-top: 5px solid #05a790;
+        }
+        .sex_list{
+            background-color: rgba(0,0,0,0.4);
+            border-radius: 5px;
+            width: 100%;
+            height: 0;
+            text-align: center;
+            line-height: 34px;
+            position: absolute;
+            top: 35px;
+            left: 0;
+            overflow: hidden;
+        }
+        .sex_list a{
+            display: inline-block;
+            vertical-align: top;
+            font-size: 16px;
+            padding: 0 10px;
+            border: 1px solid #ffffff;
+            border-radius: 3px;
+        }
+        .add{
+            display: block;
+            width: 200px;
+            height: 34px;
+            border-radius: 5px;
+            line-height: 34px;
+            text-align: center;
+            background-color: #5AD8F7;
+            font-size: 16px;
+        }
+        .modal{
+           position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+        .info{
+            width: 280px;
+            height: 180px;
+            padding: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -110px;
+            margin-left: -160px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #000000;
+        }
+        .warn{
+            line-height: 40px;
+            font-size: 26px;
+            text-align: center;
+            color: #000000;
+            font-weight: normal;
+        }
+        .warn_info{
+            height: 100px;
+            line-height: 100px;
+            text-indent: 20px;
+            font-size: 16px;
+            color: #333333;
+        }
+        .confirm{
+            display: block;
+            width: 100px;
+            height: 34px;
+            border-radius: 3px;
+            background-color: #5AD8F7;
+            font-size: 16px;
+            line-height: 34px;
+            text-align: center;
+            margin-left: 160px;
+        }
+
+        .data{
+            width: 540px;
+            margin: 20px auto 0;
+        }
+        .t_head{
+            width: 500px;
+            height: 40px;
+            padding: 0 20px;
+            background-color: #03a7e1;
+            line-height: 40px;
+            border-radius: 5px;
+        }
+        .t_head li,.t_body li span{
+            width: 70px;
+            text-align: center;
+            white-space: nowrap;
+        }
+        .t_head li:last-child,.t_body li span:last-child{
+            width: 150px;
+        }
+
+        .t_body li{
+            width: 500px;
+            height: 40px;
+            padding: 0 20px;
+            background-color: #ffffff;
+            line-height: 40px;
+            border-radius: 5px;
+            margin-top: 2px;
+            color: #5AD8F7;
+            position: relative;
+        }
+        .checkAll,.check{
+            display: inline-block;
+            vertical-align: top;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #05a790;
+            border-radius: 3px;
+            margin-top: 10px;
+        }
+        .checkAll{
+            border: 1px solid #ffffff;
+            margin-right: 10px;
+        }
+        .oper a{
+            color: #05a790;
+            font-size: 20px;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h3 class="tit">表单提交</h3>
+        <div class="form_info">
+            <form action="" method="post">
+                <ul class="form_list clearfix">
+                    <li class="fl">
+                        <label for="username" class="clearfix">
+                            <span class="info_name fl">姓名</span>
+                            <input type="text" name="username" id="username" class="fl"/>
+                        </label>
+                    </li>
+                    <li class="fl">
+                        <label for="age" class="clearfix">
+                            <span class="info_name fl">年龄</span>
+                            <input type="text" name="age" id="age" class="fl"/>
+                        </label>
+                    </li>
+                    <li class="fl">
+                        <label for="sex" class="clearfix">
+                            <span class="info_name fl">性别</span>
+                            <span class="menu_list fl" id="sex">
+                                <input type="button" class="menu_val"/>
+                                <span class="trangle"></span>
+                                <span class="sex_list clearfix">
+                                    <a href="javascript:void(0)" class="chkInfo" val="0">男</a>
+                                    <a href="javascript:void(0)" class="chkInfo" val="1">女</a>
+                                    <a href="javascript:void(0)" class="chkInfo" val="2">保密</a>
+                                </span>
+                            </span>
+                        </label>
+                    </li>
+                    <li class="fl">
+                        <a href="javascript:void(0);" class="add">添加</a>
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <div class="data">
+            <ul class="t_head clearfix">
+                <li class="fl">
+                    <a href="javascript:void(0);" class="checkAll_info">
+                        <span class="checkAll"></span>
+                        <span class="txt">全选</span>
+                    </a>
+                </li>
+                <li class="fl">ID</li>
+                <li class="fl">姓名</li>
+                <li class="fl">年龄</li>
+                <li class="fl">性别</li>
+                <li class="fl">操作</li>
+            </ul>
+            <ul class="t_body">
+                <!--<li class="clearfix">
+                    <span class="chk fl">
+                        <a href="javascript:void(0);" class="check"></a>
+                    </span>
+                    <span class="index fl">1</span>
+                    <span class="name fl">LEO</span>
+                    <span class="age fl">32</span>
+                    <span class="sex fl">男</span>
+                    <span class="oper fl">
+                        <a href="javascript:void(0);" class="upBtn">↑</a>
+                        <a href="javascript:void(0);" class="downBtn">↓</a>
+                        <a href="javascript:void(0);" class="del">☒</a>
+                    </span>
+                </li>-->
+            </ul>
+        </div>
+        <div class="modal">
+            <div class="info">
+                <h3 class="warn">提示信息</h3>
+                <p class="warn_info">非官方个非官方</p>
+                <a href="javascript:void(0);" class="confirm">确定</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="js/MTween.js"></script>
+<script>
+    window.onload = function(){
+
+        var labels = $('label');  //获取label元素
+        var menuVal = $('.menu_val')[0];     //下拉列表
+        var sexList = $('.sex_list a');   //性别选项
+        var add = $('.add')[0];      //按钮添加
+        var modal = $('.modal')[0];   //提示信息层
+        var warn = $('.warn_info')[0];   //提示信息
+        var confirm = $('.confirm')[0]; //确定关闭按钮
+
+        var checkAll = $('.checkAll_info')[0]; //获取全选框
+        var check = $('.check');  //获取列表选中框
+        var ID = 0;
+
+        var num = 0;  //选中框选中的数量
+
+        init();
+
+        //代码初始化
+        function init(){
+            mouseEvt();
+            checkAllEvt();  //全选按钮点击事件
+        }
+
+        function mouseEvt(){
+            //下拉列表点击事件
+            menuVal.onclick = function(){
+                this.nextElementSibling.nextElementSibling.style.height = '34px';
+            };
+
+            for(var i = 0;i < sexList.length;i++){
+                sexList[i].onclick = function(){
+                    this.parentNode.style.height = '0px';
+                    menuVal.value = this.innerHTML;
+                };
+            }
+
+
+            //添加按钮点击事件
+            add.onclick = function(){
+                var arr = [];
+                if(invalid(labels[0],'姓名不能为空！') && invalid(labels[1],'年龄不能为空！') && invalid(labels[2],'性别不能为空！')){
+                    arr.push(ID);
+                    for(var i = 0; i < labels.length;i++){
+                        arr.push($('input',labels[i])[0].value.trim());
+                    }
+                    addInfo(arr);
+                    ID++;
+
+                }else{
+                    arr = [];
+                }
+            };
+            //确定按钮点击事件
+            confirm.onclick = function(){
+                modal.style.display = '';
+                clearVal();
+            };
+            //清空输出入框内容
+            function clearVal(){
+                for(var i = 0; i < labels.length;i++){
+                    $('input',labels[i])[0].value = '';
+                }
+            }
+
+            //添加信息
+            function addInfo(arr){
+                var a1 = document.createElement('a');
+                a1.href="javascript:void(0);";
+                a1.className = 'check';
+                var span1 = document.createElement('span');
+                span1.className = 'chk fl';
+                span1.appendChild(a1);
+
+                var span2 = document.createElement('span');
+                span2.className = 'index fl';
+                span2.innerHTML = arr[0];
+
+
+                var span3 = document.createElement('span');
+                span3.className = 'name fl';
+                span3.innerHTML = arr[1];
+
+                var span4 = document.createElement('span');
+                span4.className = 'age fl';
+                span4.innerHTML = arr[2];
+
+                var span5 = document.createElement('span');
+                span5.className = 'sex fl';
+                span5.innerHTML = arr[3];
+
+                var span6 = document.createElement('span');
+                span6.className = 'oper fl';
+
+                var a2 = document.createElement('a');
+                a2.href="javascript:void(0);";
+                a2.className = 'upBtn';
+                a2.innerHTML = '↑';
+                var a3 = document.createElement('a');
+                a3.href="javascript:void(0);";
+                a3.className = 'downBtn';
+                a3.innerHTML = '↓';
+                var a4 = document.createElement('a');
+                a4.href="javascript:void(0);";
+                a4.className = 'del';
+                a4.innerHTML = '☒';
+                span6.appendChild(a2);
+                span6.appendChild(a3);
+                span6.appendChild(a4);
+
+                var li = document.createElement('li');
+                li.className = 'clearfix';
+                li.appendChild(span1);
+                li.appendChild(span2);
+                li.appendChild(span3);
+                li.appendChild(span4);
+                li.appendChild(span5);
+                li.appendChild(span6);
+
+                $('.t_body')[0].appendChild(li);
+                clearVal();  //清空输入框内容
+
+                //全选框取消选中状态
+                checkAll.isClick = false;
+                checkAll.firstElementChild.style.backgroundColor = '';
+
+                upBtn(a2);    //上移列表
+                downBtn(a3);  //下移列表
+                delList(a4);  //删除列表
+                checkList(a1);//列表选中事件
+            }
+        }
+
+        //验证函数
+        function invalid(obj,info){
+            if($('input',obj)[0].value.trim() == ''){
+                warn.innerHTML = info;
+                modal.style.display = 'block';
+                return false;
+            }
+            return true;
+        }
+
+        //删除列表
+        function delList(obj){
+            obj.onclick = function (){
+                if(this.parentNode.parentNode.parentNode){
+                    if($('.check',this.parentNode.parentNode)[0].isClick){
+                        this.parentNode.parentNode.remove();
+                        num--;
+                    }
+                    check = $('.check');  //获取列表选中框
+                    if(!check.length){
+                        checkAll.isClick = false;
+                        checkAll.firstElementChild.style.backgroundColor = '';
+                        num = 0;
+                    }
+                }
+            };
+        }
+        //上移列表
+        function upBtn(obj){
+            obj.onclick = function(){
+                var pare = this.parentNode.parentNode;
+                if(pare.previousElementSibling){ //如果有前一个节点，则只移动自己和前一个节点
+                    var nowTxt = $('.index',pare)[0].innerHTML.trim();
+                    var prevTxt = $('.index',pare.previousElementSibling)[0].innerHTML.trim();
+                    MTween(pare,'-42',500,'top','linear');
+                    MTween(pare.previousElementSibling,'42',500,'top','linear',function(){
+                       pare.style.top = '';
+                       pare.previousElementSibling.style.top = '';
+                        $('.index',pare)[0].innerHTML = prevTxt;
+                        $('.index',pare.previousElementSibling)[0].innerHTML = nowTxt;
+                       pare.parentNode.insertBefore(pare,pare.previousElementSibling);
+
+                    });
+
+                }else{  //如果没有前一个节点,则所有节点移动
+                    var arr = [];
+                    for(var m = 0;m < pare.parentNode.children.length;m++){
+                        arr.push($('.index',pare.parentNode.children[m])[0].innerHTML.trim());
+                    }
+                    console.log(arr);
+                    MTween(pare,42 * (pare.parentNode.children.length -1),500,'top','linear');
+                    for(var i = 1;i < pare.parentNode.children.length;i++) {
+                        //这里是支持第一个跟最后一个对换的，之最又一次动画执行完后，执行回调函数，然后利用原先数组存储的ID进行互换
+                        (function (index) {
+                            MTween(pare.parentNode.children[i], '-42', 500, 'top', 'linear', function() {
+                                if (index == pare.parentNode.children.length - 1) {
+                                    for (var j = 0; j < pare.parentNode.children.length; j++) {
+                                        pare.parentNode.children[j].style.top = '';
+                                        //console.log(j);
+                                        $('.index', pare.parentNode.children[j])[0].innerHTML = arr[j - 1];
+                                    }
+                                    $('.index', pare)[0].innerHTML = arr[arr.length - 1];
+                                    pare.parentNode.insertBefore(pare, pare.parentNode.children[pare.parentNode.children.length]);
+                                }
+                            });
+                        })(i);
+
+                    }
+                }
+
+            };
+        }
+        //下移列表
+        function downBtn(obj){
+            obj.onclick = function(){
+                var pare = this.parentNode.parentNode;
+                if(pare.nextElementSibling){ //如果有后一个节点，则只移动自己和后一个节点
+                    var nowTxt = $('.index',pare)[0].innerHTML.trim();
+                    var nextTxt = $('.index',pare.nextElementSibling)[0].innerHTML.trim();
+                    MTween(pare,'42',500,'top','linear');
+                    MTween(pare.nextElementSibling,'-42',500,'top','linear',function(){
+                        pare.style.top = '';
+                        pare.nextElementSibling.style.top = '';
+                        $('.index',pare)[0].innerHTML = nextTxt;
+                        $('.index',pare.nextElementSibling)[0].innerHTML = nowTxt;
+                        pare.parentNode.insertBefore(pare,pare.nextElementSibling.nextElementSibling);
+                    });
+                }else{   //如果没有后一个节点，移动所有节点
+                    var arr = [];
+                    for(var m = 0;m < pare.parentNode.children.length;m++){
+                        arr.push($('.index',pare.parentNode.children[m])[0].innerHTML.trim());
+                    }
+                    console.log(arr);
+                    MTween(pare,-42 * (pare.parentNode.children.length -1),500,'top','linear');
+                    for(var i = 0;i < pare.parentNode.children.length - 1;i++){
+                        //这里是支持第一个跟最后一个对换的，之最又一次动画执行完后，执行回调函数，然后利用原先数组存储的ID进行互换
+                        (function(index){
+                            MTween(pare.parentNode.children[i], '42', 500, 'top', 'linear', function () {
+                                if(index == pare.parentNode.children.length - 2){
+                                    for (var j = 0; j < pare.parentNode.children.length; j++){
+                                        pare.parentNode.children[j].style.top = '';
+                                        $('.index',pare.parentNode.children[j])[0].innerHTML = arr[j + 1];
+                                        console.log(j);
+                                    }
+
+                                    $('.index',pare.parentNode.children[pare.parentNode.children.length - 1])[0].innerHTML = arr[0];
+                                    pare.parentNode.insertBefore(pare,pare.parentNode.children[0]);
+                                }
+                            });
+                        })(i);
+                    }
+                }
+
+            };
+        }
+        //列表选中框点击事件
+        function checkList(obj){
+            check = $('.check');  //获取列表选中框
+            obj.isClick = false;
+            obj.onclick = function(){
+                if(this.isClick){
+                    num--;
+                    this.isClick = false;
+                    this.style.backgroundColor = '';
+                } else{
+                    this.isClick = true;
+                    this.style.backgroundColor = '#ff8080';
+                    num++;
+                }
+                if(num == check.length){
+                    checkAll.isClick = true;
+                    checkAll.firstElementChild.style.backgroundColor = '#ff8080';
+                }else{
+                    checkAll.isClick = false;
+                    checkAll.firstElementChild.style.backgroundColor = '';
+                }
+            };
+        }
+        //全选框点击事件
+        function checkAllEvt() {
+            checkAll.isClick = false;
+            checkAll.onclick = function () {
+                if (!check.length) {
+                    return;
+                }
+                if (this.isClick) {
+                    this.isClick = false;
+                    this.firstElementChild.style.backgroundColor = '';
+                    for (var i = 0; i < check.length; i++) {
+                        check[i].isClick = false;
+                        check[i].style.backgroundColor = '';
+                    }
+                    num = 0;
+                } else {
+                    this.isClick = true;
+                    this.firstElementChild.style.backgroundColor = '#ff8080';
+                    for (var i = 0; i < check.length; i++) {
+                        check[i].isClick = true;
+                        check[i].style.backgroundColor = '#ff8080';
+                    }
+                    num = check.length;
+                }
+            };
+        }
+        //获取元素方法的重写
+        function $(element,obj){
+            if(obj == null){
+                return document.querySelectorAll(element);
+            }else{
+                return obj.querySelectorAll(element);
+            }
+        }
+    };
+</script>
+</html>

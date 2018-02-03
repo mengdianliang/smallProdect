@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>折扇</title>
+    <style>
+        body{
+            margin: 0;
+            background-color: #666666;
+        }
+        #box{
+            width: 1200px;
+            height: 700px;
+            background: url('./img/bg.png') no-repeat;
+        }
+        #box div{
+            width: 400px;
+            height: 100px;
+            border-radius: 9px;
+            position: absolute;
+            left: 555px;
+            top: 440px;
+            background: url('./img/logo.png') no-repeat 285px 60px;
+            transform-origin: 35px 50px;
+            transition: 1s;
+        }
+        #box div:nth-of-type(1){
+            background-color: #417191;
+        }
+        #box div:nth-of-type(2){
+            background-color: #ce8298;
+        }
+        #box div:nth-of-type(3){
+            background-color: #f78992;
+        }
+        #box div:nth-of-type(4){
+            background-color: #fbc0a5;
+        }
+        #box div:nth-of-type(5){
+            background-color: #f8988f;
+        }
+        #box div:nth-of-type(6){
+            background-color: #f16273;
+        }
+        #box div:nth-of-type(7){
+             background-color: #9c9fcd;
+         }
+        #box div:nth-of-type(8){
+            background-color: #bae2d3;
+        }
+        #box div:nth-of-type(9){
+            background-color: #43bab8;
+        }
+        #box div:nth-of-type(10){
+            background-color: #678d95;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+<script>
+    window.onload = function(){
+        var box = document.getElementById('box');
+        var divs = box.getElementsByTagName('div');
+        var isOn = false;
+        divs[divs.length - 1].onclick = function(){
+            if(isOn){
+                shink();
+                isOn = true;
+            }else{
+                go();
+                isOn = false;
+            }
+
+        };
+        for(var i = 0;i < divs.length - 1;i++){
+            divs[i].index = i;
+            divs[i].onclick = function(){
+                for(var j = 0;j < divs.length;j++){
+                    //divs[j].style.transform = 'rotate(' + (270 + (this.index - j) * 17) +  'deg)';
+                    if(j > this.index){
+                        divs[j].style.transform = 'rotate(' + (270 - j * 14 + this.index * 17 - 23) +  'deg)';
+                    }else if(j < this.index){
+                        divs[j].style.transform = 'rotate(' + (270 - j * 14 + this.index * 17 - 10) +  'deg)';
+                    }
+                }
+                this.style.transform = 'rotate(270deg)';
+            };
+        }
+        setTimeout(function(){
+            go();
+        },300);
+        go();
+        function go(){
+            for(var i = 0;i < divs.length;i++){
+                divs[i].style.transform = 'rotate(' + (350 - i * 17) +  'deg)';
+            }
+        }
+
+        function shink(){
+            for(var i = 0;i < divs.length;i++){
+                divs[i].style.transform = 'rotate(0deg)';
+            }
+        }
+    };
+</script>
+</html>

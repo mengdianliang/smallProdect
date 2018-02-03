@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>传播</title>
+    <style>
+        .box{
+            width: 600px;
+            height: 600px;
+            margin: 10px auto;
+            clear: both;
+        }
+        .item{
+            float: left;
+            width: 50px;
+            height: 50px;
+            background-color: #ff0000;
+            margin: 5px;
+            text-align: center;
+            line-height: 50px;
+            color: #ffffff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+<script>
+    window.onload = function(){
+        var box = document.querySelector('.box');
+        var arrBox = [];
+        var arr = [];
+
+        init();
+
+        //代码初始化
+        function init(){
+            initVal();
+            mouseEvt();
+        }
+        //内容初始化
+        function initVal(){
+            for(var i = 0;i < 100;i++){
+                box.innerHTML += '<div class="item">' + i + '</div>';
+            }
+            var items = box.querySelectorAll('.item');
+            for(var i = 0;i < 10;i++){
+                for(var j = 0;j < 10;j++){
+                    arr.push(items[j + i * 10]);
+                }
+                arrBox.push(arr);
+                arr = [];
+            }
+        }
+        //点击事件
+        function mouseEvt(){
+            var items = box.querySelectorAll('.item');
+
+            for(var i = 0; i < items.length;i++){
+                items[i].index = i;
+                items[i].onclick = function(){
+                    var y = parseInt(this.index / 10);
+                    var x = this.index % 10;
+                    doSelf(arrBox,y,x);
+                };
+            }
+        }
+
+        //回调函数
+       /*function doSelf(obj,y,x){
+           var color = getRandomColor();
+           obj[y][x].style.backgroundColor = color;
+           obj[y][x].ischange = true;
+           setTimeout(function(){
+               if(y > 0 && !arrBox[y - 1][x].ischange){
+                   doSelf(obj,y - 1,x);
+               }
+               if(y < 9 && !arrBox[y + 1][x].ischange){
+                   doSelf(obj,y + 1,x);
+               }
+               if(x > 0 && !arrBox[y][x - 1].ischange){
+                   doSelf(obj,y,x - 1);
+               }
+               if(x < 9 && !arrBox[y][x + 1].ischange){
+                   doSelf(obj,y,x + 1);
+               }
+           },500);
+
+       }*/
+       var num = 1;
+        var add = 0;
+        var arrDir = ['top','right','bottom','left'];
+        //回调函数
+        function doSelf(obj,y,x){
+            var color = getRandomColor();
+            obj[y][x].style.backgroundColor = color;
+            obj[y][x].ischange = true;
+
+            foot(num,obj,y - 1,x,arrDir[add]);
+        }
+
+        function foot(num,obj,y,x,dir){
+            var color = getRandomColor();
+            for(var i = 0;i < num;i++){
+                setTimeout(function(){
+                    obj[y][x].style.backgroundColor = color;
+                    obj[y][x].ischange = true;
+                },300*i);
+            }
+
+
+
+            if(dir == 'top'){
+                setTimeout(function(){
+                    obj[y][x].style.backgroundColor = color;
+                    obj[y][x].ischange = true;
+                    y--;
+                },300);
+
+            }
+            if(dir == 'right'){
+                setTimeout(function(){
+                    obj[y][x].style.backgroundColor = color;
+                    obj[y][x].ischange = true;
+                    x++;
+                },300);
+            }
+            if(dir == 'bottom'){
+                setTimeout(function(){
+                    obj[y][x].style.backgroundColor = color;
+                    obj[y][x].ischange = true;
+                    y++;
+                },300);
+            }
+            if(dir == 'left'){
+                setTimeout(function(){
+                    obj[y][x].style.backgroundColor = color;
+                    obj[y][x].ischange = true;
+                    x--;
+                },300);
+            }
+        }
+
+        // 随机获取颜色值
+        function getRandomColor(){
+            return '#' + (function(h) {
+                return new Array(7 - h.length).join("0") + h
+            })((Math.random() * 0x1000000 << 0).toString(16))
+        }
+
+    };
+</script>
+</html>

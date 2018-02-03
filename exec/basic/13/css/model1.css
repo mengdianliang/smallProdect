@@ -1,0 +1,111 @@
+body{
+    margin: 0;
+    font-size: 12px;
+    font-family: '宋体';
+    color: #444444;
+    background-color: #fafafa;
+}
+h3{
+    margin: 0;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: #444444;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.clearfix{
+    *zoom: 1;
+}
+.clearfix:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.wrapper{
+    width:988px;
+    border: 2px solid #ffffff;
+    margin: 20px auto 0;
+}
+.kinds{
+    background-color: #f3f3f3;
+    padding: 4px 10px 12px;
+}
+.kinds li{
+    padding: 7px 0;
+    border-bottom: 1px solid #e2e2e2;
+}
+.kinds li:last-child{
+    border-bottom: none;
+}
+.kinds li .tit{
+    color: #333333;
+    line-height: 18px;
+}
+.kind_sel{
+    margin-left: 16px;
+}
+.kind_sel a{
+    float: left;
+    padding: 3px 6px;
+    margin-left: 14px;
+}
+.kind_sel a:hover,.kind_sel a.active{
+    background-color: #0066cc;
+    color: #ffffff;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px #dddddd;
+}
+.mr_link{
+    padding: 2px 0;
+}
+.more{
+    color: #ff9900;
+    margin-right: 6px;
+    line-height: 14px;
+}
+.bder{
+    width: 14px;
+    height:14px;
+    background-color: #ff9900;
+    border-radius: 3px;
+}
+.trgl{
+    display: block;
+    width: 0;
+    height: 0;
+    margin-top: 5px;
+    margin-left: 2px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #ffffff transparent transparent transparent;
+}
+.kind_topic{
+    margin-left: 20px;
+}
+.kind_topic a{
+    float: left;
+    margin-left: 10px;
+}
+.bg_l{
+    float: left;
+    line-height: 16px;
+    padding: 3px 12px;
+    background: url('../img/arrow_l.jpg') repeat-x;
+    color: #ffffff;
+}
+.bg_r{
+    float: left;
+    width: 13px;
+    height: 22px;
+    background: url('../img/arrow_r.jpg') no-repeat;
+}

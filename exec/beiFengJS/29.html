@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>图片轮播</title>
+    <style type="text/css">
+        .scrollContent {
+            width:470px;
+            height:750px;
+            position:absolute;
+            top:0;
+            left:0;
+        }
+        .scrollFrame {
+            width:470px;
+            height:150px;
+            overflow:hidden;
+            position:relative;
+        }
+        .scrollFrame .buttons {
+            height:30px;
+            position:absolute;
+            right:10px;
+            top:100px;
+        }
+        .scrollFrame .buttons li {
+            display:block;
+            width:20px;
+            height:20px;
+            border:1px solid orange;
+            float:left;
+            margin-right:4px;
+            text-align:center;
+            line-height:20px;
+            cursor:pointer;
+            color:orange;
+            background:white;
+            font-weight:bold;
+        }
+        .scrollFrame .buttons li.hover {
+            width:24px;
+            height:24px;
+            line-height:24px;
+            background:orange;
+            color:white;
+            margin-top:-2px;
+        }
+    </style>
+    <script src="js/base.js"></script>
+    <script>
+
+        /*window.onload = function(){
+            var ul = getByClass('buttons')[0];
+            var btns = ul.getElementsByTagName('li');
+            var scrollContent = getByClass('scrollContent')[0];
+            var cur = btns[0];
+            var t = "";
+            for(var i = 0;i < btns.length;i++){
+                (function(a){
+                    btns[a].onmouseover = function() {
+                        clearInterval(t);
+                        //scrollContent.style.top = (-a * 150) + "px";
+                        var top = parseInt(scrollContent.style.top) || 0;
+                        //alert(top);
+                        animate(scrollContent,{top:top},{top:(-a * 150)-top},500,easeIn);
+                        for(var j = 0;j < btns.length;j++){
+                            btns[j].className = "";
+                        }
+                        this.className = "hover";
+                        cur = this;
+                    };
+                    btns[a].index = a;
+                    btns[a].onmouseout = function(){
+                        setInterval(fn,3000);
+                    }
+                })(i);
+            }
+            t = setInterval(fn,3000);
+            function fn(){
+                var nextIndex = cur.index + 1;
+                if(nextIndex == btns.length){
+                    nextIndex = 0;
+                }
+                btns[nextIndex].onmouseover();
+            }
+        };*/
+
+        window.onload = function(){
+            var btns = getByClass('buttons')[0].getElementsByTagName('li');
+            var scrollContent = getByClass('scrollContent')[0];
+            function Player(buttons,scrollContent,imgHeight,hoverClass,interval){
+                hoverClass = hoverClass || 'hover';
+                interval = interval || 3000;
+                this.buttons = buttons;
+                this.scrollContent = scrollContent;
+                this.hoverClass = hoverClass;
+                this.interval = interval;
+                this.imgHeight = imgHeight;
+                var _this = this;
+                for(var i = 0;i < this.buttons.length;i++){
+                    this.buttons[i].onmouseover = function(){
+                        _this.stop();
+                        _this.invoke(this.index);
+                    };
+                    this.buttons[i].onmouseout = function(){
+                        _this.start();
+                    };
+                    this.buttons[i].index = i;
+                }
+                this.invoke(0);
+            }
+            Player.prototype.start = function(){
+                var _this = this;
+                this.stop();
+                this.timer = setInterval(function(){
+                    _this.next();
+                },this.interval)
+            };
+            Player.prototype.stop = function(){
+                clearInterval(this.timer);
+            };
+            Player.prototype.invoke = function(n){
+                this.curItem = this.buttons[n];
+                this.curItem.index = n;
+                //this.scrollContent.style.top = -n * 150 + "px";
+                var top = parseInt(this.scrollContent.style.top) || 0;
+                this.animateInterval && this.animateInterval();
+                this.animateInterval = animate(this.scrollContent,{top: top},{top:(-n * this.imgHeight)-top},500,easeIn);
+                this.recoverButtonsClass();
+                this.curItem.className = this.hoverClass;
+            };
+            Player.prototype.next = function(n){
+                var nextIndex =this.curItem.index+1;  //curItem当前的那一帧
+                if(nextIndex >= this.buttons.length){
+                    nextIndex = 0;
+                }
+                this.invoke(nextIndex);
+            };
+            Player.prototype.recoverButtonsClass = function(){
+               for(var i= 0;i < this.buttons.length;i++){
+                   this.buttons[i].className = '';
+               }
+            };
+            var player = new Player(btns,scrollContent,150,undefined,3000);
+            player.start();  //开始播放
+            //player.invoke(3); //切换到第三帧
+            //player.stop(); //停止轮播
+        };
+
+    </script>
+</head>
+<body>
+<h1>JS轮播器</h1>
+
+
+<div class="scrollFrame">
+    <div class="scrollContent">
+        <img src="img/1.jpg" alt="1" />
+        <img src="img/2.gif" alt="1" />
+        <img src="img/3.gif" alt="1" />
+        <img src="img/4.gif" alt="1" />
+        <img src="img/5.jpg" alt="1" />
+    </div>
+    <ul class="buttons">
+        <li class="hover">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</div>
+</body>
+</html>

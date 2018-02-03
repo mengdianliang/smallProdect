@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>招聘网首页</title>
+    <style>
+        body{
+            margin: 0;
+            font-size: 12px;
+            color: #ffffff;
+            font-family: 'MICROSOFT YAHEI';
+        }
+        h3{
+            margin: 0;
+            font-weight: normal;
+        }
+        a{
+            text-decoration: none;
+            color: #ffffff;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        .clearfix{
+            *zoom: 1;
+        }
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .wrap{
+            width: 960px;
+            margin: 0 auto;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #20242D;
+        }
+        .tit{
+            line-height: 100px;
+            font-size: 30px;
+        }
+        .nav{
+            width: 100px;
+            height: 480px;
+            text-align: center;
+            padding-right: 20px;
+            border-right: 1px solid #ffffff;
+        }
+        .nav a{
+            display: block;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+        .nav a.active .zh{
+            color: #ff2020;
+        }
+        .nav span{
+            display: block;
+            font-size: 18px;
+            line-height: 24px;
+        }
+        .list_wrapper{
+            width: 800px;
+
+        }
+        .list li{
+            padding: 20px 0;
+            border-bottom: 2px dashed #ffffff;
+        }
+        .list li.active{
+            background-color: #000000;
+        }
+        .list li a{
+            display: block;
+            padding: 0 20px;
+            margin-left: -2px;
+            height: 60px;
+            border-left: 2px solid transparent;
+        }
+        .list li.active a{
+            border-left: 2px solid #ff2020;
+        }
+        .index{
+            font-size: 40px;
+            margin-top: 10px;
+            line-height: 40px;
+            padding: 0 10px;
+            border-right: 2px solid #ffffff;
+        }
+        .list_con{
+            padding: 5px 10px;
+            height: 50px;
+            width: 600px;
+        }
+        .pos_need,.type_need{
+            display: block;
+            line-height: 25px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-size: 16px;
+        }
+        .need_list{
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .others span{
+            display: block;
+            line-height: 25px;
+        }
+        .time{
+            color: #dddddd;
+        }
+
+        .pager{
+            height: 60px;
+            text-align: center;
+            line-height: 60px;
+        }
+        .pager a{
+            display: inline-block;
+            width: 30px;
+            font-size: 16px;
+
+        }
+        .page_num{
+            display: inline-block;
+        }
+        .page_num a.active{
+            color: #ff2020;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h3 class="tit">招聘网首页</h3>
+        <div class="main clearfix">
+            <nav class="nav fl">
+               <!-- <a href="javascript:void(0)" class="active">
+                    <span class="zh_society zh">社会招聘</span>
+                    <span class="en_society">society</span>
+                </a>
+                <a href="javascript:void(0)">
+                    <span class="zh_campus zh">校园招聘</span>
+                    <span class="en_campus">campus</span>
+                </a>-->
+            </nav>
+            <div class="list_wrapper fl">
+                <ul class="list">
+
+                    <!--<li>
+                        <a href="em_details.demo" class="clearfix">
+                            <span class="index fl">03</span>
+                            <span class="list_con fl">
+                                <span class="pos_need">职位需求：<span class="com_index">前端工程师</span><span class="com_type">【社会招聘】</span> 需求人数<span class="need_num">6名</span></span>
+                                <span class="type_need">岗位需求：<span class="need_list">1.计算机或相关专业本科以上学历；2.从事软件测试工作3年以上；3.具备良好的沟通能力和快速学习能力；4.精通测试策略和方法、测试用例方法；5.熟悉DB2、AIX等平台的基本操作；6.具备两年以上金融IT行业经验，特别是有金融行业相关业务的测试或者开发工作经验者优先。</span></span>
+                            </span>
+                            <span class="others fr">
+                                <span class="time">2017-09-08</span>
+                                <span class="seek">查看详情&gt;&gt;</span>
+                            </span>
+                        </a>
+                    </li>-->
+
+                </ul>
+                <div class="pager">
+                    <!--<a href="javascript:void(0);" class="prev">&lt;</a>
+                    <nav class="page_num">
+                       <a href="javascript:void(0);" class="active">1</a>
+                        <a href="javascript:void(0);">2</a>
+                    </nav>
+                    <a href="javascript:void(0);" class="next">&gt;</a>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/dataList.js"></script>
+<script src="js/MTween.js"></script>
+<script>
+    /*
+    * hash与search:
+    *   一般我们会用search；
+    *   hash的话一般用于一个页面中的锚点链接；不能刷新页面
+    *  刷新（不要缓存）页面，请使用search；
+    *
+    *
+    * */
+    window.onload = function(){
+        var data = dataList;
+
+        var defaultInfo = 'society';
+        var jsonData = searchToJson(window.location.search);
+        var startNum = 0;
+        var pageNum = 4;
+        var indexNum = 1;
+        var list = [];
+
+        var arr = [];
+
+        init();
+        //代码初始化
+        function init(){
+            initVal();
+        }
+
+        //内容初始化
+        function initVal(){
+            /*
+            *  <nav class="nav fl">
+             <a href="javascript:void(0)" class="active">
+             <span class="zh_society zh">社会招聘</span>
+             <span class="en_society">society</span>
+             </a>
+             <a href="javascript:void(0)">
+             <span class="zh_campus zh">校园招聘</span>
+             <span class="en_campus">campus</span>
+             </a>
+             </nav>
+            * */
+
+
+
+            createMenu();
+
+        }
+        //创建菜单
+        function createMenu(){
+            for(var i = 0;i < data.em_type.length;i++) {
+                var span1 = document.createElement('span');
+                span1.className = 'zh';
+                span1.innerHTML = data.em_type[i].name;
+                var span2 = document.createElement('span');
+                span2.className = 'en';
+                span2.innerHTML = data.em_type[i].type;
+                var a = document.createElement('a');
+                a.href = "?type=" + data.em_type[i].type;
+
+                a.appendChild(span1);
+                a.appendChild(span2);
+
+                $('.nav')[0].appendChild(a);
+
+            }
+            navCli();  //招聘类目点击事件
+        }
+        //抽取数据
+        function collectData(){
+            for(var i = 0;i < data.em_list.length;i++) {
+                if (data.em_list[i].type == defaultInfo) {
+                    arr.push(data.em_list[i]);
+                }
+            }
+        }
+        //分页函数
+        function pager(){
+            var len = arr.length;
+            var pageCount = Math.ceil(len/pageNum);  //获取页数
+            /*
+            *<a href="javascript:void(0);" class="prev">&lt;</a>
+             <nav class="page_num">
+             <a href="javascript:void(0);" class="active">1</a>
+             <a href="javascript:void(0);">2</a>
+             </nav>
+             <a href="javascript:void(0);" class="next">&gt;</a>
+            * */
+            /*var a1 = document.createElement('a');
+            a1.href = '?type=' + arr[0].type + '&flag=0';
+            a1.className = 'prev';
+            a1.innerHTML = '&lt;';
+
+            var a2 = document.createElement('a');
+            a2.href = '?type=' + arr[0].type + '&flag=1';
+            a2.className = 'next';
+            a2.innerHTML = '&gt;';
+
+            if(jsonData.flag=='1'){
+                indexNum++;
+                if(indexNum > pageCount){
+                    indexNum = pageCount;
+                }
+            }else if(jsonData.flag=='0'){
+                indexNum--;
+                if(indexNum < 1){
+                    indexNum = 1;
+                }
+            }*/
+
+            var a1 = document.createElement('a');
+            if(indexNum > 1){
+                a1.href = '?type=' + arr[0].type + '&page=' + (indexNum - 1);
+            }else{
+                a1.href = '?type=' + arr[0].type + '&page=1';
+            }
+            a1.className = 'prev';
+            a1.innerHTML = '&lt;';
+
+            var a2 = document.createElement('a');
+            if(indexNum < pageCount){
+                a2.href = '?type=' + arr[0].type + '&page=' + (indexNum + 1);
+            }else{
+                a2.href = '?type=' + arr[0].type + '&page=' + pageCount;
+            }
+
+            a2.className = 'next';
+            a2.innerHTML = '&gt;';
+
+            if(jsonData.page){
+                indexNum = parseInt(jsonData.page);
+            }
+
+
+            var nav = document.createElement('nav');
+            nav.className = 'page_num';
+            for(var i = 0;i < pageCount;i++){
+                var a = document.createElement('a');
+                a.href = '?type='+ arr[0].type +'&page=' + (i+1);
+                if(i == indexNum - 1){
+                    a.className = 'active';
+                }
+                a.innerHTML = i + 1;
+                nav.appendChild(a);
+            }
+            if(jsonData.page){
+                indexNum = parseInt(jsonData.page);
+            }
+            var pager = $('.pager')[0];
+            pager.appendChild(a1);
+            pager.appendChild(nav);
+            pager.appendChild(a2);
+
+            createList();
+        }
+
+        //创建列表
+        function createList(){
+
+            startNum = pageNum * (indexNum -1);
+            var endNum = startNum + pageNum;
+            if(endNum > arr.length){
+                endNum = arr.length;
+            }
+            console.log(endNum);
+            list = arr.slice(startNum,endNum);
+            var lis = $('.list')[0];
+            lis.innerHTML = '';
+            //console.log(list);
+            for(var m = 0; m < list.length;m++){
+                /*<li>
+                 <a href="em_details.demo" class="clearfix">
+                 <span class="index fl">03</span>
+                 <span class="list_con fl">
+                 <span class="pos_need">职位需求：<span class="com_index">前端工程师</span><span class="com_type">【社会招聘】</span>需求人数<span class="need_num">6名</span></span>
+                 <span class="type_need">岗位需求：<span class="need_list">1.计算机或相关专业本科以上学历；2.从事软件测试工作3年以上；3.具备良好的沟通能力和快速学习能力；4.精通测试策略和方法、测试用例方法；5.熟悉DB2、AIX等平台的基本操作；6.具备两年以上金融IT行业经验，特别是有金融行业相关业务的测试或者开发工作经验者优先。</span></span>
+                 </span>
+                 <span class="others fr">
+                 <span class="time">2017-09-08</span>
+                 <span class="seek">查看详情&gt;&gt;</span>
+                 </span>
+                 </a>
+                 </li>*/
+                var span1 = document.createElement('span');
+                span1.className = 'index fl';
+                span1.innerHTML = preZero(list[m].id,2);
+
+                var span2 = document.createElement('span');
+                span2.className = 'com_index';
+                span2.innerHTML = list[m].position;
+                var span3 = document.createElement('span');
+                span3.className = 'com_type';
+                span3.innerHTML = list[m].posType;
+                var span4 = document.createElement('span');
+                span4.className = 'need_num';
+                span4.innerHTML = list[m].needNum;
+
+                var span5 = document.createElement('span');
+                span5.className = 'pos_need';
+                span5.innerHTML = '职位需求：'+ span2 + span3 + '需求人数' + span4;
+                span5.innerHTML = '职位需求：';
+                span5.appendChild(span2);
+                span5.appendChild(span3);
+                span5.innerHTML += '需求人数';
+                span5.appendChild(span4);
+
+
+                var span6 = document.createElement('span');
+                var str = '';
+                for(var j = 0;j < list[m].taskNeed.length;j++){
+                    str += list[m].taskNeed[j];
+                }
+                span6.innerHTML = str;
+
+                var span7 = document.createElement('span');
+                span7.className = 'type_need';
+                span7.innerHTML = '岗位需求：';
+                span7.appendChild(span6);
+
+                var span8 = document.createElement('span');
+                span8.className = 'list_con fl';
+                span8.appendChild(span5);
+                span8.appendChild(span7);
+
+                var span9 = document.createElement('span');
+                span9.className = 'time';
+                span9.innerHTML = list[m].time;
+                var span10 = document.createElement('span');
+                span10.className = 'seek';
+                span10.innerHTML = '查看详情&gt;&gt;';
+                var span11 = document.createElement('span');
+                span11.className = 'others fr';
+                span11.appendChild(span9);
+                span11.appendChild(span10);
+
+                var a = document.createElement('a');
+                a.className = 'clearfix';
+                a.href= './em_details.html?type=' + list[m].type + '&id=' + list[m].id;
+
+                a.appendChild(span1);
+                a.appendChild(span8);
+                a.appendChild(span11);
+
+                var li = document.createElement('li');
+                li.appendChild(a);
+
+                mouseHov(li);
+
+                lis.appendChild(li);
+            }
+        }
+        //列表悬停事件
+        function mouseHov(obj){
+            obj.onmouseover = function(){
+                this.className = 'active';
+            };
+            obj.onmouseout = function(){
+                this.className = '';
+            };
+        }
+
+        //招聘类目点击事件
+        function navCli(){
+                if(jsonData.type){
+                    defaultInfo = jsonData.type;
+                }
+                var navs = $('.nav a');
+                for(var i = 0;i < data.em_type.length;i++){
+                    if(data.em_type[i].type == defaultInfo){
+                        navs[i].className = 'active';
+                    }else{
+                        navs[i].className = '';
+                    }
+                }
+                collectData();
+                pager();
+        }
+        //补零位
+        function preZero(num,len){
+            var str = "" + num;
+            while(len - str.length){
+                str = 0 + str;
+            }
+            return str;
+        }
+        //获取元素方法的重写
+        function $(element,obj){
+            if(obj == null){
+                return document.querySelectorAll(element);
+            }else{
+                return obj.querySelectorAll(element);
+            }
+        }
+    };
+</script>
+</html>

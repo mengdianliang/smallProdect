@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>碰撞广告</title>
+    <style>
+        body{
+            margin: 0;
+            background-color: #000000;
+        }
+        #btn{
+            position: absolute;
+            z-index: 9999;
+        }
+        img{
+            vertical-align: top;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" id="btn" value="手动移动"/>
+</body>
+<script>
+    window.onload = function(){
+
+        var btn = document.getElementById('btn');
+
+        var index = 0;
+        var imgNum = 0;
+        var cur = [];
+
+        var x = 0;
+        var y = 0;
+
+        var speedX = 15;
+        var speedY = 15;
+        var timer = null;
+
+        var ulock = true;
+        var nlock = true;
+
+        createEle();
+
+        function createEle(){
+
+            clearInterval(timer);
+           timer = setInterval(function(){
+                var img = document.createElement('img');
+                imgNum = parseInt(index/ 5);
+                img.src = './img/'+ imgNum % 5 + '.png';
+                img.style.position = 'absolute';
+                img.style.width = '100px';
+                img.style.height = '100px';
+
+                if(x < 0){
+                    nlock = true;
+                }else if(x > ((document.documentElement.clientWidth|| document.body.clientWidth) - img.offsetWidth)){
+                    nlock = false;
+                }
+                if(y < 0){
+                    ulock = true;
+                }
+               if(y > ((document.documentElement.clientHeight|| document.body.clientHeight) - img.offsetHeight)){
+                   ulock = false;
+                }
+
+
+               if(ulock){
+                   y +=(Math.random()*10+5);
+               }else{
+                   y -=(Math.random()*10+5);
+               }
+               if(nlock){
+                   x +=(Math.random()*10+5);
+               }else{
+                   x -=(Math.random()*10+5);
+               }
+
+
+                img.style.left = x + 'px';
+                img.style.top =  y + 'px';
+
+
+                document.body.appendChild(img);
+                index++;
+                startMove(img);
+            },30);
+
+        }
+        function startMove(obj){
+            obj.wid = 5;
+            obj.hgt = 5;
+            obj.timer = setInterval(function(){
+                var wid = parseInt(obj.style.width) - obj.wid;
+                var hgt = parseInt(obj.style.height) - obj.hgt;
+                //console.log(wid,hgt);
+                if(wid < 0){
+                    wid = 0;
+                    clearInterval(obj.timer);
+                    document.body.removeChild(obj);
+                }
+                obj.style.width = wid + 'px';
+                obj.style.height = hgt + 'px';
+            },50);
+        }
+
+        btn.onclick = function(){
+            if(this.value.trim() == '手动移动'){
+                clearInterval(timer);
+                byHand();
+                this.value = '自动移动';
+            }else if(this.value.trim() == '自动移动'){
+                createEle();
+                this.value = '手动移动';
+            }
+
+        };
+        function byHand(){
+            document.onmousedown = function(){
+                document.onmousemove = function (evt){
+                    evt = window.event || evt;
+                    var img = document.createElement('img');
+                    imgNum = parseInt(index/ 5);
+                    img.src = './img/'+ imgNum % 5 + '.png';
+                    img.style.position = 'absolute';
+                    img.style.width = '100px';
+                    img.style.height = '100px';
+                    console.log(speedX,speedY);
+                    x = evt.clientX - 35;
+                    y = evt.clientY - 35;
+                    if(x < 0){
+                        x = 0;
+                    }else if(x > ((document.documentElement.clientWidth|| document.body.clientWidth) - img.offsetWidth)){
+                        x = (document.documentElement.clientWidth|| document.body.clientWidth) - img.offsetWidth;
+                    }
+                    if(y < 0){
+                        y = 0;
+                    }else if(y > ((document.documentElement.clientHeight|| document.body.clientHeight) - img.offsetHeight)){
+                        y = (document.documentElement.clientHeight|| document.body.clientHeight) - img.offsetHeight;
+                    }
+                    img.style.left = x + 'px';
+                    img.style.top =  y + 'px';
+
+
+                    document.body.appendChild(img);
+                    index++;
+                    startMove(img);
+                };
+                document.onmouseup = function(){
+                    document.onmousemove = null;
+                };
+            };
+
+        }
+    };
+</script>
+</html>

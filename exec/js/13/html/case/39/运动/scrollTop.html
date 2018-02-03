@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <style>
+        #div1 {width: 100px; height: 100px; background: red; position: absolute; right: 0; top: 0;}
+    </style>
+</head>
+<body>
+<body style="height: 2000px;">
+    <div id="div1"></div>
+</body>
+</body>
+<script>
+    window.onload = function(){
+        var div1 = document.getElementById('div1');
+        var timer = null;
+        var b = 0;
+
+        setTop();
+        window.onscroll  = function(){
+            if(b != 1){
+                clearInterval(timer);
+            }
+            b = 2;
+            setTop();
+        };
+        div1.onclick = function(){
+            clearInterval(timer);
+            var cur = speed = 0;
+
+            timer = setInterval(function(){
+                cur = document.documentElement.scrollTop || document.body.scrollTop;
+                speed = Math.floor( ( 0 - cur ) / 8 );
+
+                if(cur == 0){
+                    clearInterval(timer);
+                }else{
+                    document.documentElement.scrollTop = document.body.scrollTop = cur + speed;
+                }
+
+                b = 1;
+            },30);
+        };
+        function setTop() {
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            div1.style.top = scrollTop + document.documentElement.clientHeight - div1.offsetHeight + 'px';
+
+        }
+    };
+</script>
+</html>

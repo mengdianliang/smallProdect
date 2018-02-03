@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>border-radius</title>
+    <style>
+        .box{
+            width: 400px;
+            height: 400px;
+            margin: 50px auto 0;
+            transition: 1s;
+        }
+        .box div{
+            width: 180px;
+            height: 180px;
+            margin: 10px;
+            border: 1px solid #000000;
+            box-sizing: border-box;
+            float:left;
+            background-image: -webkit-linear-gradient(left,#6D033C 0%,#DA3537 100%);
+        }
+        .box div:nth-of-type(1){
+            border-radius: 10px 70%;
+        }
+        .box div:nth-of-type(2){
+            border-radius: 70% 10px;
+        }
+        .box div:nth-of-type(3){
+            border-radius: 70% 10px;
+        }
+        .box div:nth-of-type(4){
+            border-radius: 10px 70%;
+        }
+        .box:hover{
+            transform: rotate(720deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+</html>

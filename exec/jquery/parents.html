@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>DOM操作</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+</head>
+<body>
+    <!--<div id="div1">aaa
+        <div id="div2">bbb
+            <div id="div3">ccc</div>
+        </div>
+    </div>-->
+    <div>div</div>
+    <span>span</span>
+    <p>p</p>
+    <h1>h1</h1>
+</body>
+<script>
+    $(function(){
+        //$('#div3').parents().style('background-color','red');
+        //$('#div3').parents('#div2').style('background-color','red');
+        //$('#div3').closest('div').style('background-color','red');
+        $('span').siblings('h1').css('background-color','red');
+    });
+</script>
+</html>

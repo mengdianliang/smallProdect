@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>适配问题</title>
+    <script type="text/javascript">
+        var dpr = 1 / window.devicePixelRatio;
+        document.write('<meta name="viewport" content="width=device-width,initial-scale='+ dpr +',minimum-scale='+ dpr +',maximum-scale='+ dpr +',user-scalable=no" />');
+        var w = (document.documentElement.clientWidth|| document.body.clientWidth) / 27;
+        var html = document.getElementsByTagName('html')[0];
+        html.style.fontSize = w + 'px';
+    </script>
+</head>
+<body>
+
+</body>
+</html>

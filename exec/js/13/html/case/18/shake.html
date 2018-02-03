@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>抖动</title>
+    <style>
+
+        .wrapper{
+            width: 300px;
+            height: 230px;
+            border-radius:  5px;;
+            margin: 100px auto;
+            position: relative;
+            border: 1px solid #03a7e1;
+        }
+        .box{
+            width: 230px;
+            height: 230px;
+            position: absolute;
+            top: 0;
+            left: 35px;
+            background-color: #ff8080;
+        }
+
+    </style>
+    <script src="MTween.js"></script>
+    <script>
+        window.onload = function(){
+            var box = $('.box')[0];
+
+            //抖动效果 方法一
+           /* var alter = -35;
+            doSelf(alter);
+            function doSelf(alter){
+                MTween(box,alter,50,'left','linear',function(){
+                    MTween(box,-alter,50,'left','linear',function(){
+                        if(Math.abs(alter)<=5) return;
+                        alter = -2/3 *alter;
+                        doSelf(alter);
+                    });
+                });
+            }*/
+
+
+            //抖动效果 方法二
+            var shakeArr = [-35,35,30,-30,-25,25,20,-20,-15,15,10,-10,-5,5];
+            var i = 0;
+            doSelf(shakeArr[i++]);
+            function doSelf(alter){
+                MTween(box,alter,500,'left','linear',function(){
+                    if(i > shakeArr.length - 1) return;
+                    doSelf(shakeArr[i++]);
+                });
+            }
+            //元素获取方法的重写
+            function $(element,obj){
+                if(obj == null){
+                    return document.querySelectorAll(element);
+                }else{
+                    return obj.querySelectorAll(element);
+                }
+            }
+
+        };
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="box">
+            <img src="img/1.jpg"/>
+        </div>
+    </div>
+</body>
+</html>

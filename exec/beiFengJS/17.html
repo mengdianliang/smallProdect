@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>表格</title>
+</head>
+<body>
+    <table border="1" id="table">
+        <caption>表格标题</caption>
+        <thead>
+            <tr>
+                <th>表头1</th>
+                <th>表头2</th>
+                <th>表头3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>数据</td>
+                <td>数据</td>
+                <td>数据</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">脚注</td>
+            </tr>
+        </tfoot>
+    </table>
+    <script>
+        window.onload = function(){
+            var table = document.getElementById("table");
+            /*alert(table.caption.innerHTML);
+            alert(table.tHead);
+            alert(table.tFoot);*/
+            /*var tbodies = table.tBodies;
+            alert(tbodies.length);
+            var rows = table.rows;
+            var firRow = rows[0];
+            alert(rows.length);
+            alert(tbodies[0].rows.length);
+            var cells = firRow.cells;
+            alert(cells.length);*/
+
+            /* createCaption()   createTFoot()   createTHead()
+            *  deleteCaption()   deleteTFoot()   deleteTHead()
+            *
+            *  insertRow(index)    deleteRow(index)
+            *  insertCell(index)    deleteCell(index)
+            *
+            *  rowIndex    cellIndex
+            * */
+            var caption = table.createCaption();
+            /*alert(caption.innerHTML);
+            caption.innerHTML = "新标题";
+            alert(caption.innerHTML);*/
+
+            var row = table.insertRow(0);
+            /*var td = document.createElement("td");
+            td.innerHTML = "ABC";
+            row.appendChild(td);*/
+
+            var cell = row.insertCell(0);
+            cell.innerHTML = "New Cell";
+        };
+    </script>
+</body>
+</html>

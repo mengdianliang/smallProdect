@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>cookie</title>
+</head>
+<body>
+    <input type="text" id="username"/>
+    <input type="button" value="登录" id="login"/>
+    <input type="button" value="删除" id="del"/>
+</body>
+<script>
+    /*
+    * cookie:存储数据，当用户访问了某个网站的时候，我们就可以通过cookie来访问本地存储的数据
+    *
+    *    1.不同的浏览器存放cookie的位置不一样；
+    *    2.cookie的存储是以域名的形式区分的；
+    *    3.cookie的数据可以设置名字的j.name = leo;
+    *    4.一个域名下存放的cookie的个数有限制，不同浏览器存放的个数不一样
+    *    5.每个cookie存放的内容大小也有限制，不同浏览器存放大小不一样。
+    *
+    *
+    *    我们通过document.cookie来获取当前网站下的cookie的时候，得到的是字符串形式的值。
+    *    他包含了当前网站下所有的cookie,以键值对通过分号加空格的形式串联起来。
+    *
+    *    如果想让一个cookie长时间存放，需要在设置这个cookie的时候同时设置一个过期的时间
+    *    //document.cookie = '名称=值;expires= '+时间;
+    *
+    *    cookie默认是临时存储的，当浏览器关闭进程的时候自动销毁。
+    *
+    *    //内容最好编码存储
+    *    encodeURI()
+    *    decodeURI()
+    *
+    * */
+    window.onload = function(){
+        //document.cookie = '名字=值';
+
+      /*  var dt = new Date();
+        dt.setDate(dt.getDate() + 5);
+        document.cookie = 'username='+ encodeURI('leo\n你好')+ ';expires=' + dt.toGMTString();
+        //alert(decodeURI(document.cookie));*/
+
+        function setCookie(key,value,t){
+            var dt = new Date();
+            dt.setDate(dt.getDate() + t);
+            document.cookie = key + '=' + value + ';expires=' + dt.toGMTString();
+        }
+
+        function getCookie(key){
+            var arr1 = document.cookie.split(';');
+            for(var i = 0;i < arr1.length;i++){
+                var arr2 = arr1[i].split('=');
+                if(arr2[0] == key){
+                    return decodeURI(arr2[i]);
+                }
+            }
+        }
+        function removeCookie(key){
+            setCookie(key,'',-1);
+        }
+
+        /*setCookie('sex','男',10);
+        removeCookie('username');*/
+        //alert(getCookie('age'));
+
+        var user = document.getElementById('username');
+        var login = document.getElementById('login');
+        var del = document.getElementById('del');
+
+        if(getCookie('username')){
+            user.value = getCookie('username');
+        }
+
+        login.onclick = function(){
+            alert('登陆成功！');
+            setCookie('username',user.value,5);
+        };
+        del.onclick = function(){
+            removeCookie('username');
+            user.value = '';
+        };
+    };
+</script>
+</html>

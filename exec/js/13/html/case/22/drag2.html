@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>拖拽</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        /*#box2{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 200px;
+            left: 200px;
+        }*/
+        #img1{
+            position: absolute;
+            left: 500px;
+            top: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1"></div>
+    <!--<div id="box2"></div>-->
+
+    <img src="img/1.jpg" id ='img1' style="position: absolute;"/>
+</body>
+<script>
+
+    /*解决文字选中拖拽问题：
+    *   标准下： return false;
+    *   IE下：obj.setCapture && obj.setCapture();    设置全局捕获
+    *         obj.releaseCapture && obj.releaseCapture();  释放全局捕获
+    * */
+    window.onload = function(evt){
+
+        var box1 = document.getElementById('box1');
+        var img1 = document.getElementById('img1');
+
+        drag(box1);
+        function drag(obj){
+            obj.onmousedown = function(evt){
+                //设置box1捕获所有鼠标按下的事件
+                obj.setCapture && obj.setCapture();
+                evt = evt || window.event;
+                var ol = evt.clientX - obj.offsetLeft;
+                var ot = evt.clientY - obj.offsetTop;
+                document.onmousemove = function(evt){
+                    evt = evt || window.event;
+
+                    var left = evt.clientX - ol;
+                    var top = evt.clientY - ot;
+
+                    var left1 = left;
+                    var right1 = left + obj.offsetWidth;
+                    var top1 = top;
+                    var bottom1 = top + obj.offsetHeight;
+
+                    var left2 = img1.offsetLeft;
+                    var right2 = img1.offsetLeft + img1.offsetWidth;
+                    var top2 = img1.offsetTop;
+                    var bottom2 = img1.offsetTop + img1.offsetHeight;
+
+                    if(right1 < left2 || left1 > right2 || bottom1 < top2 || top1 > bottom2){
+                        img1.src = './img/1.jpg';
+                    }else{
+                        img1.src = './img/2.jpg';
+                    }
+                    obj.style.left = left + 'px';
+                    obj.style.top = top + 'px';
+                };
+
+                document.onmouseup = function(){
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                    obj.releaseCapture && obj.releaseCapture();
+                };
+                return false;
+            };
+        }
+
+    };
+</script>
+</html>

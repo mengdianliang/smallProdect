@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>transform事件</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 10px;
+            background-color: red;
+            margin-left: 100px;
+            margin-top: 400px;
+            transform: rotate(0deg);
+            transform-origin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+<script>
+    window.onload = function(){
+        var box = document.querySelector('#box');
+        document.onclick = function(){
+            box.style.transition = '1s';
+            box.style.transform = 'rotate(-90deg)';
+        };
+    };
+</script>
+</html>

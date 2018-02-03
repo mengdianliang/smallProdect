@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>ev.data</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+</head>
+<body>
+    <div id="div1">aaaaaaaaaaa</div>
+</body>
+<script>
+    $(function(){
+        $('#div1').on('click',{name:'hello'},function(evt){
+            alert(evt.data.name);  //hello
+            alert(evt.target);
+            alert(evt.type);  //click
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>360导航</title>
+    <style>
+        html{height:100%;overflow:hidden;}
+        body{ background:#f9f9f9;}
+        #menu{width:50px;height:50px; position:fixed;right:20px; bottom:20px; }
+        #menu_list{height:42px;width:42px; position:relative;margin:4px;}
+        #menu_list img{ border-radius:21px;position:absolute;left:0;top:0;border-radius:21px;-webkit-transition:0.5s all ease;}
+        #home{width:50px;height:50px;background:url(img/home.png) no-repeat; border-radius:25px; position:absolute; left:0;top:0;transition: 1s;}
+    </style>
+</head>
+<body>
+    <div id="menu">
+        <div id="menu_list">
+            <img src="img/prev.png" alt=""/>
+            <img src="img/open.png" alt="" />
+            <img src="img/clos.png" alt="" />
+            <img src="img/full.png" alt="" />
+            <img src="img/refresh.png" alt="" />
+        </div>
+        <div id="home"></div>
+    </div>
+</body>
+<script>
+    window.onload = function(){
+
+        var home = $('#home')[0];
+        var imgs = $('img');
+
+        var isOff = true;
+        var iR = -150;
+        for(var i = 0; i < imgs.length;i++) {
+            imgs[i].onclick = function () {
+                this.style.transition = '0.3s';
+                this.style.WebkitTransform = 'scale(2) rotate(-720deg)';
+                this.style.opacity = 0.1;
+                addEnd(this,end);
+            };
+            function end() {
+                this.style.transition = '0.1s';
+                this.style.WebkitTransform = 'scale(1) rotate(-720deg)';
+                this.style.opacity = 1;
+                removeEnd(this,end);
+            }
+        }
+
+        home.onclick = function(){
+            if(isOff){
+                this.style.WebkitTransform = 'rotate(-360deg)';
+                for(var i = 0; i < imgs.length;i++){
+                    var myAngle = angle(iR,90/4*i);
+                    imgs[i].style.transition = '0.5s ' + i * 50 + 'ms';
+                    imgs[i].style.left =  myAngle.l + 'px';
+                    imgs[i].style.top =  myAngle.t + 'px';
+                    imgs[i].style.webkitTransform = 'scale(1) rotate(-720deg)';
+                }
+            }else{
+                this.style.WebkitTransform = 'rotate(0deg)';
+                for(var i = 0; i < imgs.length;i++){
+                    imgs[i].style.transition = '0.5s ' + (imgs.length - i) * 50 + 'ms';
+                    imgs[i].style.left = '0px';
+                    imgs[i].style.top =  '0px';
+                    imgs[i].style.webkitTransform = 'scale(1) rotate(0deg)';
+                }
+            }
+            isOff = !isOff;
+        };
+
+        function angle(iR,iDeg){
+            return {
+                l: Math.round(Math.sin(iDeg/180*Math.PI)*iR),
+                t: Math.round(Math.cos(iDeg/180*Math.PI)*iR)
+            };
+        }
+
+        function addEnd(obj,fn)
+        {
+            obj.addEventListener('WebkitTransitionEnd',fn,false);
+            obj.addEventListener('transitionend',fn,false);
+        }
+        function removeEnd(obj,fn)
+        {
+            obj.removeEventListener('WebkitTransitionEnd',fn,false);
+            obj.removeEventListener('transitionend',fn,false);
+        }
+
+        //元素获取方法的重写
+        function $(element,obj){
+            if(obj == null){
+                return document.querySelectorAll(element);
+            }else{
+                return obj.querySelectorAll(element);
+            }
+        }
+    };
+</script>
+</html>

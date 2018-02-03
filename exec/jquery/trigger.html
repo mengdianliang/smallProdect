@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>主动触发</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+</head>
+<body>
+    <div id="div1">aaaaaaaa</div>
+</body>
+<script>
+    $(function(){
+        /*$('#div1').on('click',function(){
+            alert(1111111111);
+        });
+        $('#div1').trigger('click');*/
+
+        $('#div1').on('show',function(){
+            alert(1111111111);
+        });
+        $('#div1').trigger('show');
+    });
+</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>重复子项</title>
+</head>
+<body>
+    <script>
+        /*
+        *  \1: 重复的子项
+        * */
+
+        /*var str = 'abca';
+        var re = /(a)(b)(c)\1/;
+        console.log(re.test(str));*/
+
+        /*var re = /\w\w/; //c9
+        var re = /(\w)\1/; //cc  99*/
+
+        var str = 'aassssssfhfthrhsew';
+        var arr = str.split('');
+        str = arr.sort().join("");
+
+        var value = '';
+        var index = 0;
+
+        var re = /(\w)\1+/g;
+
+        str.replace(re,function($0,$1){
+            if(index < $0.length){
+                index = $0.length;
+                value = $1;
+            }
+        });
+
+        console.log('最多字符：' + value + ' 重复次数：' + index);
+        /*console.log(str);*/
+     </script>
+</body>
+</html>

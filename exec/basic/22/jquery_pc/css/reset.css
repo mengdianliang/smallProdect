@@ -1,0 +1,29 @@
+/* 重置样式 */
+body{
+	margin: 0;
+	font-size: 12px;
+	font-family: "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+	color: #333333;
+	background-color:#ffffff;
+	-webkit-font-smoothing: antialiased;
+}
+h1,h3,h4,p{
+	margin: 0;
+}
+a{
+	text-decoration: none;
+	color: #333333;
+}
+ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+input{
+	padding: 0;
+	border: none;
+}
+img{
+	vertical-align: top;
+	border: none;
+}

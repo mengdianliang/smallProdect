@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>箭头指向</title>
+    <style>
+        #box{
+            width:100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            top:0;
+            left:0;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+<script>
+    class Drag{
+        constructor(id){
+            this.disX = 0;
+            this.disY = 0;
+            this.box = document.getElementById(id);
+            this.box.addEventListener('mousedown',(ev)=>{
+                this.down(ev);
+            });
+        }
+        down(ev){
+            this.disX = ev.clientX - this.box.offsetLeft;
+            this.disY = ev.clientY - this.box.offsetTop;
+            var move = (ev) => {
+                this.move(ev);
+            };
+            var up = (ev) => {
+                this.up(ev,move,up);
+            };
+            document.addEventListener('mousemove',move);
+            document.addEventListener('mouseup',up);
+            ev.preventDefault();
+        }
+        move(ev){
+            this.box.style.left = ev.clientX - this.disX + 'px';
+            this.box.style.top = ev.clientY - this.disY + 'px';
+        }
+        up(ev,move,up){
+            document.removeEventListener('mousemove',move);
+            document.removeEventListener('mouseup',up);
+        }
+
+
+    }
+    var d = new Drag('box');
+</script>
+</html>

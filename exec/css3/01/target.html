@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>伪类</title>
+    <style>
+        /*div{
+            width: 300px;
+            height: 300px;
+            background-color: #000;
+            font-size: 50px;
+            color: #ffffff;
+            text-align: center;
+            line-height: 200px;
+            display: none;
+        }
+        div:target{
+            display: block;
+        }*/
+
+
+
+        label{
+            float:left;
+            margin: 0 5px;
+            overflow: hidden;
+            position: relative;
+        }
+        label input{
+            position: absolute;
+            left: -50px;
+            top: -50px;
+        }
+
+        span{
+            float: left;
+            width: 50px;
+            height: 50px;
+            border: 3px solid #000000;
+        }
+        input:checked~span{
+            background-color: red;
+        }
+    </style>
+    <!--
+        E;target  表示当前的URL片段的元素类型，这个元素必须是E
+        E:disabled
+        E:enabled
+        E:checked
+        E:first-line
+        E:first-letter
+        E::selection
+        E::before
+        E::after
+        E:not(s)
+        E~F:与E元素毗邻的所有的F元素
+    -->
+</head>
+<body>
+    <!--<a href="#div1">div1</a>
+    <a href="#div2">div2</a>
+    <a href="#div3">div3</a>
+
+    <div id="div1">div1</div>
+    <div id="div2">div2</div>
+    <div id="div3">div3</div>-->
+
+    <label>
+        <input type="radio" name="tab"/>
+        <span></span>
+    </label>
+    <label>
+        <input type="radio" name="tab"/>
+        <span></span>
+    </label>
+    <label>
+        <input type="radio" name="tab"/>
+        <span></span>
+    </label>
+
+</body>
+</html>

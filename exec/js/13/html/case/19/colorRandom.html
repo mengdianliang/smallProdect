@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>随机颜色变化</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+<script>
+    window.onload = function(){
+        //console.log('111111111111' + new Array(2).join('0') + '11111111111111');
+        var box = document.querySelector('.box');
+        setInterval(function(){
+            box.style.backgroundColor = getRandomColor();
+        },1000);
+        // 随机获取颜色值
+        function getRandomColor(){
+            return '#' + (function(h) {
+                return new Array(7 - h.length).join("0") + h
+            })((Math.random() * 0x1000000 << 0).toString(16))
+        }
+    };
+</script>
+</html>

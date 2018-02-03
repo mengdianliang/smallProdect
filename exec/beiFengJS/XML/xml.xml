@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<!--<!DOCTYPE root [
+    <!ELEMENT root EMPTY>
+
+]>
+<root/>-->
+
+
+<!--
+    1.XML文档构建模块：
+    （1）元素：即所说的自定义标签，它是XML以及XML文档的主要构建模块；
+    （2）属性：可提供有关元素的额外信息。属性总是被置于某元素的开始标签中。属性总是以名称/值的形式成对出现；
+    （3）实体：是用来定义普通文本的变量。 如HTML文档中的&nbsp;当文档被解析器解析时，实体就会被展开；
+    （4）PCDATA：被解析的字符数据（parsed character data）。可把字符数据想象为XML元素的开始与结束标签之间的文本。
+    （5）CDATA：是字符数据，不会被解析器解析的文本。在这些文本中的标签不会被当做标记来对待，其中的实体也不会被展开。
+-->
+<!--<!DOCTYPE root SYSTEM 'test.dtd'>-->
+<!--<!ELEMENT root EMPTY>-->
+<!--<!ELEMENT root ANY>-->
+<!--<!ELEMENT root (child,sub)>
+<!ELEMENT child EMPTY>
+<!ELEMENT sub EMPTY>-->
+
+<!--<!ELEMENT root (#PCDATA)>-->
+
+<!--<!ELEMENT root (child,(a,b))>-->
+
+<!--<!DOCTYPE root [
+    <!ELEMENT root (child,sub)>
+    <!ELEMENT child EMPTY>
+    <!ELEMENT sub EMPTY>
+]>-->
+
+<!--<!DOCTYPE root [
+    <!ELEMENT root (child|sub)>
+    <!ELEMENT child EMPTY>
+    <!ELEMENT sub EMPTY>
+    ]>-->
+<!--<!DOCTYPE root [
+    <!ELEMENT root (child?,sub+)>
+    <!ELEMENT child EMPTY>
+    <!ELEMENT sub EMPTY>
+    ]>-->
+<!DOCTYPE html [
+    <!ELEMENT html (head,body)>
+    <!ELEMENT head ANY>
+    <!ELEMENT body ANY>
+    <!ELEMENT table (thead,(tbody,tfoot)?)>
+    <!ELEMENT thead ANY>
+    <!ELEMENT tbody ANY>
+    <!ELEMENT tfoot ANY>
+]>
+<!--<root date= "2010-9-27">是打发打发&nbsp;
+    <![CDATA[
+    dfdfdfddddddddfddggf
+    ]]]>
+</root>-->
+
+<!--
+<root>
+   &lt;!&ndash; <child/>
+    <sub/>&ndash;&gt;
+    <![CDATA[sdfdfdfdfdfd]]]>
+</root>-->
+
+<!--
+<root>
+    <sub/>
+</root>-->
+
+<html>
+    <head>
+
+    </head>
+    <body>
+        <table>
+            <thead>
+
+            </thead>
+            <tbody>
+
+            </tbody>
+            <tfoot>
+
+            </tfoot>
+        </table>
+    </body>
+</html>

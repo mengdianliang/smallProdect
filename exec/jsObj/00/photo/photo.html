@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>照片墙</title>
+    <style>
+        *{ margin:0; padding:0;}
+        #ul1{ width:660px; position:relative; margin:10px auto;}
+        li{ width:200px; height:150px; margin:10px; float:left; list-style:none;}
+        img{
+            vertical-align: top;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="随机" id="input1">
+<ul id="ul1">
+    <li><img src="photo/1.jpg" /></li>
+    <li><img src="photo/2.jpg" /></li>
+    <li><img src="photo/3.jpg" /></li>
+    <li><img src="photo/4.jpg" /></li>
+    <li><img src="photo/5.jpg" /></li>
+    <li><img src="photo/1.jpg" /></li>
+    <li><img src="photo/2.jpg" /></li>
+    <li><img src="photo/3.jpg" /></li>
+    <li><img src="photo/4.jpg" /></li>
+</ul>
+</body>
+<script src="move.js"></script>
+<script>
+    window.onload = function(){
+        var lis = document.getElementsByTagName('li');
+        var input = document.getElementById('input1');
+        var arr = [];
+        var izIndex = 2;
+        for(var i = 0;i < lis.length;i++){
+            lis[i].index = i;
+            arr.push( [ lis[i].offsetLeft , lis[i].offsetTop ] );
+        }
+        for(var i = 0;i < lis.length;i++){
+            lis[i].style.position = 'absolute';
+            lis[i].style.left = arr[i][0] + 'px';
+            lis[i].style.top = arr[i][1] + "px";
+            lis[i].style.margin = '0px';
+            Drag(lis[i]);
+        }
+        input.onclick = function(){
+            var randomArr = [0,1,2,3,4,5,6,7,8];
+            randomArr.sort(function(n1,n2){
+                return Math.random() - 0.5;
+            });
+            for(var i = 0;i < lis.length;i++){
+                (function(index){
+                    startMove(lis[index],{left: arr[Math.floor((lis.length - 1)/2)][0],top: arr[Math.floor((lis.length - 1)/2)][1]},function(){
+                        if(index == lis.length - 1){
+                            console.log(arr);
+                            for(var j = 0;j < lis.length;j++){
+                                startMove(lis[j],{left: arr[randomArr[j]][0],top: arr[randomArr[j]][1]});
+                                lis[j].index = randomArr[j];
+                            }
+                        }
+                    });
+                })(i);
+
+            }
+        };
+        function Drag(obj) {
+            var disX = 0;
+            var disY = 0;
+            obj.onmousedown = function (evt) {
+                evt = window.event || evt;
+                obj.style.zIndex = izIndex++;
+                disX = evt.clientX - obj.offsetLeft;
+                disY = evt.clientY - obj.offsetTop;
+                document.onmousemove = function (evt) {
+                    evt = window.event || evt;
+                    obj.style.left = evt.clientX - disX + 'px';
+                    obj.style.top = evt.clientY - disY + 'px';
+
+                    for(var i = 0;i < lis.length;i++){
+                        lis[i].style.border = '';
+                    }
+                    var nL = nearLi(obj);
+                    if(nL){
+                        nL.style.border = '2px solid #ff8080';
+                    }
+                };
+                document.onmouseup = function () {
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+
+                    var nL = nearLi(obj);
+                    var tmp = 0;
+
+                    console.log(arr[obj.index]);
+                    if(nL){
+                        startMove(nL,{left: arr[obj.index][0],top: arr[obj.index][1]});
+                        startMove(obj,{left: arr[nL.index][0],top: arr[nL.index][1]});
+                        nL.style.border = '';
+
+                        tmp = nL.index;
+                        nL.index = obj.index;
+                        obj.index = tmp;
+                    }else{
+                        startMove(obj,{left: arr[obj.index][0],top: arr[obj.index][1]});
+                    }
+
+                };
+                return false;
+            };
+        }
+
+        function nearLi(obj){
+            var value = 9999;
+            var index = -1;
+            for(var i = 0;i < lis.length;i++){
+                if(pz(obj,lis[i]) && obj != lis[i]){
+                    var c = slience(obj,lis[i]);
+                    if(c < value){
+                        value = c;
+                        index = i;
+                    }
+                }
+            }
+            if(index != -1){
+                return lis[index];
+            }else{
+                return false;
+            }
+        }
+
+        function pz(obj1,obj2){
+            var L1 = obj1.offsetLeft;
+            var R1 = obj1.offsetLeft + obj1.offsetWidth;
+            var T1 = obj1.offsetTop;
+            var B1 = obj1.offsetTop + obj1.offsetHeight;
+
+            var L2 = obj2.offsetLeft;
+            var R2 = obj2.offsetLeft + obj2.offsetWidth;
+            var T2 = obj2.offsetTop;
+            var B2 = obj2.offsetTop + obj2.offsetHeight;
+
+            if(R1 < L2 || L1 > R2 || B1 < T2 || T1 > B2){
+                return false;
+            }else{
+                return true;
+            }
+        }
+
+        function slience(obj1,obj2){
+            var a = obj1.offsetLeft - obj2.offsetLeft;
+            var b = obj1.offsetTop - obj2.offsetTop;
+
+            return Math.sqrt(a * a + b * b);
+        }
+    };
+
+
+</script>
+</html>

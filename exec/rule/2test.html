@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>test方法</title>
+    <!--
+        test：正则去匹配字符串，如果匹配成功返回true,否则返回false
+        test的写法：正则.test(str)
+    -->
+</head>
+<body>
+    <script>
+        /*var str = 'abcfdfd';
+        var re = /b/;
+        alert(re.test(str));*/
+
+        var str = '423434343dfd5656565';
+        var re = /\D/;
+        if(re.test(str)){
+            alert('不全是数字');
+        }else{
+            alert('全是数字');
+        }
+    </script>
+</body>
+</html>

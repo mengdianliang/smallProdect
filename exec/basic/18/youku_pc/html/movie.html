@@ -1,0 +1,3697 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>优酷电影</title>
+		<link rel="stylesheet" href="../css/reset.css" />
+		<!-- 工具样式 -->
+		<link rel="stylesheet" href="../css/tools.css" />
+		<!-- 全局样式 -->
+		<link rel="stylesheet" href="../css/global.css" />
+		<!-- 对应同名html文件样式 -->
+		<link rel="stylesheet" href="../css/movie.css" />
+		<!-- 处理兼容性样式 -->
+		<!--[if gte IE 6]> 
+			<link rel="stylesheet" href="../style/fixIE.style" />
+			<!--处理PNG24问题-->
+			<script src="../js/DD_belatedPNG_0.0.8a.js"></script>
+			<script>
+				DD_belatedPNG.fix('.icon,.icon_movie');
+			</script>
+		<![endif]-->
+		<!--处理HTML5标签兼容性-->
+		<script src="../js/html5shiv.min.js"></script>
+	</head>
+	<body class="movie">
+		<div class="wrapper">
+			<header class="header">
+				<div class="h_top_wrapper">
+					<div class="h_top clearfix">
+						<h1 class="h_tit fl">
+							<a href="#">youku</a>
+						</h1>
+						<div class="guider fl">
+							<div class="guider_tit">
+								<span class="dir icon"></span>
+								<span class="guider_tit_txt">导视</span>
+							</div>
+							<div class="guider_info">
+								<div class="guider_info_con">
+									<dl>
+										<dt class="guider_info_kinds">频道精选</dt>
+										<dd>
+											<a href="#">剧集</a>
+										</dd>
+										<dd>
+											<a href="#">电影</a>
+										</dd>
+										<dd>
+											<a href="#">综艺</a>
+										</dd>
+										<dd>
+											<a href="#">音乐</a>
+										</dd>
+										<dd>
+											<a href="#">少儿</a>
+										</dd>
+										<dd>
+											<a href="#">动漫</a>
+										</dd>
+										<dd>
+											<a href="#">直播</a>
+										</dd>
+										<dd>
+											<a href="#">会员</a>
+										</dd>
+										<dd>
+											<a href="#">片库</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt class="guider_info_kinds">产品大全</dt>
+										<dd>
+											<a href="#">优酷星球</a>
+										</dd>
+										<dd>
+											<a href="#">话题</a>
+										</dd>
+										<dd>
+											<a href="#">众筹</a>
+										</dd>
+										<dd>
+											<a href="#">玩游戏</a>
+										</dd>
+										<dd>
+											<a href="#">来疯直播</a>
+										</dd>
+										<dd>
+											<a href="#">更多&gt;&gt;</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt class="guider_info_kinds">客户端</dt>
+										<dd>
+											<a href="#">移动APP</a>
+										</dd>
+										<dd>
+											<a href="#">PC客户端</a>
+										</dd>
+										<dd>
+											<a href="#">小小优酷</a>
+										</dd>
+										<dd>
+											<a href="#">优酷VR</a>
+										</dd>
+										<dd>
+											<a href="#">来疯APP</a>
+										</dd>
+									</dl>
+								</div>
+								<div class="pos_arrow"></div>
+							</div>
+						</div>
+						<nav class="h_top_nav fl">
+							<a href="#">首页</a>
+							<a href="#">发现</a>
+							<a href="#">订阅</a>
+							<a href="#">会员</a>
+							<a href="#">我的</a>
+						</nav>
+						<div class="h_tools fl">
+							<div class="h_tools_user fl">
+								<a href="#">登录</a>
+								<a href="#">注册</a>
+							</div>
+							<div class="h_tools_other fl">
+								<span class="h_tools_other_item fl">
+									<a href="#">
+										<span class="h_tools_other_bg area_time icon fl">时区</span>
+										<span class="trangle_down angle_margin fl"></span>
+									</a>
+									<span class="h_tools_other_item_abs">
+										<span class="h_tools_other_item_abs_inner">
+											<span class="h_tools_other_item_abs_info">
+												<span class="h_tools_other_item_abs_info_top">
+													<span class="admin_btn">登录</span>
+													同步各端记录
+												</span>
+												<span class="h_tools_other_item_abs_info_btm">您在是还没有观看记录呦~</span>
+											</span>
+											<span class="arrow_abs"></span>
+										</span>
+									</span>
+								</span>
+								<span class="h_tools_other_item fl">
+									<a href="#">
+										<span class="h_tools_other_bg email icon fl">邮箱</span>
+										<span class="trangle_down angle_margin fl"></span>
+									</a>
+								</span>
+								<span class="h_tools_other_item fl">
+									<a href="#">
+										<span class="h_tools_other_bg upload icon fl">上传</span>
+										<span class="trangle_down angle_margin fl"></span>
+									</a>
+									<span class="h_tools_other_item_abs">
+										<span class="h_tools_other_item_abs_inner">
+											<span class="h_tools_other_item_abs_info">
+												<span class="h_tools_other_item_abs_info_top">
+													<a href=="#" class="h_tools_other_item_abs_info_item">
+														<span class="h_tools_other_item_abs_info_item_bg"></span>
+														<span class="h_tools_other_item_abs_info_item_txt">上传视频</span>
+													</a>
+													<a href="#" class="h_tools_other_item_abs_info_item">
+														<span class="h_tools_other_item_abs_info_item_bg"></span>
+														<span class="h_tools_other_item_abs_info_item_txt">视频管理</span>
+													</a>
+													<a href="#" class="h_tools_other_item_abs_info_item">
+														<span class="h_tools_other_item_abs_info_item_bg"></span>
+														<span class="h_tools_other_item_abs_info_item_txt">我的自频道</span>
+													</a>
+													<a href="#" class="h_tools_other_item_abs_info_item">
+														<span class="h_tools_other_item_abs_info_item_bg"></span>
+														<span class="h_tools_other_item_abs_info_item_txt">数据分析</span>
+													</a>
+												</span>
+												<a href="#" class="h_tools_other_item_abs_info_mid">
+													<span class="fish icon"></span>
+													<span class="h_tools_other_item_abs_info_mid_txt">大鱼号 一站式创作服务平台</span>
+													<span class="h_tools_other_item_abs_info_mid_cli">日即入住</span>
+												</a>
+												<span href="#" class="h_tools_other_item_abs_info_btm">
+													<span class="fish icon"></span>
+													<span class="h_tools_other_item_abs_info_btm_txt">下载PC客户端，上传视频更轻松！</span>
+													<a href="#" class="h_tools_other_item_abs_info_btm_cli">
+														<span class="download"></span>
+														<span class="h_tools_other_item_abs_info_btm_cli_txt">立即下载</span>
+													</a>
+												</span>
+											</span>
+											<span class="arrow_abs"></span>
+										</span>
+									</span>
+								</span>	
+							</div>
+						</div>
+						<div class="h_select fr">
+							<form action="" method="get" class="h_select_l fl">
+								<span class="h_select_bg_bf icon fl"></span>
+								<input type="text" name="select" id="select" value="脑大洞开" class="fl"/>
+								<span class="h_select_bg_af icon fl"></span>
+							</form>
+							<div class="h_select_r fl">
+								<a href="#">搜库</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="h_bottom_wrapper">
+					<div class="h_bottom clearfix">
+						<nav class="h_bottom_nav_wrapper fl">
+							<div class="h_bottom_nav fl">
+								<a href="#">首页</a>
+								<a href="#">剧集</a>
+								<a href="#" class="active">电影</a>
+								<a href="#">综艺</a>
+								<a href="#">音乐</a>
+								<a href="#">少儿</a>
+								<a href="#">来疯</a>
+								<a href="#">直播</a>
+								<a href="#">片库</a>
+								<a href="#">资讯</a>
+								<a href="#">纪实</a>
+								<a href="#">公益</a>
+								<a href="#">体育</a>
+								<a href="#">汽车</a>
+								<a href="#">科技</a>
+								<a href="#">财经</a>
+								<a href="#">娱乐</a>
+								<a href="#">文化</a>
+								<a href="#">动漫</a>
+								<a href="#">搞笑</a>
+								<a href="#">旅游</a>
+							</div>
+							<div class="more fl">
+								<a href="#" class="clearfix">
+									<span class="more_txt fl">更多</span>
+									<span class="trangle_down more_down fl"></span>
+								</a>
+								<span class="more_links">
+									<span class="more_links_list">
+										<a href="#">时尚</a>
+										<a href="#">亲子</a>
+										<a href="#">教育</a>
+										<a href="#">游戏</a>
+										<a href="#">VR</a>
+										<a href="#">生活</a>
+										<a href="#">原创</a>
+										<a href="#">排行</a>
+									</span>
+								</span>
+							</div>
+						</nav>
+						<div class="h_btn fr">
+							<a href="#">下载</a>
+							<span class="h_btn_info_wrapper">
+								<span class="h_btn_info">
+									<span class="h_btn_info_con">
+										<img src="" title="优酷移动APP" alt="优酷移动APP"/>
+										<a href="#" class="h_btn_info_tit">优酷移动APP</a>
+										<span class="h_btn_info_desc">轻松扫一扫，精彩随时看</span>
+										<a href="#" class="h_btn_info_cli">了解详情</a>
+									</span>
+									<span class="h_btn_info_con">
+										<img src="" title="优酷客户端" alt="优酷客户端"/>
+										<a href="#" class="h_btn_info_tit"></a>
+										<span class="h_btn_info_desc">优酷移动APP</span>
+										<a href="#" class="h_btn_info_cli">了解详情</a>
+									</span>
+								</span>	
+								<span class="pos_arrow"></span>
+							</span>
+						</div>	
+					</div>
+				</div>
+			</header>
+			<section class="main">
+				<div class="main_model">
+					<nav class="nav_film clearfix">
+						<div class="nav_film_l fl">
+							<a href="#" class="active">电影频道</a>
+							<a href="#">新收录</a>
+							<a href="#">
+								<span class="nav_film_l_txt">独播影院</span>
+								<span class="nav_film_l_bg icon_movie"></span>
+							</a>
+							<a href="#">影院热映</a>
+							<a href="#">华语</a>
+							<a href="#">好莱坞</a>
+							<a href="#">韩国</a>
+							<a href="#">网络电影</a>
+							<a href="#">壹影院</a>
+							<a href="#">会员</a>
+							<a href="#">全部电影</a>
+							<a href="#">节目热播单</a>
+						</div>
+						<div class="nav_film_r fr">
+							<a href="">
+								<img src="../img/movie/banner_right.jpg" title="广告" alt="广告"/>
+							</a>
+						</div>
+					</nav>
+					<section class="banner_area">
+						<div class="banner_area_l">
+							<a href="#" class="banner_bg_l icon_movie"></a>
+						</div>
+						<ul class="banner_area_list clearfix">
+							<li class="fl">
+								<a href="#">
+									<img src="../img/movie/spring.jpg" title="那年夏天" alt="那年夏天"/>
+								</a>
+							</li>
+						</ul>
+						<ul class="banner_link_point clearfix">
+							<li class="fl">
+								<a href="#" class="active"></a>
+							</li>
+							<li class="fl">
+								<a href="#"></a>
+							</li>
+							<li class="fl">
+								<a href="#"></a>
+							</li>
+							<li class="fl">
+								<a href="#"></a>
+							</li>
+							<li class="fl">
+								<a href="#"></a>
+							</li>
+							<li class="fl">
+								<a href="#"></a>
+							</li>
+							<li class="fl">
+								<a href="#"></a>
+							</li>
+							<li class="fl">
+								<a href="#"></a>
+							</li>
+							<li class="fl">
+								<a href="#"></a>
+							</li>
+							<li class="fl">
+								<a href="#"></a>
+							</li>
+							<li class="fl">
+								<a href="#"></a>
+							</li>
+						</ul>
+						<div class="banner_area_r">
+							<a href="#" class="banner_bg_r icon_movie"></a>
+						</div>
+					</section>
+					<section class="films_kinds clearfix">
+						<div class=" films_kinds_item hot_item fl">
+							<h3 class="films_kinds_head">
+								<a href="#" class="films_kinds_tit">按热播排行</a>
+							</h3>
+							<div class="films_kinds_con by_hot clearfix">
+								<a href="#">今日最多</a>
+								<a href="#">本周最多</a>
+								<a href="#">历史最多</a>
+								<a href="#">最新上映</a>
+								<a href="#">用户好评</a>
+								<a href="#">会员专享</a>
+							</div>
+						</div>	
+						<div class=" films_kinds_item area_item fl">
+							<h3 class="films_kinds_head">
+								<a href="#" class="films_kinds_tit">按国家/地区</a>
+							</h3>
+							<div class="films_kinds_con by_area clearfix">
+								<a href="#">香港</a>
+								<a href="#">大陆</a>
+								<a href="#">美国</a>
+								<a href="#">韩国</a>
+								<a href="#">台湾</a>
+								<a href="#">法国</a>
+								<a href="#">英国</a>
+								<a href="#">泰国</a>
+								<a href="#">印度</a>
+								<a href="#">其他</a>
+							</div>
+						</div>	
+						<div class=" films_kinds_item kind_item fl">
+							<h3 class="films_kinds_head">
+								<a href="#" class="films_kinds_tit">按类型</a>
+							</h3>
+							<div class="films_kinds_con by_kind clearfix">
+								<a href="#">喜剧</a>
+								<a href="#">恐怖</a>
+								<a href="#">爱情</a>
+								<a href="#">动作</a>
+								<a href="#">科幻</a>
+								<a href="#">武侠</a>
+								<a href="#">战争</a>
+								<a href="#">犯罪</a>
+								<a href="#">惊涑</a>
+								<a href="#">剧情</a>
+							</div>
+						</div>	
+						<div class=" films_kinds_item time_item fl">
+							<h3 class="films_kinds_head">
+								<a href="#" class="films_kinds_tit">按上映时间</a>
+							</h3>
+							<div class="films_kinds_con by_time clearfix">
+								<a href="#">2015</a>
+								<a href="#">2014</a>
+								<a href="#">2013</a>
+								<a href="#">2012</a>
+								<a href="#">2011</a>
+								<a href="#">00年代</a>
+								<a href="#">90年代</a>
+							</div>
+						</div>	
+					</section> 
+					<section class="recommend content">
+						<div class="recommend_inner">
+							<div class="banner_area_l">
+								<a href="#" class="banner_bg_l icon_movie"></a>
+							</div>
+							<ul class="content_list clearfix">
+								<li class="fl">
+									<a href="#">
+										<img src="../img/movie/jingang.jpg" title="[星映话]变形金刚5" alt="[星映话]变形金刚5"/>
+									</a>
+								</li>
+								<li class="fl">
+									<a href="#">
+										<img src="../img/movie/ling.jpg" title="[凌辱看电影]见到美女就失控的奇葩人生" alt="[凌辱看电影]见到美女就失控的奇葩人生"/>
+									</a>
+								</li>
+								<li class="fl">
+									<a href="#">
+										<img src="../img/movie/lutushe.jpg" title="[电影路途社]当红萝莉惨遭杀害" alt="[电影路途社]当红萝莉惨遭杀害"/>
+									</a>
+								</li>
+								<li class="fl">
+									<a href="#">
+										<img src="../img/movie/yapian.jpg" title="[鸭片]渣男和表女的爱情诡计" alt="[鸭片]渣男和表女的爱情诡计"/>
+									</a>
+								</li>
+								<li class="fl">
+									<a href="#">
+										<img src="../img/movie/kankanjia.jpg" title="[王牌侃片家]能和无间道相提并论的只有他" alt="[王牌侃片家]能和无间道相提并论的只有他"/>
+									</a>
+								</li>
+								<li class="fl">
+									<a href="#">
+										<img src="../img/movie/kankanjia.jpg" title="[桃淘好莱坞]我可能看了假的木乃伊" alt="[桃淘好莱坞]我可能看了假的木乃伊"/>
+									</a>
+								</li>
+								<li class="fl">
+									<a href="#">
+										<img src="../img/movie/kankanjia.jpg" title="[有部电影]网恋女友竟然劈腿六百人" alt="[有部电影]网恋女友竟然劈腿六百人"/>
+									</a>
+								</li>
+							</ul>
+							<div class="banner_area_r">
+								<a href="#" class="banner_bg_r icon_movie"></a>
+							</div>
+						</div>	
+					</section>
+					<section class="latest content clearfix">
+						<div class="content_l fl">
+							<header class="content_header">
+								<h3 class="content_header_l_slide_tit clearfix">
+									<a href="#" class="active">最新预告</a>
+									<a href="#">影院热映</a>
+									<a href="#">即将上映</a>
+								</h3>
+							</header>
+							<section class="content_info">
+								<ul class="content_info_list clearfix">
+									<li class="icon_movie fl">
+										<a href="#">
+											<img src="../img/movie/xiongshi.jpg" title="雄狮" alt="雄狮"/>
+										</a>
+										<span class="pic_desc">
+											<a href="#" class="pic_desc_link">
+												<span class="pic_desc_tit">雄狮</span>
+												<span class="pic_desc_txt">终极预告首发</span>
+											</a>
+											<span class="pic_desc_oper clearfix">
+												<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+											</span>
+										</span>
+									</li>
+									<li class="icon_movie fl">
+										<a href="#">
+											<img src="../img/movie/lastqishi.jpg" title="变形金刚5" alt="变形金刚5"/>
+										</a>
+										<span class="pic_desc">
+											<a href="#" class="pic_desc_link">
+												<span class="pic_desc_tit">变形金刚5:最后的骑士</span>
+												<span class="pic_desc_txt">[预告片]中国独家预告</span>
+											</a>
+											<span class="pic_desc_oper clearfix">
+												<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+											</span>
+										</span>
+									</li>
+									<li class="icon_movie fl">
+										<a href="#">
+											<img src="../img/movie/qiyue.jpg" title="异形:契约" alt="异形:契约"/>
+										</a>
+										<span class="pic_desc">
+											<a href="#" class="pic_desc_link">
+												<span class="pic_desc_tit">异形:契约</span>
+												<span class="pic_desc_txt">[预告片]女超级英雄预告</span>
+											</a>
+											<span class="pic_desc_oper clearfix">
+												<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+											</span>
+										</span>
+									</li>
+									<li class="icon_movie fl">
+										<a href="#">
+											<img src="../img/movie/wukong.jpg" title="悟空传" alt="悟空传"/>
+										</a>
+										<span class="pic_desc">
+											<a href="#" class="pic_desc_link">
+												<span class="pic_desc_tit">悟空传</span>
+												<span class="pic_desc_txt">"魔猴降世"版预告</span>
+											</a>
+											<span class="pic_desc_oper clearfix">
+												<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+											</span>
+										</span>
+									</li>
+									<li class="icon_movie fl">
+										<a href="#">
+											<img src="../img/movie/zhanlang.jpg" title="战狼2" alt="战狼2"/>
+										</a>
+										<span class="pic_desc">
+											<a href="#" class="pic_desc_link">
+												<span class="pic_desc_tit">战狼2</span>
+												<span class="pic_desc_txt">"京刚狼"组合营救同胞</span>
+											</a>
+											<span class="pic_desc_oper clearfix">
+												<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+											</span>
+										</span>
+									</li>
+									<li class="icon_movie fl">
+										<a href="#">
+											<img src="../img/movie/shentou.jpg" title="神偷奶爸3" alt="神偷奶爸3"/>
+										</a>
+										<span class="pic_desc">
+											<a href="#" class="pic_desc_link">
+												<span class="pic_desc_tit">神偷奶爸3</span>
+												<span class="pic_desc_txt">[预告片]小黄人杀回坏蛋之路</span>
+											</a>
+											<span class="pic_desc_oper clearfix">
+												<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+											</span>
+										</span>
+									</li>
+									<li class="icon_movie fl">
+										<a href="#">
+											<img src="../img/movie/tuixiaoyuan.jpg" title="中国推销员" alt="中国推销员"/>
+										</a>
+										<span class="pic_desc">
+											<a href="#" class="pic_desc_link">
+												<span class="pic_desc_tit">中国推销员</span>
+												<span class="pic_desc_txt">终极预告</span>
+											</a>
+											<span class="pic_desc_oper clearfix">
+												<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+											</span>
+										</span>
+									</li>
+									<li class="icon_movie fl">
+										<a href="#">
+											<img src="../img/movie/longzhihzan.jpg" title="龙之战" alt="龙之战"/>
+										</a>
+										<span class="pic_desc">
+											<a href="#" class="pic_desc_link">
+												<span class="pic_desc_tit">龙之战</span>
+												<span class="pic_desc_txt">[预告片]成龙监制最血性战争电影</span>
+											</a>
+											<span class="pic_desc_oper clearfix">
+												<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+											</span>
+										</span>
+									</li>
+								</ul>
+							</section>
+						</div>
+						<div class="content_r fr">
+								<header class="content_r_header clearfix">
+									<h3 class="content_header_slide_tit fl">
+										<a href="#">我正在看的电影</a>
+									</h3>
+									<div class="content_more fl">
+										<a href="#">更多</a>
+									</div>
+								</header>
+								<section class="recommend_info">
+									<ul class="recommend_info_list">
+										<li class="clearfix">
+											<div class="rec_pic fl">
+												<a href="#">
+													<img src="../img/movie/hongren.jpg" title="红人制造之卧底女王" alt="红人制造之卧底女王"/>
+													<span class="long_time">64:04</span>
+												</a>
+											</div>
+											<div class="rec_desc fl">
+												<a href="#" class="rec_desc_tit">红人制造之卧底女王</a>
+												<span class="rec_desc_txt">看到0%</span>
+											</div>
+											<div class="del_record fr">
+												<a href="#">X</a>
+											</div>
+										</li>
+										<li class="clearfix">
+											<div class="rec_pic fl">
+												<a href="#">
+													<img src="../img/movie/mishi.jpg" title="迷失芭提雅" alt="迷失芭提雅"/>
+													<span class="long_time">73:32</span>
+												</a>
+											</div>
+											<div class="rec_desc fl">
+												<a href="#" class="rec_desc_tit">迷失芭提雅</a>
+												<span class="rec_desc_txt">看到0%</span>
+											</div>
+											<div class="del_record fr">
+												<a href="#">X</a>
+											</div>
+										</li>
+										<li class="margin_20 clearfix">
+											<div class="rec_pic fl">
+												<a href="#">
+													<img src="../img/movie/yuanmeng.jpg" title="圆梦巨人" alt="圆梦巨人"/>
+													<span class="long_time">117:13</span>
+												</a>
+											</div>
+											<div class="rec_desc fl">
+												<a href="#" class="rec_desc_tit">圆梦巨人</a>
+												<span class="rec_desc_txt">看到0%</span>
+											</div>
+											<div class="del_record fr">
+												<a href="#">X</a>
+											</div>
+										</li>
+										<li class="clearfix">
+											<div class="rec_pic fl">
+												<a href="#">
+													<img src="../img/movie/puluomi.jpg" title="普罗米修斯" alt="普罗米修斯"/>
+													<span class="long_time">123:46</span>
+												</a>
+											</div>
+											<div class="rec_desc fl">
+												<a href="#" class="rec_desc_tit">普罗米修斯</a>
+												<span class="rec_desc_txt">看到0%</span>
+											</div>
+											<div class="del_record fr">
+												<a href="#">X</a>
+											</div>
+										</li>
+									</ul>
+								</section>
+							</div>
+					</section>
+					<section class="favor content">
+						<header class="content_header">
+							<h3 class="content_header_slide_tit">
+								<a href="#" class="active">猜你喜欢</a>
+							</h3>
+						</header>
+						<section class="recommend">
+							<div class="recommend_inner">
+								<div class="banner_area_l">
+									<a href="#" class="banner_bg_l icon_movie"></a>
+								</div>
+								<ul class="content_list clearfix">
+									<li class="fl">
+										<a href="#">
+											<img src="../img/movie/jialebi.jpg" title="加勒比海盗2 英文版" alt="加勒比海盗2 英文版"/>
+											<span class="pic_tit">加勒比海盗2 英文版</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/movie/america.jpg" title="美国队长3 英文" alt="美国队长3 英文"/>
+											<span class="pic_tit">美国队长3 英语</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/movie/danaotianzhu.jpg" title="大闹天竺" alt="大闹天竺"/>
+											<span class="pic_tit">大闹天竺</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/movie/youwanmeiwan.jpg" title="有完没完" alt="有完没完"/>
+											<span class="pic_tit">有完没完</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/movie/gesila.jpg" title="哥斯拉 英语版" alt="哥斯拉 英语版"/>
+											<span class="pic_tit">哥斯拉 英语版</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/movie/gesila.jpg" title="2004 Kung Fu" alt="2004 Kung Fu"/>
+											<span class="pic_tit">哥斯拉 英语版</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/movie/gesila.jpg" title="如父如子" alt="如父如子"/>
+											<span class="pic_tit">如父如子</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/movie/gesila.jpg" title="《古惑往事之龙虎斗》" alt="《古惑往事之龙虎斗》"/>
+											<span class="pic_tit">《古惑往事之龙虎斗》</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/movie/gesila.jpg" title="《异能超模》" alt="《异能超模》"/>
+											<span class="pic_tit">《异能超模》</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/movie/gesila.jpg" title="《公平游戏Fair Game》" alt="《公平游戏Fair Game》"/>
+											<span class="pic_tit">《公平游戏Fair Game》</span>
+										</a>
+									</li>
+								</ul>
+								<div class="banner_area_r">
+									<a href="#" class="banner_bg_r icon_movie"></a>
+								</div>
+							</div>	
+						</section>
+					</section>
+					<section class="live content h_300">
+						<div class="content_inner">
+							<header class="content_header clearfix">
+								<h3 class="content_header_slide_tit fl">
+									<a href="#" class="active">全网首播</a>
+								</h3>
+								<div class="content_more fl">
+									<a href="#">更多</a>
+								</div>
+							</header>
+							<section class="recommend">
+								<div class="recommend_inner">
+									<div class="banner_area_l">
+										<a href="#" class="banner_bg_l icon_movie"></a>
+									</div>
+									<ul class="content_list clearfix">
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/chaidan.jpg" title="拆弹专家" alt="拆弹专家"/>
+												<span class="for_free">会员免费</span>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">拆弹专家</span>
+													<span class="pic_desc_txt">刘德华边拆炸弹边谈情</span>
+													<span class="pic_desc_role">主演：刘德华 姜武 宋佳</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<a href="#" class="to_play to_buy fl">购买正片</a>
+													<a href="#" class="to_free fl">免费试看</a>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/jiuceng.jpg" title="九层妖塔" alt="九层妖塔"/>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">九层妖塔</span>
+													<span class="pic_desc_txt">全星阵容沙漠探险打怪</span>
+													<span class="pic_desc_role">主演：赵又廷 姚晨 凤小岳</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<a href="#" class="to_play fl">观看正片</a>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/shanghaiwang.jpg" title="上海王" alt="上海王"/>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">上海王</span>
+													<span class="pic_desc_txt">胡军余男秦昊群雄逐鹿</span>
+													<span class="pic_desc_role">主演：胡军 余男 秦昊</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<a href="#" class="to_play fl">观看正片</a>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/jiangshi.jpg" title="僵尸英雄2古墓传说" alt="僵尸英雄2古墓传说"/>
+												<span class="for_alone icon_movie">独播</span>
+												<span class="for_free">会员免费</span>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">僵尸英雄2古墓传说</span>
+													<span class="pic_desc_txt">呆萌小哥成新驱魔英雄</span>
+													<span class="pic_desc_role">主演：钟一宪 吕宇 陈丽玲</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<a href="#" class="to_play to_buy fl">购买正片</a>
+													<a href="#" class="to_free fl">免费试看</a>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/xianyiren.jpg" title="嫌疑人X的献身" alt="嫌疑人X的献身"/>
+												<span class="for_free">会员免费</span>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">嫌疑人X的献身</span>
+													<span class="pic_desc_txt">王凯张鲁一烧尸迷局</span>
+													<span class="pic_desc_role">主演：王凯 张鲁一 林心如</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<a href="#" class="to_play to_buy fl">购买正片</a>
+													<a href="#" class="to_free fl">免费试看</a>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/xianyiren.jpg" title="外公芳龄38" alt="外公芳龄38"/>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">外公芳龄38</span>
+													<span class="pic_desc_txt">佟大为陈妍希怪咖家庭</span>
+													<span class="pic_desc_role">主演：佟大为 陈妍希 吕云骢</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<a href="#" class="to_play fl">观看正片</a>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/xianyiren.jpg" title="蜡笔小新:梦境世界大突击" alt="蜡笔小新:梦境世界大突击"/>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">蜡笔小新:梦境世界大突击</span>
+													<span class="pic_desc_txt">污力霸主小新玩转梦境</span>
+													<span class="pic_desc_role">主演：矢岛晶子 楢桥美纪 藤原启治</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<a href="#" class="to_play fl">观看正片</a>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/xianyiren.jpg" title="春桥救志明" alt="春桥救志明"/>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">春桥救志明</span>
+													<span class="pic_desc_txt">八年之痒感情告急</span>
+													<span class="pic_desc_role">主演：余文乐 杨千嬅 蒋梦婕</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<a href="#" class="to_play to_buy fl">购买正片</a>
+													<a href="#" class="to_free fl">免费试看</a>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/xianyiren.jpg" title="惊天破" alt="惊天破"/>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">惊天破</span>
+													<span class="pic_desc_txt">刘青云谢霆锋影帝对决</span>
+													<span class="pic_desc_role">主演：谢霆锋 刘青云 佟丽娅</span>
+												</a>
+												<span class="pic_desc_oper">
+													<a href="#" class="to_play fl">观看正片</a>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/xianyiren.jpg" title="夏天十九岁的肖像" alt="夏天十九岁的肖像"/>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">夏天十九岁的肖像</span>
+													<span class="pic_desc_txt">黄子韬痴恋危险情人</span>
+													<span class="pic_desc_role">主演：杨采钰 黄子韬 张国柱</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<a href="#" class="to_play to_buy fl">购买正片</a>
+													<a href="#" class="to_free fl">免费试看</a>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/xianyiren.jpg" title="捉迷藏" alt="捉迷藏"/>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">捉迷藏</span>
+													<span class="pic_desc_txt">老干部霍建华身陷杀机</span>
+													<span class="pic_desc_role">主演：霍建华 秦海璐 万茜</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<a href="#" class="to_play fl">观看正片</a>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/xianyiren.jpg" title="喜欢你" alt="喜欢你"/>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">喜欢你</span>
+													<span class="pic_desc_txt">金城武周冬雨美食爱情</span>
+													<span class="pic_desc_role">主演：金城武 周冬雨 孙艺洲</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<a href="#" class="to_play to_buy fl">购买正片</a>
+													<a href="#" class="to_free fl">免费试看</a>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/xianyiren.jpg" title="超级快递" alt="超级快递"/>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">超级快递</span>
+													<span class="pic_desc_txt">陈赫宋智孝斗国际大盗</span>
+													<span class="pic_desc_role">主演：陈赫 宋智孝 大卫·贝尔</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<a href="#" class="to_play fl">观看正片</a>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+									</ul>
+									<div class="banner_area_r">
+										<a href="#" class="banner_bg_r icon_movie"></a>
+									</div>
+								</div>	
+							</section>	
+						</div>
+						<ul class="link_point clearfix">
+							<li class="fl">
+								<a href="#" class="active"></a>
+							</li>
+							<li class="fl">
+								<a href="#"></a>
+							</li>
+							<li class="fl">
+								<a href="#"></a>
+							</li>
+						</ul>
+					</section>
+					<section class="twenty content h_300">
+						<div class="content_inner">
+							<header class="content_header">
+								<h3 class="content_header_slide_tit">
+									<a href="#" class="active">第20届上影节好片看起来</a>
+								</h3>
+							</header>
+							<section class="recommend">
+								<div class="recommend_inner">
+									<div class="banner_area_l">
+										<a href="#" class="banner_bg_l icon_movie"></a>
+									</div>
+									<ul class="content_list clearfix">
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/puluomixiusi.jpg" title="普罗米修斯" alt="普罗米修斯"/>
+												<span class="leaguer">会员免费</span>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">普罗米修斯</span>
+													<span class="pic_desc_txt clearfix">
+														<span class="pic_desc_txt_l fl">科幻巨制揭异性进化论</span>
+														<span class="pic_desc_txt_r fr">正片</span>
+													</span>
+													<span class="pic_desc_role">主演：劳米·拉佩斯</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<span class="pic_desc_oper_num fl">
+														<span class="icon_movie pic_desc_oper_num_bg fl"></span>
+														<span class="pic_desc_oper_num_value fl">1,756万</span>
+													</span>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/meigonghe.jpg" title="湄公河行动" alt="湄公河行动"/>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">湄公河行动</span>
+													<span class="pic_desc_txt clearfix">
+														<span class="pic_desc_txt_l fl">彭于晏张涵予跨国缉毒</span>
+														<span class="pic_desc_txt_r fr">正片</span>
+													</span>
+													<span class="pic_desc_role">主演：彭于晏 张涵予</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<span class="pic_desc_oper_num fl">
+														<span class="icon_movie pic_desc_oper_num_bg fl"></span>
+														<span class="pic_desc_oper_num_value fl">9,762万</span>
+													</span>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/shaonianpai.jpg" title="少年派的奇幻漂流" alt="少年派的奇幻漂流"/>
+												<span class="leaguer">会员免费</span>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">少年派的奇幻漂流</span>
+													<span class="pic_desc_txt clearfix">
+														<span class="pic_desc_txt_l fl">视觉与灵魂双重魔幻秀</span>
+														<span class="pic_desc_txt_r fr">正片</span>
+													</span>
+													<span class="pic_desc_role">主演：苏拉·沙玛</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<span class="pic_desc_oper_num fl">
+														<span class="icon_movie pic_desc_oper_num_bg fl"></span>
+														<span class="pic_desc_oper_num_value fl">1,173万</span>
+													</span>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/pulada.jpg" title="穿普拉达的女王" alt="穿普拉达的女王"/>
+												<span class="leaguer">会员免费</span>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">穿普拉达的女王</span>
+													<span class="pic_desc_txt clearfix">
+														<span class="pic_desc_txt_l fl">海瑟薇土妞变时尚女王</span>
+														<span class="pic_desc_txt_r fr">正片</span>
+													</span>
+													<span class="pic_desc_role">主演：梅丽尔·斯特里普</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<span class="pic_desc_oper_num fl">
+														<span class="icon_movie pic_desc_oper_num_bg fl"></span>
+														<span class="pic_desc_oper_num_value fl">886万</span>
+													</span>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/nuhuo.jpg" title="怒火救援" alt="怒火救援"/>
+												<span class="leaguer">会员用券</span>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">怒火救援</span>
+													<span class="pic_desc_txt clearfix">
+														<span class="pic_desc_txt_l fl">丹泽尔暴力复仇救萝莉</span>
+														<span class="pic_desc_txt_r fr">正片</span>
+													</span>
+													<span class="pic_desc_role">主演：丹泽尔·华盛顿</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<span class="pic_desc_oper_num fl">
+														<span class="icon_movie pic_desc_oper_num_bg fl"></span>
+														<span class="pic_desc_oper_num_value fl">77.8万</span>
+													</span>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/nuhuo.jpg" title="低俗小说" alt="低俗小说"/>
+												<span class="leaguer">会员免费</span>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">低俗小说</span>
+													<span class="pic_desc_txt clearfix">
+														<span class="pic_desc_txt_l fl">鬼才小说昆汀代表作品</span>
+														<span class="pic_desc_txt_r fr">正片</span>
+													</span>
+													<span class="pic_desc_role">主演：约翰·特拉沃尔塔</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<span class="pic_desc_oper_num fl">
+														<span class="icon_movie pic_desc_oper_num_bg fl"></span>
+														<span class="pic_desc_oper_num_value fl">195万</span>
+													</span>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+									</ul>
+									<div class="banner_area_r">
+										<a href="#" class="banner_bg_r icon_movie"></a>
+									</div>
+								</div>	
+							</section>	
+						</div>
+						<ul class="link_point clearfix">
+							<li class="fl">
+								<a href="#" class="active"></a>
+							</li>
+							<li class="fl">
+								<a href="#"></a>
+							</li>
+						</ul>
+					</section>
+					<section class="live_theater content h_300">
+						<div class="content_inner">
+							<header class="content_header">
+								<h3 class="content_header_slide_tit fl">
+									<a href="#" class="active">独播影院</a>
+								</h3>
+								<div class="content_more fl">
+									<a href="#">更多</a>
+								</div>
+							</header>
+							<section class="recommend">
+								<div class="recommend_inner">
+									<div class="banner_area_l">
+										<a href="#" class="banner_bg_l icon_movie"></a>
+									</div>
+									<ul class="content_list clearfix">
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/olnvwang.jpg" title="OL女王奇幻夜" alt="OL女王奇幻夜"/>
+												<span class="for_free">会员免费</span>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">OL女王奇幻夜</span>
+													<span class="pic_desc_txt clearfix">
+														<span class="pic_desc_txt_l fl">女王寻爱告别单身</span>
+														<span class="pic_desc_txt_evalue fr">
+															<span class="pic_desc_txt_evalue_b fl">6</span>
+															<span class="pic_desc_txt_evalue_s fl">.8</span>
+														</span>
+													</span>
+													<span class="pic_desc_role">主演：靳美玲 黄一飞 林枫桦</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<span class="pic_desc_oper_num fl">
+														<span class="icon_movie pic_desc_oper_num_bg fl"></span>
+														<span class="pic_desc_oper_num_value fl">6.2万</span>
+													</span>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/aini.jpg" title="爱你直到世界尽头" alt="爱你直到世界尽头"/>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">爱你直到世界尽头</span>
+													<span class="pic_desc_txt clearfix">
+														<span class="pic_desc_txt_l fl">闷骚漫画师展魔性脑洞</span>
+														<span class="pic_desc_txt_evalue fr">
+															<span class="pic_desc_txt_evalue_b fl">7</span>
+															<span class="pic_desc_txt_evalue_s fl">.3</span>
+														</span>
+													</span>
+													<span class="pic_desc_role">主演：沉默 冯靖宇 周蓓</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<span class="pic_desc_oper_num fl">
+														<span class="pic_desc_oper_num_bg fl"></span>
+														<span class="pic_desc_oper_num_value fl">179万</span>
+													</span>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/yueliang.jpg" title="来自月亮的我" alt="来自月亮的我"/>
+												<span class="for_free">会员免费</span>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">来自月亮的我</span>
+													<span class="pic_desc_txt clearfix">
+														<span class="pic_desc_txt_l fl">手持红线裸男自称大神</span>
+														<span class="pic_desc_txt_evalue fr">
+															<span class="pic_desc_txt_evalue_b fl">0</span>
+															<span class="pic_desc_txt_evalue_s fl">.0</span>
+														</span>
+													</span>
+													<span class="pic_desc_role">主演：夏嘉伟 洪剑涛 花希</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<span class="pic_desc_oper_num fl">
+														<span class="pic_desc_oper_num_bg fl"></span>
+														<span class="pic_desc_oper_num_value fl">19.2万</span>
+													</span>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/douya.jpg" title="怒放的豆芽" alt="怒放的豆芽"/>
+												<span class="icon_movie for_alone">独播</span>
+												<span class="for_free">会员免费</span>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">怒放的豆芽</span>
+													<span class="pic_desc_txt clearfix">
+														<span class="pic_desc_txt_l fl">青春宣言谱写摇滚颂歌</span>
+														<span class="pic_desc_txt_evalue fr">
+															<span class="pic_desc_txt_evalue_b fl">6</span>
+															<span class="pic_desc_txt_evalue_s fl">.9</span>
+														</span>
+													</span>
+													<span class="pic_desc_role">主演：李感 郑青霞 李弈增</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<span class="pic_desc_oper_num fl">
+														<span class="pic_desc_oper_num_bg fl"></span>
+														<span class="pic_desc_oper_num_value fl">5.1万</span>
+													</span>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie//yaodian.jpg" title="深夜药店" alt="深夜药店"/>
+												<span class="icon_movie for_alone">独播</span>
+												<span class="for_free">会员免费</span>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">深夜药店</span>
+													<span class="pic_desc_txt clearfix">
+														<span class="pic_desc_txt_l fl">背叛与后悔的刺伤爱情</span>
+														<span class="pic_desc_txt_evalue fr">
+															<span class="pic_desc_txt_evalue_b fl">5</span>
+															<span class="pic_desc_txt_evalue_s fl">.9</span>
+														</span>
+													</span>
+													<span class="pic_desc_role">主演：陈炳强 曲昱曈 游乐儿</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<span class="pic_desc_oper_num fl">
+														<span class="pic_desc_oper_num_bg fl"></span>
+														<span class="pic_desc_oper_num_value fl">42.9万</span>
+													</span>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/jiangshi.jpg" title="僵尸英雄2古墓传说" alt="僵尸英雄2古墓传说"/>
+												<span class="icon_movie for_alone">独播</span>
+												<span class="for_free">会员免费</span>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">僵尸英雄2古墓传说</span>
+													<span class="pic_desc_txt clearfix">
+														<span class="pic_desc_txt_l fl">呆萌小哥新驱魔英雄</span>
+														<span class="pic_desc_txt_evalue fr">
+															<span class="pic_desc_txt_evalue_b fl">7</span>
+															<span class="pic_desc_txt_evalue_s fl">.3</span>
+														</span>
+													</span>
+													<span class="pic_desc_role">主演：钟一宪 吕宇 陈丽玲</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<span class="pic_desc_oper_num fl">
+														<span class="pic_desc_oper_num_bg fl"></span>
+														<span class="pic_desc_oper_num_value fl">147万</span>
+													</span>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/jiangshi.jpg" title="窥梦大师" alt="窥梦大师"/>
+												<span class="icon_movie for_alone">独播</span>
+												<span class="for_free">会员免费</span>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">窥梦大师</span>
+													<span class="pic_desc_txt clearfix">
+														<span class="pic_desc_txt_l fl">最虐心荒诞大片</span>
+														<span class="pic_desc_txt_evalue fr">
+															<span class="pic_desc_txt_evalue_b fl">5</span>
+															<span class="pic_desc_txt_evalue_s fl">.3</span>
+														</span>
+													</span>
+													<span class="pic_desc_role">主演：艾丽菲 魏鹏 吴苏航</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<span class="pic_desc_oper_num fl">
+														<span class="pic_desc_oper_num_bg fl"></span>
+														<span class="pic_desc_oper_num_value fl">10.8万</span>
+													</span>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/jiangshi.jpg" title="爱尚泰国" alt="爱尚泰国"/>
+												<span class="for_free">会员免费</span>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">爱尚泰国</span>
+													<span class="pic_desc_txt clearfix">
+														<span class="pic_desc_txt_l fl">四兄弟泰国上演离婚记</span>
+														<span class="pic_desc_txt_evalue fr">
+															<span class="pic_desc_txt_evalue_b fl">8</span>
+															<span class="pic_desc_txt_evalue_s fl">.3</span>
+														</span>
+													</span>
+													<span class="pic_desc_role">主演：李缇娜 瑞雅 Tomo</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<span class="pic_desc_oper_num fl">
+														<span class="pic_desc_oper_num_bg fl"></span>
+														<span class="pic_desc_oper_num_value fl">219万</span>
+													</span>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/jiangshi.jpg" title="卧底1000" alt="卧底1000"/>
+												<span class="for_free">会员免费</span>
+											</a>
+											<span class="pic_desc">
+												<a href="#">
+													<span class="pic_desc_tit">卧底1000</span>
+													<span class="pic_desc_txt clearfix">
+														<span class="pic_desc_txt_l fl">卧底对决 战火激燃</span>
+														<span class="pic_desc_txt_evalue fr">
+															<span class="pic_desc_txt_evalue_b fl">7</span>
+															<span class="pic_desc_txt_evalue_s fl">.8</span>
+														</span>
+													</span>
+													<span class="pic_desc_role">主演：海明威 唐文龙 黄苑玲</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<span class="pic_desc_oper_num fl">
+														<span class="pic_desc_oper_num_bg fl"></span>
+														<span class="pic_desc_oper_num_value fl">357万</span>
+													</span>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/jiangshi.jpg" title="古惑往事之龙虎斗" alt="古惑往事之龙虎斗"/>
+												<span class="for_free">会员免费</span>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">古惑往事之龙虎斗</span>
+													<span class="pic_desc_txt clearfix">
+														<span class="pic_desc_txt_l fl">痞男玩命卧底捣毁黑帮</span>
+														<span class="pic_desc_txt_evalue fr">
+															<span class="pic_desc_txt_evalue_b fl">9</span>
+															<span class="pic_desc_txt_evalue_s fl">.2</span>
+														</span>
+													</span>
+													<span class="pic_desc_role">主演：钟一宪 吕宇 陈丽玲</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<span class="pic_desc_oper_num fl">
+														<span class="pic_desc_oper_num_bg fl"></span>
+														<span class="pic_desc_oper_num_value fl">879万</span>
+													</span>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/jiangshi.jpg" title="次元王" alt="次元王"/>
+												<span class="for_free">会员免费</span>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">次元王</span>
+													<span class="pic_desc_txt clearfix">
+														<span class="pic_desc_txt_l fl">二次元跨越神秘界域</span>
+														<span class="pic_desc_txt_evalue fr">
+															<span class="pic_desc_txt_evalue_b fl">9</span>
+															<span class="pic_desc_txt_evalue_s fl">.2</span>
+														</span>
+													</span>
+													<span class="pic_desc_role">主演：冯子翰 唐赟 韩丹</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<span class="pic_desc_oper_num fl">
+														<span class="pic_desc_oper_num_bg fl"></span>
+														<span class="pic_desc_oper_num_value fl">501万</span>
+													</span>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/jiangshi.jpg" title="迷失芭提雅" alt="迷失芭提雅"/>
+												<span class="for_free">会员免费</span>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">迷失芭提雅</span>
+													<span class="pic_desc_txt clearfix">
+														<span class="pic_desc_txt_l fl">脱轨姐妹花，猎艳芭提雅</span>
+														<span class="pic_desc_txt_evalue fr">
+															<span class="pic_desc_txt_evalue_b fl">6</span>
+															<span class="pic_desc_txt_evalue_s fl">.2</span>
+														</span>
+													</span>
+													<span class="pic_desc_role">主演：靳庆玲 陈曦 李浩滨</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<span class="pic_desc_oper_num fl">
+														<span class="pic_desc_oper_num_bg fl"></span>
+														<span class="pic_desc_oper_num_value fl">23.2万</span>
+													</span>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/jiangshi.jpg" title="红人制造之卧底女王" alt="红人制造之卧底女王"/>
+												<span class="for_free">会员免费</span>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">红人制造之卧底女王</span>
+													<span class="pic_desc_txt clearfix">
+														<span class="pic_desc_txt_l fl">当红女主播智取隐形大毒</span>
+														<span class="pic_desc_txt_evalue fr">
+															<span class="pic_desc_txt_evalue_b fl">6</span>
+															<span class="pic_desc_txt_evalue_s fl">.9</span>
+														</span>
+													</span>
+													<span class="pic_desc_role">主演：何美璇 曹博 杨俊婷</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<span class="pic_desc_oper_num fl">
+														<span class="pic_desc_oper_num_bg fl"></span>
+														<span class="pic_desc_oper_num_value fl">2.6万</span>
+													</span>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/jiangshi.jpg" title="女寝夜谈" alt="女寝夜谈"/>
+												<span class="for_free">会员免费</span>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">女寝夜谈</span>
+													<span class="pic_desc_txt clearfix">
+														<span class="pic_desc_txt_l fl">一场谋杀纯真友情的考验</span>
+														<span class="pic_desc_txt_evalue fr">
+															<span class="pic_desc_txt_evalue_b fl">7</span>
+															<span class="pic_desc_txt_evalue_s fl">.2</span>
+														</span>
+													</span>
+													<span class="pic_desc_role">主演：王路晴 王春雨 童可可</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<span class="pic_desc_oper_num fl">
+														<span class="pic_desc_oper_num_bg fl"></span>
+														<span class="pic_desc_oper_num_value fl">165万</span>
+													</span>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+									</ul>
+									<div class="banner_area_r">
+										<a href="#" class="banner_bg_r icon_movie"></a>
+									</div>
+								</div>	
+							</section>	
+						</div>
+						<ul class="link_point clearfix">
+							<li class="fl">
+								<a href="#" class="active"></a>
+							</li>
+							<li class="fl">
+								<a href="#"></a>
+							</li>
+							<li class="fl">
+								<a href="#"></a>
+							</li>
+						</ul>
+					</section>
+					<section class="anylise content clearfix">
+						<div class="content_l fl">
+							<header class="content_header">
+								<h3 class="content_header_slide_tit">
+									<a href="#" class="active">解读电影连轴看</a>
+								</h3>
+							</header>
+							<section class="content_info clearfix">
+								<div class="week_menu fl">
+									<a href="#" class="active">
+										每周一更新
+										<span class="trangle_blue"></span>
+									</a>
+									<a href="#">
+										每周二更新
+										<span class="trangle_blue"></span>
+									</a>
+									<a href="#">
+										每周三更新
+										<span class="trangle_blue"></span>
+									</a>
+									<a href="#">
+										每周四更新
+										<span class="trangle_blue"></span>
+									</a>
+									<a href="#">
+										每周五更新
+										<span class="trangle_blue"></span>
+									</a>
+									<a href="#">
+										每周六更新
+										<span class="trangle_blue"></span>
+									</a>
+									<a href="#">
+										每周日更新
+										<span class="trangle_blue"></span>
+									</a>
+								</div>
+								<ul class="content_info_list fl">
+									<li class="fl wid_420">
+										<a href="#">
+											<img src="../img/movie/chenhaozhe.jpg" title="中国功夫 第三季" alt="中国功夫 第三季"/>
+											<span class="pic_desc h_40">
+												<span class="pic_desc_tit">中国功夫史第三季</span>
+												<span class="pic_desc_txt">陈浩哲：我在美国武馆教八极</span>
+											</span>
+										</a>
+									</li>
+									<li class="icon_movie three_line fl">
+										<a href="#">
+											<img src="../img/movie/yingmituan.jpg" title="优酷影迷团：拆弹专家" alt="优酷影迷团：拆弹专家"/>
+											<span class="three_line icon_movie"></span>
+											<span class="pic_desc h_40">
+												<span class="pic_desc_tit">优酷影迷团：拆弹专家</span>
+												<span class="pic_desc_txt">刘德华用生命拯救生命</span>
+											</span>
+										</a>
+									</li>
+									<li class="icon_movie three_line fl">
+										<a href="#">
+											<img src="../img/movie/keshouying.jpg" title="柯首映" alt="柯首映"/>
+											<span class="three_line icon_movie"></span>
+											<span class="pic_desc h_40">
+												<span class="pic_desc_tit">柯首映</span>
+												<span class="pic_desc_txt">隔壁的美女邻居不好搞《瘾》</span>
+											</span>
+										</a>
+									</li>
+								</ul>
+							</section>
+						</div>
+						<div class="content_r fr">
+							<header class="content_header">
+								<h3 class="content_header_slide_tit fl">
+									<a href="#" class="active">为你推荐</a>
+								</h3>
+							</header>
+							<section class="recommend_info margin_s">
+								<ul class="recommend_info_list">
+									<li class="clearfix">
+										<div class="rec_pic fl">
+											<a href="#">
+												<img src="../img/movie/fengzinihao.jpg" title="你好,疯子！" alt="你好,疯子！"/>
+											</a>
+										</div>
+										<div class="rec_desc fl">
+											<a href="#" class="rec_desc_tit">你好,疯子！</a>
+											<span class="rec_desc_txt">5月4号免费直播</span>
+										</div>
+									</li>
+									<li class="clearfix">
+										<div class="rec_pic fl">
+											<a href="#">
+												<img src="../img/movie/dog.jpg" title="一条狗的使命" alt="一条狗的使命"/>
+											</a>
+										</div>
+										<div class="rec_desc fl">
+											<a href="#" class="rec_desc_tit">一条狗的使命</a>
+											<span class="rec_desc_txt">5月5号全网首播</span>
+										</div>
+									</li>
+									<li class="clearfix">
+										<div class="rec_pic fl">
+											<a href="#">
+												<img src="../img/movie/fumo.jpg" title="西游伏魔篇" alt="西游伏魔篇"/>
+											</a>
+										</div>
+										<div class="rec_desc fl">
+											<a href="#" class="rec_desc_tit">西游伏魔篇</a>
+											<span class="rec_desc_txt">4月14号全网首播</span>
+										</div>
+									</li>
+								</ul>
+							</section>
+						</div>
+					</section>
+					<section class="banner_area two_banner">
+						<div class="banner_area_l">
+							<a href="#" class="banner_bg_l icon_movie"></a>
+						</div>
+						<ul class="banner_area_list">
+							<li class="fl">
+								<a href="#">
+									<img src="../img/movie/tezhong.jpg" title="特种部队2" alt="特种部队2"/>
+								</a>
+							</li>
+						</ul>
+						<ul class="banner_link_point clearfix">
+							<li class="fl">
+								<a href="#" class="active"></a>
+							</li>
+							<li class="fl">
+								<a href="#"></a>
+							</li>
+						</ul>
+						<div class="banner_area_r">
+							<a href="#" class="banner_bg_r icon_movie"></a>
+						</div>
+					</section>
+					<section class="disney content h_300">
+						<div class="content_inner">
+							<header class="content_header">
+								<h3 class="content_header_slide_tit">
+									<a href="" class="active">好莱坞迪士尼电影巡展</a>
+								</h3>
+							</header>
+							<section class="recommend">
+								<div class="recommend_inner">
+									<div class="banner_area_l">
+										<a href="#" class="banner_bg_l icon_movie"></a>
+									</div>
+									<ul class="content_list clearfix">
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/haiyangqiyuan.jpg" title="海洋奇缘" alt="海洋奇缘"/>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">海洋奇缘</span>
+													<span class="pic_desc_txt">迪士尼首位大洋洲公主</span>
+													<span class="pic_desc_role">主演：奥丽依·卡拉瓦霍 道恩·强森</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<a href="#" class="to_play to_buy fl">购买正片</a>
+													<a href="#" class="to_free fl">免费试看</a>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/chenshuimozhou.jpg" title="沉睡魔咒" alt="沉睡魔咒"/>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">沉睡魔咒</span>
+													<span class="pic_desc_txt">朱莉全新塑造暗黑女巫</span>
+													<span class="pic_desc_role">主演：安吉丽娜·朱莉 沙尔托·科普</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<a href="#" class="to_play to_buy fl">购买正片</a>
+													<a href="#" class="to_free fl">免费试看</a>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/qihuan.jpg" title="奇幻森林" alt="奇幻森林"/>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">奇幻森林</span>
+													<span class="pic_desc_txt">&lt;森林王子&gt;真人版童话</span>
+													<span class="pic_desc_role">主演：尼尔·塞西 比尔·默瑞</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<a href="#" class="to_play to_buy fl">购买正片</a>
+													<a href="#" class="to_free fl">免费试看</a>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/ailisi.jpg" title="爱丽丝梦游仙境2:镜中奇遇记" alt="爱丽丝梦游仙境2:镜中奇遇记"/>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">爱丽丝梦游仙境2:镜中奇遇记</span>
+													<span class="pic_desc_txt">时空穿越逆转童话世界</span>
+													<span class="pic_desc_role">主演：约翰尼·德普 安妮·海瑟薇</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<a href="#" class="to_play to_buy fl">购买正片</a>
+													<a href="#" class="to_play to_free fl">免费试看</a>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/huiguniang.jpg" title="灰姑娘" alt="灰姑娘"/>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">灰姑娘</span>
+													<span class="pic_desc_txt">灰姑娘奢华真人版童话</span>
+													<span class="pic_desc_role">主演：凯特·布兰切特 莉莉·詹姆斯</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<a href="#" class="to_play to_buy fl">购买正片</a>
+													<a href="#" class="to_free fl">免费试看</a>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/huiguniang.jpg" title="海底总动员2:多莉去哪儿" alt="海底总动员2:多莉去哪儿"/>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">海底总动员2:多莉去哪儿</span>
+													<span class="pic_desc_txt">多莉越洋寻亲催人泪下</span>
+													<span class="pic_desc_role">主演：艾伦·德詹尼丝</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<a href="#" class="to_play to_buy fl">购买正片</a>
+													<a href="#" class="to_free fl">免费试看</a>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+									</ul>
+									<div class="banner_area_r">
+										<a href="#" class="banner_bg_r icon_movie"></a>
+									</div>
+								</div>	
+							</section>	
+						</div>
+						<ul class="link_point clearfix">
+							<li class="fl">
+								<a href="#" class="active"></a>
+							</li>
+							<li class="fl">
+								<a href="#"></a>
+							</li>
+						</ul>
+					</section>
+					<section class="paramount content h_300">
+						<div class="content_inner">
+							<header class="content_header">
+								<h3 class="content_header_slide_tit">
+									<a href="#" class="active">好莱坞派拉蒙电影专区</a>
+								</h3>
+							</header>
+							<section class="recommend">
+								<div class="recommend_inner">
+									<div class="banner_area_l">
+										<a href="#" class="banner_bg_l icon_movie"></a>
+									</div>
+									<ul class="content_list clearfix">
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/diezhongdie.jpg" title="碟中谍5:神秘国度" alt="碟中谍5:神秘国度"/>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">碟中谍5:神秘国度</span>
+													<span class="pic_desc_txt">阿汤哥搏命徒手扒飞机</span>
+													<span class="pic_desc_role">主演：汤姆·克鲁斯 杰瑞米·雷纳</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<a href="#" class="to_play to_buy fl">购买正片</a>
+													<a href="#" class="to_free fl">免费试看</a>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/haimianbaobao.jpg" title="海绵宝宝" alt="海绵宝宝"/>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">海绵宝宝</span>
+													<span class="pic_desc_txt">海绵宝宝版复仇者联盟</span>
+													<span class="pic_desc_role">主演：安东尼奥·班德拉斯 汤姆·肯</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<a href="#" class="to_play to_buy fl">购买正片</a>
+													<a href="#" class="to_free fl">免费试看</a>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/helakelesi.jpg" title="宇宙之子:赫拉克勒斯" alt="宇宙之子:赫拉克勒斯"/>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">宇宙之子:赫拉克勒斯</span>
+													<span class="pic_desc_txt">C罗性感女友银幕首秀</span>
+													<span class="pic_desc_role">主演：道恩·强森 伊恩·麦柯肖恩</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<a href="#" class="to_play to_buy fl">购买正片</a>
+													<a href="#" class="to_free fl">免费试看</a>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/keluofudao.jpg" title="科洛弗道10号" alt="科洛弗道10号"/>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">科洛弗道10号</span>
+													<span class="pic_desc_txt">末日密室杀人恐怖逃生</span>
+													<span class="pic_desc_role">主演：约翰·古德曼</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<a href="#" class="to_play to_buy fl">购买正片</a>
+													<a href="#" class="to_free fl">免费试看</a>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/chaomingmo.jpg" title="超级名模2" alt="超级名模2"/>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">超级名模2</span>
+													<span class="pic_desc_txt">卷福比伯乱入自黑抢镜</span>
+													<span class="pic_desc_role">主演：本·斯蒂勒 欧文·威尔逊</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<a href="#" class="to_play to_buy fl">购买正片</a>
+													<a href="#" class="to_free fl">免费试看</a>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+										<li class="fl">
+											<a href="#">
+												<img src="../img/movie/chaomingmo.jpg" title="鬼影实录5:鬼次元" alt="鬼影实录5:鬼次元"/>
+											</a>
+											<span class="pic_desc">
+												<a href="#" class="pic_desc_link">
+													<span class="pic_desc_tit">鬼影实录5:鬼次元</span>
+													<span class="pic_desc_txt">恐怖恶灵密谋复活计划</span>
+													<span class="pic_desc_role">主演：克里斯·j·穆雷</span>
+												</a>
+												<span class="pic_desc_oper clearfix">
+													<a href="#" class="to_play to_buy fl">购买正片</a>
+													<a href="#" class="to_free fl">免费试看</a>
+													<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+												</span>
+											</span>
+										</li>
+									</ul>
+									<div class="banner_area_r">
+										<a href="#" class="banner_bg_r icon_movie"></a>
+									</div>
+								</div>	
+							</section>	
+						</div>
+						<ul class="link_point clearfix">
+							<li class="fl">
+								<a href="#" class="active"></a>
+							</li>
+							<li class="fl">
+								<a href="#"></a>
+							</li>
+						</ul>
+					</section>
+					<section class="net_first content clearfix">
+						<div class="content_l fl">
+							<header class="content_header">
+								<h3 class="content_header_l_slide_tit">
+									<a href="#" class="active">网络电影首播</a>
+									<a href="#">软妹收割机</a>
+									<a href="#">肾上腺素激增</a>
+									<a href="#">追！丧尸李志</a>
+								</h3>
+							</header>
+							<section class="content_info">
+								<ul class="content_info_list clearfix">
+									<li class="fl wid_420">
+										<a href="#">
+											<img src="../img/movie/kuimeng.jpg" title="窥梦大师" alt="窥梦大师"/>
+											<span class="pic_desc h_40">
+												<span class="pic_desc_tit">窥梦大师</span>
+												<span class="pic_desc_txt">最虐心荒诞穿越大片</span>
+											</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/movie/wodi1000.jpg" title="卧底1000" alt="卧底1000"/>
+											<span class="pic_desc h_40">
+												<span class="pic_desc_tit">卧底1000</span>
+												<span class="pic_desc_txt">新式无间道 大佬与兄弟相爱相杀</span>
+											</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/movie/mengyouxia.jpg" title="梦游侠" alt="梦游侠"/>
+											<span class="pic_desc h_40">
+												<span class="pic_desc_tit">梦游侠</span>
+												<span class="pic_desc_txt">少女闺蜜共享男人还互相睡</span>
+											</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/movie/longhu.jpg" title="古惑往事之龙虎斗" alt="古惑往事之龙虎斗"/>
+											<span class="pic_desc h_40">
+												<span class="pic_desc_tit">古惑往事之龙虎斗</span>
+												<span class="pic_desc_txt">古惑卧底反黑大行动</span>
+											</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/movie/linjie.jpg" title="临界2" alt="临界2"/>
+											<span class="pic_desc h_40">
+												<span class="pic_desc_tit">临界2</span>
+												<span class="pic_desc_num clearfix">
+													<span class="play_num fl">
+														<span class="icon_movie play_num_bg fl"></span>
+														<span class="play_num_txt fl">882万</span>
+													</span>
+													<span class="evalue_num fl">
+														<span class="icon_movie evalue_num_bg fl"></span>
+														<span class="evalue_num_txt fl">560</span>
+													</span>
+												</span>
+											</span>
+										</a>
+									</li>
+									<li class="fl wid_640">
+										<a href="#">
+											<img src="../img/movie/xiaoshuo.jpg" title="晓说" alt="晓说"/>
+											<span class="content_ad">广告</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/movie/xiangyang.jpg" title="襄阳大学生微电影节" alt="襄阳大学生微电影节"/>
+											<span class="icon_movie for_wei">微影院</span>
+										</a>
+										<span class="pic_desc">
+											<a href="#" class="pic_desc_link">
+												<span class="pic_desc_tit">襄阳大学生微电影节</span>
+												<span class="pic_desc_txt">绝妙创意根本挡不住</span>
+											</a>
+											<span class="pic_desc_oper clearfix">
+												<a href="#" class="to_play fl">播放</a>
+												<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+											</span>
+										</span>
+									</li>
+								</ul>
+							</section>
+						</div>
+						<div class="content_r fr">
+							<header class="content_header">
+								<h3 class="content_header_slide_tit fl">
+									<a href="#" class="active">即将上线</a>
+								</h3>
+							</header>
+							<section class="recommend_info margin_b">
+								<ul class="recommend_info_list">
+									<li class="clearfix">
+										<div class="rec_pic fl">
+											<a href="#">
+												<img src="../img/movie/hutongkaige.jpg" title="胡同凯哥之狂暴西门町" alt="胡同凯哥之狂暴西门町"/>
+											</a>
+										</div>
+										<div class="rec_desc fl">
+											<a href="#" class="rec_desc_tit">胡同凯哥之狂暴西门町</a>
+											<span class="rec_desc_txt">鲜肉版宝强演台版囧旅</span>
+										</div>
+									</li>
+									<li class="clearfix">
+										<div class="rec_pic fl">
+											<a href="#">
+												<img src="../img/movie/haigushi.jpg" title="骇故事之禁锢之屋" alt="骇故事之禁锢之屋"/>
+											</a>
+										</div>
+										<div class="rec_desc fl">
+											<a href="#" class="rec_desc_tit">骇故事之禁锢之屋</a>
+											<span class="rec_desc_txt">美女遭遇密室囚禁</span>
+										</div>
+									</li>
+									<li class="clearfix">
+										<div class="rec_pic fl">
+											<a href="#">
+												<img src="../img/movie/cuiru.jpg" title="催乳大师" alt="催乳大师"/>
+											</a>
+										</div>
+										<div class="rec_desc fl">
+											<a href="#" class="rec_desc_tit">催乳大师</a>
+											<span class="rec_desc_txt">直男催奶 不辱使命</span>
+										</div>
+									</li>
+									<li class="clearfix">
+										<div class="rec_pic fl">
+											<a href="#">
+												<img src="../img/movie/anchuang.jpg" title="《骇故事》系列" alt="《骇故事》系列"/>
+											</a>
+										</div>
+										<div class="rec_desc fl">
+											<a href="#" class="rec_desc_tit">《骇故事》系列</a>
+											<span class="rec_desc_txt">诡异暗窗 惊骇有毒小心上瘾</span>
+										</div>
+									</li>
+								</ul>
+							</section>
+						</div>
+					</section>
+					<section class="nation content h_300">
+						<div class="content_top_wrapper clearfix">
+							<div class="content_l fl">
+								<div class="content_inner">
+									<header class="content_header">
+										<h3 class="content_header_slide_tit fl">
+											<a href="#">网络电影首播</a>
+										</h3>
+										<div class="content_more fl">
+											<a href="#">更多</a>
+										</div>
+									</header>
+									<section class="recommend">
+										<div class="recommend_inner l_wid">
+											<div class="banner_area_l">
+												<a href="#" class="banner_bg_l icon_movie"></a>
+											</div>
+											<ul class="content_list clearfix">
+												<li class="fl">
+													<a href="#">
+														<img src="../img/movie/saiche.jpg" title="疯狂的赛车" alt="疯狂的赛车"/>
+													</a>
+													<span class="pic_desc">
+														<a href="#" class="pic_desc_link">
+															<span class="pic_desc_tit">疯狂的赛车</span>
+															<span class="pic_desc_txt">宁浩国产喜剧新高峰</span>
+															<span class="pic_desc_role">主演：黄渤 吕孔维 戎祥</span>
+														</a>
+														<span class="pic_desc_oper clearfix">
+															<a href="#" class="to_play fl">观看正片</a>
+															<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+														</span>
+													</span>
+												</li>
+												<li class="fl">
+													<a href="#">
+														<img src="../img/movie/jiechi.jpg" title="被劫持的爱情" alt="被劫持的爱情"/>
+													</a>
+													<span class="pic_desc">
+														<a href="#" class="pic_desc_link">
+															<span class="pic_desc_tit">被劫持的爱情</span>
+															<span class="pic_desc_txt">无厘头绑架案酝酿真情</span>
+															<span class="pic_desc_role">主演：陈姝 金为珩 周国宾</span>
+														</a>
+														<span class="pic_desc_oper clearfix">
+															<a href="#" class="to_play fl">观看正片</a>
+															<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+														</span>
+													</span>
+												</li>
+												<li class="fl">
+													<a href="#">
+														<img src="../img/movie/rexueleifeng.jpg" title="热学雷锋侠之激情营救" alt="热学雷锋侠之激情营救"/>
+													</a>
+													<span class="pic_desc">
+														<a href="#" class="pic_desc_link">
+															<span class="pic_desc_tit">热学雷锋侠之激情营救</span>
+															<span class="pic_desc_txt">时尚高科技雷锋侠来了</span>
+															<span class="pic_desc_role">主演：赵路 陈烨 翟巍</span>
+														</a>
+														<span class="pic_desc_oper clearfix">
+															<a href="#" class="to_play fl">观看正片</a>
+															<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+														</span>
+													</span>
+												</li>
+												<li class="fl">
+													<a href="#">
+														<img src="../img/movie/hedongshihou.jpg" title="河东狮吼2" alt="河东狮吼2"/>
+													</a>
+													<span class="pic_desc">
+														<a href="#" class="pic_desc_link">
+															<span class="pic_desc_tit">河东狮吼2</span>
+															<span class="pic_desc_txt">辣妈张柏芝河东再狮吼</span>
+															<span class="pic_desc_role">主演：张柏芝 小沈阳 黄维德</span>
+														</a>
+														<span class="pic_desc_oper clearfix">
+															<a href="#" class="to_play fl">播放正片</a>
+															<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+														</span>
+													</span>
+												</li>
+												<li class="fl">
+													<a href="#">
+														<img src="../img/movie/hedongshihou.jpg" title="特殊身份" alt="特殊身份"/>
+													</a>
+													<span class="pic_desc">
+														<a href="#" class="pic_desc_link">
+															<span class="pic_desc_tit">特殊身份</span>
+															<span class="pic_desc_txt">甄子丹变卧底难分正邪</span>
+															<span class="pic_desc_role">主演：甄子丹 景甜 安志杰</span>
+														</a>
+														<span class="pic_desc_oper clearfix">
+															<a href="#" class="to_play fl">观看正片</a>
+															<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+														</span>
+													</span>
+												</li>
+												<li class="fl">
+													<a href="#">
+														<img src="../img/movie/hedongshihou.jpg" title="发条城市" alt="发条城市"/>
+													</a>
+													<span class="pic_desc">
+														<a href="#" class="pic_desc_link">
+															<span class="pic_desc_tit">发条城市</span>
+															<span class="pic_desc_txt">南北笑将同台飙戏耍贱</span>
+															<span class="pic_desc_role">主演：王自健 王宁 王鸥</span>
+														</a>
+														<span class="pic_desc_oper clearfix">
+															<a href="#" class="to_play fl">观看正片</a>
+															<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+														</span>
+													</span>
+												</li>
+												<li class="fl">
+													<a href="#">
+														<img src="../img/movie/hedongshihou.jpg" title="北京遇上西雅图之不二情书" alt="北京遇上西雅图之不二情书"/>
+													</a>
+													<span class="pic_desc">
+														<a href="#" class="pic_desc_link">
+															<span class="pic_desc_tit">北京遇上西雅图之不二情书</span>
+															<span class="pic_desc_txt">吴秀波汤唯再谱新恋曲</span>
+															<span class="pic_desc_role">主演：吴秀波 汤唯 秦沛</span>
+														</a>
+														<span class="pic_desc_oper clearfix">
+															<a href="#" class="to_play fl">观看正片</a>
+															<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+														</span>
+													</span>
+												</li>
+												<li class="fl">
+													<a href="#">
+														<img src="../img/movie/hedongshihou.jpg" title="老炮儿" alt="老炮儿"/>
+													</a>
+													<span class="pic_desc">
+														<a href="#" class="pic_desc_link">
+															<span class="pic_desc_tit">老炮儿</span>
+															<span class="pic_desc_txt">老炮VS小爷的血雨江湖</span>
+															<span class="pic_desc_role">主演：冯小刚 张涵予 许晴</span>
+														</a>
+														<span class="pic_desc_oper clearfix">
+															<a href="#" class="to_play fl">观看正片</a>
+															<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+														</span>
+													</span>
+												</li>
+												<li class="fl">
+													<a href="#">
+														<img src="../img/movie/hedongshihou.jpg" title="小熊的夏天" alt="小熊的夏天"/>
+													</a>
+													<span class="pic_desc">
+														<a href="#" class="pic_desc_link">
+															<span class="pic_desc_tit">小熊的夏天</span>
+															<span class="pic_desc_txt">开放式教育出游冒险记</span>
+															<span class="pic_desc_role">主演：陈晴漪 姜超 孙桂田</span>
+														</a>
+														<span class="pic_desc_oper clearfix">
+															<a href="#" class="to_play fl">观看正片</a>
+															<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+														</span>
+													</span>
+												</li>
+												<li class="fl">
+													<a href="#">
+														<img src="../img/movie/hedongshihou.jpg" title="诡梦凶铃" alt="诡梦凶铃"/>
+													</a>
+													<span class="pic_desc">
+														<a href="#" class="pic_desc_link">
+															<span class="pic_desc_tit">诡梦凶铃</span>
+															<span class="pic_desc_txt">方力申李斯丹妮惊悚CP</span>
+															<span class="pic_desc_role">主演：方力申 刘小东 王馨彤</span>
+														</a>
+														<span class="pic_desc_oper clearfix">
+															<a href="#" class="to_play fl">观看正片</a>
+															<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+														</span>
+													</span>
+												</li>
+												<li class="fl">
+													<a href="#">
+														<img src="../img/movie/hedongshihou.jpg" title="爱上处女座" alt="爱上处女座"/>
+													</a>
+													<span class="pic_desc">
+														<a href="#" class="pic_desc_link">
+															<span class="pic_desc_tit">爱上处女座</span>
+															<span class="pic_desc_txt">萧蔷上演星座爱情大战</span>
+															<span class="pic_desc_role">主演：萧蔷 贺刚 高天</span>
+														</a>
+														<span class="pic_desc_oper clearfix">
+															<a href="#" class="to_play fl">观看正片</a>
+															<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+														</span>
+													</span>
+												</li>
+												<li class="fl">
+													<a href="#">
+														<img src="../img/movie/hedongshihou.jpg" title="幽灵医院" alt="幽灵医院"/>
+													</a>
+													<span class="pic_desc">
+														<a href="#" class="pic_desc_link">
+															<span class="pic_desc_tit">幽灵医院</span>
+															<span class="pic_desc_txt">闹鬼医院实景拍摄尸变</span>
+															<span class="pic_desc_role">主演：白歆惠 李昌熙 罗家英</span>
+														</a>
+														<span class="pic_desc_oper clearfix">
+															<a href="#" class="to_play fl">观看正片</a>
+															<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+														</span>
+													</span>
+												</li>
+											</ul>
+											<div class="banner_area_r">
+												<a href="#" class="banner_bg_r icon_movie"></a>
+											</div>
+										</div>	
+									</section>	
+									<ul class="link_point point_four clearfix">
+										<li class="fl">
+											<a href="#" class="active"></a>
+										</li>
+										<li class="fl">
+											<a href="#"></a>
+										</li>
+										<li class="fl">
+											<a href="#"></a>
+										</li>
+										<li class="fl">
+											<a href="#"></a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="content_r fr">
+								<header class="content_header">
+									<h3 class="content_header_slide_tit fl">
+										<a href="#">华语热播排行</a>
+									</h3>
+								</header>
+								<section class="rank_info">
+									<ul class="rank_info_list">
+										<li class="clearfix">
+											<span class="rank_num color_spec fl">1</span>
+											<a href="#" class="rank_name fl">暴走看啥片 第三季</a>
+											<span class="play_amount fr">41.7万</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num color_spec fl">2</span>
+											<a href="#" class="rank_name fl">318女生宿舍</a>
+											<span class="play_amount fr">220.8万</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num color_spec fl">3</span>
+											<a href="#" class="rank_name fl">灵界警探</a>
+											<span class="play_amount fr">222.4万</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num fl">4</span>
+											<a href="#" class="rank_name fl">盗爱时空之笨贼也疯狂</a>
+											<span class="play_amount fr">214.9万</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num fl">5</span>
+											<a href="#" class="rank_name fl">热血武道</a>
+											<span class="play_amount fr">219.1万</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num fl">6</span>
+											<a href="#" class="rank_name fl">灵界警探2</a>
+											<span class="play_amount fr">216.0万</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num fl">7</span>
+											<a href="#" class="rank_name fl">异能超模</a>
+											<span class="play_amount fr">220.8万</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num fl">8</span>
+											<a href="#" class="rank_name fl">职场三国</a>
+											<span class="play_amount fr">218.3万</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num fl">9</span>
+											<a href="#" class="rank_name fl">古惑往事之龙虎斗</a>
+											<span class="play_amount fr">194.9万</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num fl">10</span>
+											<a href="#" class="rank_name fl">密道追踪之墨镜邪灵</a>
+											<span class="play_amount fr">310.2万</span>
+										</li>
+									</ul>
+								</section>
+							</div>
+						</div>
+						<div class="content_btm_wrapper clearfix">
+							<div class="content_l fl">
+								<ul class="content_info_list clearfix">
+									<li class="fl">
+										<a href="#">
+											<img src="../img/movie/baoqiang.jpg" title="【王宝强电影专场】" alt="【王宝强电影专场】"/>
+											<span class="pic_desc h_40">
+												<span class="pic_desc_tit">【王宝强电影专场】</span>
+												<span class="pic_desc_txt">功夫笑星人生如戏</span>
+											</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/movie/lingengxin.jpg" title="【林更新电影专辑】" alt="【林更新电影专辑】"/>
+											<span class="pic_desc h_40">
+												<span class="pic_desc_tit">【林更新电影专辑】</span>
+												<span class="pic_desc_txt">碗里来的青春萌宠</span>
+											</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/movie/yangmi.jpg" title="【杨幂电影专场】" alt="【杨幂电影专场】"/>
+											<span class="pic_desc h_40">
+												<span class="pic_desc_tit">【杨幂电影专场】</span>
+												<span class="pic_desc_txt">精灵可爱的东方赫本</span>
+											</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/movie/zhonghanliang.jpg" title="【钟汉良电影专场】" alt="【钟汉良电影专场】"/>
+											<span class="pic_desc h_40">
+												<span class="pic_desc_tit">【钟汉良电影专场】</span>
+												<span class="pic_desc_txt">又萌又爱笑的小哇</span>
+											</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="content_r fr">
+								<a href="#" class="ad">
+									<img src="../img/movie/milk.jpg" title="牛奶" alt="牛奶"/>
+									<span class="content_ad">广告</span>
+								</a>
+							</div>
+						</div>
+					</section>
+					<section class="hongkong content h_300">
+						<div class="content_top_wrapper clearfix">
+							<div class="content_l fl">
+								<header class="content_header clearfix">
+									<h3 class="content_header_slide_tit fl">
+										<a href="#">港台经典</a>
+									</h3>
+									<div class="content_more fl">
+										<a href="#">更多</a>
+									</div>
+								</header>
+								<section class="recommend">
+									<div class="recommend_inner l_wid">
+										<div class="banner_bg_l banner_area_l">
+											<a href="#" class="banner_bg_l icon_movie"></a>
+										</div>
+										<ul class="content_list clearfix">
+											<li class="fl">
+												<a href="#">
+													<img src="../img/movie/hanzhan2.jpg" title="寒战2" alt="寒战2"/>
+												</a>
+												<span class="pic_desc">
+													<a href="#" class="pic_desc_link">
+														<span class="pic_desc_tit">寒战2</span>
+														<span class="pic_desc_txt">三帝飙戏斗法群星乱战</span>
+														<span class="pic_desc_role">主演：郭富城 梁家辉 杨采妮</span>
+													</a>
+													<span class="pic_desc_oper clearfix">
+														<a href="#" class="to_play fl">观看正片</a>
+														<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+													</span>
+												</span>
+											</li>
+											<li class="fl">
+												<a href="#">
+													<img src="../img/movie/hanzhan.jpg" title="寒战" alt="寒战"/>
+												</a>
+												<span class="pic_desc">
+													<a href="#" class="pic_desc_link">
+														<span class="pic_desc_tit">寒战</span>
+														<span class="pic_desc_txt">郭富城梁家辉双雄对峙</span>
+														<span class="pic_desc_role">主演主演：郭富城 梁家辉 杨采妮</span>
+													</a>
+													<span class="pic_desc_oper clearfix">
+														<a href="#" class="to_play fl">观看正片</a>
+														<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+													</span>
+												</span>
+											</li>
+											<li class="fl">
+												<a href="#">
+													<img src="../img/movie/shituxingzhe.jpg" title="使徒行者" alt="使徒行者"/>
+												</a>
+												<span class="pic_desc">
+													<a href="#" class="pic_desc_link">
+														<span class="pic_desc_tit">使徒行者</span>
+														<span class="pic_desc_txt">张家辉古天乐谁是卧底</span>
+														<span class="pic_desc_role">主演：张家辉 古天乐 吴镇宇</span>
+													</a>
+													<span class="pic_desc_oper clearfix">
+														<a href="#" class="to_play fl">观看正片</a>
+														<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+													</span>
+												</span>
+											</li>
+											<li class="fl">
+												<a href="#">
+													<img src="../img/movie/baiyin.jpg" title="白银帝国" alt="白银帝国"/>
+												</a>
+												<span class="pic_desc">
+													<a href="#" class="pic_desc_link">
+														<span class="pic_desc_tit">白银帝国</span>
+														<span class="pic_desc_txt">亿元投资打造晋商传奇</span>
+														<span class="pic_desc_role">主演：郭富城 张铁林 郝蕃</span>
+													</a>
+													<span class="pic_desc_oper clearfix">
+														<a href="#" class="to_play fl">观看正片</a>
+														<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+													</span>
+												</span>
+											</li>
+											<li class="fl">
+												<a href="#">
+													<img src="../img/movie/baiyin.jpg" title="九品芝麻官之白面包青天" alt="九品芝麻官之白面包青天"/>
+												</a>
+												<span class="pic_desc">
+													<a href="#" class="pic_desc_link">
+														<span class="pic_desc_tit">九品芝麻官之白面包青天</span>
+														<span class="pic_desc_txt">芝麻官为冤艰难翻案</span>
+														<span class="pic_desc_role">主演：吴孟达 张敏 周星驰</span>
+													</a>
+													<span class="pic_desc_oper clearfix">
+														<a href="#" class="to_play fl">观看正片</a>
+														<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+													</span>
+												</span>
+											</li>
+											<li class="fl">
+												<a href="#">
+													<img src="../img/movie/baiyin.jpg" title="大地飞鹰" alt="大地飞鹰"/>
+												</a>
+												<span class="pic_desc">
+													<a href="#" class="pic_desc_link">
+														<span class="pic_desc_tit">大地飞鹰</span>
+														<span class="pic_desc_txt">俊美剑客难过美人关</span>
+														<span class="pic_desc_role">主演：王冠雄 凌云 石峰</span>
+													</a>
+													<span class="pic_desc_oper clearfix">
+														<a href="#" class="to_play fl">观看正片</a>
+														<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+													</span>
+												</span>
+											</li>
+											<li class="fl">
+												<a href="#">
+													<img src="../img/movie/baiyin.jpg" title="虎豹龙蛇鹰" alt="虎豹龙蛇鹰"/>
+												</a>
+												<span class="pic_desc">
+													<a href="#" class="pic_desc_link">
+														<span class="pic_desc_tit">虎豹龙蛇鹰</span>
+														<span class="pic_desc_txt">江南拳王演绎功夫经典</span>
+														<span class="pic_desc_role">主演：钱月笙 徐忠信 李艺民</span>
+													</a>
+													<span class="pic_desc_oper clearfix">
+														<a href="#" class="to_play fl">观看正片</a>
+														<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+													</span>
+												</span>
+											</li>
+											<li class="fl">
+												<a href="#">
+													<img src="../img/movie/baiyin.jpg" title="卧虎藏龙" alt="卧虎藏龙"/>
+												</a>
+												<span class="pic_desc">
+													<a href="#" class="pic_desc_link">
+														<span class="pic_desc_tit">卧虎藏龙</span>
+														<span class="pic_desc_txt">惊艳奥斯卡华语武侠片</span>
+														<span class="pic_desc_role">主演：周润发 杨紫琼 章子怡</span>
+													</a>
+													<span class="pic_desc_oper clearfix">
+														<a href="#" class="to_play fl">观看正片</a>
+														<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+													</span>
+												</span>
+											</li>
+											<li class="fl">
+												<a href="#">
+													<img src="../img/movie/baiyin.jpg" title="大宅男" alt="大宅男"/>
+												</a>
+												<span class="pic_desc">
+													<a href="#" class="pic_desc_link">
+														<span class="pic_desc_tit">大宅男</span>
+														<span class="pic_desc_txt">萧敬腾联手大鹏追女神</span>
+														<span class="pic_desc_role">主演：萧敬腾 江疏影 大鹏</span>
+													</a>
+													<span class="pic_desc_oper clearfix">
+														<a href="#" class="to_play fl">观看正片</a>
+														<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+													</span>
+												</span>
+											</li>
+											<li class="fl">
+												<a href="#">
+													<img src="../img/movie/baiyin.jpg" title="新上海滩" alt="新上海滩"/>
+												</a>
+												<span class="pic_desc">
+													<a href="#" class="pic_desc_link">
+														<span class="pic_desc_tit">新上海滩</span>
+														<span class="pic_desc_txt">张国荣完美演绎许文强</span>
+														<span class="pic_desc_role">主演：刘德华 张国荣 宁静</span>
+													</a>
+													<span class="pic_desc_oper clearfix">
+														<a href="#" class="to_play fl">观看正片</a>
+														<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+													</span>
+												</span>
+											</li>
+										</ul>
+										<div class="banner_area_r">
+											<a href="#" class="banner_bg_r icon_movie"></a>
+										</div>
+									</div>	
+								</section>	
+								<ul class="link_point point_three clearfix">
+									<li class=" fl">
+										<a href="#" class="active"></a>
+									</li>
+									<li class=" fl">
+										<a href="#"></a>
+									</li>
+									<li class=" fl">
+										<a href="#"></a>
+									</li>
+								</ul>
+							</div>
+							<div class="content_r fr font_s">
+								<header class="content_header">
+									<h3 class="content_header_l_slide_tit clearfix">
+										<a href="#" class="active fl">内地票房排行</a>
+										<a href="#" class="fl">北美票房排行</a>
+									</h3>
+									<div class="duration">2017.2.13-2017.3.19 周票房 单位人民币(万)</div>
+								</header>
+								<section class="rank_info">
+									<ul class="rank_info_list">
+										<li class="clearfix">
+											<span class="rank_num color_spec fl">1</span>
+											<a href="#" class="rank_name fl">美女与野兽</a>
+											<span class="play_amount fr">30,948</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num color_spec fl">2</span>
+											<a href="#" class="rank_name fl">一条狗的使命</a>
+											<span class="play_amount fr">14,978</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num color_spec fl">3</span>
+											<a href="#" class="rank_name fl">金刚狼3：殊死一战</a>
+											<span class="play_amount fr">9,383</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num fl">4</span>
+											<a href="#" class="rank_name fl">生化危机：终章</a>
+											<span class="play_amount fr">4,279</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num fl">5</span>
+											<a href="#" class="rank_name fl">最终幻想15</a>
+											<span class="play_amount fr">704</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num fl">6</span>
+											<a href="#" class="rank_name fl">欢乐好声音</a>
+											<span class="play_amount fr">524</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num fl">7</span>
+											<a href="#" class="rank_name fl">天才捕手</a>
+											<span class="play_amount fr">435</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num fl">8</span>
+											<a href="#" class="rank_name fl">碟仙诡谭</a>
+											<span class="play_amount fr">427</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num fl">9</span>
+											<a href="#" class="rank_name fl">乐高蝙蝠侠大电影</a>
+											<span class="play_amount fr">355</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num fl">10</span>
+											<a href="#" class="rank_name fl">功夫瑜伽</a>
+											<span class="play_amount fr">280</span>
+										</li>
+									</ul>
+								</section>
+							</div>
+						</div>
+					</section>
+					<section class="dominate content h_300">
+						<div class="content_top_wrapper clearfix">
+							<div class="content_l fl">
+								<header class="content_header clearfix">
+									<h3 class="content_header_slide_tit fl">
+										<a href="#">称霸好莱坞</a>
+									</h3>
+									<div class="content_more fl">
+										<a href="#">更多</a>
+									</div>
+								</header>
+								<section class="recommend">
+									<div class="recommend_inner l_wid">
+										<div class="banner_area_l">
+											<a href="#" class="banner_bg_l icon_movie"></a>
+										</div>
+										<ul class="content_list clearfix">
+											<li class="fl">
+												<a href="#">
+													<img src="../img/movie/duliri.jpg" title="独立日大电影" alt="独立日大电影"/>
+												</a>
+												<span class="pic_desc">
+													<a href="#" class="pic_desc_link">
+														<span class="pic_desc_tit">独立日大电影</span>
+														<span class="pic_desc_txt">女总统上位手撕外星人</span>
+														<span class="pic_desc_role">主演：Fay Gauthier</span>
+													</a>
+													<span class="pic_desc_oper clearfix">
+														<a href="#" class="to_play fl">观看正片</a>
+														<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+													</span>
+												</span>
+											</li>
+											<li class="fl">
+												<a href="#">
+													<img src="../img/movie/gelin.jpg" title="复仇者格林" alt="复仇者格林"/>
+												</a>
+												<span class="pic_desc">
+													<a href="#" class="pic_desc_link">
+														<span class="pic_desc_tit">复仇者格林</span>
+														<span class="pic_desc_txt">美女公主魔法斗侏儒怪</span>
+														<span class="pic_desc_role">主演：卡斯帕·凡·迪恩 卢·费里诺</span>
+													</a>
+													<span class="pic_desc_oper clearfix">
+														<a href="#" class="to_play fl">观看正片</a>
+														<a href="#" class="to_load_down fr" title="下载">下载</a>
+													</span>
+												</span>
+											</li>
+											<li class="fl">
+												<a href="#">
+													<img src="../img/movie/heketuo.jpg" title="寻找幸福的赫克托" alt="寻找幸福的赫克托"/>
+												</a>
+												<span class="pic_desc">
+													<a href="#" class="pic_desc_link">
+														<span class="pic_desc_tit">寻找幸福的赫克托</span>
+														<span class="pic_desc_txt">西蒙佩吉上演人在囧途</span>
+														<span class="pic_desc_role">主演：西蒙·佩吉 托妮·科莱特 裴淳</span>
+													</a>
+													<span class="pic_desc_oper clearfix">
+														<a href="#" class="to_play fl">观看正片</a>
+														<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+													</span>
+												</span>
+											</li>
+											<li class="fl">
+												<a href="#">
+													<img src="../img/movie/qingkuanren.jpg" title="清款人" alt="清款人"/>
+												</a>
+												<span class="pic_desc">
+													<a href="#" class="pic_desc_link">
+														<span class="pic_desc_tit">清款人</span>
+														<span class="pic_desc_txt">实力打手发疯式报仇</span>
+														<span class="pic_desc_role">主演：维尼·琼斯</span>
+													</a>
+													<span class="pic_desc_oper clearfix">
+														<a href="#" class="to_play fl">播放正片</a>
+														<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+													</span>
+												</span>
+											</li>
+											<li class="fl">
+												<a href="#">
+													<img src="../img/movie/qingkuanren.jpg" title="伪造者" alt="伪造者"/>
+												</a>
+												<span class="pic_desc">
+													<a href="#" class="pic_desc_link">
+														<span class="pic_desc_tit">伪造者</span>
+														<span class="pic_desc_txt">天才少年的不归路</span>
+														<span class="pic_desc_role">主演：阿尔弗雷德·莫里纳 乔什·哈</span>
+													</a>
+													<span class="pic_desc_oper clearfix">
+														<a href="#" class="to_play fl">观看正片</a>
+														<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+													</span>
+												</span>
+											</li>
+											<li class="fl">
+												<a href="#">
+													<img src="../img/movie/qingkuanren.jpg" title="跑调天后" alt="跑调天后"/>
+												</a>
+												<span class="pic_desc">
+													<a href="#" class="pic_desc_link">
+														<span class="pic_desc_tit">跑调天后</span>
+														<span class="pic_desc_txt">梅姨演史上最差女高音</span>
+														<span class="pic_desc_role">主演：梅丽尔·斯特里普 休·格兰特</span>
+													</a>
+													<span class="pic_desc_oper clearfix">
+														<a href="#" class="to_play fl">观看正片</a>
+														<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+													</span>
+												</span>
+											</li>
+											<li class="fl">
+												<a href="#">
+													<img src="../img/movie/qingkuanren.jpg" title="通往仙境" alt="通往仙境"/>
+												</a>
+												<span class="pic_desc">
+													<a href="#" class="pic_desc_link">
+														<span class="pic_desc_tit">通往仙境</span>
+														<span class="pic_desc_txt">本阿弗莱克浪漫情史</span>
+														<span class="pic_desc_role">主演： 本·阿弗莱克 欧嘉·柯瑞兰蔻</span>
+													</a>
+													<span class="pic_desc_oper clearfix">
+														<a href="#" class="to_play fl">观看正片</a>
+														<a href="#" class="to_load_down fr" title="下载">下载</a>
+													</span>
+												</span>
+											</li>
+											<li class="fl">
+												<a href="#">
+													<img src="../img/movie/qingkuanren.jpg" title="雷霆悍将" alt="雷霆悍将"/>
+												</a>
+												<span class="pic_desc">
+													<a href="#" class="pic_desc_link">
+														<span class="pic_desc_tit">雷霆悍将</span>
+														<span class="pic_desc_txt">杜夫龙格尔率学生战斗</span>
+														<span class="pic_desc_role">主演：杜夫·龙格尔</span>
+													</a>
+													<span class="pic_desc_oper clearfix">
+														<a href="#" class="to_play fl">观看正片</a>
+														<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+													</span>
+												</span>
+											</li>
+											<li class="fl">
+												<a href="#">
+													<img src="../img/movie/qingkuanren.jpg" title="烈火凝云" alt="烈火凝云"/>
+												</a>
+												<span class="pic_desc">
+													<a href="#" class="pic_desc_link">
+														<span class="pic_desc_tit">烈火凝云</span>
+														<span class="pic_desc_txt">超能暴力男孩烈焰焚城</span>
+														<span class="pic_desc_role">主演：伊恩·萨默海尔德 莱克莎·多</span>
+													</a>
+													<span class="pic_desc_oper clearfix">
+														<a href="#" class="to_play fl">观看正片</a>
+														<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+													</span>
+												</span>
+											</li>
+											<li class="fl">
+												<a href="#">
+													<img src="../img/movie/qingkuanren.jpg" title="怒海狂鲨" alt="怒海狂鲨"/>
+												</a>
+												<span class="pic_desc">
+													<a href="#" class="pic_desc_link">
+														<span class="pic_desc_tit">怒海狂鲨</span>
+														<span class="pic_desc_txt">异星物坠地球引鲨狂</span>
+														<span class="pic_desc_role">主演：柯林·纳麦克 瓦妮萨·安吉尔</span>
+													</a>
+													<span class="pic_desc_oper clearfix">
+														<a href="#" class="to_play fl">观看正片</a>
+														<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+													</span>
+												</span>
+											</li>
+											<li class="fl">
+												<a href="#">
+													<img src="../img/movie/qingkuanren.jpg" title="勇者斗恶龙" alt="勇者斗恶龙"/>
+												</a>
+												<span class="pic_desc">
+													<a href="#" class="pic_desc_link">
+														<span class="pic_desc_tit">勇者斗恶龙</span>
+														<span class="pic_desc_txt">胖席格大战控脑博士</span>
+														<span class="pic_desc_role">主演：史蒂文·席格 维尼·琼斯</span>
+													</a>
+													<span class="pic_desc_oper clearfix">
+														<a href="#" class="to_play fl">观看正片</a>
+														<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+													</span>
+												</span>
+											</li>
+											<li class="fl">
+												<a href="#">
+													<img src="../img/movie/qingkuanren.jpg" title="深海潜龙" alt="深海潜龙"/>
+												</a>
+												<span class="pic_desc">
+													<a href="#" class="pic_desc_link">
+														<span class="pic_desc_tit">深海潜龙</span>
+														<span class="pic_desc_txt">闹鬼医院实景拍摄尸变</span>
+														<span class="pic_desc_role">主演：白歆惠 李昌熙 罗家英</span>
+													</a>
+													<span class="pic_desc_oper clearfix">
+														<a href="#" class="to_play fl">观看正片</a>
+														<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+													</span>
+												</span>
+											</li>
+										</ul>
+										<div class="banner_area_r">
+											<a href="#" class="banner_bg_r icon_movie"></a>
+										</div>
+									</div>	
+								</section>	
+								<ul class="link_point point_four clearfix">
+									<li class="fl">
+										<a href="#" class="active"></a>
+									</li>
+									<li class="fl">
+										<a href="#"></a>
+									</li>
+									<li class="fl">
+										<a href="#"></a>
+									</li>
+									<li class="fl">
+										<a href="#"></a>
+									</li>
+								</ul>
+							</div>
+							<div class="content_r fr">
+								<header class="content_header">
+									<h3 class="content_header_slide_tit">
+										<a href="#">外语热播排行</a>
+									</h3>
+								</header>
+								<section class="rank_info">
+									<ul class="rank_info_list">
+										<li class="clearfix">
+											<span class="rank_num color_spec fl">1</span>
+											<a href="#" class="rank_name fl">极速之巅</a>
+											<span class="play_amount fr">4.2万</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num color_spec fl">2</span>
+											<a href="#" class="rank_name fl">我的个神啊</a>
+											<span class="play_amount fr">6.2万</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num color_spec fl">3</span>
+											<a href="#" class="rank_name fl">生化危机:终章</a>
+											<span class="play_amount fr">5.8万</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num fl">4</span>
+											<a href="#" class="rank_name fl">毒岛</a>
+											<span class="play_amount fr">5.1万</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num fl">5</span>
+											<a href="#" class="rank_name fl">食物链</a>
+											<span class="play_amount fr">4.4万</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num fl">6</span>
+											<a href="#" class="rank_name fl">最终幻想15:王者之剑</a>
+											<span class="play_amount fr">3.3万</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num fl">7</span>
+											<a href="#" class="rank_name fl">蜡笔小新:梦境世界大突击</a>
+											<span class="play_amount fr">4.3万</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num fl">8</span>
+											<a href="#" class="rank_name fl">超体</a>
+											<span class="play_amount fr">12.0万</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num fl">9</span>
+											<a href="#" class="rank_name fl">美女与野兽</a>
+											<span class="play_amount fr">4.8万</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num fl">10</span>
+											<a href="#" class="rank_name fl">一条狗的使命</a>
+											<span class="play_amount fr">4.7万</span>
+										</li>
+									</ul>
+								</section>
+							</div>
+						</div>
+						<div class="content_btm_wrapper clearfix">
+							<div class="content_l fl">
+								<ul class="content_info_list clearfix">
+									<li class="fl">
+										<a href="#">
+											<img src="../img/movie/keluomoruizi.jpg" title="【科洛·莫瑞兹作品】" alt="【科洛·莫瑞兹作品】"/>
+											<span class="pic_desc h_40">
+												<span class="pic_desc_tit">【科洛·莫瑞兹作品】</span>
+												<span class="pic_desc_txt">超杀女恋上小贝大公子</span>
+											</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/movie/qiangsen.jpg" title="【巨石强森作品】" alt="【巨石强森作品】"/>
+											<span class="pic_desc h_40">
+												<span class="pic_desc_tit">【巨石强森作品】</span>
+												<span class="pic_desc_txt">肌肉硬汉也有型</span>
+											</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/movie/jiexi.jpg" title="【杰西·艾森伯格作品】" alt="【杰西·艾森伯格作品】"/>
+											<span class="pic_desc h_40">
+												<span class="pic_desc_tit">【杰西·艾森伯格作品】</span>
+												<span class="pic_desc_txt">嘴炮神经质小卷毛</span>
+											</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/movie/meigen.jpg" title="【梅根·福克斯作品】" alt="【梅根·福克斯作品】"/>
+											<span class="pic_desc h_40">
+												<span class="pic_desc_tit">【梅根·福克斯作品】</span>
+												<span class="pic_desc_txt">性感变形金刚女郎</span>
+											</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="content_r fr">
+								<a href="#" class="ad">
+									<img src="../img/movie/zuilinglong.jpg" title="醉玲珑" alt="醉玲珑"/>
+									<span class="content_ad">广告</span>
+								</a>
+							</div>
+						</div>
+					</section>
+					<section class="korea content h_300">
+						<div class="content_top_wrapper clearfix">
+							<div class="content_l fl">
+								<header class="content_header clearfix">
+									<h3 class="content_header_slide_tit fl">
+										<a href="#">日韩亚太区</a>
+									</h3>
+									<div class="content_more fl">
+										<a href="#">更多</a>
+									</div>
+								</header>
+								<section class="recommend">
+									<div class="recommend_inner l_wid">
+										<div class="banner_area_l">
+											<a href="#" class="banner_bg_l icon_movie"></a>
+										</div>
+										<ul class="content_list clearfix">
+											<li class="fl">
+												<a href="#">
+													<img src="../img/movie/aiyuheping.jpg" title="爱与和平" alt="爱与和平"/>
+												</a>
+												<span class="pic_desc">
+													<a href="#" class="pic_desc_link">
+														<span class="pic_desc_tit">爱与和平</span>
+														<span class="pic_desc_txt clearfix">
+															<span class="pic_desc_txt_l fl">园子温导演科幻温情片</span>
+															<span class="pic_desc_txt_r fr">正片</span>
+														</span>
+														<span class="pic_desc_role">主演：Fay Gauthier</span>
+													</a>
+													<span class="pic_desc_oper clearfix">
+														<a href="#" class="to_play fl">观看正片</a>
+														<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+													</span>
+												</span>
+											</li>
+											<li class="fl">
+												<a href="#">
+													<img src="../img/movie/xingfushiguang.jpg" title="我们的幸福时光" alt="我们的幸福时光"/>
+												</a>
+												<span class="pic_desc">
+													<a href="#" class="pic_desc_link">
+														<span class="pic_desc_tit">我们的幸福时光</span>
+														<span class="pic_desc_txt clearfix">
+															<span class="pic_desc_txt_l fl">两颗冰冷的心不期而遇</span>
+															<span class="pic_desc_txt_r fr">正片</span>
+														</span>
+														<span class="pic_desc_role">主演：卡斯帕·凡·迪恩 卢·费里诺</span>
+													</a>
+													<span class="pic_desc_oper clearfix">
+														<a href="#" class="to_play fl">观看正片</a>
+														<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+													</span>
+												</span>
+											</li>
+											<li class="fl">
+												<a href="#">
+													<img src="../img/movie/kaola.jpg" title="考拉大冒险" alt="考拉大冒险"/>
+												</a>
+												<span class="pic_desc">
+													<a href="#" class="pic_desc_link">
+														<span class="pic_desc_tit">考拉大冒险</span>
+														<span class="pic_desc_txt clearfix">
+															<span class="pic_desc_txt_l fl">萌考拉大冒险对战恶霸</span>
+															<span class="pic_desc_txt_r fr">正片</span>
+														</span>
+														<span class="pic_desc_role">主演：卡斯帕·凡·迪恩 卢·费里诺</span>
+													</a>
+													<span class="pic_desc_oper clearfix">
+														<a href="#" class="to_play fl">观看正片</a>
+														<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+													</span>
+												</span>
+											</li>
+											<li class="fl">
+												<a href="#">
+													<img src="../img/movie/qizi.jpg" title="我妻子的一切" alt="我妻子的一切"/>
+												</a>
+												<span class="pic_desc">
+													<a href="#" class="pic_desc_link">
+														<span class="pic_desc_tit">我妻子的一切</span>
+														<span class="pic_desc_txt clearfix">
+															<span class="pic_desc_txt_l fl">绝色美少妇诱惑男人心</span>
+															<span class="pic_desc_txt_r fr">正片</span>
+														</span>
+														<span class="pic_desc_role">主演：卡斯帕·凡·迪恩 卢·费里诺</span>
+													</a>
+													<span class="pic_desc_oper clearfix">
+														<a href="#" class="to_play fl">观看正片</a>
+														<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+													</span>
+												</span>
+											</li>
+										</ul>
+										<div class="banner_area_r">
+											<a href="#" class="banner_bg_r icon_movie"></a>
+										</div>
+									</div>	
+								</section>	
+								<ul class="link_point point_four clearfix">
+									<li class="fl">
+										<a href="#" class="active"></a>
+									</li>
+									<li class="fl">
+										<a href="#"></a>
+									</li>
+									<li class="fl">
+										<a href="#"></a>
+									</li>
+									<li class="fl">
+										<a href="#"></a>
+									</li>
+								</ul>
+							</div>
+							<div class="content_r fr">
+								<header class="content_header">
+									<h3 class="content_header_slide_tit">
+										<a href="#">韩国电影排行榜</a>
+									</h3>
+								</header>
+								<section class="rank_info">
+									<ul class="rank_info_list">
+										<li class="clearfix">
+											<span class="rank_num color_spec fl">1</span>
+											<a href="#" class="rank_name fl">超级快递</a>
+											<span class="play_amount fr">27.1万</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num color_spec fl">2</span>
+											<a href="#" class="rank_name fl">外公芳龄38</a>
+											<span class="play_amount fr">11.9万</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num color_spec fl">3</span>
+											<a href="#" class="rank_name fl">食物链</a>
+											<span class="play_amount fr">4.4万</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num fl">4</span>
+											<a href="#" class="rank_name fl">龙之战</a>
+											<span class="play_amount fr">2.3万</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num fl">5</span>
+											<a href="#" class="rank_name fl">谎言</a>
+											<span class="play_amount fr">1.5万</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num fl">6</span>
+											<a href="#" class="rank_name fl">人间中毒</a>
+											<span class="play_amount fr">1.7万</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num fl">7</span>
+											<a href="#" class="rank_name fl">夜关门:欲望之花</a>
+											<span class="play_amount fr">1.5万</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num fl">8</span>
+											<a href="#" class="rank_name fl">我妻子的一切</a>
+											<span class="play_amount fr">1.7万</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num fl">9</span>
+											<a href="#" class="rank_name fl">不眠之夜</a>
+											<span class="play_amount fr">1.3万</span>
+										</li>
+										<li class="clearfix">
+											<span class="rank_num fl">10</span>
+											<a href="#" class="rank_name fl">流感</a>
+											<span class="play_amount fr">3.0万</span>
+										</li>
+									</ul>
+								</section>
+							</div>
+						</div>
+						<div class="content_btm_wrapper clearfix">
+							<div class="content_l fl">
+								<ul class="content_info_list clearfix">
+									<li class="fl wid_640">
+										<a href="#">
+											<img src="../img/movie/dage.jpg" title="我不做大哥好多年" alt="我不做大哥好多年"/>
+											<span class="content_ad">广告</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/movie/feiba.jpg" title="飞吧 爸爸" alt="飞吧 爸爸"/>
+										</a>
+										<span class="pic_desc">
+											<a href="#" class="pic_desc_link">
+												<span class="pic_desc_tit">飞吧 爸爸</span>
+												<span class="pic_desc_txt">李准基华丽变功夫大师</span>
+											</a>
+											<span class="pic_desc_oper clearfix">
+												<a href="#" class="to_play fl">播放</a>
+												<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+											</span>
+										</span>
+									</li>
+								</ul>
+							</div>
+							<div class="content_r fr">
+								<a href="#">
+									<img src="../img/movie/ebu.jpg" title="票房过亿好片" alt="票房过亿好片"/>
+								</a>
+							</div>
+						</div>
+					</section>
+					<section class="european content h_300">
+						<div class="content_top_wrapper clearfix">
+							<div class="content_l fl">
+								<header class="content_header clearfix">
+									<h3 class="content_header_slide_tit fl">
+										<a href="#">经典欧洲风</a>
+									</h3>
+									<div class="content_more fl">
+										<a href="#">更多</a>
+									</div>
+								</header>
+								<section class="recommend">
+									<div class="recommend_inner l_wid">
+										<div class="banner_area_l">
+											<a href="#" class="banner_bg_l icon_movie"></a>
+										</div>
+										<ul class="content_list clearfix">
+											<li class="fl">
+												<a href="#">
+													<img src="../img/movie/juezheng.jpg" title="最爽的一天" alt="最爽的一天"/>
+												</a>
+												<span class="pic_desc">
+													<a href="#" class="pic_desc_link">
+														<span class="pic_desc_tit">最爽的一天</span>
+														<span class="pic_desc_txt">绝症病友非洲奇妙之旅</span>
+														<span class="pic_desc_role">主演：郭富城 梁家辉 杨采妮</span>
+													</a>
+													<span class="pic_desc_oper clearfix">
+														<a href="#" class="to_play fl">观看正片</a>
+														<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+													</span>
+												</span>
+											</li>
+											<li class="fl">
+												<a href="#">
+													<img src="../img/movie/made.jpg" title="意外制造公司" alt="意外制造公司"/>
+												</a>
+												<span class="pic_desc">
+													<a href="#" class="pic_desc_link">
+														<span class="pic_desc_tit">意外制造公司</span>
+														<span class="pic_desc_txt">富少遇爱疯悔死亡计划</span>
+														<span class="pic_desc_role">主演主演：郭富城 梁家辉 杨采妮</span>
+													</a>
+													<span class="pic_desc_oper clearfix">
+														<a href="#" class="to_play fl">观看正片</a>
+														<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+													</span>
+												</span>
+											</li>
+											<li class="fl">
+												<a href="#">
+													<img src="../img/movie/alading.jpg" title="阿拉丁与神灯" alt="阿拉丁与神灯"/>
+												</a>
+												<span class="pic_desc">
+													<a href="#" class="pic_desc_link">
+														<span class="pic_desc_tit">阿拉丁与神灯</span>
+														<span class="pic_desc_txt">口碑炸裂法式污力童话</span>
+														<span class="pic_desc_role">主演：张家辉 古天乐 吴镇宇</span>
+													</a>
+													<span class="pic_desc_oper clearfix">
+														<a href="#" class="to_play fl">观看正片</a>
+														<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+													</span>
+												</span>
+											</li>
+											<li class="fl">
+												<a href="#">
+													<img src="../img/movie/weilong.jpg" title="边境威龙" alt="边境威龙"/>
+												</a>
+												<span class="pic_desc">
+													<a href="#" class="pic_desc_link">
+														<span class="pic_desc_tit">边境威龙</span>
+														<span class="pic_desc_txt">被家暴衰警边境抓贼</span>
+														<span class="pic_desc_role">主演：郭富城 张铁林 郝蕃</span>
+													</a>
+													<span class="pic_desc_oper clearfix">
+														<a href="#" class="to_play fl">观看正片</a>
+														<a href="#" class="icon_movie to_load_down fr" title="下载">下载</a>
+													</span>
+												</span>
+											</li>
+										</ul>
+										<div class="banner_area_r">
+											<a href="#" class="banner_bg_r icon_movie"></a>
+										</div>
+									</div>	
+								</section>	
+								<ul class="link_point point_four clearfix">
+									<li class="fl">
+										<a href="#" class="active"></a>
+									</li>
+									<li class="fl">
+										<a href="#"></a>
+									</li>
+									<li class="fl">
+										<a href="#"></a>
+									</li>
+									<li class="fl">
+										<a href="#"></a>
+									</li>
+								</ul>
+							</div>
+							<div class="content_r fr">
+								<header class="content_header">
+									<h3 class="content_header_slide_tit fl">
+										<a href="#" class="active">精彩视频</a>
+									</h3>
+								</header>
+								<section class="recommend_info">
+									<ul class="recommend_info_list">
+										<li class="clearfix">
+											<div class="rec_pic fl">
+												<a href="#">
+													<img src="../img/movie/dahuangfeng.jpg" title="史上最帅的大黄蜂来了" alt="史上最帅的大黄蜂来了"/>
+												</a>
+											</div>
+											<div class="rec_desc fl">
+												<a href="#" class="rec_desc_tit">史上最帅的大黄蜂来了</a>
+											</div>
+										</li>
+										<li class="clearfix">
+											<div class="rec_pic fl">
+												<a href="#">
+													<img src="../img/movie/jiangu.jpg" title="健骨有道请接招" alt="健骨有道请接招"/>
+												</a>
+											</div>
+											<div class="rec_desc fl">
+												<a href="#" class="rec_desc_tit">健骨有道请接招</a>
+											</div>
+										</li>
+										<li class="margin_20 clearfix">
+											<div class="rec_pic fl">
+												<a href="#">
+													<img src="../img/movie/shengcun.jpg" title="95后生存法则" alt="95后生存法则"/>
+												</a>
+											</div>
+											<div class="rec_desc fl">
+												<a href="#" class="rec_desc_tit">95后生存法则</a>
+											</div>
+										</li>
+										<li class="clearfix">
+											<div class="rec_pic fl">
+												<a href="#">
+													<img src="../img/movie/anji.jpg" title="安吉直奔澳洲原因竟是" alt="安吉直奔澳洲原因竟是"/>
+												</a>
+											</div>
+											<div class="rec_desc fl">
+												<a href="#" class="rec_desc_tit">安吉直奔澳洲原因竟是</a>
+											</div>
+										</li>
+										<li class="margin_20 clearfix">
+											<div class="rec_pic fl">
+												<a href="#">
+													<img src="../img/movie/qishui.jpg" title="英国皇室认证的汽水" alt="英国皇室认证的汽水"/>
+												</a>
+											</div>
+											<div class="rec_desc fl">
+												<a href="#" class="rec_desc_tit">英国皇室认证的汽水</a>
+											</div>
+										</li>
+									</ul>
+								</section>
+							</div>
+						</div>
+					</section>
+					<section class="companion content">
+						<header class="content_header">
+							<h3 class="content_header_slide_tit">
+								<a href="#" class="active">合作伙伴</a>
+							</h3>
+						</header>
+						<section class="companion_info">
+							<ul class="companion_info_list clearfix">
+								<li class="fl">
+									<a href="#">
+										<img src="../img/movie/alp.jpg" title="wac" alt="wac"/>
+									</a>
+								</li>
+								<li class="fl">
+									<a href="#">
+										<img src="../img/movie/eox.jpg" title="eox" alt="eox"/>
+									</a>
+								</li>
+								<li class="fl">
+									<a href="#">
+										<img src="../img/movie/universal.jpg" title="universal" alt="universal"/>
+									</a>
+								</li>
+								<li class="fl">
+									<a href="#">
+										<img src="../img/movie/tal.jpg" title="ale" alt="ale"/>
+									</a>
+								</li>
+								<li class="fl">
+									<a href="#">
+										<img src="../img/movie/sony.jpg" title="sony" alt="sony"/>
+									</a>
+								</li>
+								<li class="fl">
+									<a href="#">
+										<img src="../img/movie/para.jpg" title="paramount" alt="paramount"/>
+									</a>
+								</li>
+								<li class="fl">
+									<a href="#">
+										<img src="../img/movie/bona.jpg" title="bona" alt="bona"/>
+									</a>
+								</li>
+								<li class="fl">
+									<a href="#">
+										<img src="../img/movie/thears.jpg" title="thears" alt="thears"/>
+									</a>
+								</li>
+								<li class="fl">
+									<a href="#">
+										<img src="../img/movie/wanda.jpg" title="wanda" alt="wanda"/>
+									</a>
+								</li>
+								<li class="fl">
+									<a href="#">
+										<img src="../img/movie/anle.jpg" title="edk" alt="edk"/>
+									</a>
+								</li>
+								<li class="fl">
+									<a href="#">
+										<img src="../img/movie/ali.jpg" title="阿里巴巴" alt="阿里巴巴"/>
+									</a>
+								</li>
+								<li class="fl">
+									<a href="#">
+										<img src="../img/movie/china.jpg" title="中国电影集团公司" alt="中国电影集团公司"/>
+									</a>
+								</li>
+								<li class="fl">
+									<a href="#">
+										<img src="../img/movie/huaxia.jpg" title="华夏电影发行公司" alt="华夏电影发行公司"/>
+									</a>
+								</li>
+								<li class="fl">
+									<a href="#">
+										<img src="../img/movie/guangxian.jpg" title="光线影业" alt="光线影业"/>
+									</a>
+								</li>
+								<li class="fl">
+									<a href="#">
+										<img src="../img/movie/huace.jpg" title="华策影视" alt="华策影视"/>
+									</a>
+								</li>
+							</ul>
+						</section>
+					</section>
+				</div>
+			</section>
+			<footer class="footer">
+				<div class="footer_top clearfix">
+					<div class="about fl">
+						<div class="foot_top_tit clearfix">
+							<a href="#">大优酷事业群</a>
+							<a href="#">关于优酷</a>
+						</div>
+						<div class="foot_top_links clearfix">
+							<a href="#">Youku Tudou Inc.</a>
+							<a href="#">Youku.com</a>
+							<a href="#">友情链接</a>
+							<a href="#">广告服务</a>
+						</div>
+					</div>
+					<div class="youku_hot fl">
+						<div class="foot_top_tit clearfix">
+							<a href="#">优酷热门</a>
+						</div>
+						<div class="foot_top_links clearfix">
+							<a href="#">剧集</a>
+							<a href="#">电影</a>
+							<a href="#">综艺</a>
+							<a href="#">音乐</a>
+							<a href="#">少儿</a>
+							<a href="#">资讯</a>
+							<a href="#">纪实</a>
+							<a href="#">公益</a>
+							<a href="#">体育</a>
+							<a href="#">汽车</a>
+							<a href="#">科技</a>
+							<a href="#">财经</a>
+							<a href="#">娱乐</a>
+							<a href="#">文化</a>
+							<a href="#">动漫</a>
+							<a href="#">搞笑</a>
+							<a href="#">旅游</a>
+							<a href="#">时尚</a>
+							<a href="#">亲子</a>
+							<a href="#">教育</a>
+							<a href="#">游戏</a>
+							<a href="#">会员</a>
+							<a href="#">发现</a>
+							<a href="#">片库</a>
+						</div>
+					</div>
+					<div class="pro_center fl">
+						<div class="foot_top_tit clearfix">
+							<a href="#">产品中心</a>
+						</div>
+						<div class="foot_top_links clearfix">
+							<a href="#">PC客户端</a>
+							<a href="#">手机客户端</a>
+							<a href="#">智能硬件</a>
+							<a href="#">视频云</a>
+						</div>
+					</div>
+					<div class="user fl">
+						<div class="foot_top_tit clearfix">
+							<a href="#">用户</a>
+						</div>
+						<div class="foot_top_links clearfix">
+							<a href="#">开通大鱼号</a>
+						</div><div class="foot_top_tit clearfix">
+							<a href="#">支持</a>
+						</div>
+						<div class="foot_top_links clearfix">
+							<a href="#">蘩體版</a>
+							<a href="#">在线反馈</a>
+						</div>
+					</div>
+				</div>
+				<div class="footer_middle clearfix">
+					<div class="net_culture fl">
+						<div class="net_culture_desc">网络文化经营许可证 京网文[2014]0934-236号</div>
+						<div class="net_culture_desc clearfix">
+							<span class="net_culture_desc_l fl">京卫网审[2013]第0209号</span>
+							<span class="net_culture_desc_r fl">网络110报警服务</span>
+						</div>
+						<div class="net_culture_desc">药品服务许可证(京)-经营-2015-0029</div>
+						<div class="net_culture_desc">节目制作经营许可证京字670号</div>
+						<div class="net_culture_desc">营业执照</div>
+					</div>	
+					<div class="copyright fl">
+						<div class="net_culture_desc">请使用者仔细阅读优酷使用协议、版权声明、反盗版盗链声明</div>
+						<div class="net_culture_desc">Copyright&copy;2017 优酷youku.com版权所有</div>
+						<div class="net_culture_desc">不良信息举报电话：4008100580</div>
+						<div class="net_culture_desc">信息网络传播视听节目许可证0108283号</div>
+						<div class="net_culture_desc">出版物经营许可证</div>
+					</div>
+					<div class="jingIcp fl">
+						<div class="net_culture_desc">京ICP证060288号</div>
+						<div class="net_culture_desc">新出网证(京)字160号</div>
+						<div class="net_culture_desc">北京互联网举报中心</div>
+						<div class="net_culture_desc">北京12318文化市场举报热线</div>
+					</div>
+					<div class="seek_wrapper fl">
+						<a href="#" class="seek_bg fl">
+							<img src="../img/index/you_seek.jpg" alt="优酷扫一扫" title="优酷扫一扫"/>
+						</a>
+						<span class="seek_bg_desc fl">
+							<img src="../img/index/seek_desc.jpg"/>
+						</span>
+					</div>
+				</div>
+				<div class="footer_bottom">
+					<ul class="confirm_list clearfix">
+						<li class="fl">
+							<a href="#" class="clearfix">
+								<img src="../img/index/records.jpg" title="备案信息" alt="备案信息" class="fl"/>
+								<span class="confirm_list_desc fl">
+									<span class="confirm_list_desc_txt">经营性网站</span>
+									<span class="confirm_list_desc_txt">备案信息</span>
+								</span>	
+							</a>
+						</li>
+						<li class="fl">
+							<a href="#" class="clearfix">
+								<img src="../img/index/belife.jpg" title="诚信联盟" alt="诚信联盟" class="fl"/>
+								<span class="confirm_list_desc fl">
+									<span class="confirm_list_desc_txt">中国互联网</span>
+									<span class="confirm_list_desc_txt">诚信联盟</span>
+								</span>
+							</a>
+						</li>
+						<li class="fl">
+							<a href="#" class="clearfix">
+								<img src="../img/index/report.jpg" title="举报中心" alt="举报中心" class="fl"/>
+								<span class="confirm_list_desc fl">
+									<span class="confirm_list_desc_txt">中国互联网</span>
+									<span class="confirm_list_desc_txt">举报中心</span>
+								</span>
+							</a>
+						</li>
+						<li class="fl">
+							<a href="#" class="clearfix">
+								<img src="../img/index/down_app.jpg" title="APP下载" alt="APP下载" class="fl"/>
+								<span class="confirm_list_desc fl">
+									<span class="confirm_list_desc_txt">网络举报</span>
+									<span class="confirm_list_desc_txt">APP下载</span>
+								</span>
+							</a>
+						</li>
+						<li class="fl">
+							<a href="#" class="clearfix">
+								<img src="../img/index/police.jpg" title="京公网安备" alt="京公网安备" class="fl"/>
+								<span class="confirm_list_desc fl">
+									<span class="confirm_list_desc_txt">京公网安备</span>
+									<span class="confirm_list_desc_txt">11000002000017</span>
+								</span>
+							</a>
+						</li>
+						<li class="fl">
+							<a href="#" class="clearfix">
+								<img src="../img/index/net_culture.jpg" title="网络文化" alt="网络文化" class="fl"/>
+								<span class="confirm_list_desc fl">
+									<span class="confirm_list_desc_txt">网络文化</span>
+									<span class="confirm_list_desc_txt">经营单位</span>
+								</span>
+							</a>
+						</li>
+						<li class="fl">
+							<a href="#" class="clearfix">
+								<img src="../img/index/audio.jpg" title="暴恐音视频" alt="暴恐音视频" class="fl"/>
+								<span class="confirm_list_desc fl">
+									<span class="confirm_list_desc_txt">暴恐音视频</span>
+									<span class="confirm_list_desc_txt">举报专区</span>
+								</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</footer>
+		</div>	
+		<div class="customer_service">
+			<a href="#">
+				<img src="../img/index/server.jpg" title="联系客服" alt="联系客服"/>
+				<div class="customer_txt">联系客服</div>
+			</a>
+		</div>
+	</body>
+</html>

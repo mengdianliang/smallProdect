@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>拖拽</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+<script>
+    function Drag(id){
+        this.box = document.getElementById(id);
+        this.disX = 0;
+        this.disY = 0;
+    }
+    //初始化方法
+    Drag.prototype.init = function(){
+        var _this = this;
+        this.box.addEventListener('mousedown',down);
+        function down(ev){
+            _this.down(ev);
+        }
+    };
+    //onmousedown函数
+    Drag.prototype.down = function(ev){
+        var _this = this;
+        this.disX = ev.clientX + this.box.offsetLeft;
+        this.disY = ev.clientY + this.box.offsetTop;
+        var move = function(ev){
+            _this.move(ev);
+        };
+        var up = function(ev){
+            _this.up(ev,move,up);
+        };
+        document.addEventListener('mousemove',move);
+        document.addEventListener('mouseup',up);
+        ev.preventDefault();
+    };
+    //onmousemove函数
+    Drag.prototype.move = function(ev){
+        this.box.style.left = ev.clientX - this.disX + 'px';
+        this.box.style.top = ev.clientY - this.disY + 'px';
+    };
+    //onmouseup函数
+    Drag.prototype.up = function(ev,move,up){
+        document.removeEventListener('mousemove',move);
+        document.removeEventListener('mouseup',up);
+    };
+    //实例化对象
+    var dr = new Drag('box');
+    dr.init();
+</script>
+</html>

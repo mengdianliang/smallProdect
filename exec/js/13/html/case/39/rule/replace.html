@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>replace方法</title>
+</head>
+<body>
+    替换前<br />
+    <textarea>
+    </textarea><br />
+    替换后<br />
+    <textarea>
+    </textarea><br />
+    <input type="button" value="确定" id="input1" />
+    <!--
+        replace：正则替换匹配的字符串，返回新的字符串
+
+        写法：字符串.replace(正则，新的字符串)
+
+        replace：第二个参数，可以是字符串，也可以是一个回调函数
+    -->
+    <script>
+        /*var str = 'aaa';
+        var re = /a+/g;
+        str = str.replace(re,'b');
+        console.log(str);*/
+        window.onload = function(){
+            var aT = document.getElementsByTagName('textarea');
+            var oInput = document.getElementById('input1');
+
+            var re = /菲称|中国船|监视之下/g;
+
+            oInput.onclick = function(){
+
+                //aT[1].value = aT[0].value.replace(re,'*');
+
+                aT[1].value = aT[0].value.replace(re,function(str){
+                    //函数的第一个参数：就是匹配成功的字符
+
+                    //alert( str );
+
+                    var result = '';
+
+                    for(var i=0;i<str.length;i++){
+                        result += '*';
+                    }
+
+
+                    return result;
+
+                });
+
+            };
+
+        };
+    </script>
+</body>
+</html>

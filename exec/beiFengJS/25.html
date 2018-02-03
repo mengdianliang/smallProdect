@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>滚动的文字</title>
+    <style>
+        #scrollText {
+            margin:10px;
+            background:yellow;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" id="startBtn" value="开始"/>
+    <input type="button" id="endBtn" value="停止"/>
+    <div id="scrollText">123</div>
+    <script>
+            function $(id) {
+                return document.getElementById(id);
+            }
+            function scrollText(text,fn,t) {
+                setInterval(function(){
+                    fn(text);
+                    text = text.substring(1,text.length) + text.substring(0,1);
+                },t);
+            }
+
+            function ScrollText(s,fn,t){
+                this.s = s;
+                this.fn = fn;
+                this.t = t|| 300;
+            }
+            ScrollText.prototype.start = function() {
+                clearInterval(this.interval);
+                var s= this.s,fn = this.fn;
+                this.interval = setInterval(function() {
+                    s = s.substring(1,s.length) + s.substring(0,1);
+                    fn(s);
+                },this.t);
+            };
+            ScrollText.prototype.stop = function() {
+                clearInterval(this.interval);
+            };
+            console.dir(ScrollText);
+            window.onload = function (){
+                var startBtn = $("startBtn");
+                var endBtn = $("endBtn");
+                var info = $('scrollText');
+                /*var timer= "";
+                startBtn.onclick = function() {
+                    var s = document.title;
+                    timer = setInterval(function(){
+                        s = s.substring(1, s.length) + s.substring(0,1);
+                        document.title = s;
+                    },1000);
+                };
+                endBtn.onclick = function() {
+                    clearInterval(timer);
+                };*/
+                var st=new ScrollText('滚动的文字',function (t) {
+                    info.innerHTML=t;
+                });
+                console.log(st);
+                st.start();
+                startBtn.onclick=function () {
+                    st.start();
+                };
+                endBtn.onclick=function () {
+                    st.stop();
+                };
+
+//                scrollText('滚动的文字!!!',function(s){
+//
+//                    console.log(s);
+//                    if(s.charAt(s.length-1) === '!')  return; //这里用indexOf是不行的，因为它是判断字符首次出现的位置
+//                    info.innerHTML = s;
+//                },300);
+//                scrollText('滚动的文字',function(s){document.title = s;},1000);
+            };
+    </script>
+</body>
+</html>

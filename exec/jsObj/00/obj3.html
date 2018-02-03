@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>原型</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    //普通方法比原型的优先级高
+//    var arr = [];
+//    arr.number = 10;
+//    Array.prototype.number = 20;
+//
+//    alert(arr.number);   //10
+
+//构造函数
+function CreatePerson(name){
+    this.name = name;
+}
+//原型
+CreatePerson.prototype.showName = function(){
+    alert(this.name);
+};
+</script>
+</html>

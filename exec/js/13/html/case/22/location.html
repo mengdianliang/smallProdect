@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Location对象</title>
+    <!--
+        location对象封装了浏览器的地址栏的信息
+
+        如果直接将location属性修改为一个完整的路径，或相对路径，
+        则我们的页面会自动跳转到该路径，并且会生成相应的历史记录
+
+        hash:     设置或返回从#开始的URL
+        host:     设置或返回主机名和当前URL的端口号
+        hostname: 设置或返回当前URL的主机名
+        href:     设置或返回完整的URL
+        pathname: 设置或返回当前URL的路径部分
+        port:     设置或返回当前URL的端口号
+        protocol: 设置或返回当前URL的协议
+        search  : 设置或返回从问号(?)开始的URL
+
+
+        assign(); 加载新的文档，和直接修改location作用一样
+        reload(): 重新加载新的文档  如果在方法中传递一个true,则会强制清空缓存刷新页面
+        replace(): 用新的文档替换当前文档
+    -->
+</head>
+<body>
+    <button id="btn">点我一下</button>
+    <script>
+        window.onload = function(){
+            var btn = document.getElementById('btn');
+            location = 'http://www.baidu.com';
+        };
+    </script>
+</body>
+</html>

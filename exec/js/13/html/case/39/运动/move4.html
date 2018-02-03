@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>运动基础</title>
+    <style>
+        #div1 {width: 100px; height: 100px; background: red; position: absolute; left: 200px; top: 30px;}
+    </style>
+</head>
+<body>
+    <div id="div1">
+    </div>
+    <input type="button" id="btn" value="开始"/>
+</body>
+<script>
+    window.onload = function(){
+
+        var div1 = document.getElementById('div1');
+        var btn = document.getElementById('btn');
+        var timer = null;
+        var speed = 50;
+        btn.onclick = function(){
+            timer = setInterval(function(){
+                speed = (500 - div1.offsetLeft) / 8;
+                speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+                if(div1.offsetLeft == 500){
+                    clearInterval(timer);
+                }else{
+                    div1.style.left = div1.offsetLeft + speed + 'px';
+                }
+            },30);
+
+        };
+
+
+        function css(obj,attr){
+            if(obj.currentStyle){
+                return obj.currentStyle[attr];
+            }else{
+                return getComputedStyle(obj,false)[attr];
+            }
+        }
+    };
+</script>
+</html>

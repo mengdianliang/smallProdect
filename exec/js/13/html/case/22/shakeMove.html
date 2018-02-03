@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>抖动效果</title>
+    <style>
+        .test{
+            height: 50px;
+            width: 50px;
+            position: absolute;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div class="test" style="left: 10px;background-color: lightblue"></div>
+        <div class="test" style="left: 70px;background-color: lightgreen"></div>
+        <div class="test" style="left: 130px;background-color: pink"></div>
+        <div class="test" style="left: 190px;background-color: lightCoral"></div>
+        <div class="test" style="left: 250px;background-color: orange"></div>
+    </div>
+</body>
+<script src="js/shakeMove.js"></script>
+<script>
+    window.onload = function(){
+        var box = document.getElementById('box');
+        var aDiv = document.getElementsByTagName('div');
+        for(var i = 0;i < aDiv.length;i++){
+            aDiv[i].onmouseover = function(){
+                shakeMove({obj:this,attr:'top',target: '50',stepValue: '1'});
+            };
+        }
+    };
+</script>
+</html>

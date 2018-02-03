@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function Person (name,sex,age,job){
+				this.name = name;
+				this.sex = sex;
+				this.age = age;
+				this.job = job;
+				/*this.say = function(){
+					alert(1);
+				};*/
+			}
+			
+			/*Person.prototype.say = function (){
+				
+				alert('2')
+			}*/
+			/*Function.prototype.say = function(){
+				alert('48546')
+			}*/
+			/*Person.say = function(){
+				alert('Person1')
+			}*/
+			
+			Object.say = function(){
+				alert('self')
+			};
+			
+			
+			Object.prototype.say = function(){
+				alert('999')
+			};
+			
+			
+			
+			var p = new Person('好友','女',25,'医生');
+			
+			p.say();
+			//Person.say();
+			
+//			Object.say();
+			console.dir(p);
+			//console.dir(Person);
+			
+//			console.dir(Object)
+		</script>
+	</body>
+</html>

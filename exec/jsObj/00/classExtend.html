@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>类继承</title>
+</head>
+<body>
+
+</body>
+<script>
+
+    /*function Aaa(){
+        this.name = '小明';
+    }
+    Aaa.prototype.showName = function(){
+        alert(this.name);
+    };
+    function Bbb(){
+        Aaa.call(this);
+    }
+    *//*Bbb.prototype = new Aaa();*//*
+
+    var F = function(){};
+    F.prototype = Aaa.prototype;
+    Bbb.prototype = new F();
+    Bbb.prototype.constructor = Bbb;
+
+    var b1 = new Bbb();
+    b1.showName();*/
+
+
+
+    var a = {
+        name: '小明'
+    };
+    var b = cloneObj(a);
+    //b.name = '小强';
+    alert(b.name);
+    function cloneObj(obj){
+        var F = function(){};
+        F.prototpye = obj;
+        return new F();
+    }
+</script>
+</html>

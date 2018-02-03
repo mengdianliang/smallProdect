@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>apply小技巧</title>
+</head>
+<body>
+    <script>
+        var arr = [70,30,11,4,1,3,5,7,9,0];
+        //调用max方法，比较参数个数，通过apply可以把数组转为参数个数，来传递
+        console.log(Math.max.apply('',arr));
+    </script>
+</body>
+</html>

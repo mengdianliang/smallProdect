@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>拖拽</title>
+    <style>
+        li{
+            list-style: none;
+            width: 100px;
+            height: 30px;
+            background-color: #ffff00;
+            margin: 10px;
+        }
+        #div1{
+            width: 100px;
+            height: 100px;
+            background-color: #ff0000;
+            margin: 200px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li draggable="true">a</li>
+        <li draggable="true">b</li>
+        <li draggable="true">c</li>
+    </ul>
+    <div id="div1"></div>
+    <img src="miaov.png" id="img1"/>
+</body>
+<script>
+    /*
+    * --dataTransfer对象：
+    *    effectAllow: 设置光标样式（none,copy,copyLink,copyMove,link,linkMove,move,all和uninitized）
+    *    setDragImage: 三个参数：指定的元素，坐标X，坐标Y
+    *    files:
+    *     --获取外部拖拽的文件，返回一个filesList列表；
+    *     --filesList下有个type属性，返回文件的类型
+    * */
+    window.onload = function(){
+        var div1 = document.getElementById('div1');
+        var img = document.getElementById('img1');
+        var lis = document.querySelectorAll('li');
+        var num = 0;
+        for(var i = 0;i < lis.length;i++){
+            lis[i].index = i;
+            lis[i].ondragstart = function (evt){
+                evt = window.event || evt;
+                evt.dataTransfer.setData('name',this.index);
+                evt.dataTransfer.effectAllowed = 'copy';
+                evt.dataTransfer.setDragImage(img,0,0);
+                this.style.backgroundColor = 'green';
+            };
+           /* lis[i].ondrag = function(){
+                document.title = num++;
+            };*/
+            lis[i].ondragend = function(){
+                this.style.backgroundColor = '';
+            };
+        }
+        div1.ondragenter = function(){
+            this.style.backgroundColor = 'blue';
+        };
+        div1.ondragover = function(evt){
+            //document.title = num++;
+            /*要想触发drop事件，必须在dragover当中阻止默认事件*/
+            evt.preventDefault();
+        };
+        div1.ondragleave = function(){
+            this.style.backgroundColor = '';
+        };
+        div1.ondrop = function(){
+            alert(123);
+        };
+
+    };
+</script>
+</html>

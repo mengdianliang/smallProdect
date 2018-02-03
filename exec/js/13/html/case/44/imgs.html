@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>拼图游戏</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        a{
+            display: block;
+            width: 80px;
+            height: 30px;
+            text-decoration:none;
+            color: #ffffff;
+            background-color: #ff8080;
+            border-radius: 3px;
+            box-shadow: 1px 1px 3px #cccccc;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 30px;
+        }
+        .container{
+            width: 600px;
+            margin: 20px auto 0;
+            position: relative;
+            clear: both;
+        }
+        img{
+            vertical-align: top;
+            border: none;
+        }
+        .thumb{
+            position:absolute;
+            left:-230px;
+            top:0;
+            width:200px;
+            height:200px;
+        }
+        .container .active{
+            border:1px solid #00f;
+            width:148px;
+            height:148px;
+        }
+    </style>
+</head>
+<body>
+    <a href="javascript:void(0);" class="start">开始游戏</a>
+    <div class="container" id="container">
+        <img src="img/bg.jpg" class="thumb"/>
+    </div>
+
+</body>
+<script>
+    window.onload = function(){
+        var start = document.querySelector('.start');
+        var pic = new Pic();
+
+        pic.init({
+            id: 'container',
+            rows: 5,
+            cols: 5
+        });
+        start.onclick = function(){
+            pic.startPic();
+        };
+    };
+
+    function Pic(){
+        this.ele = null;
+        this.arr = []; //初始化数组
+        this.newArr = []; //随机图片数组
+        this.item = []; //存储元素
+        this.pos = []; //存储图片位置
+        this.num = 0;  //图片数量
+        this.singleW = 0;  //图片碎片宽
+        this.singleH = 0;  //图片碎片高
+        this.settings = {   //设置默认参数
+            rows: 3,
+            cols: 3,
+            wid: 600,
+            hgt: 600
+        };
+    }
+    function extend(obj1,obj2){
+        for(var attr in obj2){
+            obj1[attr] = obj2[attr];
+        }
+    }
+
+    Pic.prototype.init = function(opt){
+        extend(this.settings,opt);
+        this.ele = document.getElementById(this.settings.id);
+        console.log(this.settings);
+        this.ele.style.width = this.settings.wid + 'px';
+        this.num = this.settings.rows * this.settings.cols;
+        console.log(this.num);
+        this.singleW = this.settings.wid / this.settings.cols;
+        this.singleH = this.settings.hgt/ this.settings.rows;
+
+        for(var i = 0;i < this.num;i++){
+            this.arr.push(i);
+            var div = document.createElement('div');
+            div.style.width = this.singleW + "px";
+            div.style.height = this.singleH + 'px';
+            div.style.float = 'left';
+            div.style.background = 'url(./img/bg.jpg) no-repeat';
+            //console.log(-i%this.settings.cols * this.singleW,-parseInt(i/this.settings.rows) * this.singleH);
+            div.style.backgroundSize = this.settings.wid +'px ' + this.settings.hgt + 'px';
+            div.style.backgroundPosition = -i%this.settings.cols * this.singleW + 'px ' + -parseInt(i/this.settings.rows) * this.singleH + "px";
+            this.item.push(div);
+            this.ele.appendChild(div);
+        }
+        this.newArr = this.arr.slice(0);
+    };
+    Pic.prototype.startPic = function(){
+        this.newArr.sort(function(a,b){
+            return Math.random() > 0.5 ? 1 : -1;
+        });
+        for(var i = 0;i < this.num;i++){
+            this.pos.push([this.item[i].offsetLeft,this.item[i].offsetTop]);
+        }
+        for(var i = 0;i < this.num;i++){
+            var n = this.newArr[i];
+            this.item[i].style.position = 'absolute';
+            this.item[i].style.top  = this.pos[i][1] + 'px';
+            this.item[i].style.left  = this.pos[i][0] + 'px';
+            this.item[i].index  = i;
+            this.item[i].style.backgroundPosition  = -n%this.settings.cols * this.singleW + 'px ' + -parseInt(n/this.settings.rows) * this.singleH + "px";
+            this.fnDown(this.item[i]);
+        }
+    };
+    Pic.prototype.fnDown = function(obj){
+        var _this = this;
+        obj.onmousedown = function(evt){
+            evt = window.event || evt;
+            obj.setCapture && obj.setCapture();
+            obj.style.zIndex++;
+            obj.disX = evt.clientX - obj.offsetLeft;
+            obj.disY = evt.clientY - obj.offsetTop;
+            _this.fnMove(obj);
+            _this.fnUp(obj);
+        };
+        return false;
+    };
+    Pic.prototype.fnMove = function(obj){
+        var _this = this;
+        document.onmousemove = function(evt){
+            evt = window.event || evt;
+            obj.nowX = evt.clientX - obj.disX;
+            obj.nowY = evt.clientY - obj.disY;
+            _this.near = _this.findNear(obj);
+            if(_this.near){
+                _this.near.className = 'active';
+            }
+            obj.style.left = obj.nowX + 'px';
+            obj.style.top = obj.nowY + 'px';
+        };
+    };
+    Pic.prototype.fnUp = function(obj){
+        var _this = this;
+        document.onmouseup = function(){
+            if(_this.near){
+                _this.near.className = '';
+                _this.move(obj,{left:_this.pos[_this.near.index][0],top:_this.pos[_this.near.index][1]});
+                _this.move(_this.near,{left:_this.pos[obj.index][0],top:_this.pos[obj.index][1]});
+
+                var temp = obj.index;
+                obj.index = _this.near.index;
+                _this.near.index = temp;
+                for(var i=0;i<_this.num;i++){
+                    _this.arr[i] = (_this.item[i].index);
+                }
+                console.log(_this.arr);
+                if(_this.isSuccess()){
+                    _this.tips();
+                }
+            }else{
+                _this.move(obj,{left:_this.pos[obj.index][0],top:_this.pos[obj.index][1]});
+            }
+            document.onmousemove = null;
+            document.onmosueup = null;
+            obj.releaseCapture && obj.releaseCapture();
+
+        };
+    };
+    Pic.prototype.move = function(o,json,fn){
+        o.timer && clearInterval(o.timer);
+        o.timer=setInterval(function(){
+            var bStop=true;
+            for(var i in json){
+                var iCur=css(o,i);
+                var iSpeed=(json[i]-iCur)/5;iSpeed=iSpeed>0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+                if(json[i]!=iCur){
+                    bStop=false;
+                }
+                o.style[i]=(iCur+iSpeed)+'px';
+
+            }
+
+            if(bStop){
+                clearInterval(o.timer);
+                typeof fn=='function' && fn();
+            }
+
+        },10);
+
+        function css(o,attr){
+            return o.currentStyle ? parseFloat(o.currentStyle[attr]) : parseFloat(getComputedStyle(o,false)[attr]);
+        }
+
+    };
+    Pic.prototype.checkPZ = function(obj1,obj2){
+        if(obj1 == obj2) return;
+        var L1 = obj1.offsetLeft,T1 = obj1.offsetTop,R1 = obj1.offsetLeft + obj1.offsetWidth,B1 = obj1.offsetTop + obj1.offsetHeight;
+        var L2 = obj2.offsetLeft,T2 = obj2.offsetTop,R2 = obj2.offsetLeft + obj2.offsetWidth,B2 = obj2.offsetTop + obj2.offsetHeight;
+        if(L1 > R2 || R1 < L2 || T1 > B2 || B1 < T2){
+            return false;
+        }else{
+            return true;
+        }
+    };
+    Pic.prototype.findNear = function(obj){
+        var min = 9999,index = -1;
+        for(var i = 0;i < this.num;i++){
+            this.item[i].className = '';
+            if(this.checkPZ(obj,this.item[i])){
+                var s = silence(obj,this.item[i]);
+                if(min > s){
+                    min = s;
+                    index = i;
+                }
+            }
+
+        }
+        if(index == -1){
+            return null;
+        }else{
+            return this.item[index];
+        }
+
+        function silence(obj1,obj2){
+            var x = obj1.offsetLeft - obj2.offsetLeft;
+            var y = obj1.offsetTop - obj2.offsetTop;
+            return Math.sqrt(x * x + y * y);
+        }
+
+    };
+    Pic.prototype.isSuccess = function (){
+        for(var i = 0;i < this.num;i++){
+            if(this.arr[i] != this.newArr[i]){
+                return false;
+            }
+        }
+        return true;
+    };
+    Pic.prototype.tips=function(ts){
+        var suc = document.createElement('div');
+        var t = document.createElement('p');
+        var tn = ts||3;
+        var timer=null;
+        suc.style.cssText='position:absolute;z-index:9999999;top:45%;width:100%;text-align:center;font-size:60px;color:#F56200;font-family:arial,黑体;';
+        suc.innerHTML='你成功了!';
+        suc.appendChild(t);
+        this.ele.appendChild(suc);
+        function updatetime(){
+            t.innerHTML=tn--;
+            if(tn<=0){
+                clearTimeout(timer);
+                window.location.reload();
+                return;
+            }
+            timer=setTimeout(function(){
+                updatetime();
+            },1000)
+        }
+        updatetime();
+    };
+</script>
+</html>

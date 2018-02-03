@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>自定义数据</title>
+</head>
+<body>
+    <div id="div1" data-miaov="秒味" data-miaov-all="妙味课堂">div1</div>
+</body>
+<script>
+    window.onload = function(){
+        var div1 = document.getElementById('div1');
+        alert(div1.dataset.miaov);
+        alert(div1.dataset.miaovAll);
+    };
+</script>
+</html>

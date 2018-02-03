@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>小球旋转</title>
+    <style>
+        .circle{
+            width: 100px;
+            height: 100px;
+            border-radius:  50px;;
+            background-color: #ff8080;
+            margin: 100px auto;
+            position: relative;
+        }
+        .real{
+            width: 70px;
+            height: 70px;
+            position: absolute;
+            top:15px;
+            left: 15px;
+            transform-origin: center center center;
+        }
+        .ball{
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            background-color: #06a7e1;
+
+        }
+    </style>
+    <script src="MTween.js"></script>
+    <script>
+        window.onload = function(){
+            var circle = $('.circle')[0];
+            var real = $('.real')[0];
+            var ball = $('.ball')[0];
+            real.rot = 0;
+            real.wid = 70;
+            real.lft = 15;
+
+            timer = setInterval(function(){
+                real.rot += 5;
+                real.wid -= 1/10;
+                real.lft += 0.5/10;
+
+                if(real.wid<10){
+                    real.wid = 10;
+                    clearInterval(timer);
+                }
+                real.style.transform = 'rotateZ('+real.rot+'deg)';
+                real.style.width = real.wid + 'px';
+                real.style.height = real.wid + 'px';
+                real.style.left = real.lft + 'px';
+                real.style.top = real.lft + 'px';
+
+
+            },30);
+
+
+            //元素获取方法的重写
+            function $(element,obj){
+                if(obj == null){
+                    return document.querySelectorAll(element);
+                }else{
+                    return obj.querySelectorAll(element);
+                }
+            }
+
+        };
+    </script>
+</head>
+<body>
+    <div class="circle">
+        <div class="real">
+            <div class="ball"></div>
+        </div>
+    </div>
+</body>
+</html>

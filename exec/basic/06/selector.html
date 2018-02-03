@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择器</title>
+    <!--
+        行间样式     1000
+        id选择器     100
+        class选择器  10
+        标签选择器   1
+    -->
+    <style>
+        div{
+            width:300px;
+            height:300px;
+            border: 10px solid pink;
+            display:inline-block;
+            float: left;
+        }
+        div:hover{
+            background-color: #ea8891;
+            /*cursor: pointer;*/
+            cursor: url(img/hand.cur), move;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1">div1</div>
+    <div>div2</div>
+</body>
+</html>

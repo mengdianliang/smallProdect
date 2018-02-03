@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>样式</title>
+    <style type="text/css">
+        #oDiv.base {
+            width:200px;
+            height:200px;
+            border:2px solid #ff0000;
+            position:absolute;
+            left:100px;
+            top:150px;
+        }
+        #oDiv.red {
+            background-color:red;
+        }
+        #oDiv.blue {
+            background-color:blue;
+        }
+        #para {
+            width:100px;
+            height:100px;
+            background:yellow;
+            display:block;
+        }
+        body {
+            width:600px;
+        }
+        body.redStyle {
+            border:2px solid red;
+        }
+        body.redStyle * {
+            color:red;
+        }
+        body.blueStyle {
+            border:2px solid blue;
+        }
+        body.blueStyle * {
+            color:blue;
+        }
+
+    </style>
+    <!--
+    样式表对象属性：
+        type:                               一般为text/style
+        href:                               link标签的属性
+        id:                                 所属标签的ID
+        disabled:                           样式表是否启用，启用时为false
+        cssText(IE):                        样式表中规则的文本形式
+        owningElement(IE)/ownerNode(W3C):   返回引用样式表的那个标签
+        rules(IE)/cssRules(W3C):            对应样式表里所有规则的集合
+
+    Rule对象属性：
+        selectorText:                        选择符
+        style:                               与元素上的style属性相似，并有cssText属性
+
+    -->
+    <script>
+        var lnk = document.createElement("link");
+        lnk.type="text/css";
+        lnk.rel="styleSheet";
+        lnk.href="css/test.css";
+        var head = document.getElementsByTagName("head")[0];
+        head.appendChild(lnk);
+        window.onload = function(){
+            var oDiv = document.getElementById("oDiv");
+            /*alert(oDiv.className);
+            oDiv.className = "base red";*/
+            //oDiv.id="para";
+            document.body.className="blueStyle";
+            //alert(oDiv.getAttribute('style'));
+            //alert(oDiv.style.width="1000px");
+            var toggleRed=document.getElementById("toggleRed");
+            var toggleBlue=document.getElementById("toggleBlue");
+           /* alert(oDiv.style.borderColor);
+            oDiv.style.borderColor="#DEF";
+            alert(oDiv.style.height);
+            alert(oDiv.currentStyle.width);*/
+
+            var sheets = document.styleSheets;
+            //alert(sheets.length);
+            var rules = getRules(0);
+            //alert(rules[0].selectorText);
+            alert(rules[0].style.width);
+
+            function addRule(sheet,selector,cssText,i) {
+                if(sheet.insertRule) {
+                    sheet.insertRule(selector + "{" + cssText + "}",i);
+                } else if(sheet.addRule) {
+                    sheet.addRule(selector,cssText,i);
+                }
+            }
+
+            function delRule(sheet,index) {
+                if(sheet.deleteRule) {
+                    sheet.deleteRule(index);
+                }else{
+                    sheet.removeRule(index);
+                }
+            }
+
+            function getRules(i) {
+                var s = document.styleSheets[i];
+                return s.cssRules || s.rules;
+            }
+            toggleRed.onclick=function () {
+                //oDiv.className=oDiv.className.replace("blue","");
+                //oDiv.className+="red";
+                delClass(oDiv,'blue');
+                addClass(oDiv,'red');
+                //oDiv.style.backgroundColor="red";
+            };
+            toggleBlue.onclick=function () {
+                //oDiv.className=oDiv.className.replace("red","");
+                //oDiv.className+="blue";
+                delClass(oDiv,'red');
+                addClass(oDiv,'blue');
+                //oDiv.style.backgroundColor="blue";
+            };
+            function addClass(obj,classname) {
+                //给指定的元素添加一个类名
+                var s=obj.className.split(/\s+/);
+                for (var i=0;i<s.length;i++) {
+                    if (s[i]==classname) return;
+                }
+                s[s.length] = classname;
+                obj.className = s.join(" ");
+                return obj;
+            }
+            function delClass(obj,classname) {
+                //删除指定元素的某个类名
+                var s=obj.className.split(/\s+/);
+                for (var i=0;i<s.length;i++) {
+                    if (s[i]==classname) s.splice(i,1);
+                }
+                obj.className=s.join(" ");
+                return obj;
+            }
+
+            function getRealStyle(obj,s) {
+                var style;
+                if (window.getComputedStyle) {//W3C DOM
+                    style=window.getComputedStyle(obj,null);
+                } else if (obj.currentStyle) {
+                    style=obj.currentStyle;
+                }
+                return style[s];
+            }
+        };
+    </script>
+</head>
+<body class="redStyle">
+    <h1>样式</h1>
+    样式
+    <a href="###" id="toggleRed">切换到红色主题</a>
+    <a href="###" id="toggleBlue">切换到蓝色主题</a>
+   <div id="oDiv" class="base blue">oDiv</div>
+
+</body>
+</html>

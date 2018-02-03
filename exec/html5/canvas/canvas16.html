@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>canvas createImageData</title>
+    <style>
+        body{ background:black; color:white; font-size:30px;}
+        #c1{ background:white;}
+        span{
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="c1" width="400" height="400">
+        <span>不支持canvas浏览器</span>
+        <!--
+
+        -->
+    </canvas>
+    <ul style="float:left;">
+        <li>妙</li>
+        <li>味</li>
+        <li>课</li>
+        <li>堂</li>
+    </ul>
+</body>
+<script>
+    window.onload = function(){
+        var lis = document.getElementsByTagName('li');
+        var oc = document.getElementById('c1');
+        var context = oc.getContext('2d');
+        var timer = null;
+
+        for(var i = 0;i < lis.length;i++){
+            lis[i].onclick = function(){
+                clearInterval(timer);
+                var str = this.innerHTML;
+
+                var h = 180;
+
+                context.clearRect(0,0,oc.width,oc.height);
+
+                context.font = h + 'px impact';
+
+                context.textBaseline = 'top';
+
+                context.fillStyle = 'red';
+
+                var w = context.measureText(str).width;
+
+                context.fillText(str,(oc.width - w)/2,(oc.height - h)/2);
+
+                var img = context.getImageData((oc.width - w)/2,(oc.height - h)/2,w,h);
+
+                context.clearRect(0,0,oc.width,oc.height);
+
+                var arr = randomArr(w*h,w*h/10);
+
+                var newImg = context.createImageData(w,h);
+                var now = 0;
+                timer = setInterval(function(){
+                    for(var i=0;i<arr[now].length;i++){
+                        newImg.data[4*arr[now][i]] = img.data[4*arr[now][i]];
+                        newImg.data[4*arr[now][i]+1] = img.data[4*arr[now][i]+1];
+                        newImg.data[4*arr[now][i]+2] = img.data[4*arr[now][i]+2];
+                        newImg.data[4*arr[now][i]+3] = img.data[4*arr[now][i]+3];
+                    }
+                    now++;
+                    if(now > 9){
+                        now = 0;
+                        clearInterval(timer); // ????????????????
+                    }
+                    context.putImageData(newImg,(oc.width - w)/2,(oc.height - h)/2);
+                },1000);
+
+            };
+        }
+        function randomArr(all,now){
+            var arr = [];
+            var allArr = [];
+            for(var i=0;i<all;i++){
+                arr.push(i);
+            }
+            for(var j=0;j<all/now;j++){
+                var newArr = [];
+                for(var i=0;i<now;i++){
+                    newArr.push( arr.splice( Math.floor(Math.random()*arr.length) ,1) );
+                }
+                allArr.push(newArr);
+            }
+            return allArr;
+        }
+    };
+</script>
+</html>

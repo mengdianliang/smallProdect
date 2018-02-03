@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>转义字符</title>
+</head>
+<body>
+<ul>
+    <li class="box1">111111111</li>
+    <li>111111111</li>
+    <li class="box1box2">111111111</li>
+    <li>111111111</li>
+    <li class="box1 box2">111111111</li>
+</ul>
+    <script>
+        /*
+        *    .  匹配除了‘\n\r’之外的任意字符
+        *    \. 真正的点
+        *    \b 单词边界  (起始、结束、空格)
+        *    \B 非单词边界
+        * */
+
+        /*var str = 'a.c';
+        var re = /a\.c/;
+        console.log(re.test(str));*/
+
+        /*var str = 'onetwo';
+         var re = /\bone/;
+         console.log(re.test(str));*/
+
+        window.onload = function(){
+            var lis = getByClass(document,'box1');
+
+            for(var i = 0;i < lis.length;i++){
+                lis[i].style.backgroundColor = '#ff8080';
+            }
+        };
+
+        function getByClass(oParent,sClass){
+            var arr = [];
+            var aEle = oParent.getElementsByTagName('*');
+
+            var re = new RegExp('\\b' + sClass + '\\b');     //当正则需要传参的时候，一定要用全称的写法
+            for(var i = 0;i < aEle.length;i++){
+                if(re.test(aEle[i].className)){
+                    arr.push(aEle[i]);
+                }
+            }
+            return arr;
+        }
+
+     </script>
+</body>
+</html>

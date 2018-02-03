@@ -1,0 +1,64 @@
+body{
+    height: 570px;
+    margin:0;
+    background-color: #000000;
+    background-size: 100% 100%;
+}
+#laptop{
+    width:678px;
+    padding: 20px;
+    background-color: #dddddd;
+    margin:40px auto;
+    border-radius: 10px;
+    text-align: center;
+}
+#laptop .screen{
+    height: 376px;
+    border: 1px solid #88898C;
+    background-color: #002952;
+}
+#laptop .logo{
+    background:  #D5D5D7;
+    margin: 4px auto;
+    line-height: 28px;
+    display: inline-block;
+    vertical-align: middle;
+}
+#laptop .screen .content{
+    height: 130px;
+    margin:20px;
+    border: 1px solid #999;
+    border-radius:5px;
+    background-color: rgba(0,0,0,0.4);
+    color: #f7f7f7;
+    line-height: 40px;
+    padding: 20px;
+    text-align: left;
+    font-size: 20px;
+}
+#laptop .screen .start_btn{
+    color: #ffffff;
+    border:1px solid #ffffff;
+    border-radius: 18px;
+    line-height: 36px;
+    display: inline-block;
+    text-align: right;
+    float: right;
+    margin-right: 20px;
+    padding: 0 30px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    cursor: pointer;
+}
+#laptop .screen ul.answer{
+    text-align: left;
+    margin:20px;
+    border-radius: 4px;
+    padding: 10px;
+}
+#laptop .screen ul li{
+    font-size: 16px;
+    margin-left: 24px;
+    line-height: 30px;
+    color: #00ff00;
+}

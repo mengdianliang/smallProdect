@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>div块移动</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: #ff2020;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1"></div>
+</body>
+<script>
+    window.onload = function(){
+        var box = document.getElementById('box1');
+        box.onmousedown = function(evt){
+
+            document.onmousemove = function(evt){
+                evt = evt || window.event;
+                var st = document.body.scrollTop || document.documentElement.scrollTop;
+                var sl = document.body.scrollLeft || document.documentElement.scrollLeft;
+
+                var left1 = evt.clientX;
+                var top1 = evt.clientY;
+                box.style.left = left1 + sl - box.offsetWidth/2  + 'px';
+                box.style.top = top1 + st - box.offsetHeight/2 +'px';
+            };
+            box.onmouseup = function(){
+                document.onmousemove = null;
+            };
+        };
+
+    };
+</script>
+</html>

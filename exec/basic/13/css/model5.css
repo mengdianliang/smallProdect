@@ -1,0 +1,132 @@
+body{
+    margin: 0;
+    font-size: 12px;
+    color: #333333;
+    font-family: "Microsoft YaHei";
+    background-color: #efefef;
+}
+h3{
+    margin: 0;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+img{
+    vertical-align: top;
+    border: none;
+}
+a{
+    text-decoration: none;
+    color: #333333;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.clearfix{
+    *zoom: 1;
+}
+.clearfix:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+i{
+    font-style: normal;
+}
+.wrapper{
+    background-color: #ffffff;
+    width: 680px;
+    padding: 6px 5px;
+    margin: 20px auto 0;
+}
+.header{
+    height: 22px;
+}
+.tit{
+    font-size: 12px;
+    font-weight: normal;
+}
+.link_btns a{
+    display: block;
+    width: 22px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-weight: bold;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    float: left;
+}
+.l_btn{
+    color: #cccccc;
+    margin-right: 8px;
+}
+.r_btn{
+    color: #757c82;
+}
+.con{
+    margin-right: -12px;
+}
+.con li{
+    margin-top: 10px;
+    margin-right: 12px;
+    width: 332px;
+    height: 140px;
+    border: 1px solid #e6e6e6;
+    background-color: #f3f3f3;
+    border-radius: 3px;
+}
+.con_l{
+    padding: 11px 11px 0 11px;
+}
+.con_l a{
+    display: block;
+    width: 54px;
+    height: 22px;
+    margin: 12px 0 0 13px;
+    text-align: center;
+    line-height: 22px;
+    background-color: #ffa00a;
+    color: #ffffff;
+}
+.add_icon{
+    font-weight: bold;
+}
+
+.con_r{
+    padding-top: 7px;
+    width: 230px;
+}
+.con_tit,.desc,.speck{
+    line-height: 20px;
+}
+.txt_left{
+    font-size: 12px;
+    color: #0a8cd2;
+    margin-right: 6px;
+}
+.bg_right{
+    margin-top: 4px;
+}
+.desc,.care{
+    color: #808080;
+}
+
+.star{
+    width: 14px;
+    height: 14px;
+    background: url('../img/w_star.jpg') no-repeat;
+}
+.v{
+    width: 16px;
+    height: 14px;
+    background: url('../img/w_v.jpg') no-repeat;
+}
+.name{
+    color: #0a8cd2;
+}

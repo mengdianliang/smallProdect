@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>选择器</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+</head>
+<body>
+<!--<div title="123"><span class="box">span</span></div>
+<div class="div2 box">div2</div>
+<span class="box">span</span>
+<span>span</span>-->
+
+<div>
+    <h3>h3</h3>
+    <h2>h2</h2>
+    <h3>h3</h3>
+    <h3>h3</h3>
+    <h2>h2</h2>
+    <h2>h2</h2>
+</div>
+
+</body>
+<script>
+
+    $(function(){
+        /*alert($('div').attr('title'));
+        $('div').attr('title','456');
+        $('div').attr('class','box');*/
+        //$('div').style('background-color','red');
+        //$('div').filter('.box').style('background-color','red');
+        //$('div').not('.box').style('background-color','red');
+        //$('div').has('.box').style('background-color','red');
+        //$('.div2').next().style('background-color','red');
+
+
+        $('div').find('h2').eq(1).css('background-color','red');
+    });
+</script>
+</html>

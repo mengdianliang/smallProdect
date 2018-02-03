@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>事件委任，事件代理</title>
+</head>
+<body>
+    <button id="btn01">添加</button>
+    <ul id="list">
+        <li><a href="javascript:void(0);" class="link" index = 1>链接一</a></li>
+        <li><a href="javascript:void(0);"  class="link" index = 2>链接二</a></li>
+        <li><a href="javascript:void(0);" class="link" index = 3>链接三</a></li>
+        <li><a href="javascript:void(0);" class="link" index = 4>链接四</a></li>
+    </ul>
+</body>
+<script>
+    window.onload = function(){
+        var list = document.getElementById('list');
+        var allA = document.getElementsByTagName('a');
+        var btn01 = document.getElementById('btn01');
+        btn01.onclick = function(){
+            var allA = document.getElementsByTagName('a');
+            var li = document.createElement('li');
+            li.innerHTML = '<a href="javascript:void(0);" class="link" index='+ (allA.length + 1) +'>新建链接</a>';
+            list.appendChild(li);
+        };
+        /*for(var i = 0;i < allA.length;i++){
+            allA[i].onclick = function(){
+                alert('我是a的单击响应函数！！！');
+            };
+        }*/
+
+        list.onclick = function(evt){
+            evt = evt || window.event;
+            var target = evt.target;
+            //console.log(target.getAttribute('index'));
+            if(target.className == 'link'){
+                target.innerHTML = '我是第' + target.getAttribute('index') + "个超链接";
+                alert('我是ul的单击响应函数');
+            }
+        };
+    };
+</script>
+</html>

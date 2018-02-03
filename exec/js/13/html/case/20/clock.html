@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>钟表</title>
+    <script>
+        window.onload = function(){
+            var date = $('.date')[0];
+            var clcNum = $('.clcNum');
+            var point = $('.point');
+            var img = $('img')[0];
+
+            var picArr = ['./img/1.jpg','./img/2.jpg','./img/3.jpg','./img/4.jpg','./img/5.jpg','./img/6.jpg','./img/7.jpg'];
+
+            init();
+            function init(){
+                initVal();
+            }
+
+            function initVal(){
+                var dt = new Date();
+
+                var weekArr = ['星期日','星期-','星期二','星期三','星期四','星期五','星期六'];
+                var y = dt.getFullYear();
+                var m = preZero(dt.getMonth() + 1,2);
+                var d = preZero(dt.getDate(),2);
+                var w = weekArr[dt.getDay()];
+                var h = preZero(dt.getHours(),2);
+                var i = preZero(dt.getMinutes(),2);
+                var s = preZero(dt.getSeconds(),2);
+                img.src = picArr[dt.getDay()];
+                date.innerHTML = y + '年' + m + '月' + d + '日 '+ w;
+                for(var j = 0;j < clcNum.length;j++){
+                    clcNum[j].innerHTML = (h + i + s).charAt(j);
+                    clcNum[j].style.backgroundColor = getRandomColorRgba(true);
+                }
+                for(var j = 0;j < point.length;j++){
+                    point[j].style.color = getRandomColorRgba(false);
+                }
+
+            }
+            function preZero(num,len){
+                var str = "" + num;
+                while(len - str.length){
+                    str = 0 + str;
+                }
+                return str;
+            }
+            setInterval(function(){
+                initVal();
+            },1000);
+            //元素获取方法的重写
+            function $(element,obj){
+                if(obj == null){
+                    return document.querySelectorAll(element);
+                }else{
+                    return obj.querySelectorAll(element);
+                }
+            }
+            // 随机获取颜色rgba()值
+            /*
+            * 这里 flag是一个布尔值； 为true,我就是获取随机透明度
+            * 因为 rgba有四个值rgba(color1,color2,color3,透明度);
+            *
+            * 我这里通过arr.push()方法来往一个空数组里添加元素，来获取添加了三个颜色，一个透明度的数组，
+            * 然后通过toString()方法做字符创拼接，返回一个rgba()值；
+            *
+            * Math.random()是获取了0到1之间的随机数，但这个随机数是包括0不包括1的，即[0,1)的取值范围
+            *
+            * */
+            function getRandomColorRgba(flag){
+                var arr = [];
+                var opcyVal = flag ? Math.random() : 1;
+                for(var i = 0; i < 3;i++){
+                    arr.push(parseInt(Math.random()*256));
+                }
+                arr.push(opcyVal);
+                return 'rgba(' + arr.toString() + ')';
+            }
+            // 随机获取颜色值
+            function getRandomColor(){
+                return '#' + (function(h) {
+                    return new Array(7 - h.length).join("0") + h
+                })((Math.random() * 0x1000000 << 0).toString(16))
+            }
+        };
+    </script>
+    <style>
+        body{
+            margin: 0;
+            font-family: 'MICROSOFT YAHEI';
+            font-size: 26px;
+            color: #ffffff;
+        }
+        .clearfix{
+            *zoom: 1;
+        }
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        img{
+            vertical-align: top;
+            border: none;
+        }
+        .wrapper{
+            width: 230px;
+            height: 230px;
+            margin: 100px auto 0;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+        img{
+            width:230px;
+        }
+        .date{
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            margin-left: -100px;
+            color: #ffffff;
+        }
+        .time{
+            position: absolute;
+            bottom: 30px;
+            left: 5px;
+        }
+        .clcNum,.point{
+            line-height: 40px;
+            text-align: center;
+            width:25px;
+            height: 40px;
+            margin-left: 2px;
+        }
+        .clcNum{
+            background-color: rgba(255,0,0,0.5);
+            border-radius: 5px;
+        }
+        .point{
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <img src="img/1.jpg"/>
+        <div class="date clearfix">
+        </div>
+        <div class="time">
+            <span class="clcNum fl"></span>
+            <span class="clcNum fl"></span>
+            <span class="point fl">:</span>
+            <span class="clcNum fl"></span>
+            <span class="clcNum fl"></span>
+            <span class="point fl">:</span>
+            <span class="clcNum fl"></span>
+            <span class="clcNum fl"></span>
+        </div>
+    </div>
+</body>
+</html>

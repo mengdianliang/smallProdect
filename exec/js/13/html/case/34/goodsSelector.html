@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>商品筛选</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+    <div id="wrap">
+        <section id="section">
+            <nav id="choose">
+                <span>你的选择:</span>
+                <div>
+                </div>
+            </nav>
+            <ul id="type"></ul>
+        </section>
+    </div>
+</body>
+<script src="js/shoplist.js"></script>
+<script>
+
+    /*console.log(document.body.dataset.name = 'hehe');
+
+    console.log(document.body['data-name']);
+            dataset只是一个HTML5中存储数据的集合
+            获取与设置他下边的属性值，直接获取就行，不需要使用getAttribute/setAttribute
+            e.dataset.name = ''
+
+    */
+
+
+
+
+
+
+
+
+    window.onload = function(){
+        var goods = crumbData;
+        var type = document.querySelector('#type');
+        var len = goods.length;
+
+        init();
+
+        //代码初始化
+        function init(){
+            initVal();
+        }
+        //内容初始化
+        function initVal(){
+            var newLi = '';
+            var newSpan = '';
+            var newA = '';
+            for(var i = 0;i < len;i++){
+                newLi = document.createElement('li');
+                newSpan = document.createElement('span');
+
+                newSpan.innerHTML = goods[i].title;
+                newLi.appendChild(newSpan);
+
+                for(var j = 0;j < goods[i].data.length;j++){
+                    newA = document.createElement('a');
+                    newA.href = "javascript:void(0);";
+                    newA.innerHTML = goods[i].data[j];
+                    newLi.appendChild(newA);
+                }
+                type.appendChild(newLi);
+            }
+
+        }
+
+        //获取元素
+        var lis = type.children;
+        var chooseObj = {};
+
+        var lisA = '';
+
+        //商品选项遍历
+        for(var k = 0;k < lis.length;k++){
+            lis[k].prev  = '';     //记录上次选中的商品
+            lis[k].index = k;
+            lisA = lis[k].querySelectorAll('a');
+
+            //商品类型遍历
+            for(var m = 0;m < lisA.length;m++){
+                lisA[m].onclick = function(){
+
+                    //以商品的索引值作为chooseObj对象的键
+                    chooseObj[this.parentNode.index] = this.innerHTML;
+                    console.log(chooseObj);
+
+                    //生成筛选条件的结构
+                    createChooseHtml();
+
+                    if(this.parentNode.prev){
+                        this.parentNode.prev.style.color = '';
+                    }
+                    this.style.color = 'red';
+                    this.parentNode.prev = this;
+                };
+            }
+
+            //选择的容器
+            var chooseElement = document.querySelector('#choose div');
+
+            function createChooseHtml(){
+                //每次清空选择容器
+                chooseElement.innerHTML = '';
+                for(var i = 0;i < lis.length;i++){
+                    //如果某个json值存在，创建商品选项结构
+                    if(chooseObj[i]) {
+                        /* demo += `<mark>${chooseObj[i]}<a data-index="${i}" href="javascript:void();">X</a></mark>`;*/
+                        //demo += '<mark>'+ chooseObj[i] + '<a data-index="' + i + '" href="javascript:void(0);">X</a></mark>';
+                        var a = document.createElement('a');
+                        //a.setAttribute('data-index', i);
+                        a.dataset.index = i;
+                        a.href = 'javascript:void(0);';
+                        a.innerHTML = 'X';
+                        var mark = document.createElement('mark');
+                        mark.innerText = chooseObj[i];
+                        mark.appendChild(a);
+                        chooseElement.appendChild(mark);
+
+                        //调用删除元素
+                        delElement(a);
+                    }
+                }
+            }
+            //删除元素
+            function delElement(obj){
+                obj.onclick = function(){
+                    //删除父节点
+                    this.parentNode.remove();
+                    //数据结构统一
+                    chooseObj[this.dataset.index] = '';
+                    //dataset定义以data开头的属性
+                    lis[this.dataset.index].prev.style.color = '';
+                }
+            }
+        }
+
+    };
+</script>
+</html>

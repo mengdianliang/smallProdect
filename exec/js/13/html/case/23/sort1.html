@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>乱序</title>
+    <style>
+        body{
+            margin: 0;
+            font-family: 'MICROSOFT YAHEI';
+            font-size: 12px;
+            color: #333333;
+        }
+        h3{
+            margin: 0;
+        }
+        a{
+            text-decoration: none;
+            color: #333333;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        .clearfix{
+            *zoom: 1;
+        }
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .sorts{
+            width: 800px;
+            height: 500px;
+            padding: 40px;
+            background-color: #5E4F97;
+            margin: 0 auto;
+        }
+        .tit{
+            text-align: center;
+            font-size: 30px;
+            font-weight: normal;
+            line-height: 30px;
+            color: #ff8080;
+        }
+        .nav{
+            padding-top: 40px;
+        }
+        .nav a{
+            width: 100px;
+            height: 36px;
+            background-color: #dddddd;
+            border-radius: 18px;
+            text-align: center;
+            line-height: 36px;
+            margin:0 150px;
+        }
+        .nav a.active{
+            background-color: #000000;
+            color: #ffffff;
+        }
+        .list li{
+            width: 150px;
+            height: 150px;
+            background-color: #EC83C8;
+            border-radius: 5px;
+            position: relative;
+            margin: 25px;
+            cursor: pointer;
+        }
+        .pic{
+            width: 100%;
+            height: 100%;
+            font-size: 40px;
+            color: #ffffff;
+            text-align: center;
+            line-height: 150px;
+        }
+        .txt{
+            position: absolute;
+            bottom: -18px;
+            left: 25px;
+            background-color: #ffffff;
+            width: 100px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            border-radius: 18px;
+        }
+    </style>
+</head>
+<body>
+    <section class="sorts">
+        <h3 class="tit">乱序排列</h3>
+        <nav class="nav clearfix">
+            <a href="javascript:void(0);" class="active fl">从小到大</a>
+            <a href="javascript:void(0);" class="fl">打乱顺序</a>
+        </nav>
+        <ul class="list clearfix">
+
+        </ul>
+    </section>
+</body>
+<script>
+    window.onload = function(){
+        var btns = $('.nav a');  //获取排序方式按钮
+        var picArr = ['One','Two','Three','Four','Five','Six','Seven','Eight'];  //中心内容
+        var txtArr = ['区域1','区域2','区域3','区域4','区域5','区域6','区域7','区域8']; //文字描述区域
+        var isOrder = true;
+
+        init();
+        //初始化
+        function init(){
+            initVal();
+            orderEvt();
+        }
+
+        //初始化内容
+        function initVal(){
+            var lists = $('.list')[0];  //获取ul元素
+            var str = '';
+            for(var i = 0;i < picArr.length;i++){
+                str += '<li class="fl">' +
+                        '<div class="pic">' + picArr[i] + '</div>' +
+                        '<div class="txt">' + txtArr[i] + '</div>' +
+                        '</li>';
+            }
+            lists.innerHTML = str;
+        }
+
+        //鼠标点击切换按钮
+        function orderEvt(){
+            btns[0].onclick = function(){
+                if(!isOrder){
+                    btns[0].className = 'active fl';
+                    btns[1].className = 'fl';
+                    isOrder = true;
+                    sort(isOrder);
+                }
+            };
+            btns[1].onclick = function(){
+                if(isOrder){
+                    btns[0].className = 'fl';
+                    btns[1].className = 'active fl';
+                    isOrder = false;
+                    sort(isOrder);
+                }
+            };
+        }
+        //排序处理
+        function sort(flag){
+            var lists = $('.list')[0];
+            var str = '';
+            if(flag){
+                for(var i = 0;i < picArr.length;i++){
+                    str += '<li class="fl"><div class="pic">' + picArr[i] + '</div><div class="txt">' + txtArr[i] + '</div></li>';
+                }
+            }else{
+                var arr = noReat(picArr.length);
+                for(var i = 0;i < picArr.length;i++){
+                    str += '<li class="fl"><div class="pic">' + picArr[Number(arr[i])] + '</div><div class="txt">' + txtArr[Number(arr[i])] + '</div></li>';
+                }
+            }
+            lists.innerHTML = str;
+        }
+        //数组去重取得一个数组,就是数组里边每个数据不能相等
+        function noReat(len){
+            var arr = [];
+            do{
+                var num = Math.round(Math.random() * (len - 1));
+                var isContain = false; //首先一个变量，默认不包含的的标识
+
+                for(var i = 0;i < arr.length;i++){
+                    if(isCommon(arr,num) != -1){
+                        isContain = true;
+                        break;
+                    }
+                }
+                if(!isContain){
+                    arr.push(num);
+                }
+            }while(arr.length < len);
+            return arr;
+        }
+        /*
+        * 判断数组中是否包含传过来的数据
+        * arr：数组
+        * data：随机数据
+        * */
+        function isCommon(arr,data){
+            for(var i = 0;i < arr.length;i++){
+                if(arr[i] == data){
+                    return i;
+                }
+            }
+            return -1;
+        }
+        /*
+        * element 是传过来的obj下的元素
+        * */
+        //元素获取方法的重写
+        function $(element,obj){
+            if(obj == null){
+                return document.querySelectorAll(element);
+            }else{
+                return obj.querySelectorAll(element);
+            }
+        }
+    };
+</script>
+</html>

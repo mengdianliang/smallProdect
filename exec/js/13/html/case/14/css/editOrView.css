@@ -1,0 +1,112 @@
+body{
+    background-color: #eeeeee;
+}
+.wrapper{
+    width: 400px;
+    margin: 80px auto 0;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+}
+.tit{
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 40px;
+    color: #ff0000;
+    text-align: center;
+}
+.oper{
+    padding: 0 20px;
+    height: 200px;
+    background-color: #dddddd;
+    overflow: hidden;
+}
+.oper_list li{
+    height: 32px;
+    padding: 5px 0;
+    border-bottom: 1px dashed #ffffff;
+}
+.view_txt{
+    line-height: 32px;
+    text-indent: 10px;
+    font-size: 14px;
+    color: #333333;
+    max-width: 240px;
+    white-space: nowrap;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+}
+.edit_icon{
+    width: 45px;
+    height: 28px;
+    font-size: 28px;
+    line-height: 28px;
+    margin-left: 20px;
+    background-color: #ffffff;
+    text-align: center;
+    color: #000000;
+}
+.edit{
+    display: none;
+}
+input[type='text']{
+    height: 30px;
+    width: 240px;
+    border-radius: 3px;
+    font-size: 14px;
+    color: #333333;
+    text-indent: 10px;
+}
+input[type="button"]{
+    width: 50px;
+    height: 32px;
+    background-color: #000000;
+    border-radius: 3px;
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 8px;
+}
+.modal{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0);
+    display: none;
+}
+.modal_inner{
+    width: 250px;
+    height: 120px;
+    border-radius: 5px;
+    background-color: #385b72;
+    box-shadow: 1px 1px 5px #333333;
+    margin: 0 auto;
+    padding-top: 10px;
+}
+.warn{
+    line-height: 30px;
+    font-weight: normal;
+    font-size: 18px;
+    text-align: center;
+}
+.info{
+    text-align: center;
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+}
+.btn{
+    width: 50px;
+    height: 30px;
+    background-color: #1a67cb;
+    border-radius: 3px;
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+    line-height: 30px;
+    margin-left: 170px;
+    cursor: pointer;
+}

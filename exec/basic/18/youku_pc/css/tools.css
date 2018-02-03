@@ -1,0 +1,16 @@
+/* 统一的宽高、margin、padding、浮动、清浮动 */
+/*浮动以及清浮动*/
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.clearfix{
+	*zoom: 1;
+}
+.clearfix:after{
+	content: '';
+	display: block;
+	clear: both;
+}

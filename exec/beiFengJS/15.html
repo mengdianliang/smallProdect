@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>节点</title>
+</head>
+<body>
+    <script>
+        window.onload = function(){
+            /*function filterSpaceNode(nodes){
+                var ret = [];
+                for(var i = 0;i < nodes.length;i++){
+                    if(nodes[i].nodeType===3 && /^\s+$/.test(nodes[i].nodeValue)){
+                        continue;
+                    }
+                    ret.push(nodes[i]);
+                }
+                return ret;
+            }
+
+            function nextSibling(node) {
+                var n = node.nextSibling;
+                if(n != null && n.nodeType === 3 &&/^\s/.test(n.nodeValue)){
+                    return n.nextSibling;
+                }
+                return n;
+            }
+            var nodes = document.body.childNodes;
+            nodes = filterSpaceNode(nodes);*/
+
+
+            /*
+            * DOM定义了Node的接口以及许多种节点类型来表示节点的多个方面:
+            *   （1）Document：最顶层的节点，所有的其他节点都附属于他。
+            *   （2）DocumentType：DTD引用的对象表示形式
+            *   （3）DocumentFragment：可以像Document一样来保存其他节点；
+            *   （4）Element：表示起始标签和结束标签之间的内容；
+            *   （5）Attr：代表一对特性名和特性值。这个节点类型不能包含子节点；
+            *   （6）Text：代表XML文档中的在起始标签和结束标签之间，或者CData Section内包含的普通文本。这个节点不能包含子节点；
+            *   （7）CDataSection：<![CDATA[]]>的对象表示形式。这个节点类型仅能包含文本节点Text作为子节点
+            *   （8）Entity：表示在DTD中的一个实体定义，例如<!ENTITY foo "foo">。这个节点类型不能包含子节点；
+            *   （9）EntityReference：代表一个实体引用，例如&quot。这个节点类型不能包含子节点；
+            *   （10）ProcessingInstruction：代表一个PI(处理指令)。这个节点类型不能包含子节点；
+            *   （11）Comment：代表注释。这个节点类型不能包含子节点。
+            *   （12）Notation：代表DTD中定义的记号。
+            *
+            *
+            * */
+        }
+    </script>
+</body>
+</html>

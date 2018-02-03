@@ -1,0 +1,12 @@
+body{
+    background-color: #f1f1f1;
+}
+/*.box{
+    padding: 50px;
+    background-color: #aaaaaa;
+}*/
+.item{
+    position: absolute;
+    cursor: pointer;
+}
+

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>事件捕获</title>
+    <style>
+        #oDiv{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+        #para{
+            height: 20px;
+            background-color: yellow;
+        }
+    </style>
+    <!--
+
+        // IE下的 attachEvent方法不支持捕获，和传统的事件注册没多大区别(除了能绑定多个事件处理函数)，并且该方法存在内存泄漏问题。
+        事件绑定函数：
+        function addEvent(obj,evtype,fn) {
+            if (obj.addEventListener) {
+                obj.addEventListener(evtype,fn);
+            } else {
+                obj.addEventListener("on" + evtype,function(){
+                    fn.call(obj);
+                });
+            }
+            return obj;
+        }
+
+
+
+
+        DOMContentLoaded：内容加载完成
+    -->
+</head>
+<body>
+    <script>
+        window.onload = function() {
+            function addEvent(obj,evt,fn) {
+                if (obj.addEventListener) {
+                    obj.addEventListener(evt,fn,false);
+                    return obj;
+                }
+
+
+                if (!obj.functions) obj.functions={};
+                if (!obj.functions[evt])
+                    obj.functions[evt]=[];
+
+                //obj.functions["mousedown"]=[]
+                var functions=obj.functions[evt];
+                for (var i=0;i<functions.length;i++) {
+                    if (functions[i]===fn) return obj;
+                }
+                functions.push(fn);
+                //fn.index=functions.length-1;
+
+
+                if (typeof obj["on"+evt]=="function") {
+                    //alert(obj["on"+evt]);//当这一行执行到时，obj["on"+evt] 就是handler
+                    //alert(obj["on"+evt]==handler);
+                    if (obj["on"+evt]!=handler)
+                        functions.push(obj["on"+evt]);
+                }
+                obj["on"+evt]=handler;
+                return obj;
+
+
+            }
+
+            function handler() {//哪个事件发生了?
+                //对event对象标准化
+                var evt=fixEvt(window.event);
+                var evtype=evt.type;
+                var functions=this.functions[evtype];
+                for (var i=0;i<functions.length;i++) {
+                    if (functions[i]) functions[i].call(this,evt);
+                }
+            }
+            function fixEvt(evt) {
+                evt.target=evt.srcElement;
+                if (evt.type=="mouseover")
+                    evt.relatedTarget=evt.fromElement;
+                else if ("mouseout"==evt.type)
+                    evt.relatedTarget=evt.toElement;
+
+                evt.stopPropagation=function () {
+                    evt.cancelBubble=true;
+                };
+                evt.preventDefault=function () {
+                    evt.returnValue=false;
+                };
+                return evt;
+            }
+
+        };
+    </script>
+    <div id="oDiv">oDiv
+        <p id="para">P</p>
+    </div>
+</body>
+</html>

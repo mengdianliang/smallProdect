@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>列表播放</title>
+    <script src="MTween.js"></script>
+    <script>
+        window.onload = function(){
+            var wrapper = $('.wrapper')[0]; //获取盒子区域
+            var slides = $('.slide a');  //获取切换页签
+            var lists = $('.list > li'); //获取页签对应内容
+            var subs = $('.sub');    //获取所有的子列表
+            var imgs = $('img');    //获取所有图片
+            var picArr = ['./img/1.jpg','./img/2.jpg','./img/3.jpg'
+                ,'./img/4.jpg','./img/5.jpg','./img/6.jpg','./img/7.jpg','./img/8.jpg','./img/9.jpg'];
+            var num = 0;   //页签序号
+            var subNum = 0; //子列表序号
+            var timer = ''; //定时器变量
+
+            init();    //初始化函数调用
+            function init(){
+                initVal();
+                autoPlay();
+                mouseEvt();
+            }
+            //初始化值
+            function initVal(){
+                for(var i = 0;i < slides.length;i++){
+                    slides[i].className = 'fl';
+                    lists[i].style.display = 'none';
+                }
+                slides[num].className = 'active fl';
+                lists[num].style.display = 'block';
+                for(var i = 0;i < subs.length;i++){
+                    subs[i].className = 'fl';
+                }
+                subs[subNum].className = 'active fl';
+                imgs[num].src = picArr[subNum];
+                wrapper.style.backgroundColor = getRandomColor();
+            }
+            //自动轮播
+            function autoPlay(){
+                clearInterval(timer);
+                timer = setInterval(function(){
+                    subNum++;
+                    if(subNum % 3 == 0){
+                        num++;
+                        if(num > slides.length - 1){
+                            num = 0;
+                        }
+                    }
+                    if(subNum > subs.length - 1){
+                        subNum = 0;
+                    }
+                    initVal();
+                },2000);
+            }
+            //鼠标事件
+            function mouseEvt(){
+                for(var i = 0;i < slides.length;i++){
+                    slides[i].index = i;
+                    //页签和图片的鼠标移入移出事件
+                    slides[i].onmouseover = function(){
+                        clearInterval(timer);
+                        if(num != this.index){
+                            num = this.index;
+                            subNum = num * 3;
+                            initVal();
+                        }
+                    };
+                    imgs[i].onmouseout = slides[i].onmouseout = function(){
+                        autoPlay();
+                    };
+                    imgs[i].index = i;
+                    imgs[i].onmouseover = function(){
+                        clearInterval(timer);
+                    };
+                    //图片点击事件
+                    imgs[i].onclick = function(){
+                        subNum++;
+                        if(subNum % 3 == 0){
+                            num++;
+                            if(num > slides.length - 1){
+                                num = 0;
+                            }
+                        }
+                        if(subNum > subs.length - 1){
+                            subNum = 0;
+                        }
+                        initVal();
+                    };
+                }
+                //子列表的鼠标移入移出事件
+                for(var i= 0;i < subs.length;i++){
+                    subs[i].index = i;
+                    subs[i].onmouseover = function(){
+                        clearInterval(timer);
+                        if(subNum != this.index){
+                            subNum = this.index;
+                            initVal();
+                        }
+                    };
+                    subs[i].onmouseout = function(){
+                        autoPlay();
+                    };
+                }
+            }
+            //元素获取方法的重写
+            function $(element,obj){
+                if(obj == null){
+                    return document.querySelectorAll(element);
+                }else{
+                    return obj.querySelectorAll(element);
+                }
+            }
+            // 随机获取颜色值
+            function getRandomColor(){
+                return '#' + (function(h) {
+                    return new Array(7 - h.length).join("0") + h
+                })((Math.random() * 0x1000000 << 0).toString(16))
+            }
+        };
+    </script>
+    <style>
+        body{
+            margin: 0;
+            font-size: 16px;
+            color: #333333;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        a{
+            text-decoration: none;
+            color: #333333;
+        }
+        .clearfix{
+            *zoom: 1;
+        }
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        img{
+            vertical-align: top;
+            border: none;
+        }
+        .wrapper{
+            margin: 100px auto 0;
+            width: 642px;
+            height: 336px;
+            border: 1px solid #dddddd;
+        }
+        .slide{
+            height: 50px;
+        }
+        .slide a{
+            width: 210px;
+            height: 100%;
+            background-color: #ffffff;
+            margin-left: 3px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 22px;
+        }
+        .slide a.active{
+            background: none;
+            color: #ffffff;
+        }
+        .list{
+            padding: 20px;
+        }
+        img{
+            width: 230px;
+            border: 8px solid #ffffff;
+            cursor: pointer;
+        }
+        .desc{
+           margin-left: 20px;
+           width: 336px;
+        }
+        .desc li a{
+            display: block;
+            width: 336px;
+            height: 62px;
+            padding: 10px 0;
+            color: #ffffff;
+            border-radius: 5px;
+        }
+        .desc li.active a{
+            background-color: #ffffff;
+            color: #333333;
+        }
+        .tit{
+            line-height: 40px;
+            font-size: 20px;
+            text-indent:  20px;
+            display: block;
+        }
+        .time{
+            line-height: 22px;
+            font-size: 16px;
+            text-indent:  20px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <section class="wrapper">
+        <nav class="slide clearfix">
+            <a href="javascript:void(0);" class="fl">专题</a>
+            <a href="javascript:void(0);" class="fl">视频</a>
+            <a href="javascript:void(0);" class="fl">图片</a>
+        </nav>
+        <ul class="list">
+            <li class="clearfix">
+                <img src="img/1.jpg" class="fl"/>
+                <ul class="desc fl">
+                    <li class="sub">
+                        <a href="javascript:void(0);">
+                            <span class="tit">专题一</span>
+                            <span class="time">2017-06-08</span>
+                        </a>
+                    </li>
+                    <li class="sub">
+                        <a href="javascript:void(0);">
+                            <span class="tit">专题二</span>
+                            <span class="time">2017-07-08</span>
+                        </a>
+                    </li>
+                    <li class="sub">
+                        <a href="javascript:void(0);">
+                            <span class="tit">专题三</span>
+                            <span class="time">2017-08-08</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="clearfix">
+                <img src="img/4.jpg" class="fl"/>
+                <ul class="desc fl">
+                    <li class="sub">
+                        <a href="javascript:void(0);">
+                            <span class="tit">视频一</span>
+                            <span class="time">2017-06-08</span>
+                        </a>
+                    </li>
+                    <li class="sub">
+                        <a href="javascript:void(0);">
+                            <span class="tit">视频二</span>
+                            <span class="time">2017-07-08</span>
+                        </a>
+                    </li>
+                    <li class="sub">
+                        <a href="javascript:void(0);">
+                            <span class="tit">视频三</span>
+                            <span class="time">2017-08-08</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="clearfix">
+                <img src="img/7.jpg" class="fl"/>
+                <ul class="desc fl">
+                    <li class="sub">
+                        <a href="javascript:void(0);">
+                            <span class="tit">图片一</span>
+                            <span class="time">2017-06-08</span>
+                        </a>
+                    </li>
+                    <li class="sub">
+                        <a href="javascript:void(0);">
+                            <span class="tit">图片二</span>
+                            <span class="time">2017-07-08</span>
+                        </a>
+                    </li>
+                    <li class="sub">
+                        <a href="javascript:void(0);">
+                            <span class="tit">图片三</span>
+                            <span class="time">2017-08-08</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+</body>
+</html>

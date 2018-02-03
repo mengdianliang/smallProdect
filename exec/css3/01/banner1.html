@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>3d幻灯片</title>
+    <style id="myCss">
+        body,ul,ol{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        .wrap{
+            width: 800px;
+            margin: 100px auto 0;
+        }
+        #picList{
+            width: 800px;
+            height: 360px;
+            perspective: 800px;
+        }
+        #picList li{
+            width: 50px;
+            height: 360px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform-origin: center center -180px;
+            float: left;
+        }
+        #picList a{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #picList a:nth-of-type(1){
+            background: url('./img/1.png') no-repeat;
+        }
+        #picList a:nth-of-type(2){
+            background: url('./img/2.png') no-repeat;
+            top: -360px;
+            transform-origin: bottom;
+            transform: rotateX(90deg);
+        }
+        #picList a:nth-of-type(3){
+            background: url('./img/3.jpg') no-repeat;
+            transform: translateZ(-360px) rotateX(-180deg);
+        }
+        #picList a:nth-of-type(4){
+            background: url('./img/4.jpg') no-repeat;
+            top: 360px;
+            transform-origin: top;
+            transform: rotateX(-90deg);
+        }
+
+        #picList li span{
+            position: absolute;
+            width: 360px;
+            height: 360px;
+            background-color: #ccc;
+        }
+        #picList li span:nth-of-type(1){
+            transform-origin: left;
+            transform: rotateY(90deg);
+            left: 0;
+        }
+        #picList li span:nth-of-type(2){
+            transform-origin: right;
+            transform: rotateY(-90deg);
+            right: 0;
+        }
+        #btns{
+            float: right;
+            padding: 10px 0;
+        }
+        #btns li{
+            width: 40px;
+            height: 40px;
+            background-color: #000;
+            color: #ffffff;
+            border-radius: 100%;
+            font-size: 30px;
+            font-style: italic;
+            line-height: 40px;
+            text-align: center;
+            float: left;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        #btns .active{
+            background-color: #f60;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul id="picList">
+
+        </ul>
+        <ol id="btns">
+            <li class="active">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ol>
+    </div>
+</body>
+<script>
+    window.onload = function(){
+        var picList = document.getElementById('picList');
+        var myCss = document.getElementById('myCss');
+        var btns = document.querySelectorAll('#btns li');
+        var lis = '';
+        var liWidth = 50;
+        var z = 0;
+        var sCss = '';
+        var myLis = '';
+
+        var liLen = picList.clientWidth/liWidth;
+        for(var i = 0;i < liLen;i++){
+            i< liLen/2 ? z++ : z--;
+            lis += `<li>
+                    <a href="javascript:void(0);"></a>
+            <a href="javascript:void(0);"></a>
+            <a href="javascript:void(0);"></a>
+            <a href="javascript:void(0);"></a>
+            <span></span>
+            <span></span>
+            </li>`;
+            sCss += '#picList li:nth-of-type(' + (i + 1) + ') a{background-position: ' + (-i * liWidth) + 'px;}';
+            sCss += '#picList li:nth-of-type(' + (i + 1) + '){z-index: ' + z + ';}';
+        }
+        picList.innerHTML = lis;
+        myCss.innerHTML += sCss;
+
+        myLis = picList.children;
+        console.log(myLis.length);
+        for(var i = 0;i < btns.length;i++){
+            (function(a){
+                btns[a].onclick = function(){
+                    for(var j = 0;j < btns.length;j++){
+                        btns[j].className = '';
+                    }
+                    for(var k = 0;k < myLis.length;k++){
+                        myLis[k].style.transition = '0.5s '+ (k * 50) + 'ms';
+                        myLis[k].style.WebkitTransform = 'rotateX(-' + a * 90 + 'deg)';
+                    }
+                    this.className = 'active';
+
+                };
+            })(i);
+        }
+
+    };
+</script>
+</html>

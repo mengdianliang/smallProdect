@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>无标题文档</title>
+<style>
+body,ul,p{margin:0;padding:0;}
+img{display:none;float:left;}
+#box{width:314px;height:148px;margin:30px auto;font-family:Arial, Helvetica, sans-serif;}
+#list2{display:none;}
+#box div{width:292px;height:104px;border:1px solid #c6c6c6;padding:10px 0 0 10px; }
+#top{height:30px;}
+span{display:block;width:80px;height:30px;border:1px solid #c6c6c6;float:left;font-size:14px;line-height:30px;text-align:center;color:#737373;border-bottom:none;}
+.show{width:80px;height:30px;border:1px solid #c6c6c6;border-bottom:none;color:#000;background:#fff;}
+ul {float:left;width:170px;height:96px;}
+li{width:170px;height:31px;font-size:12px;line-height:30px;margin:0 0 1px 1px;background:#dee7e7;list-style:none;}
+li a{text-decoration:none;color:#8c9191;padding-left:7px;}
+.active{background:#636363;display:block;}
+.active a{color:#fff;}
+.show1{display: block;}
+.hide{display: none;}
+</style>
+<script>
+
+</script>
+</head>
+
+<body>
+
+<div id="tags">
+	
+</div>
+
+<div id="box">
+	<p id="top">
+		<span class="show">专题</span>
+		<span>视频</span>
+	</p>
+	<div class="show1 oDiv" id="bottom">
+		<img class="active"  src="image_two/list1.jpg" alt="" />
+		<img src="image_two/list2.jpg" alt="" />
+		<img src="image_two/list1.jpg" alt="" />
+		<!-- <img src="image_two/list2.jpg" alt="" /> -->
+		<ul>
+			<li class="active" ><a href="#">奇虎360纽交所上市11</a></li>
+			<li><a href="#">2011年IT领袖峰会</a></li>
+			<li><a href="#">CCBN召开 助三网融合</a></li>
+			<!-- <li><a href="#">CCBN召开 助三网融合</a></li> -->
+		</ul>
+	</div>
+	<div class="hide oDiv" id="bottom1">
+		<img src="image_two/list2.jpg" alt=""/>
+		<img src="image_two/list1.jpg" alt="" />
+		<img src="image_two/list2.jpg" alt="" />
+		<ul>
+			<li class="" ><a href="#">奇虎360纽交所上市22</a></li>
+			<li><a href="#">CCBN召开 助三网融合</a></li>
+			<li><a href="#">CCBN召开 助三网融合</a></li>
+		</ul>
+	</div>
+</div>
+</body>
+<script>
+    window.onload = function(){
+
+        var box = $('#box')[0];
+        var slides = $('#top')[0];   //获取头部专题
+        var slideBar = $('span',slides);
+        var divs = $('.oDiv');
+
+        var prevSlide = null;
+        var prevContainer = null;
+        var timer = null;
+        var num = 0;
+        var subNum = 0;
+        init();
+
+        //代码初始化
+        function init(){
+            slideBtn();
+            autoPlay();
+        }
+
+        //专题移入移出事件
+        function slideBtn(){
+
+            for(var i = 0;i < slideBar.length;i++){
+                slideBar[i].index = i;
+                slideBar[i].onmouseover = function(){
+                    clearInterval(timer);
+                    prevSlide = $('.show',slides)[0];
+                    prevSlide.className = '';
+                    this.className = 'show';
+
+                    prevContainer = $('.show1')[0];
+                    prevContainer.className = 'hide oDiv';
+                    divs[this.index].className = 'show1 oDiv';
+                    num = this.index;
+                    subNum = 0;
+                    $('li.active',box)[0].className = '';
+                    $('img.active',box)[0].className = '';
+                    $('li',divs[num])[subNum].className = 'active';
+                    $('img',divs[num])[subNum].className = 'active';
+
+                    var lis = $('li',divs[this.index]);
+                    var imgs = $('img',divs[this.index]);
+                    for(var j = 0;j < lis.length;j++){
+                        lis[j].index = j;
+                        lis[j].onmouseover = function(){
+                            clearInterval(timer);
+                            subNum = this.index;
+                            $('li.active',box)[0].className = '';
+                            $('img.active',box)[0].className = '';
+                            this.className = 'active';
+                            imgs[this.index].className = 'active';
+                        };
+                        lis[j].onmouseout = function(){
+                            autoPlay();
+                        };
+                    }
+                };
+                slideBar[i].onmouseout = function(){
+                    autoPlay();
+                };
+
+            }
+
+        }
+        //自动轮播
+        function autoPlay(){
+            clearInterval(timer);
+            timer = setInterval(function(){
+                var lis = $('li',divs[num]);
+                var imgs = $('img',divs[num]);
+                lis[subNum].className = '';
+                imgs[subNum].className = '';
+                subNum++;
+                if(subNum > lis.length - 1){
+                    prevSlide = $('.show',slides)[0];
+                    prevSlide.className = '';
+                    prevContainer = $('.show1')[0];
+                    prevContainer.className = 'hide oDiv';
+                    subNum = 0;
+                    num++;
+                    if(num > divs.length - 1){
+                        num = 0;
+                    }
+
+                    slideBar[num].className = 'show';
+                    divs[num].className = 'show1 oDiv';
+                }
+
+                lis = $('li',divs[num]);
+                lis[subNum].className = 'active';
+                imgs = $('img',divs[num]);
+                imgs[subNum].className = 'active';
+            },2000);
+        }
+
+        //元素获取方法的重写
+        function $(element,obj){
+            if(obj == null){
+                return document.querySelectorAll(element);
+            }else{
+                return obj.querySelectorAll(element);
+            }
+        }
+    };
+</script>
+</html>

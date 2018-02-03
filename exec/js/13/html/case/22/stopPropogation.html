@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>事件冒泡</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: yellowgreen;
+        }
+        #s1{
+            width: 100px;
+            height: 100px;
+            display: block;
+            background-color: red;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var s1 = document.getElementById('s1');
+            var box = document.getElementById('box');
+            s1.onclick = function(evt){
+                evt = evt || window.event;
+                //取消冒泡  这里还是要写兼容性
+                evt.cancelBubble = true || evt.stopPropagation();  //设置布尔值时，true/false不能用字符串来设置
+                alert('我是span的单击响应函数');
+            };
+            box.onclick = function(){
+                alert('我是box的单击响应函数');
+            };
+        };
+    </script>
+</head>
+<body>
+    <div id="box">
+        <span id="s1"></span>
+    </div>
+</body>
+</html>

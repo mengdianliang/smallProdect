@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>IE6下双padding问题</title>
+		<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+			.wrapper{
+				width: 900px;
+				background-color: #00f;
+			}
+			.box{
+				padding: 20px;
+			}
+			.clearfix{
+				*zoom: 1;
+			}
+			.clearfix:after{
+				content: '';
+				display: block;
+				clear: both;
+			}
+			.box a{
+				float: left;
+				width: 200px;
+				height: 200px;
+				background-color: #f00;
+				margin-right: 20px;
+				margin-bottom: 20px;
+			}
+			.box a.right_mar{
+				margin-right: 0;
+			}
+			.box a.btm_mar{
+				margin-bottom: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="box clearfix">
+				<a href="#"></a>
+				<a href="#"></a>
+				<a href="#"></a>
+				<a href="#" class="right_mar"></a>
+				<a href="#" class="btm_mar"></a>
+				<a href="#" class="btm_mar"></a>
+				<a href="#" class="btm_mar"></a>
+				<a href="#" class="right_mar btm_mar"></a>
+			</div>
+		</div>	
+	</body>
+</html>

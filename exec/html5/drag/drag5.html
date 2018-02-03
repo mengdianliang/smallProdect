@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>拖拽购物车</title>
+    <style>
+        *{ margin:0; padding:0;}
+        li{ list-style:none;}
+        li{ float:left; width:200px; border:1px #000 solid; margin:10px;}
+        li img{ width:200px;}
+        p{ height:20px; border-bottom:1px #333 dashed;}
+        #div1{ width:600px; border:1px #000 solid; height:300px; clear:both;}
+        .box1{ float:left; width:200px;}
+        .box2{ float:left; width:200px;}
+        .box3{ float:left; width:200px;}
+        #allMoney{ float:right;}
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <img src="img1.jpg"/>
+            <p>javascript语言精粹</p>
+            <p>￥40</p>
+        </li>
+        <li>
+            <img src="img2.jpg"/>
+            <p>javascript权威指南</p>
+            <p>￥120</p>
+        </li>
+        <li>
+            <img src="img3.jpg"/>
+            <p>精通javascript</p>
+            <p>￥60</p>
+        </li>
+        <li>
+            <img src="img4.jpg"/>
+            <p>DOM编程艺术</p>
+            <p>￥70</p>
+        </li>
+    </ul>
+    <div id="div1">
+        <!--<p>
+            <span class="box1">1</span>
+            <span class="box2">DOM编程艺术</span>
+            <span class="box3">45￥</span>
+        </p>
+        <p>
+            <span class="box1">1</span>
+            <span class="box2">DOM编程艺术</span>
+            <span class="box3">45￥</span>
+        </p>
+        <div id="allMoney">90￥</div>-->
+    </div>
+</body>
+<script>
+    window.onload = function(){
+        var lis = document.getElementsByTagName('li');
+        var div1 = document.getElementById('div1');
+
+        var json  = {};
+        var allMoney = null;
+        var sum = 0;
+        for(var i = 0;i < lis.length;i++){
+            lis[i].ondragstart = function(evt){
+                evt = window.event || evt;
+                var desc = this.getElementsByTagName('p');
+                evt.dataTransfer.setData('title',desc[0].innerHTML);
+                evt.dataTransfer.setData('money',desc[1].innerHTML);
+                evt.dataTransfer.setDragImage(this,0,0);
+            };
+        }
+
+        div1.ondragover = function(evt){
+            evt = window.event || evt;
+            evt.preventDefault();
+        };
+        div1.ondrop = function(evt){
+            evt = window.event || evt;
+            evt.preventDefault();
+            var title = evt.dataTransfer.getData('title');
+            var money = evt.dataTransfer.getData('money');
+            if(!json[title]){
+                var span1 = document.createElement('span');
+                span1.className = 'box1';
+                span1.innerHTML = '1';
+                var span2 = document.createElement('span');
+                span2.className = 'box2';
+                span2.innerHTML = title;
+                var span3 = document.createElement('span');
+                span3.className = 'box3';
+                span3.innerHTML = money;
+
+                var p = document.createElement('p');
+                p.appendChild(span1);
+                p.appendChild(span2);
+                p.appendChild(span3);
+                this.appendChild(p);
+                json[title] = 1;
+            }else{
+                var box1 = document.querySelectorAll('.box1');
+                var box2 = document.querySelectorAll('.box2');
+
+                for(var i = 0;i < box2.length;i++){
+                    if(title == box2[i].innerHTML){
+                        console.log(box2[i].innerHTML);
+                        box1[i].innerHTML = parseInt(box1[i].innerHTML) + 1;
+                    }
+                }
+            }
+
+            if(!json[allMoney]){
+                allMoney = document.createElement('div');
+                allMoney.id = 'allMoney';
+                json[allMoney] = 1;
+            }
+            sum += parseInt(money.slice(1));
+            //console.log(parseInt(money.slice(1)));
+            allMoney.innerHTML = '￥' + sum;
+            div1.appendChild(allMoney);
+        };
+    };
+</script>
+</html>

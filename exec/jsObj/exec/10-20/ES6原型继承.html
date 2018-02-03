@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>ES6拖拽原型继承</title>
+    <style>
+        #box{
+            width:100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            top:0;
+            left:0;
+        }
+        #box2{
+            width:100px;
+            height: 100px;
+            background: skyblue;
+            position: absolute;
+            top:0;
+            left:100px;
+        }
+    </style>
+</head>
+<body>
+    sdsadsadjhsjdhsa
+    <div id="box"></div>
+    <div id="box2"></div>
+</body>
+<script>
+   class Drag{
+       constructor(id){
+           this.box = document.getElementById(id);
+           this.disX = 0;
+           this.disY = 0;
+       }
+       init(){
+           this.box.addEventListener('mousedown',(ev)=>{
+               this.down(ev);
+           });
+       }
+       down(ev){
+           this.disX = ev.clientX - this.box.offsetLeft;
+           this.disY = ev.clientY - this.box.offsetTop;
+           var move = (ev) =>this.move(ev);
+           var up = (ev) => this.up(ev,move,up);
+           document.addEventListener('mousemove',move);
+           document.addEventListener('mouseup',up);
+
+           ev.preventDefault();
+       }
+       move(ev){
+           this.box.style.left = ev.clientX - this.disX + 'px';
+           this.box.style.top = ev.clientY - this.disY + 'px';
+       }
+      up(ev,move,up){
+           document.removeEventListener('mousemove',move);
+           document.removeEventListener('mouseup',up);
+       }
+
+   }
+
+    class Drag2 extends Drag{
+       constructor(id){
+           //继承写了constructor必须写super，不然会报错
+           //在super()上面就不能设置属性(不能使用this)，不然会报错
+           // this.txt = txt;   报错
+           super(id);
+       }
+       move(ev){
+           var l = ev.clientX - this.disX;
+           if(l < 0){
+               l = 0;
+           }
+           this.box.style.left = l  + 'px';
+           this.box.style.top = ev.clientY - this.disY + 'px';
+       };
+   }
+
+
+    var box = new Drag('box');
+    var box2 = new Drag2('box2');
+    box.init();
+    box2.init();
+</script>
+</html>

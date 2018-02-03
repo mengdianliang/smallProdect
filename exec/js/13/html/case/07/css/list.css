@@ -1,0 +1,51 @@
+.box{
+    width: 300px;
+    margin: 50px auto 0;
+}
+.list > li{
+    border: 1px solid #dddddd;
+    margin-top: -1px;
+    cursor: pointer;
+    position: relative;
+    background-color: #f1f1f1;
+}
+.tit{
+    height: 30px;
+
+}
+.txt{
+    line-height: 30px;
+    padding-left: 20px;
+    font-size: 16px;
+    color: #333333;
+}
+.trangle{
+    width:0;
+    height: 0;
+    border: 4px solid transparent;
+    border-top: 4px solid #aaaaaa;
+    margin-top: 13px;
+    margin-right: 20px;
+}
+.trangle_hov{
+    border: 4px solid transparent;
+    border-bottom: 4px solid #ffffff;
+    margin-top: 9px;
+}
+.menu{
+    height: 0;
+    overflow: hidden;
+}
+.menu li{
+    height: 28px;
+    border-bottom: 1px solid #f1f1f1;
+    background-color: #666666;
+    color: #ffffff;
+}
+.name{
+    line-height: 28px;
+    padding: 0 30px;
+}
+.author{
+    line-height: 28px;
+}

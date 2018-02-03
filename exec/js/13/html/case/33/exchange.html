@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>左右两个列表相互移动</title>
+    <style>
+        body{
+            margin: 0;
+            font-family: 'microsoft yahei';
+            font-size: 12px;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: #ffffff;
+        }
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        .clearfix{
+            *zoom: 1;
+        }
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .wrap{
+            width: 800px;
+            margin: 50px auto 0;
+            padding: 50px;
+            background-image: -webkit-linear-gradient(top,#9084CB 0%,#B3A2D6 100%);
+            border-radius: 5px;
+        }
+        .list_l,.list_r{
+            width: 300px;
+            height: 450px;
+            background-color: rgba(0,0,0,0.1);
+        }
+        .list_l li,.list_r li{
+            height:40px;
+            color: #ffffff;
+            line-height: 40px;
+            margin-top: 2px;
+            cursor: pointer;
+           /* background-color: rgba(0,0,0,0.4);*/
+        }
+        .point{
+            width: 10px;
+            height: 10px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            margin: 15px 20px;
+        }
+        .txt{
+            font-size: 16px;
+        }
+        .btns{
+            width: 200px;
+            padding-top: 160px;
+        }
+        .btns a{
+            display: block;
+            width: 100px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            font-size: 16px;
+            background-color: #03a7e1;
+            margin: 10px auto;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap clearfix">
+        <ul class="list_l fl">
+            <li class="clearfix">
+                <span class="point fl"></span>
+                <span class="txt fl">小程序</span>
+            </li>
+            <li class="clearfix">
+                <span class="point fl"></span>
+                <span class="txt fl">jQuery</span>
+            </li>
+            <li class="clearfix">
+                <span class="point fl"></span>
+                <span class="txt fl">Ajax</span>
+            </li>
+            <li class="clearfix">
+                <span class="point fl"></span>
+                <span class="txt fl">面向对象</span>
+            </li>
+            <li class="clearfix">
+                <span class="point fl"></span>
+                <span class="txt fl">js基础</span>
+            </li>
+        </ul>
+        <div class="btns fl">
+            <!--<a href="javascript:void(0);">向左</a>
+            <a href="javascript:void(0);">向右</a>-->
+            <a href="javascript:void(0);">交换</a>
+        </div>
+        <ul class="list_r fl">
+            <li class="clearfix">
+                <span class="point fl"></span>
+                <span class="txt fl">ECMA6</span>
+            </li>
+            <li class="clearfix">
+                <span class="point fl"></span>
+                <span class="txt fl">Vue</span>
+            </li>
+            <li class="clearfix">
+                <span class="point fl"></span>
+                <span class="txt fl">React</span>
+            </li>
+            <li class="clearfix">
+                <span class="point fl"></span>
+                <span class="txt fl">Angular</span>
+            </li>
+            <li class="clearfix">
+                <span class="point fl"></span>
+                <span class="txt fl">实战篇</span>
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    window.onload = function(){
+        /*var btns = $('.btns a');       //获取列表左右切换按钮*/
+        var btn = $('.btns a')[0];     //列表交换按钮
+        var lis = $('li');             //获取所有内容列表
+
+
+        init();
+        //代码初始化
+        function init(){
+            initval();
+            mouseEvt();
+        }
+        //内容初始化
+        function initval(){
+            var listLs = $('.list_l li');  //获取左内容列表
+            for(var i = 0;i < listLs.length;i++){
+                listLs[i].isClick = false;
+                listLs[i].attr = 'left';
+            }
+            var listRs = $('.list_r li');  //获取右内容列表
+            for(var i = 0;i < listRs.length;i++){
+                listRs[i].isClick = false;
+                listRs[i].attr = 'right';
+            }
+        }
+
+        function mouseEvt(){
+
+            for(var i = 0;i < lis.length;i++){
+                lis[i].onclick = function(){
+                    if(this.isClick){
+                        this.isClick = false;
+                        this.style.backgroundColor = '';
+                    }else{
+                        this.isClick = true;
+                        this.style.backgroundColor = 'rgba(0,0,0,0.4)';
+                    }
+                };
+            }
+            /*btns[0].onclick = function(){
+                var listRs = $('.list_r li');  //获取右内容列表
+                for(var i =0;i < listRs.length;i++){
+                    if(listRs[i].isClick){
+                        listRs[i].parentNode.removeChild(listRs[i]);
+                        $('.list_l')[0].appendChild(listRs[i]);
+                        listRs[i].isClick = false;
+                        listRs[i].style.backgroundColor = '';
+                    }
+                }
+            };
+            btns[1].onclick = function(){
+                var listLs = $('.list_l li');  //获取左内容列表
+                for(var i =0;i < listLs.length;i++){
+                    if(listLs[i].isClick){
+                        listLs[i].parentNode.removeChild(listLs[i]);
+                        $('.list_r')[0].appendChild(listLs[i]);
+                        listLs[i].isClick = false;
+                        listLs[i].style.backgroundColor = '';
+                    }
+
+                }
+            };*/
+            btn.onclick = function(){
+
+                for(var i =0;i < lis.length;i++){
+                    if(lis[i].isClick){
+                        lis[i].parentNode.removeChild(lis[i]);
+                        lis[i].isClick = false;
+                        lis[i].style.backgroundColor = '';
+                        if(lis[i].attr == 'left'){
+                            $('.list_r')[0].appendChild(lis[i]);
+                            lis[i].attr = 'right';
+                        }else{
+                            $('.list_l')[0].appendChild(lis[i]);
+                            lis[i].attr = 'left';
+                        }
+
+                    }
+
+                }
+            };
+
+        }
+
+        //元素获取方法的重写
+        /*
+         * element是obj下的子元素
+         * */
+        function $(element,obj){
+            if(obj == null){
+                return document.querySelectorAll(element);
+            }else{
+                return obj.querySelectorAll(element);
+            }
+        }
+    };
+</script>
+</html>

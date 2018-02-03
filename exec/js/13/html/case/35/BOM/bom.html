@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>浏览器对象模型</title>
+</head>
+<body>
+    <input type="button" id="btn1" value="打开新窗口"/>
+    <input type="button" id="btn2" value="关闭窗口"/>
+</body>
+<script>
+    window.onload =  function(){
+       /* var input = document.getElementsByTagName('input');
+        var opener = null;
+        input[0].onclick = function(){
+            opener = window.open();
+            alert(opener);
+            //alert(opener == window);
+            opener.document.body.style.backgroundColor = 'red';
+        };
+
+        input[1].onclick = function(){
+            opener.close();
+        };*/
+
+        /*if(window.navigator.userAgent.indexOf('MSIE') !=-1){
+            alert('我是IE');
+        }else{
+            alert('我不是IE');
+        }*/
+
+        alert(window.location);
+        alert(window.location.href);
+        alert(window.location.search);  //url?后边的内容
+        alert(window.location.hash);    //url#后边的内容
+    };
+</script>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>canvas文字</title>
+    <style>
+        body{
+            background-color: #000000;
+        }
+        #c1{
+            background-color: #ffffff;
+        }
+        span{
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="c1" width="400" height="400">
+        <span>不支持canvas浏览器</span>
+        <!--
+            strokeText(文字，x,y);
+            fillText(文字,x,y);
+
+            font : 文字大小
+
+            textAlign:
+
+            textBaeline: 文字的上下的位置的方式  默认：alphabetic
+
+
+
+
+            measureText(str).width;只有宽度，没有高度
+
+            阴影：
+            shadowOffsetX/shadowOffsetY   x轴偏移/Y轴偏移
+
+            shadowBlur:    高斯模糊值
+
+            shadowColor:   阴影颜色
+        -->
+    </canvas>
+</body>
+<script>
+    window.onload = function(){
+        var oc = document.getElementById('c1');
+        var context = oc.getContext('2d');
+
+        context.font = '60px impact';
+        //context.textAlign = 'left'; //start,left,center,right.end
+        context.textBaseline = 'top'; //middle,bottom
+
+        context.shadowOffsetX = 10;
+        context.shadowOffsetY = 10;
+        context.shadowBlur = 3;
+
+        //alert(oGC.shadowColor);  //默认颜色：黑色透明
+
+        context.shadowColor = 'yellow';
+
+        //文字居中
+        var w = context.measureText('妙味课堂').width;
+        context.fillText('妙味课堂',(oc.width - w)/2,(oc.height - 60)/2);
+
+    };
+</script>
+</html>

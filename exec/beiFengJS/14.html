@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>DOM</title>
+</head>
+<body>
+    <script>
+        /*
+        * DOM:文档对象模型
+        *
+        * window      BOM: frames[]   history location  navigator  screen
+        *             DOM: anchors[]  applets[]   areas[] embeds[]  forms[]  images[]  layers[] links[]
+        * getElementsByTagName    //    getElementById   // getElementsByName
+        * innerHTML    setAttribute    getAttribute
+        * 1. 文档根节点：
+        *       var de = documentElement;
+        *       alert(de.tagName);
+        *
+        * 2. 获取head或body:
+        *       var head = document.getElementsByTagName("head)[0];
+        *       alert(de.firstChild); //head
+        *       var body = document.getElementsByTagName("body")[0];
+        *       alert(de.lastChild); //body
+        * 3. 常用的节点属性：
+        *     nodeType：节点类型，元素节点1，文本节点3
+        *     nodeValue：节点值，元素节点为空，文本节点的nodeValue属性为文本内容
+        *     firstChild,lastChild
+        *     nextSibling,previousSibling
+        *     childNodes
+        *     nodeName：节点名称，对于元素节点，返回tagName,对于文本，返回#text
+        * */
+       window.onload = function(){
+          /* var oHeader = document.getElementById("header");
+           //alert(oHeader.nodeType);
+           alert(oHeader.firstChild.nodeValue);*/
+
+           function filterSpaceNode(nodes){
+               var ret = [];
+               for(var i = 0;i < nodes.length;i++){
+                    if(nodes[i].nodeType===3 && /^\s+$/.test(nodes[i].nodeValue)){
+                        continue;
+                    }
+                   ret.push(nodes[i]);
+               }
+               return ret;
+           }
+       }
+     </script>
+       <div id="header">DOM</div>
+       <h1>树！树！到处都是树！</h1>
+        <p>HTML那层嵌套的代码。。。。</p>
+
+</body>
+</html>

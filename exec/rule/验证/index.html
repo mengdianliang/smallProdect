@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则验证用户输入</title>
+    <link rel="stylesheet" type="text/css" href="css/default.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+    <div class="panel-lite">
+        <div class="thumbur">
+            <div class="icon-lock"></div>
+        </div>
+        <h4>用户登录</h4>
+        <div class="form-group">
+            <input type="text" required="required" _name="qq" class="form-control qq"/>
+            <label class="form-label">QQ号</label>
+        </div>
+        <div class="form-group">
+            <input type="text" required="required" _name="mobile" class="form-control mobile"/>
+            <label class="form-label">手机号</label>
+        </div>
+        <div class="form-group">
+            <input type="text" required="required" _name="email" class="form-control email"/>
+            <label class="form-label">邮箱</label>
+        </div>
+        <div class="form-group">
+            <input type="text" required="required" _name="birthday" class="form-control birthday"/>
+            <label class="form-label">出生年月<span class="birthday-tip">(格式: yyyy-mm-dd或者yyyy/mm/dd)</span></label>
+        </div>
+        <div class="submit disabled">提交</div>
+    </div>
+</body>
+<script>
+    class RegFn{
+        constructor(){
+            this.submit = document.querySelector('.submit');//提交按钮
+            //把获取到的input类数组转成数组。
+            this.inputs = Array.from(document.getElementsByTagName('input'))
+            this.on = false; //判断所有是否都为true
+            this.Filter();//挑出需要被验证input
+            //需要的正则
+            this.re = {
+                qq:/^[1-9]\d{4,9}$/,
+                mobile:/^1[3578]\d{9}$/,
+                email:/^([A-Za-z][\w\-]{5,16})@[A-Za-z0-9]{2,8}\.[A-Za-z]{2,3}$/,
+                birthday:/^((1[8-9][0-9][0-9])|(200[0-9])|(201[0-7]))\D+(0?[1-9]|1[0-2])\D+(0?[1-9]|[1-2][0-9]|3[0-1])\D?$/
+            }
+        }
+
+        init(callback){
+            this.callback = callback;  //精确验证的回调函数,让所有的方法都能调用到
+            let _this = this;
+            //给input绑定事件，给每个input加个自定义属性为false
+            this.inputs.forEach((e)=>{
+                e.onOff = false;  //假设每个input都没验证成功
+                e.oninput = function(){
+                    _this.RegTest(e);   //调用验证方法，传入当前输入的元素
+                };
+            });
+        }
+
+        //验证方法
+        RegTest(e){
+            //判断输入的内容是否验证成功
+            if(this.re[e.getAttribute('_name')].test(e.value.trim())){
+                if(this.callback(e)){
+                    e.classList.add('ok');
+                    e.classList.remove('error');
+                    e.onOff = true;  //当前验证成功
+                }else{
+                    e.classList.remove('ok');
+                    e.classList.add('error');
+                    e.onOff = false; //当前验证失败
+                }
+            }else{
+                e.classList.remove('ok');
+                e.classList.add('error');
+                e.onOff = false;
+            }
+            //是否都成功
+            this.everyFn();
+        }
+
+        //是否都成功，如果成功提交按钮变绿，否则变灰
+        everyFn(){
+            this.on = this.inputs.every((e)=>e.onOff);
+            this.submit.className = this.on ? 'submit':'submit disabled';
+        }
+
+        //过滤要验证的输入项
+        Filter(){
+            this.inputs = this.inputs.filter((e)=>{
+                return e.getAttribute('_name');
+            });
+        }
+
+
+    }
+    var r = new RegFn();
+    r.init(function(e){
+        //获取需要精确匹配的元素，确认需要验证的属性
+        switch(e.getAttribute('_name')){
+            case 'birthday':
+                //过滤数字，把用户填写的时间注入到Date中，能够判断是否为合法时间
+                let arr = e.value.match(/\d+/g);
+                let oldTime = new Date(arr[0],arr[1]-1,arr[2]); //用户填写的时间
+                let newTime = new Date();
+                let oy = oldTime.getFullYear();
+                let om = oldTime.getMonth() + 1;
+                let od = oldTime.getDate();
+
+                if(oldTime -newTime > 1)return false;//超过现在的时间
+                //用户输入的时间和转化的时间是否一致，一致就为合法时间否则为非法时间
+                if(arr[0] == oy && arr[1] == om && arr[2] == od){
+                    return true;
+                }else{
+                    return false;
+                }
+                break;
+            default:
+                return true;
+                break;
+        }
+        return false;
+    });
+</script>
+</html>

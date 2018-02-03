@@ -1,0 +1,91 @@
+body{
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color: #ffffff;
+}
+.clearfix{
+    *zoom: 1;
+}
+.clearfix:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.box1{
+    width: 300px;
+    height:300px;
+    padding: 5px;
+    margin: 20px auto 0;
+}
+.item{
+    width: 100px;
+    height: 100px;
+    background-color: #0a8cd2;
+    font-size: 16px;
+    line-height: 100px;
+    text-align: center;
+}
+.item:hover,.active{
+    background-color: pink;
+}
+
+.box1{
+    position: relative;
+    border: 1px solid #e8e8e8;
+}
+.box1 .item{
+    position: absolute;
+}
+.box1 .item1{
+    top: 5px;
+    left: 5px;
+}
+.box1 .item2{
+    top: 5px;
+    right: 5px;
+}
+.box1 .item3{
+    left: 50%;
+    top: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+}
+.box1 .item4{
+    bottom: 5px;
+    left: 5px;
+}
+.box1 .item5{
+    right: 5px;
+    bottom: 5px;
+}
+
+.box2{
+    width:500px;
+    margin: 20px auto;
+}
+.box2 .item{
+    position: relative;
+    float: left;
+}
+.box2 .item1{
+    top: 0;
+    left: 0;
+}
+.box2 .item2{
+    top: 50px;
+    left: -50px;
+}
+.box2 .item3{
+    top: 100px;
+    left: -100px;
+}
+.box2 .item4{
+    top: 150px;
+    left: -150px;
+}
+.box2 .item5{
+    top: 200px;
+    left: -200px;
+}

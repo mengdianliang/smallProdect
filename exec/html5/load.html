@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>延迟加载</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*
+    * js的加载会影响到后边的内容加载：
+    *    很多浏览器都采用了并行加载JS，但还是会影响其他的内容
+    * HTML5的defer和async:
+    *   -defer：延迟加载，会按顺序执行，在onload执行前被触发
+    *   -async：异步加载，加载完就触发，有顺序问题
+    *   Labjs库：兼容库
+    *
+    * */
+    window.onload = function(){
+
+    };
+</script>
+</html>

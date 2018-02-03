@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>图片切换</title>
+    <!--重置样式-->
+    <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+    <!--工具类样式-->
+    <link rel="stylesheet" type="text/css" href="css/tools.css"/>
+    <!--全局样式-->
+    <link rel="stylesheet" type="text/css" href="css/global.css"/>
+    <!--style页面样式-->
+    <link rel="stylesheet" type="text/css" href="css/slide2.css"/>
+    <!--style页面交互-->
+    <script type="text/javascript" src="js/slide2.js"></script>
+</head>
+<body>
+    <div class="box">
+        <nav class="slide">
+            <a href="#" class="active order">顺序切换</a>
+            <a href="# banner">轮播切换</a>
+        </nav>
+        <ul class="item">
+            <li>
+                <a href="javascript: void(0);">
+                    <img src="img/1.png" title="1.jpg" alt="1.jpg"/>
+                    <span class="desc">
+                        <span class="pager"></span>
+                        <span class="desc_txt"></span>
+                        <span class="warn_wrapper">
+                            <span class="warn_info"></span>
+                        </span>
+                    </span>
+                    <span class="l_btn btn">&lt;</span>
+                    <span class="r_btn btn">&gt;</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

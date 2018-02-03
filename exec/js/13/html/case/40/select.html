@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>模拟选择框</title>
+    <style>
+        body{
+            margin: 0;
+            font-size: 16px;
+            font-family: 'microsoft yahei';
+        }
+        input{
+            padding: 0;
+            border: 1px solid #cccccc;
+            outline: none;
+        }
+        a{
+            text-decoration: none;
+            color: #ffffff;
+        }
+        ul{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        .clearfix{
+            *zoom: 1;
+        }
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .wrapper{
+            width: 420px;
+            height: 400px;
+            background-image: -webkit-linear-gradient(45deg,#423AFC 0%,#6D5FF4 100%);
+            margin: 50px auto 0;
+            padding: 50px;
+        }
+        .select{
+            width: 400px;
+            padding: 10px;
+            background-color: #E0E1FE;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+        .tit{
+            width: 398px;
+            height: 50px;
+        }
+        input{
+            width: 300px;
+            height: 48px;
+            background-color: #dddddd;
+            border-radius: 50px;
+            text-indent: 40px;
+            font-size: 20px;
+        }
+        .btn{
+            width: 80px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            background-color: #ff2020;
+            border-radius: 50px;
+        }
+        .list{
+            display: none;
+        }
+        .list li{
+            line-height: 40px;
+            border-radius: 40px;
+            text-indent: 40px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="select">
+            <div class="tit clearfix">
+                <input type="text" class="fl"/>
+                <a href="javascript:void(0);" class="btn fr">GO</a>
+            </div>
+            <ul class="list">
+                <li class="tar">html+css</li>
+                <li class="tar">html5+css3</li>
+                <li class="tar">javascript</li>
+                <li class="tar">angular</li>
+                <li class="tar">vue</li>
+                <li class="tar">react</li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script>
+    window.onload = function(){
+        var select = document.querySelector('.select');
+        var input = select.querySelector('input');
+        var list = select.querySelector('.list');
+        init();
+        //代码初始化
+        function init(){
+            slideDown();
+            mouseList();
+        }
+
+        //下拉列表点击
+        function slideDown(){
+            select.onclick = function(){
+                input.style.backgroundColor = '#ffffff';
+                input.style.borderColor = '#ff2020';
+                list.style.display = 'block';
+            };
+        }
+
+        //列表点击事件，利用冒泡原理
+        function mouseList(){
+            list.onclick = function(evt){
+                evt = window.event || evt;
+                var target = evt.target;
+                if(target.className == 'tar'){
+                    //取消input框上添加的样式
+                    input.style.backgroundColor = '';
+                    input.style.borderColor = '';
+                    this.style.display = "";
+                    input.value = target.innerHTML.trim();
+                }
+                evt.cancelBubble = true || evt.stopPropagation();
+            };
+            list.onmouseover = function(evt){
+                evt = window.event || evt;
+                var target = evt.target;
+                if(target.className == 'tar'){
+                    target.style.backgroundColor = '#ff8080';
+                    target.style.color = '#ffffff';
+                }
+            };
+            list.onmouseout = function(evt){
+                evt = window.event || evt;
+                var target = evt.target;
+                if(target.className == 'tar'){
+                    target.style.backgroundColor = '';
+                    target.style.color = '';
+                }
+            };
+        }
+
+    };
+</script>
+</html>

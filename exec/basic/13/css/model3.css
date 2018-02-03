@@ -1,0 +1,95 @@
+body{
+    margin: 0;
+    font-size: 12px;
+    color: #404040;
+    font-family: "Microsoft YaHei";
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+img{
+    vertical-align: top;
+    border: none;
+}
+a{
+    text-decoration: none;
+    color: #404040;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.clearfix{
+    *zoom: 1;
+}
+.clearfix:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+i{
+    font-style: normal;
+}
+.wrapper{
+    width: 941px;
+    border-top: 1px solid #05a790;
+    margin: 20px auto 0;
+}
+.pro_list li{
+    border: 1px solid #dfdedd;
+    border-top: none;
+    padding-top: 12px;
+    margin-left: -1px;
+}
+.pro_list li .pro_show{
+    padding: 0 17px;
+}
+.pro_show,.buy{
+    display: block;
+}
+.pro_show img{
+    width: 200px;
+}
+.pro{
+    background-color: #f8f7f7;
+    display: block;
+    padding: 4px 17px;
+    width: 200px;
+}
+.pro .pro_tit,.pro .pro_price_bf{
+    display: block;
+    line-height: 20px;
+}
+.pro .pro_tit{
+    width:184px;
+    padding: 0 8px;
+}
+.price{
+    padding: 4px 0;
+}
+.pro_price{
+    line-height: 22px;
+    color: #cc0000;
+    font-size: 14px;
+    font-weight: bold;
+}
+.pro_price_bf{
+    color: #878787;
+}
+.pint{
+    font-size: 12px;
+    padding-top: 2px;
+}
+.buy{
+    float: right;
+    width:56px;
+    height:21px;
+    background: url('../img/d_buy.jpg') no-repeat;
+    margin-top: -21px;
+    line-height: 21px;
+    text-indent: -9999px;
+}

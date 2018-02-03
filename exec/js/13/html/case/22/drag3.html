@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>拖拽改变层大小</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            background-color: #ff0000;
+            position: absolute;
+            left: 500px;
+            top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+<script>
+    window.onload = function(){
+        var div1 = document.getElementById('div1');
+        div1.setCapture && div1.setCapture();
+        div1.onmousedown = function(evt){
+            evt = window.event || evt;
+            var b = '';
+            var disW = this.offsetWidth;
+            var disL = this.offsetLeft;
+            var disX = evt.clientX;
+            if(disX > disL + disW - 10){
+                b = 'right';
+            }
+            if(disX < disL + 10){
+                b = 'left';
+            }
+            document.onmousemove = function(evt){
+                evt = window.event || evt;
+                var wid = disW - (evt.clientX - disX);
+                switch(b){
+                    case 'left':
+                        var l = disL  + (evt.clientX - disX);
+                        if(wid < disW){
+                            wid = disW;
+                            l = disL;
+                        }
+                        div1.style.width = wid + 'px';
+                        div1.style.left = l + 'px';
+                        break;
+                    case 'right':
+                        if(wid < disW){
+                            wid = disW;
+                        }
+                        div1.style.width = wid + 'px';
+                        break;
+                }
+
+            };
+            document.onmouseup = function(){
+                document.onmousemove = null;
+                document.onmouseup = null;
+                div1.releaseCapture && div1.releaseCapture();
+            };
+
+            return false;
+        };
+
+
+    };
+</script>
+</html>

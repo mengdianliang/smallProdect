@@ -1,0 +1,132 @@
+body{
+    background-color: #eeeeee;
+}
+.modal{
+    width: 320px;
+    height: 440px;
+    background-color: #cfcfcf;
+    border: 1px solid #dddddd;
+    box-shadow: 0 0 5px #ffffff;
+    margin: 50px auto;
+    border-radius: 5px;
+    padding: 20px;
+}
+.wrapper{
+    height: 400px;
+    overflow-y: auto;
+    background-color: #ffffff;
+
+}
+.list li{
+    line-height: 40px;
+}
+.showInfo{
+    padding: 5px 40px;
+}
+.to_l{
+    text-align: left;
+}
+.to_r{
+    text-align: right;
+}
+.showInfo a{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+}
+.showTxt{
+   display: inline-block;
+   vertical-align: top;
+   line-height: 20px;
+   padding: 0 5px;
+   border-radius: 3px;
+   word-wrap: break-word;
+   word-break: break-all;
+}
+.lft{
+   margin-left: -35px;
+}
+.rft{
+    margin-right: -35px;
+}
+.ltxt{
+    background-color: #eeeeee;
+}
+.rtxt{
+    color: #ffffff;
+    background-color: #05b600;
+}
+.info{
+    height: 30px;
+    padding-top: 10px;
+}
+.img_info{
+    width:30px;
+    height: 30px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+img{
+    width: 30px;
+}
+.msg{
+    width: 150px;
+    height: 28px;
+    margin-left: 8px;
+    border: 1px solid #eeeeee;
+    color: #666666;
+}
+.btn{
+    width: 58px;
+    height: 30px;
+    border: 1px solid #eeeeee;
+    margin-left: -1px;
+    cursor: pointer;
+    background-color: #05b600;
+    color:#ffffff;
+}
+.select{
+    width: 55px;
+    height: 28px;
+    background-color: #385b72;
+    border: 1px solid #00a3d8;
+    padding-right: 10px;
+    position: relative;
+    border-radius: 3px;
+}
+.key_send{
+    display: block;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    color: #ffffff;
+    line-height: 28px;
+}
+.trangle{
+    position: absolute;
+    top:10px;
+    right: 3px;
+    width: 0;
+    height: 0;
+    border: 4px solid transparent;
+    border-top: 4px solid #00a3d8;
+    border-radius: 3px;
+}
+.key_list{
+    position: absolute;
+    top:30px;
+    left: 0;
+    width: 80px;
+    display: none;
+}
+.key_list a{
+    display: block;
+    line-height: 30px;
+    font-size: 14px;
+    text-indent: 5px;
+    background-color: #06a7e1;
+    border-bottom: 1px dotted #ffffff;
+    border-radius: 3px;
+}

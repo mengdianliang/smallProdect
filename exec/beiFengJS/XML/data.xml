@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8' standalone = 'no'?>
+        <!--name CDATA 'NONE'-->
+      <!DOCTYPE root [
+            <!ELEMENT root ANY>
+            <!ATTLIST root
+              name (A|B|C) 'A'
+              age CDATA '18'
+              >
+     ]>
+     <root name="A"/>

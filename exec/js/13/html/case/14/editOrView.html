@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑与视图</title>
+    <!--重置样式-->
+    <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+    <!--工具类样式-->
+    <link rel="stylesheet" type="text/css" href="css/tools.css"/>
+    <!--全局样式-->
+    <link rel="stylesheet" type="text/css" href="css/global.css"/>
+    <!--style页面样式-->
+    <link rel="stylesheet" type="text/css" href="css/editOrView.css"/>
+    <!--style页面交互-->
+    <script type="text/javascript" src="js/editOrView.js"></script>
+</head>
+<body>
+
+    <section class="wrapper">
+        <h3 class="tit">编辑与视图</h3>
+        <div class="oper">
+            <ul class="oper_list">
+                <li>
+                    <div class="view clearfix">
+                        <span class="view_txt fl">wewewwew</span>
+                        <a href="javascript:void(0);" class="edit_icon fl">✍</a>
+                    </div>
+                    <div class="edit clearfix">
+                        <input type="text" name="userName" id="userName" class="fl"/>
+                        <input type="button" name="confirm" class="confirm fl"  value="确定"/>
+                        <input type="button" name="cancel" class="cancel fl" value="取消"/>
+                    </div>
+                </li>
+                <li>
+                    <div class="view clearfix">
+                        <span class="view_txt fl">fdgfdgfgfgf</span>
+                        <a href="javascript:void(0);" class="edit_icon fl">✍</a>
+                    </div>
+                    <div class="edit clearfix">
+                        <input type="text" name="age" id="age" class="fl"/>
+                        <input type="button" name="confirm" class="confirm fl" value="确定"/>
+                        <input type="button" name="cancel" class="cancel fl" value="取消"/>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <div class="modal">
+        <div class="modal_inner">
+            <h3 class="warn">提示信息</h3>
+            <div class="info">请输入内容!</div>
+            <div class="btn">确定</div>
+        </div>
+    </div>
+</body>
+</html>

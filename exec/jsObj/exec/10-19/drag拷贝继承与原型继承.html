@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>拷贝继承与原型继承</title>
+    <style>
+        #box{
+            width:100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            top:0;
+            left:0;
+        }
+        #box2{
+            width:100px;
+            height: 100px;
+            background: skyblue;
+            position: absolute;
+            top:0;
+            left:100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <div id="box2"></div>
+</body>
+<script>
+    function Drag(id){
+        console.log(this);
+        this.box = document.getElementById(id);
+        this.disX = 0;
+        this.disY = 0;
+    }
+
+    Drag.prototype.init = function(){
+        var _this = this;
+        this.box.addEventListener('mousedown',down);
+        function down(ev){
+            _this.down(ev);
+        }
+    };
+    Drag.prototype.down = function(ev){
+        var _this = this;
+        this.disX = ev.clientX - this.box.offsetLeft;
+        this.disY = ev.clientY - this.box.offsetTop;
+        var move = function(ev){
+            _this.move(ev);
+        };
+        var up = function(ev){
+            _this.up(ev,move,up);
+        };
+        document.addEventListener('mousemove',move);
+        document.addEventListener('mouseup',up);
+
+        ev.preventDefault();
+    };
+
+    Drag.prototype.move = function(ev){
+        var l = ev.clientX - this.disX;
+        var t =  ev.clientY - this.disY;
+        this.box.style.left = l + 'px';
+        this.box.style.top = t + 'px';
+    };
+    Drag.prototype.up = function(ev,move,up){
+        document.removeEventListener('mousemove',move);
+        document.removeEventListener('mouseup',up);
+    };
+
+    //类式继承（属性的继承，构造继承）
+    function Drag2(id){
+        Drag.call(this,id);
+    }
+    //拷贝继承
+    /*function extend(obj1,obj2){
+        for(var attr in obj1.prototype){
+            if(obj1.prototype.hasOwnProperty(attr)){
+                obj2.prototype[attr] = obj1.prototype[attr];
+            }
+        }
+    }
+    extend(Drag,Drag2);*/
+
+    //原型继承
+    function extend(obj1,obj2){
+        function Fn(){};
+        Fn.prototype = obj1.prototype;
+        obj2.prototype = new Fn;
+        obj2.prototype.constructor = obj2;
+    }
+    extend(Drag,Drag2);
+
+    Drag2.prototype.move = function(ev){
+        var l = ev.clientX - this.disX;
+        var t =  ev.clientY - this.disY;
+        if(t < 20){
+            t = 0;
+        }else if(t > window.innerHeight - this.box.offsetHeight - 20){
+            t = window.innerHeight - this.box.offsetHeight;
+        }
+        this.box.style.left = l + 'px';
+        this.box.style.top = t + 'px';
+    };
+
+    var d = new Drag('box');
+    var d2 = new Drag2('box2');
+    d.init();
+    d2.init();
+
+</script>
+</html>

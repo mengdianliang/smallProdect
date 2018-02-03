@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>历史管理</title>
+</head>
+<body>
+    <input type="button" value="随机选择" id="input1"/>
+</body>
+<script>
+    /*
+    * onhashchange：改变hash值来管理
+    * history：
+    *   --服务器下运行
+    *   --pushState：三个参数：数据、标题(都没实现)、地址(可选)
+    *   --popState事件：读取数据 event.state
+    *   --注意L网址是虚假的，需要在服务器指定对应页面，不然刷新找不到页面
+    *
+    *
+    *   触发历史管理：
+    *   1.通过跳转页面
+    *   2.hash
+    *   3.pushState
+    * */
+    window.onload = function(){
+        var input = document.getElementById('input1');
+        var div = document.getElementById('div1');
+        /*var json = {};
+
+        input.onclick = function(){
+            var num = Math.random();
+            var arr = randomNum(35,7);
+            json[num] = arr;
+            div.innerHTML = arr;
+            window.location.hash = num;
+        };
+
+        window.onhashchange = function(){
+            div.innerHTML = json[window.location.hash.substring(1)];
+        };*/
+
+        input.onclick = function(){
+            var arr = randomNum(35,7);
+            history.pushState(arr,'',arr);
+            div.innerHTML = arr;
+        };
+
+        window.onpopstate = function(evt){
+            div.innerHTML = evt.state;
+        };
+
+        function randomNum(all,now){
+            var arr = [];
+            var newArr = [];
+            for(var i = 1;i <= all;i++){
+                arr.push(i);
+            }
+
+            for(var i = 0;i < now;i++){
+                newArr.push(arr.splice(Math.floor(Math.random() * arr.length),1));
+            }
+        }
+    };
+</script>
+</html>

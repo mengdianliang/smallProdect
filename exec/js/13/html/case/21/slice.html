@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>练习</title>
+    <style>
+    </style>
+    <script>
+        window.onload = function(){
+            /*var str = '  are    you ok?';
+            var str1 = str.trim();
+            var arr = str1.split(' ');
+            for(var i = 0;i < arr.length;i++){
+                arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].substring(1);
+            }
+            str1 =arr.join(' ');
+            document.body.innerHTML = "呵呵" +str1 + '呵呵';*/
+
+            //console.log(document.getElementById('wrap').currentStyle.filter);
+
+
+            init();
+            function init(){
+                keyEvt();
+            }
+            function keyEvt(){
+                var conIn = $('.conIn')[0];
+                var changBtn = $('.changBtn')[0];
+                var txt = $('.txt')[0];
+                var store = $('.store')[0];
+
+                changBtn.isclick = true;
+                changBtn.onclick = function(){
+                    if(!this.isclick) return;
+                    this.isclick = false;
+                    conIn.disabled = 'true';
+                    var con = '';
+                    var len = '';
+                    var num = 0;
+                    var timer = '';
+                    store.innerHTML = '';
+                    con = conIn.value;
+                    len = con.length;
+                    txt.innerHTML = (len - num) + '/' + len;
+                    timer = setInterval(function(){
+                        num++;
+                        if(num > len){
+                            clearInterval(timer);
+                            conIn.disabled = '';
+                            changBtn.isclick = true;
+                            return;
+                        }
+                        conIn.value = con.slice(num);
+                        txt.innerHTML = (len - num) + '/' + len;
+                        store.innerHTML += con.slice(num - 1,num);
+                    },100);
+                };
+
+                //元素获取方法的重写
+                        function $(element,obj){
+                    if(obj == null){
+                        return document.querySelectorAll(element);
+                    }else{
+                        return obj.querySelectorAll(element);
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        body{
+            margin: 0;
+            font-family: 'Microsoft Yahei';
+            font-size: 12px;
+            color: #000000;
+        }
+        h3{
+            margin: 0;
+            font-weight: normal;
+        }
+        img{
+            vertical-align: top;
+            border: none;
+        }
+        a{
+            text-decoration: none;
+            color: #000000;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        textarea{
+            padding: 0;
+        }
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        .clearfix{
+            *zoom: 1;
+        }
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .wrapper{
+            width: 504px;
+            height: 302px;
+            margin: 50px auto 0;
+        }
+        .store,.conIn{
+            width: 200px;
+            height: 300px;
+            border: 1px solid #06a7e1;
+            border-radius: 3px;
+            word-break: break-all;
+            word-wrap: break-word;
+            background-color: #ffffff;
+        }
+        .arrow{
+            color: #ffffff;
+            line-height: 26px;
+            display: block;
+            text-align: center;
+            font-size: 20px;
+        }
+        .txt{
+            color:#ffffff;
+            line-height: 24px;
+            display: block;
+            text-align: center;
+            font-size: 16px;
+        }
+        .changBtn{
+            width: 80px;
+            height: 50px;
+            cursor: pointer;
+            background-color: #03a7e1;
+            margin: 125px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper clearfix">
+       <div class="inarea fl">
+           <textarea class="conIn"></textarea>
+       </div>
+        <div class="changBtn fl">
+            <span class="arrow">→</span>
+            <span class="txt"></span>
+        </div>
+        <div class="store fl"></div>
+    </div>
+</body>
+</html>

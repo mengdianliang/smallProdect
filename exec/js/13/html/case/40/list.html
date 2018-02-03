@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>增删列表</title>
+    <style>
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            margin: 0;
+            font-family: 'MICROSOFT YAHEI';
+            font-size: 16px;
+        }
+        textarea{
+            padding: 10px;
+            outline: none;
+            border: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        ul{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        .clearfix{
+            *zoom: 1;
+        }
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .box{
+            background: url('./img/bj.jpg') no-repeat;
+            width: 100%;
+            height: 100%;
+        }
+        .con{
+            width: 900px;
+            padding-top: 50px;
+            margin: 0 auto;
+        }
+        .con_l{
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .con_r{
+            background-color: rgba(255,255,255,0.4);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .in_area{
+            width: 400px;
+        }
+        .area{
+            width: 380px;
+            background-color: #E4F6FD;
+            height: 100px;
+            border-radius: 5px;
+        }
+        .btn{
+            display: block;
+            width: 100%;
+            line-height: 50px;
+            background-color: #2BAEF3;
+            color: #ffffff;
+            margin-top: 10px;
+            text-align: center;
+            border-radius: 5px;
+        }
+        .list_wrap{
+            height: 160px;
+            overflow: hidden;
+            position: relative;
+        }
+        .list{
+            margin-top: 10px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+        .list li{
+            height: 40px;
+            border-radius: 5px;
+            background-color: #E4F6FD;
+            margin-bottom: 10px;
+        }
+        .point{
+            width: 8px;
+            height: 8px;
+            background-color: #2BAEF3;
+            margin-top: 16px;
+            margin-left: 20px;
+            border-radius: 8px;
+        }
+        .txt{
+            line-height: 40px;
+            color: #2BAEF3;
+            margin-left: 20px;
+        }
+        .del{
+            margin-top: 4px;
+            margin-right: 20px;
+            border-radius: 5px;
+            border: 1px solid #2BAEF3;
+            text-align: center;
+            width: 60px;
+            line-height: 30px;
+            color: #2BAEF3;
+        }
+        li.active .del{
+            background-color: #2BAEF3;
+            color: #ffffff;
+        }
+        .scrollWrap{
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 10px;
+            height: 100%;
+        }
+        .myScroll{
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 10px;
+            height: 100%;
+            background-color: #2BAEF3;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .bar{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 10px;
+            border-radius: 5px;
+            background-color: #0000ff;
+        }
+        .con_r .area{
+            background-color: #ffffff;
+        }
+        .con_r .btn{
+            background-color: #ff8080;
+        }
+        .con_r .list_wrap{
+            background-color: rgba(255,255,255,0.6);
+        }
+        .con_r .list li{
+            background: none;
+            border-radius: 40px;
+        }
+        .con_r .point{
+            opacity: 0;
+        }
+        .con_r .txt{
+            color: #333333;
+        }
+        .con_r .del{
+            margin-top: 5px;
+            margin-right: 20px;
+            border-radius: 5px;
+            border: 1px solid #ff8080;
+            text-align: center;
+            width: 60px;
+            line-height: 30px;
+            color: #ff8080;
+        }
+        .con_r li.active .del{
+            background-color: #ffffff;
+            color: #ff8080;
+        }
+        .con_r li.active{
+            background-color: #ff8080;
+            color: #333333;
+        }
+        .con_r .myScroll{
+            background-color: #ff2020;
+        }
+        .con_r .bar{
+            background-color: #9966cc;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="con clearfix">
+            <div class="con_l fl">
+                <div class="in_area">
+                    <textarea class="area"></textarea>
+                    <a href="javascript:void(0);" class="btn">提交</a>
+                </div>
+                <div class="list_wrap">
+                    <ul class="list">
+                        <li class="clearfix">
+                            <span class="point fl"></span>
+                            <span class="txt fl">dfdfdfdfd</span>
+                            <a href="javascript:void(0);" frag="del" class="del fr">删除</a>
+                        </li>
+                        <li class="clearfix">
+                            <span class="point fl"></span>
+                            <span class="txt fl">dfdfdfdfd</span>
+                            <a href="javascript:void(0);" frag="del" class="del fr">删除</a>
+                        </li>
+                        <li class="clearfix">
+                            <span class="point fl"></span>
+                            <span class="txt fl">dfdfdfdfd</span>
+                            <a href="javascript:void(0);" frag="del" class="del fr">删除</a>
+                        </li>
+                        <li class="clearfix">
+                            <span class="point fl"></span>
+                            <span class="txt fl">dfdfdfdfd</span>
+                            <a href="javascript:void(0);" frag="del" class="del fr">删除</a>
+                        </li>
+                        <li class="clearfix">
+                            <span class="point fl"></span>
+                            <span class="txt fl">dfdfdfdfd</span>
+                            <a href="javascript:void(0);" frag="del" class="del fr">删除</a>
+                        </li>
+                        <li class="clearfix">
+                            <span class="point fl"></span>
+                            <span class="txt fl">dfdfdfdfd</span>
+                            <a href="javascript:void(0);" frag="del" class="del fr">删除</a>
+                        </li>
+                    </ul>
+                    <div class="scrollWrap">
+                        <div class="myScroll">
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="con_r fr">
+                <div class="in_area">
+                    <textarea class="area"></textarea>
+                    <a href="javascript:void(0);" class="btn">提交</a>
+                </div>
+                <div class="list_wrap">
+                    <ul class="list">
+                        <li class="clearfix">
+                            <span class="point fl"></span>
+                            <span class="txt fl">dfdfdfdfd</span>
+                            <a href="javascript:void(0);" frag="del" class="del fr">删除</a>
+                        </li>
+                        <li class="clearfix">
+                            <span class="point fl"></span>
+                            <span class="txt fl">dfdfdfdfd</span>
+                            <a href="javascript:void(0);" frag="del" class="del fr">删除</a>
+                        </li>
+                        <li class="clearfix">
+                            <span class="point fl"></span>
+                            <span class="txt fl">dfdfdfdfd</span>
+                            <a href="javascript:void(0);" frag="del" class="del fr">删除</a>
+                        </li>
+                        <li class="clearfix">
+                            <span class="point fl"></span>
+                            <span class="txt fl">dfdfdfdfd</span>
+                            <a href="javascript:void(0);" frag="del" class="del fr">删除</a>
+                        </li>
+                        <li class="clearfix">
+                            <span class="point fl"></span>
+                            <span class="txt fl">dfdfdfdfd</span>
+                            <a href="javascript:void(0);" frag="del" class="del fr">删除</a>
+                        </li>
+                        <li class="clearfix">
+                            <span class="point fl"></span>
+                            <span class="txt fl">dfdfdfdfd</span>
+                            <a href="javascript:void(0);" frag="del" class="del fr">删除</a>
+                        </li>
+                    </ul>
+                    <div class="scrollWrap">
+                        <div class="myScroll">
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    window.onload = function(){
+
+
+        //分别获取列表容器
+        var container1 = document.querySelector('.con_l');
+        var container2 = document.querySelector('.con_r');
+
+        init();
+
+        //代码初始化
+        function init(){
+            theme(container1);
+            theme(container2);
+            scrollBar(container1);
+            scrollBar(container2);
+            mouseWheel(container1);
+            mouseWheel(container2);
+            mouseDrag(container1);
+            mouseDrag(container2);
+        }
+        //初始化滚动条
+        function scrollBar(obj){
+            var scrollBar = obj.querySelector('.myScroll');
+            var bar = obj.querySelector('.bar');
+            var list = obj.querySelector('.list');    //获取列表
+            var hgt = list.scrollHeight;
+            var scrHgt = scrollBar.parentNode.scrollHeight;
+            console.log(hgt,scrHgt);
+            if(hgt <= scrHgt){
+                scrollBar.style.display = 'none';
+            }else{
+                scrollBar.style.display = 'block';
+                bar.style.height = scrHgt/hgt * scrHgt + 'px';
+            }
+        }
+        //滚动条滚动事件
+        function mouseWheel(obj){
+            var scrollBar = obj.querySelector('.myScroll');
+            var bar = obj.querySelector('.bar');
+            var list = obj.querySelector('.list');    //获取列表
+            var hgt = bar.scrollHeight;
+            var scrHgt = scrollBar.parentNode.scrollHeight;
+
+            obj.onmousewheel = function(evt){
+                evt = evt || window.event;
+                //evt.wheelDelta  获取鼠标滚轮滚动的方向   向上滚 正值   向下滚 负值  (火狐中不支持，它使用 evt.detail,方向与前一个方法相反)
+                if(evt.wheelDelta > 0 || evt.detail < 0){
+                    //alert('向上滚');
+                    var top = bar.offsetTop - 10;
+                    if(top < 0){
+                        top = 0;
+                    }
+                    bar.style.top = top + "px";
+                }else{
+                    //alert('向下滚');
+                    var top = bar.offsetTop + 10;
+                    var slice = bar.parentNode.scrollHeight - bar.scrollHeight;
+                    if(top > slice){
+                        top = slice;
+                    }
+                    bar.style.top = top + "px";
+                }
+                list.style.top = - top*scrHgt/hgt + 'px';
+                evt.preventDefault && evt.preventDefault();
+                return false;  //鼠标滚轮在有滚动条的情况下，也有默认行为，需要取消默认行为
+                //使用addEventListener()方法，取消默认行为不能用return false;需要使用evt.preventDefault();
+            };
+
+            //DOMMouseScroll火狐
+            bind(bar,'DOMMouseScroll',bar.onmousewheel);
+        }
+        //滚轮拖拽事件
+        function mouseDrag(obj){
+            var scrollBar = obj.querySelector('.myScroll');
+            var bar = obj.querySelector('.bar');
+            var list = obj.querySelector('.list');    //获取列表
+            var hgt = bar.scrollHeight;
+            var scrHgt = scrollBar.parentNode.scrollHeight;
+
+            obj.onmousedown = function(evt){
+                evt = window.event || evt;
+                obj.setCapture && obj.setCapture();
+                var prevoffset = scrollBar.offsetTop;
+                var prevTop = evt.clientY - prevoffset;
+                document.onmousemove = function(evt) {
+                    evt = window.event || evt;
+                    var top = evt.clientY - prevTop;
+                    var slice = bar.parentNode.scrollHeight - bar.scrollHeight;
+                    if(top < 0){
+                        top = 0;
+                    }else if(top > slice){
+                        top = slice;
+                    }
+                    bar.style.top = top + "px";
+                    list.style.top = - top*scrHgt/hgt + 'px';
+                };
+                document.onmouseup = function(){
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                    obj.releaseCapture && obj.releaseCapture();
+                };
+                return false;
+            };
+            obj.onmousewheel = function(evt){
+                evt = evt || window.event;
+                //evt.wheelDelta  获取鼠标滚轮滚动的方向   向上滚 正值   向下滚 负值  (火狐中不支持，它使用 evt.detail,方向与前一个方法相反)
+                if(evt.wheelDelta > 0 || evt.detail < 0){
+                    //alert('向上滚');
+                    var top = bar.offsetTop - 10;
+                    if(top < 0){
+                        top = 0;
+                    }
+                    bar.style.top = top + "px";
+                }else{
+                    //alert('向下滚');
+                    var top = bar.offsetTop + 10;
+                    var slice = bar.parentNode.scrollHeight - bar.scrollHeight;
+                    if(top > slice){
+                        top = slice;
+                    }
+                    bar.style.top = top + "px";
+                }
+                list.style.top = - top*scrHgt/hgt + 'px';
+                evt.preventDefault && evt.preventDefault();
+                return false;  //鼠标滚轮在有滚动条的情况下，也有默认行为，需要取消默认行为
+                //使用addEventListener()方法，取消默认行为不能用return false;需要使用evt.preventDefault();
+            };
+
+            //DOMMouseScroll火狐
+            bind(bar,'DOMMouseScroll',bar.onmousewheel);
+        }
+        function theme(obj){
+            var areas = obj.querySelector('.area');   //获取列表容器下的文本域
+            var btns = obj.querySelector('.btn');     //获取按钮
+            var list = obj.querySelector('.list');    //获取列表
+
+
+
+            //按钮点击事件
+            btns.onclick = function (){
+                if(areas.value.trim() == ''){
+                    alert('请输入内容！');
+                }else{
+                    //创建li元素
+                    var span1 = document.createElement('span');
+                    span1.className = 'point fl';
+                    var span2 = document.createElement('span');
+                    span2.className = 'txt fl';
+                    span2.innerHTML = areas.value.trim();
+                    var a1 = document.createElement('a');
+                    a1.href = 'javascript:void(0);';
+                    a1.setAttribute('frag','del');
+                    a1.className = 'del fr';
+                    a1.innerHTML = '删除';
+                    var li = document.createElement('li');
+                    li.className = 'clearfix';
+
+                    li.appendChild(span1);
+                    li.appendChild(span2);
+                    li.appendChild(a1);
+                    list.appendChild(li);
+                    scrollBar(obj);
+                    //清空文本域内容
+                    areas.value = '';
+                }
+            };
+            //利用冒泡，处理删除按钮鼠标移入事件
+            list.onmouseover = function(evt){
+                evt = window.event || evt;
+                var target = evt.target;
+                //判断是否有frag标识
+                if(target.getAttribute('frag') == 'del'){
+                    target.parentNode.className = 'clearfix active';
+                }
+            };
+            //利用冒泡，处理删除按钮鼠标移出事件
+            list.onmouseout = function(evt){
+                evt = window.event || evt;
+                var target = evt.target;
+                //判断是否有frag标识
+                if(target.getAttribute('frag') == 'del'){
+                    target.parentNode.className = 'clearfix';
+                }
+            };
+            //利用冒泡，处理删除按钮鼠标点击事件
+            list.onclick = function(evt){
+                evt = window.event || evt;
+                var target = evt.target;
+                //判断是否有frag标识
+                if(target.getAttribute('frag') == 'del'){
+                    scrollBar(list.parentNode.parentNode);
+                    //删除li
+                    list.removeChild(target.parentNode);
+
+                }
+            };
+        }
+        //事件绑定函数
+        function bind(obj,eventStr,callback){
+        if(obj.addEventListener){
+            obj.addEventListener(eventStr,callback,false);
+        }else{
+            obj.attachEvent('on' + eventStr,function(){
+                //把this改为obj
+                callback.call(obj);
+            });
+        }
+
+    }
+    };
+</script>
+</html>

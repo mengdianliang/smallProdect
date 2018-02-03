@@ -1,0 +1,12 @@
+.box{
+    width: 1000px;
+    height: 500px;
+    margin:0 auto;
+    position: relative;
+}
+.item{
+    width: 10px;
+    height: 80px;
+    background-color: #05b600;
+    position: absolute;
+}

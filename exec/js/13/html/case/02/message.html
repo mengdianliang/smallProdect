@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>样式选择</title>
+    <!--重置样式-->
+    <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+    <!--工具类样式-->
+    <link rel="stylesheet" type="text/css" href="css/tools.css"/>
+    <!--全局样式-->
+    <link rel="stylesheet" type="text/css" href="css/global.css"/>
+    <!--style页面样式-->
+    <link rel="stylesheet" type="text/css" href="css/message.css"/>
+    <!--style页面交互-->
+    <script type="text/javascript" src="js/message.js"></script>
+</head>
+<body>
+
+
+    <div class="modal" id="modal">
+        <div class="wrapper">
+            <ul class="list">
+                <li class="clearfix">
+                    <div class="showInfo to_l">
+                        <a href="javascript:void(0);" class="lft fl">
+                            <img src="img/a.png" title="张三" alt="张三"/>
+                        </a>
+                        <span class="showTxt ltxt">123344</span>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <div class="showInfo to_r">
+                        <a href="javascript:void(0);" class="rft fr">
+                            <img src="img/b.png" title="李四" alt="李四"/>
+                        </a>
+                        <span class="showTxt rtxt">123344</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="info clearfix">
+            <form method="get">
+                <a href="javascript:void(0);" class="img_info fl">
+                    <img src="img/a.png" title="张三" alt="张三"/>
+                </a>
+                <input type="text" id="msg" name="msg" class="msg fl"/>
+                <input type="button" id="btn" class="btn fl" value="发送"/>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>3d照片墙</title>
+    <style>
+        body,p,h3 {
+            margin: 0;
+            padding: 0;
+        }
+        * {
+            -webkit-user-select: none;
+        }
+    </style>
+    <link rel="stylesheet" href="css/photo.css">
+</head>
+<body>
+    <div class="photo_wall">
+        <!--照片墙和导航区域-->
+        <div class="photo">
+            <div class="singlePic front" id="pic_{{id}}">
+                <div class="pic_3d">
+                    <div class="pic_side pic_front">
+                        <p><img{{src}}="{{img}}"/></p>
+                        <h3>{{caption}}}</h3>
+                    </div>
+                    <div class="pic_side pic_back">
+                        <p class="desc">{{desc}}</p>
+                    </div>
+                </div>
+            </div>
+            {{split}}
+            <div class="nav">
+                <a href="javascript:void(0);" class="item" id="item_{{id}}">&#xe67e;</a>
+            </div>
+        </div>
+
+        <!--遮罩层-->
+        <div class="shade">
+            <div class="start">Start View</div>
+        </div>
+    </div>
+</body>
+<script src="js/data.js"></script>
+<script src="js/tools.js"></script>
+<script src="js/photo.js"></script>
+</html>

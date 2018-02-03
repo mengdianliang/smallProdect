@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+        #div1 div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+            display: none;
+        }
+        .active{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <input class="active" type="button" value="1"/>
+        <input type="button" value="2"/>
+        <input type="button" value="3"/>
+        <div style="display: block">1111111</div>
+        <div>222222222</div>
+        <div>33333333333333</div>
+    </div>
+</body>
+<script>
+    /*var pare = document.getElementById('div1');
+    var btns = document.getElementsByTagName('input');
+    var divs = pare.getElementsByTagName('div');
+    window.onload = function(){
+
+        init();
+    };
+    function init(){
+        for(var i =0;i < btns.length;i++){
+            btns[i].index = i;
+            btns[i].onclick = change;
+        }
+    }
+    function change(){
+        for(var j =0;j < btns.length;j++){
+            btns[j].className = '';
+            divs[j].style.display = '';
+        }
+        this.className = 'active';
+        divs[this.index].style.display = 'block';
+    }*/
+
+
+    window.onload = function(){
+        var t1 = new Tab();
+        t1.init();
+    };
+
+    function Tab(){
+        this.pare = document.getElementById('div1');
+        this.btns = document.getElementsByTagName('input');
+        this.divs = this.pare.getElementsByTagName('div');
+    }
+    Tab.prototype.init = function(){
+        var _this = this;
+        for(var i =0;i < this.btns.length;i++){
+            this.btns[i].index = i;
+            this.btns[i].onclick = function(){
+                _this.change(this);
+            };
+        }
+    };
+    Tab.prototype.change = function(obj){
+        for(var j =0;j < this.btns.length;j++){
+            this.btns[j].className = '';
+            this.divs[j].style.display = '';
+        }
+        obj.className = 'active';
+        this.divs[obj.index].style.display = 'block';
+    }
+</script>
+</html>

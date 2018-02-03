@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>浏览器对象模型</title>
+</head>
+<body>
+    <script>
+        /*
+        * 1.BOM是Browser Object Model的缩写，简称浏览器对象模型
+        * 2.BOM提供了独立于内容而与浏览器窗口进行交互的对象
+        * 3.由于BOM主要用于管理窗口与窗口之间的通讯，因此其核心对象为window
+        * 4.BOM由一系列相关的对象构成，并且每个对象都提供了很多方法与属性
+        * 5.BOM缺乏标准
+        * 6.BOM最初是Netscape浏览器标准的一部分
+        *
+        * window:     document    anchors
+        *             frames      forms
+        *             history     images
+        *             location    links
+        *             navigator
+        *             screen
+        *
+        *
+        *
+        * window对象关系属性：
+        *  parent:如果当前窗口为frame,指向包含该frame的窗口的frame;
+        *  self:  指向当前的window对象，与window同义；
+        *  top:   如果当前窗口为frame.指向包含该frame的top-level的window对象；
+        *  window:指向当前的window对象，与self同义；
+        *  opener:当前窗口使用js打开时，只想打开他的那个窗口
+        *
+        *
+        *  window对象的定位属性：
+        *   （1）IE提供了window.screenLeft和window.screenTop对象来判断窗口的位置，但未提供任何判断窗口大小的方法。
+        *           用document.body.offsetWidth和document.body.offsetHeight属性获取视口的大小，但他们不是标准属性；
+        *   （2）Mozilla 提供window.screenX和window.screenY属性判断窗口的位置。它还提供了window.innerWidth和window.innerHeight属性来判断视口的大小，window.outerWidth和window.outerHeight属性判断浏览器窗口自身的大小。
+        *
+        *   window对象的方法：
+        *   窗体控制：
+        *       moveBy(x,y),moveTo(x,y),sesizeBy(w,h),resizeTo(w,h)
+        *   窗体滚动轴控制：
+        *       scrollTo(x,y)，scrollBy(x,y)
+        *   新建窗体
+        *       open(url,name,features,replace) ?????????????????     //为了避免浏览器拦截新窗口，我们可以通过事件来触发
+        *       close()
+        *       opener属性：新建窗体对父窗体的引用
+        * */
+      /* alert(window.screenLeft + "\n" + window.screenTop);   //IE
+       alert(document.body.offsetWidth + "\n" + document.body.offsetHeight);*/
+
+        /*alert(window.screenX + "\n" + window.screenY); //Mozilla
+        alert(window.innerWidth+ "\n" + window.innerHeight);
+        alert(window.outerWidth+ "\n" + window.outerHeight);*/
+
+
+
+        //setTimeout(),clearTimeout(),setInterval(),clearInterval(),confirm().prompt(str,defaultValue)
+
+        /*
+        * History对象：
+        *      （1）length属性，返回浏览器历史列表的URL数量
+        *      （2）方法：
+        *            a. back()
+        *            b.forward()
+        *            c.go(num)
+        *Location对象：
+        *       (1)属性：
+        *           a. hash  设置或返回从#开始的URL(锚)；
+        *           b. host  设置或返回主机名和当前URL的端口号
+        *           c. hostname 设置或返回当前URL的主机名
+        *           d. href  设置或返回完整的URL
+        *           e. pathname 设置或返回当前URL的路径部分
+        *           f. port  设置或返回当前的 URL端口号
+        *           g.protocol 设置或返回当前URL的协议
+        *           h.search 设置或返回从？开始的URL(查询部分)
+        *       (2)方法：
+        *           a. assign():加载新的文档，这与直接将一个URL赋值给Location对象的href属性效果是一样的；
+        *           b. reload():重新加载当前文档
+        *           c. replace():用新文档替换当前文档
+        *
+        * */
+        /*location.href = "http://www.baidu.com";  //会新产生历史记录，不好
+        //等同于location.assign("http://www.baidu.com");
+        location.reload(true);  //强制刷新*/
+        //location.replace("http://www.baidu.com");  //js重定向
+
+        /*
+        * Navigator对象的属性：
+        *   appCodeName  返回浏览器的代码名
+        *   appName 返回浏览器的名称
+        *   appVersion 返回浏览器的平台和版本信息
+        *   browserLanguage 返回当前浏览器的语言
+        *   cookieEnabled 返回指明浏览器是否启用cookie的布尔值
+        *   cpuClass 返回浏览器系统的CPU等级
+        *   onLine 返回指明系统是否处于脱机模式的布尔值
+        *   platform 返回运行浏览器的操作系统平台
+        *   systemLanguage 返回OS使用的默认语言
+        *   userAgent 返回由客户机发送服务器的user-agent头部的值
+        *   userLanguage 返回OS的自然语言设置
+        * */
+        alert(navigator.userAgent);
+      </script>
+</body>
+</html>

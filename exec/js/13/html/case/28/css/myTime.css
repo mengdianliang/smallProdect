@@ -1,0 +1,138 @@
+body{
+    font-family: 'microsoft yahei';
+    font-size: 12px;
+    color: #333333;
+}
+.timeBox{
+    width: 240px;
+    margin:50px auto;
+}
+.timeArea{
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 3px;
+    border: 1px solid #66cccc;
+    position: relative;
+}
+.dTime{
+    height: 100%;
+    margin-left: 5px;
+    padding-right: 35px;
+}
+
+.time_pic{
+    width: 35px;
+    height: 32px;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+img{
+    width: 24px;
+    margin: 4px 6px;
+}
+.time_pocket{
+    position: absolute;
+    top: 40px;
+    left: 0;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 3px;
+    border: 1px solid #333333;
+    box-shadow: 0 0 3px #333333;
+    display: none;
+}
+.time_header{
+    line-height: 32px;
+    text-align: center;
+}
+.time_tit{
+    line-height: 32px;
+    display: inline-block;
+    width: 100px;
+    vertical-align: top;
+    padding: 0 10px;
+    border-radius: 3px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.time_prev,.time_next{
+    width: 32px;
+    height: 32px;
+    border-radius: 3px;
+    background-color: #eeeeee;
+}
+.trangle_lft,.trangle_rgt{
+    display: block;
+    width: 0;
+    left: 0;
+    border: 10px solid transparent;
+    margin-top: 5px;
+}
+.trangle_lft{
+    border-right: 10px solid #333333;
+}
+.time_con{
+    padding: 10px 0;
+}
+.trangle_rgt{
+    border-left: 10px solid #333333;
+    margin-left: 10px;
+}
+.week_header{
+    width: 224px;
+    display: none;
+}
+.week_header li{
+    font-weight: bold;
+}
+.day_con{
+    width: 224px;
+}
+.week_header li,.day_con li{
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    line-height: 32px;
+}
+.day_con li.mon,.day_con li.yr{
+    width:56px;
+    height: 56px;
+    line-height: 56px;
+}
+.day_con li.date{
+    width:37px;
+    height: 37px;
+    line-height: 37px;
+}
+.day_con li a,.time_footer a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
+}
+.day_con li a:hover,.time_footer a:hover,.time_prev:hover,.time_next:hover,.time_tit:hover{
+    background-color: #13B2AE;
+    color: #ffffff;
+}
+.time_prev:hover .trangle_lft{
+      border-right-color: #ffffff;
+  }
+.time_next:hover .trangle_rgt{
+     border-left-color: #ffffff;
+ }
+.time_footer{
+    line-height: 40px;
+    text-align: center;
+}
+.time_footer a{
+    background-color: #eeeeee;
+}
+
+.gray{
+    color: #999999;
+}
+
+

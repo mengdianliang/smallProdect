@@ -1,0 +1,43 @@
+#box{
+    margin:50px auto 0;
+    width:500px;
+    border-top:2px solid #000000;
+}
+#head{
+    width:498px;
+    height:118px;
+    background:url('../img/head_bg.png') center center;
+    border-left:1px solid #e15671;
+    border-right:1px solid #e15671;
+}
+#content{
+    width:498px;
+    border:1px solid #a9e8f7;
+    border-top:none;
+}
+.item{
+    /*width:100%;*/ /*可以不写，默认100%*/
+    border-top:1px solid #ecf4fa;
+    background-repeat: no-repeat;
+    background-position: 38px 34px;
+}
+#item1,#item2,#item3{
+    height:98px;
+}
+#item1{
+    background-color: #f4c3cd;
+    background-image: url('../img/email.png');
+}
+#item2{
+    background-color:#f8d7de;
+    background-image: url('../img/mouse.png');
+}
+#item3{
+    background-color: #fbe7eb;
+    background-image: url('../img/smile.png');
+}
+#item4{
+    height:188px;
+    background-color: #fdf3f5;
+    background-image:url('../img/star.png');
+}

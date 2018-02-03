@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>键盘事件</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background-color: #ff8080;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var box = document.getElementById('box');
+
+            var speed = 10;
+            var obj = {
+                left: false,
+                right: false,
+                top: false,
+                bottom: false
+            };
+            selKey(obj);
+            function selKey(obj) {
+                setInterval(function () {
+                    if (obj.left) {
+                        box.style.left = box.offsetLeft - speed + "px";
+                    }
+                    if (obj.top) {
+                        box.style.top = box.offsetTop - speed + "px";
+                    }
+                    if (obj.right) {
+                        box.style.left = box.offsetLeft + speed + "px";
+                    }
+                    if (obj.bottom) {
+                        box.style.left = box.offsetTop + speed + "px";
+                    }
+                }, 30);
+            }
+            document.onkeydown = function(evt){
+                evt = evt || window.event;
+                if(evt.keyCode == 37){
+                    obj.left = true;
+                }
+                if(evt.keyCode == 38){
+                    obj.top = true;
+                }
+                if(evt.keyCode == 39){
+                    obj.right = true;
+                }
+                if(evt.keyCode == 40){
+                    obj.bottom = true;
+                }
+            };
+            document.onkeyup = function(evt){
+                evt = evt || window.event;
+                if(evt.keyCode == 37){
+                    obj.left = false;
+                }
+                if(evt.keyCode == 38){
+                    obj.top = false;
+                }
+                if(evt.keyCode == 39){
+                    obj.right = false;
+                }
+                if(evt.keyCode == 40){
+                    obj.bottom = false;
+                }
+            };
+
+        };
+    </script>
+</head>
+<body>
+<div id ="box"></div>
+</body>
+</html>

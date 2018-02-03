@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>元素集合</title>
+    <base target="_blank"/>
+    <link rel="stylesheet" type="text/css" href="css/elements.css"/>
+</head>
+<body>
+    <div></div>
+    <div>
+        <h2>定义链接默认打开方式和a标签伪类</h2>
+        <a href="#" target="_self" title="秒味">miaov</a>
+        <a href="#"><span>去搜</span>百度</a>
+        <a href="#">淘宝</a>
+        <a href="#">京东</a>
+    </div>
+    <br/>
+    <div>
+        <img src="img/1.jpg" width="200px" title="星空" alt="星空"/>
+    </div>
+    <div>
+        <h1>整个网页中只有一个h1</h1>
+        <h2>副标题（预留项）</h2>
+        <h3>模块标题</h3>
+        <h4>模块的子标题</h4>
+        <h5>很少用</h5>
+        <h6>很少用</h6>
+    </div>
+    <p>我是一个<strong>段落</strong>，我是一个<em>段落</em>，我是一个段落，我是一个段落，我是一个段落，</p>
+    <ul>
+        <li>无序列表列表项1</li>
+        <li>无序列表列表项2</li>
+    </ul>
+    <ol>
+        <li>有序列表列表项1</li>
+        <li>无有序列表列表项2</li>
+    </ol>
+    <dl>
+        <dt>自定义列表的标题</dt>
+        <dd>自定义列表列表项1</dd>
+        <dd>自定义列表列表项2</dd>
+    </dl>
+    <div>
+        <mark>标记</mark>
+    </div>
+    <hr/>
+    <pre>
+        1.&lt;a&gt;默认样式：
+            a:-webkit-any-link {
+                color: -webkit-link;
+                cursor: auto;
+                text-decoration: underline;
+            }
+        2.&lt;span&gt;默认样式：无，一般用来区分样式
+        3.&lt;div&gt;默认样式：
+            div {
+                display: block;
+            }
+        4.&lt;img&gt;默认样式：无
+        5.h1~h6默认样式：
+             {
+                display: block;
+                font-size: 2em;
+                -webkit-margin-before: em;
+                -webkit-margin-after: em;
+                -webkit-margin-start: 0px;
+                -webkit-margin-end: 0px;
+                font-weight: bold;
+            }
+        6.&lt;p&gt;默认样式：
+            p {
+                display: block;
+                -webkit-margin-before: 1em;
+                -webkit-margin-after: 1em;
+                -webkit-margin-start: 0px;
+                -webkit-margin-end: 0px;
+            }
+        7.&lt;strong&gt;默认样式：
+            跟b元素一样起到加粗的作用，但是strong更强调
+            strong, b {
+                font-weight: bold;
+            }
+        8.&lt;em&gt;默认样式：
+            跟i元素一样起到倾斜的作用，但是em更强调，其他的也有自己的语义
+            i, cite, em, var, address, dfn {
+                font-style: italic;
+            }
+        9.ul/ol li默认样式：
+            ul, menu, dir {
+                display: block;
+                list-style-type: disc;
+                -webkit-margin-before: 1em;
+                -webkit-margin-after: 1em;
+                -webkit-margin-start: 0px;
+                -webkit-margin-end: 0px;
+                -webkit-padding-start: 40px;
+            }
+            ol {
+                display: block;
+                list-style-type: decimal;
+                -webkit-margin-before: 1em;
+                -webkit-margin-after: 1em;
+                -webkit-margin-start: 0px;
+                -webkit-margin-end: 0px;
+                -webkit-padding-start: 40px;
+            }
+            li {
+                display: list-item;
+                text-align: -webkit-match-parent;
+            }
+        10.dl,dt,dd默认样式：
+            dl {
+                display: block;
+                -webkit-margin-before: 1em;
+                -webkit-margin-after: 1em;
+                -webkit-margin-start: 0px;
+                -webkit-margin-end: 0px;
+            }
+            dt {
+                display: block;
+            }
+            dd {
+                display: block;
+                -webkit-margin-start: 40px;
+            }
+        11.&lt;hr&gt;默认样式：
+            hr {
+                display: block;
+                -webkit-margin-before: 0.5em;
+                -webkit-margin-after: 0.5em;
+                -webkit-margin-start: auto;
+                -webkit-margin-end: auto;
+                border-style: inset;
+                border-width: 1px;
+            }
+        12.&lt;br&gt;默认样式：无
+        13.&lt;mark&gt;默认样式：
+            mark {
+                background-color: yellow;
+                color: black;
+            }
+        <hr/>
+         1.结构化标签的默认样式：
+            article, aside, footer, header, hgroup, main, nav, section {
+                display: block;
+            }
+        2.&lt;time&gt;默认样式：无
+        <hr/>
+        1.行内元素：a,span,br,strong,em,time
+        2.块级元素：div,hr,h1~h6,p,ul,ol,li,dl,dt,dd,header,footer,section,article,nav,aside
+        3.既不是块级也不是行内元素的：img 四要素：src width/height alt title
+        一般兼容问题要加上：
+            img{
+                vertical-align:top;
+                border:none;
+            }
+        <hr/>
+        1.默认有margin的：body,h1~h6,p,dl,dd
+        2.默认有padding的：
+        3.默认有margin和padding的：ul,ol
+    </pre>
+</body>
+</html>

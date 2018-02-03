@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>script标签和访问HTML页面</title>
+    <style>
+        .show{
+            display: block;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <img src="a.jpg" id="img1" class="hide"/>
+    <input type="button" value="Button" id="btn" />
+    <h1 class="header">script标签和访问HTML页面</h1>
+    <script>
+          var btn = document.getElementById('btn');
+          var img1 = document.getElementById('img1');
+       // alert(btn.value);
+       /* var a = {
+            src: 'a.jpg',
+            title: "翻转图像",
+            id: 'img1'
+        }
+          a.src = "b.jpg";*/
+        //img1.onmouseover = onmouseover();
+        function onmouseover(event) {
+            this.src = 'b.jpg';
+            alert(11);
+        }
+
+        //onclick     onmouseover   onmouseout  onmousedown onmouseup   onmousedblckick onload
+
+        /*btn.onmouseover = over;
+        btn.onmouseout = out;
+        function over() {
+            //this.src = "b.jpg";
+            img1.className = "show";
+        }
+        function out(){
+            //this.src = "c.jpg";
+         img1.className = "hide";
+        }*/
+
+       /* window.onload = init();
+        function init(){
+            alert("Loaded");
+        }*/
+
+         /* {
+              tagName: "h1",
+              id: 'header',
+              innerHTML: "script标签和访问HTML页面"
+          }*/
+          /*   tagName,id,innerHTML,className  */
+
+
+    </script>
+</body>
+</html>

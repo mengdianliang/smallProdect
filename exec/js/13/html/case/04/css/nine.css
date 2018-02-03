@@ -1,0 +1,34 @@
+body{
+    background-color: #eeeeee;
+}
+.box{
+    padding: 20px;
+    background-color: rgba(255,255,255,0.4);
+}
+.slide{
+    text-align: center;
+    padding-bottom: 10px;
+}
+.slide a{
+    display: inline-block;
+    line-height: 36px;
+    padding: 0 20px;
+    background-color: #2d3237;
+    color: #ffffff;
+    font-size: 16px;
+}
+.slide a.active,.slide a:hover{
+    background-color: #cfcfcf;
+}
+.item li a{
+    float: left;
+    width: 100px;
+    height: 40px;
+    background-color: #fec900;
+    margin-top: 1px;
+    margin-right: 1px;
+    color: #ffffff;
+    text-indent: 20px;
+    line-height: 40px;
+    font-size: 16px;
+}

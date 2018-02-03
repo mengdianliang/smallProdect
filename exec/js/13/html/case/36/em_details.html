@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>招聘网详情页</title>
+    <style>
+        body{
+            margin: 0;
+            font-size: 12px;
+            color: #ffffff;
+            font-family: 'MICROSOFT YAHEI';
+        }
+        h3,h4{
+            margin: 0;
+            font-weight: normal;
+        }
+        p{
+            margin: 0;
+        }
+        a{
+            text-decoration: none;
+            color: #ffffff;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        .clearfix{
+            *zoom: 1;
+        }
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .wrap{
+            width: 960px;
+            margin: 0 auto;
+            border-radius: 10px;
+            padding: 20px 20px 40px;
+            background-color: #20242D;
+        }
+        .tit{
+            line-height: 100px;
+            font-size: 30px;
+        }
+        .tools{
+            padding: 35px 0;
+            font-size: 16px;
+            line-height: 30px;
+        }
+        .pass{
+            margin-left: 20px;
+            padding: 0 20px;
+            border-radius: 15px;
+            border: 1px solid #ff2020;
+            color: #ff2020;
+            line-height: 28px;
+            text-align: center;
+        }
+        .pos{
+            font-size: 24px;
+            line-height: 40px;
+        }
+        .need_item{
+            line-height: 20px;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+        .time{
+            color: #dddddd;
+        }
+        .task_need,.technology{
+            padding-top: 20px;
+        }
+        .task_tit,.tech_tit{
+            font-size: 16px;
+            line-height: 30px;
+        }
+        .task_list li,.tech_txt{
+            color: #dddddd;
+            font-size: 14px;
+            line-height: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="header clearfix">
+        <h3 class="tit fl">招聘网详情页</h3>
+        <div class="tools fr">
+            <a href="em_index.html" class="fl his_back">&lt;返回招聘列表</a>
+            <a href="javascript:void(0);" class="pass fl">投个简历</a>
+        </div>
+    </div>
+
+    <div class="main">
+        <!--<h4 class="pos clearfix">
+            <span class="position fl">前端工程师</span>
+            <span class="em_type fl">【社会招聘】</span>
+        </h4>
+        <div class="needs_wrapper clearfix">
+            <div class="needs fl">
+                <span class="need_item fl">面议&nbsp;/</span>
+                <span class="need_item fl">上海&nbsp;/</span>
+                <span class="need_item fl">3年以上&nbsp;/</span>
+                <span class="need_item fl">本科及以上&nbsp;/</span>
+                <span class="need_item fl">3名</span>
+            </div>
+            <div class="time fr">2013-07-14</div>
+        </div>
+        <div class="task_need">
+            <h3 class="task_tit">岗位要求：</h3>
+            <ul class="task_list">
+                <li>1.计算机或相关专业本科以上学历；</li>
+                <li>2.从事软件测试工作3年以上；</li>
+                <li>3.具备良好的沟通能力和快速学习能力；</li>
+                <li>4.精通测试策略和方法、测试用例方法；</li>
+                <li>5.熟悉DB2、AIX等平台的基本操作；</li>
+                <li>6.具备两年以上金融IT行业经验，特别是有金融行业相关业务的测试或者开发工作经验者优先。</li>
+            </ul>
+        </div>
+        <div class="technology">
+            <h4 class="tech_tit">工作职责：</h4>
+            <p class="tech_txt">从事计算机软件测试工作。</p>
+        </div>-->
+    </div>
+</div>
+</body>
+<script src="js/dataList.js"></script>
+<script src="js/MTween.js"></script>
+<script>
+    window.onload = function(){
+        var data = dataList;
+        var jsonData = searchToJson(window.location.search);
+        console.log(jsonData);
+
+        init();
+
+        //代码初始化
+        function init(){
+            initVal();
+            hisBack();
+        }
+
+        //内容初始化
+        function initVal(){
+            for(var i = 0;i < data.em_list.length;i++){
+                if(data.em_list[i].type==jsonData.type && data.em_list[i].id==jsonData.id){
+                    /*<h4 class="pos clearfix">
+                            <span class="position fl">前端工程师</span>
+                    <span class="em_type fl">【社会招聘】</span>
+                    </h4>
+                    <div class="needs_wrapper clearfix">
+                            <div class="needs fl">
+                            <span class="need_item fl">面议&nbsp;/</span>
+                    <span class="need_item fl">上海&nbsp;/</span>
+                    <span class="need_item fl">3年以上&nbsp;/</span>
+                    <span class="need_item fl">本科及以上&nbsp;/</span>
+                    <span class="need_item fl">3名</span>
+                    </div>
+                    <div class="time fr">2013-07-14</div>
+                    </div>
+                    <div class="task_need">
+                            <h3 class="task_tit">岗位要求：</h3>
+                    <ul class="task_list">
+                            <li>1.计算机或相关专业本科以上学历；</li>
+                    <li>2.从事软件测试工作3年以上；</li>
+                    <li>3.具备良好的沟通能力和快速学习能力；</li>
+                    <li>4.精通测试策略和方法、测试用例方法；</li>
+                    <li>5.熟悉DB2、AIX等平台的基本操作；</li>
+                    <li>6.具备两年以上金融IT行业经验，特别是有金融行业相关业务的测试或者开发工作经验者优先。</li>
+                    </ul>
+                    </div>
+                    <div class="technology">
+                            <h4 class="tech_tit">工作职责：</h4>
+                    <p class="tech_txt">从事计算机软件测试工作。</p>
+                    </div>*/
+                   var span1 = document.createElement('span');
+                    span1.className = 'position fl';
+                    span1.innerHTML = data.em_list[i].position;
+                    var span2 = document.createElement('span');
+                    span2.className = 'em_type fl';
+                    span2.innerHTML = data.em_list[i].posType;
+                    var h4 = document.createElement('h4');
+                    h4.className = 'pos clearfix';
+                    h4.appendChild(span1);
+                    h4.appendChild(span2);
+
+                    var span3 = document.createElement('span');
+                    span3.className = 'need_item fl';
+                    span3.innerHTML = data.em_list[i].pay +'&nbsp;/&nbsp;';
+                    var span4 = document.createElement('span');
+                    span4.className = 'need_item fl';
+                    span4.innerHTML = data.em_list[i].place +'&nbsp;/&nbsp;';
+                    var span5 = document.createElement('span');
+                    span5.className = 'need_item fl';
+                    span5.innerHTML = data.em_list[i].background +'&nbsp;/&nbsp;';
+                    var span6 = document.createElement('span');
+                    span6.className = 'need_item fl';
+                    span6.innerHTML = data.em_list[i].education +'&nbsp;/&nbsp;';
+                    var span7 = document.createElement('span');
+                    span7.className = 'need_item fl';
+                    span7.innerHTML = data.em_list[i].needNum;
+                    var div1 = document.createElement('div');
+                    div1.className = 'needs fl';
+                    div1.appendChild(span3);
+                    div1.appendChild(span4);
+                    div1.appendChild(span5);
+                    div1.appendChild(span6);
+                    div1.appendChild(span7);
+                    var div2 = document.createElement('div');
+                    div2.className = 'time fr';
+                    div2.innerHTML = data.em_list[i].time;
+                    var div3 = document.createElement('div');
+                    div3.className = 'needs_wrapper clearfix';
+                    div3.appendChild(div1);
+                    div3.appendChild(div2);
+                    console.log(div1,div2,div3);
+
+                    var h5 = document.createElement('h4');
+                    h5.className = 'task_tit';
+                    h5.innerHTML = '岗位要求：';
+                    var ul = document.createElement('ul');
+                    ul.className = 'task_list';
+                    for(var j = 0;j < data.em_list[i].taskNeed.length;j++){
+                        var li = document.createElement('li');
+                        li.innerHTML = data.em_list[i].taskNeed[j];
+                        ul.appendChild(li);
+                    }
+                    var div4 = document.createElement('div');
+                    div4.className = 'task_need';
+                    div4.appendChild(h5);
+                    div4.appendChild(ul);
+
+
+                    var h6 = document.createElement('h4');
+                    h6.className = 'tech_tit';
+                    h6.innerHTML = '工作职责：';
+                    var p = document.createElement('p');
+                    p.className = 'tech_txt';
+                    p.innerHTML = data.em_list[i].technology;
+                    var div5 = document.createElement('div');
+                    div5.className = 'technology';
+                    div5.appendChild(h6);
+                    div5.appendChild(p);
+
+                    var main = $('.main')[0];
+                    main.appendChild(h4);
+                    main.appendChild(div3);
+                    main.appendChild(div4);
+                    main.appendChild(div5);
+                }
+            }
+        }
+        //返回首页
+        function hisBack(){
+            var aLink = $('.his_back')[0];
+            aLink.href += '?type=' + jsonData.type;
+        }
+        //获取元素方法的重写
+        function $(element,obj){
+            if(obj == null){
+                return document.querySelectorAll(element);
+            }else{
+                return obj.querySelectorAll(element);
+            }
+        }
+    };
+</script>
+</html>

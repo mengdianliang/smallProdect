@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>事件捕获</title>
+    <style>
+        #oDiv{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+        }
+        #para{
+            height: 20px;
+            background-color: yellow;
+        }
+    </style>
+    <!--
+        事件绑定函数：
+        W3C  DOM：
+            obj.addEventListener(evtType,fn,useCapture) : obj是添加事件的对象；evtType事件类型，不带on前缀；fn是事件处理函数；
+                                                        如果userCapture是true，则事件处理函数在捕获阶段被执行，否则在冒泡阶段被执行。
+            obj.removeEventListener(evtType,fn,useCapture)
+        IE方法：
+            obj.attachEvent(evtype,fn) : evtype带on前缀，IE不支持事件捕获
+            obj.detachEvent(evtype,fn)
+    -->
+</head>
+<body>
+    <script>
+        window.onload = function() {
+            var oDiv = document.getElementById("oDiv");
+            var para = document.getElementById("para");
+
+            document.addEventListener('click',function(evt) {
+                evt = fixEvt(evt);
+                alert("document:" + evt.target.tagName);
+            },false);
+            oDiv.addEventListener('click',function(evt) {
+                evt = fixEvt(evt);
+                alert("div:" + evt.target.tagName);
+            },false);
+            para.addEventListener('click',function(evt) {
+                evt = fixEvt(evt);
+                alert("p:" + evt.target.tagName);
+                //停止事件流
+                evt.stopPropagation();
+            },false);
+            function fixEvt(evt){
+                evt = evt || window.event;
+                if(!evt.target) { //IE
+                    evt.target = evt.srcElement;
+                    evt.layerX = evt.offsetX;
+                    evt.layerY = evt.offsetY;
+                    evt.stopPropagation = function() {
+                        this.cancelBubble = true;
+                    };
+                }
+                return evt;
+            }
+        };
+    </script>
+    <div id="oDiv">oDiv
+        <p id="para">P</p>
+    </div>
+</body>
+</html>

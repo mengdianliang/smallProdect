@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+<script>
+    /*
+     this:
+     window
+     事件触发元素
+     对象
+     undefined
+     父级
+     写啥是啥
+
+     只要在函数中，有可能被修改
+
+     先看是函数还是方法，如果是方法，那么this基本上是寄主。
+     如果是函数，那么基本上是window
+
+     */
+
+    // function fn(){
+    //     console.log(this);
+    // }
+    //fn(); //window
+
+    // document.onclick = function(){
+    //     // console.log(this); document
+
+    //     // function fn(){
+    //     //     console.log(this); //window
+    //     // }
+    //     // fn();
+
+    //     (function(){
+    //         console.log(this);  //window
+    //     })();
+    // }
+
+    // document.onclick = (function(){
+    //     console.log(this); //window
+    //     return function(){
+    //         console.log(this);//document
+    //     }
+    // })();
+
+     /*document.onclick = fn(); //window
+     function fn(){
+         console.log(this);
+     }*/
+
+    /* document.onclick = new fn();
+    function fn(){
+        console.log(this); //fn{}
+     }*/
+
+    /* document.onclick = function(){
+         function fn1(){
+             console.log(this); //fn1{}
+             return function(){
+                 console.log(this); //{}
+
+             }
+         }
+         new new fn1; //函数才能new
+     };*/
+
+    // document.onclick = function(){
+    //     function fn1(){
+    //         return function(){
+    //            setTimeout(function(){
+    //              console.log(this); //window
+    //            });
+    //         }
+    //     }
+    //     new new fn1;
+    // }
+
+    //     var arr = [];
+    //     arr.fn = function(){
+    //         function fn1(){
+    //             return function(){
+    //                 console.log(this); //{}
+    //             }
+    //         }
+    //         new new fn1;
+    //     }
+    //    new arr.fn;
+
+    var obj = {
+        name:'nizp',
+        fn:function(){
+            //console.log(this.name); // C
+        }
+    };
+    setTimeout(obj.fn,1000);
+
+    //console.dir(window);
+
+    /*
+     A:nizp  B:undefined C:'' D:null  E:报错
+     */
+
+
+</script>
+</html>

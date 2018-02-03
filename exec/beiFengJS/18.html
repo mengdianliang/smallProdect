@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>事件</title>
+    <!--
+        鼠标事件和键盘事件：
+        onclick    ondblclick   onmousedown     onmouseup   onmouseover     onmousemove
+        onmouseout  onkeypress  onkeydown   onkeyup
+        页面相关事件：
+            onabort(图片下载时被用户中断)
+            onbeforeunload(当页面内容将要被改变时触发此事件)
+            onerror(出现错误时触发此事件)
+            onload
+            onmove(浏览器窗口被移动时触发此事件)
+            onresize
+            onscroll
+            onstop(浏览器的停止按钮被按下时触发此事件或者正在被下载的文件被中断)
+            oncontextmenu(当弹出右键上下文菜单时)
+            onunload(当页面将被改变时)
+        表单相关事件：
+            onblur  onchange  onfocus onreset onsubmit
+    -->
+    <style>
+        .small{
+            width: 100px;
+            height: 100px;
+            border: 2px solid blue;
+            background-color: pink;
+        }
+        .big{
+            width: 200px;
+            height: 200px;
+            border: 2px solid green;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="oDiv" class="small"></div>
+    <script>
+            window.onload = function(){
+               /*function addEvent(obj,evt,fn){
+                    //给某个对象添加多个事件监听函数
+                    var saved;
+                    if(typeof obj["on" + evt] == "function"){
+                        //第一步，检测是否已经注册过事件监听函数
+                        saved = obj["on" + evt];
+                    }
+                    //需要删除指定函数，必须先要保存指定函数（保存到一个数组）
+                   //该该函数加个id
+                    obj["on" + evt] = function(){
+                        if(saved) saved.call(this);
+                        //if(fn.flag !== false)
+                         fn.call(this);
+                    };
+                }*/
+
+               function addEvent(obj,evt,fn){
+                   if(!obj.functions) obj.functions = {};
+                   if(!obj.functions[evt]) {
+                       obj.functions[evt] = [];
+                   }
+                   var functions = obj.functions[evt];
+                    for(var i = 0;i < functions.length;i++){
+                        if(functions[i] === fn) return obj;
+                    }
+                    functions.push(fn);
+                   fn.index = functions.length - 1;
+
+                    if(typeof obj["on" + evt] == "function") {
+                        if(obj["on" + evt].toString() != handler.toString()){
+                            functions.push(obj["on" + evt]);
+                        }
+                    }
+                    obj["on" + evt] = handler;
+                   function handler() {
+                       var functions = this.functions[evt];
+                       for(var i = 0;i < functions.length;i++){
+                           if(functions[i]) functions[i].call(this);
+                       }
+                   }
+                }
+
+                function delEvent(obj,evt,fn){
+                    var fns = obj.functions;
+                    if(fns != null){
+                        fns = fns[evt];
+                        if(fns != null){
+                            for(var i= 0;i < fns.length;i++){
+                                if(fns[i] == fn){
+                                    delete fns[i];
+                                }
+                            }
+                        }
+                    }
+                    return obj;
+                }
+                var oDiv = document.getElementById("oDiv");
+                /*oDiv.onclick = function(){
+                    toBig.call(this);
+                };*/
+                /*var saved;
+                if(typeof window.onload == "function"){
+                    saved = window.onload;//上一个人被注册的window.onload函数被保存
+                }
+                window.onload = function(){
+                    if(saved) saved();
+                };*/
+                addEvent(oDiv,"click",toBig);
+                delEvent(oDiv,"click",toBig);
+                /*问题一： 每个事件只能注册一个函数
+                * 解决方案一：oDiv.onclick = function(){ };
+                * 缺陷一：需要将所有函数一次添加进去，不能在运行时添加
+                * 缺陷二：在事件处理函数中this指向window，而不是obj
+                * 解决方案二：
+                *
+                * */
+                function toBig(){
+                    this.className = "big";
+                    addEvent(this,"click",toSmall);
+
+                }
+                function toSmall(){
+                    this.className = "small";
+                    addEvent(this,"click",toBig);
+
+                }
+            };
+    </script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+body{
+    margin: 0;
+    font-size: 12px;
+    font-family: '宋体';
+    color: #3a3a3a;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+h3{
+    margin: 0;
+}
+img{
+    vertical-align: top;
+    border: none;
+}
+a{
+    text-decoration: none;
+    color: #3a3a3a;
+}
+i{
+    font-style: normal;
+}
+.clearfix{
+    *zoom: 1;
+}
+.clearfix:after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.wrapper{
+    width:969px;
+    margin: 20px auto 0;
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+}
+.item{
+    width: 140px;
+    border: 1px solid #dddddd;
+    border-top: 3px solid #abe27d;
+    float: left;
+    margin-right: -1px;
+    padding: 0 11px 0 10px;
+}
+.item:first-child{
+    border-left: none;
+}
+.item:last-child{
+    border-right: none;
+    padding: 0 10px 0 9px;
+}
+.tit{
+    height:30px;
+}
+.tit a{
+    padding-top: 13px;
+    display: block;
+    width:100%;
+    font-size: 16px;
+    text-align: center;
+    line-height: 16px;
+    font-family: "黑体";
+}
+.item:nth-child(1) .tit a{
+    color: #abe27d;
+}
+.item:nth-child(2){
+    border-top: 3px solid #e189bc;
+}
+.item:nth-child(2) .tit a{
+    color: #e189bc;
+}
+.item:nth-child(3){
+    border-top: 3px solid #a6a6a6;
+}
+.item:nth-child(3) .tit a{
+    color: #a6a6a6;
+}
+.item:nth-child(4){
+    border-top: 3px solid #7fbfda;
+}
+.item:nth-child(4) .tit a{
+    color: #7fbfda;
+}
+.item:nth-child(5){
+    border-top: 3px solid #e18786;
+}
+.item:nth-child(5) .tit a{
+    color: #e18786;
+}
+.item:nth-child(6){
+    border-top: 3px solid #e5cc6f;
+}
+.item:nth-child(6) .tit a{
+    color: #e5cc6f;
+}
+.con li{
+    margin-top: 11px
+}
+.con .img_bd{
+    display: block;
+    border: 1px solid #dddddd;
+    padding: 1px;
+}
+.img_bd img{
+    width:136px;
+}
+.txt_area{
+    display: block;
+    padding-top:5px;
+}
+.txt{
+    float: left;
+    font-size: 14px;
+    line-height: 14px;
+}
+.num{
+    font-size: 12px;
+    line-height: 12px;
+    margin-top: 2px;
+    color:#aaaaaa;
+}
+.txt_area img{
+    width: 8px;
+    float: right;
+    margin-top: 2px;
+}
+.footer{
+    margin-top: 15px;
+    border-top: 1px dashed #dddddd;
+    padding: 11px 0 7px;
+}
+.footer li{
+    height:46px;
+}
+.footer li a{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.tit_link,.txt_link{
+    display: block;
+}
+.tit_link{
+    line-height:24px;
+    font-size: 14px;
+}
+.txt_link{
+    line-height: 20px;
+    color: #aaaaaa;
+ }
+

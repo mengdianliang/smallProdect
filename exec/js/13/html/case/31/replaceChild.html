@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>replaceChild方法</title>
+</head>
+<body>
+    <p>你喜欢哪个城市？</p>
+    <ul id="city">
+        <li id="bj">北京</li>
+        <li>上海</li>
+        <li>东京</li>
+        <li>首尔</li>
+    </ul>
+    <br/><br/>
+    <p>你喜欢哪款游戏？</p>
+    <ul id="game">
+        <li id="wz">王者</li>
+        <li>英雄联盟</li>
+        <li>问道</li>
+        <li>西游</li>
+    </ul>
+</body>
+<script>
+    window.onload = function(){
+
+        /*
+        * 这里互换节点，互换事件，互换下标
+        * */
+        var liNodes = document.getElementsByTagName('li');
+        for(var i = 0;i < liNodes.length;i++){
+            liNodes[i].index = i;
+            liNodes[i].onclick = function(){
+                var targetIndex = 0;
+                if(this.index < 4){
+                    targetIndex = this.index + 4;
+                }else{
+                    targetIndex = this.index - 4;
+                }
+
+                var tempIndex = this.index;
+                this.index = liNodes[targetIndex].index;   //互换索引
+                liNodes[targetIndex].index = tempIndex;
+
+                replaceEach(this,liNodes[targetIndex]);
+            };
+        }
+
+        function replaceEach(aNode,bNode){
+            if(aNode == bNode){
+                return;
+            }
+
+            var aParentNode = aNode.parentNode;       //获取aNode的父节点
+            if(aParentNode){
+                var bParentNode = bNode.parentNode;   //获取bNode的父节点
+                if(bParentNode){
+                    var tempNode = aNode.cloneNode(true);  //克隆aNode
+                    tempNode.onclick = aNode.onclick;      //交换点击事件
+                    tempNode.index = aNode.index;         //交换索引
+                    bParentNode.replaceChild(tempNode,bNode);
+                    aParentNode.replaceChild(bNode,aNode);
+                }
+
+
+            }
+        }
+    };
+</script>
+</html>

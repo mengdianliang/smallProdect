@@ -1,0 +1,2360 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>优酷娱乐</title>
+		<link rel="stylesheet" href="../css/reset.css" />
+		<!-- 工具样式 -->
+		<link rel="stylesheet" href="../css/tools.css" />
+		<!-- 全局样式 -->
+		<link rel="stylesheet" href="../css/global.css" />
+		<!-- 对应同名html文件样式 -->
+		<link rel="stylesheet" href="../css/entertainment.css" />
+		<!-- 处理兼容性样式 -->
+		<!--[if gte IE 6]> 
+			<link rel="stylesheet" href="../style/fixIE.style" />
+			<!--处理PNG24问题-->
+			<script src="../js/DD_belatedPNG_0.0.8a.js"></script>
+			<script>
+				DD_belatedPNG.fix('.icon,.icon_movie');
+			</script>
+		<![endif]-->
+		<!--处理HTML5标签兼容性-->
+		<script src="../js/html5shiv.min.js"></script>
+	</head>
+	<body class="entertainment">
+		<section class="wrapper">
+			<header class="header">
+				<div class="h_top_wrapper">
+					<div class="h_top clearfix">
+						<h1 class="h_tit fl">
+							<a href="#">youku</a>
+						</h1>
+						<div class="guider fl">
+							<div class="guider_tit">
+								<span class="dir icon"></span>
+								<span class="guider_tit_txt">导视</span>
+							</div>
+							<div class="guider_info">
+								<div class="guider_info_con">
+									<dl>
+										<dt class="guider_info_kinds">频道精选</dt>
+										<dd>
+											<a href="#">剧集</a>
+										</dd>
+										<dd>
+											<a href="#">电影</a>
+										</dd>
+										<dd>
+											<a href="#">综艺</a>
+										</dd>
+										<dd>
+											<a href="#">音乐</a>
+										</dd>
+										<dd>
+											<a href="#">少儿</a>
+										</dd>
+										<dd>
+											<a href="#">动漫</a>
+										</dd>
+										<dd>
+											<a href="#">直播</a>
+										</dd>
+										<dd>
+											<a href="#">会员</a>
+										</dd>
+										<dd>
+											<a href="#">片库</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt class="guider_info_kinds">产品大全</dt>
+										<dd>
+											<a href="#">优酷星球</a>
+										</dd>
+										<dd>
+											<a href="#">话题</a>
+										</dd>
+										<dd>
+											<a href="#">众筹</a>
+										</dd>
+										<dd>
+											<a href="#">玩游戏</a>
+										</dd>
+										<dd>
+											<a href="#">来疯直播</a>
+										</dd>
+										<dd>
+											<a href="#">更多&gt;&gt;</a>
+										</dd>
+									</dl>
+									<dl>
+										<dt class="guider_info_kinds">客户端</dt>
+										<dd>
+											<a href="#">移动APP</a>
+										</dd>
+										<dd>
+											<a href="#">PC客户端</a>
+										</dd>
+										<dd>
+											<a href="#">小小优酷</a>
+										</dd>
+										<dd>
+											<a href="#">优酷VR</a>
+										</dd>
+										<dd>
+											<a href="#">来疯APP</a>
+										</dd>
+									</dl>
+								</div>
+								<div class="pos_arrow"></div>
+							</div>
+						</div>
+						<nav class="h_top_nav fl">
+							<a href="#">首页</a>
+							<a href="#">发现</a>
+							<a href="#">订阅</a>
+							<a href="#">会员</a>
+							<a href="#">我的</a>
+						</nav>
+						<div class="h_tools fl">
+							<div class="h_tools_user fl">
+								<a href="#">登录</a>
+								<a href="#">注册</a>
+							</div>
+							<div class="h_tools_other fl">
+								<span class="h_tools_other_item fl">
+									<a href="#">
+										<span class="h_tools_other_bg area_time icon fl">时区</span>
+										<span class="trangle_down angle_margin fl"></span>
+									</a>
+									<span class="h_tools_other_item_abs">
+										<span class="h_tools_other_item_abs_inner">
+											<span class="h_tools_other_item_abs_info">
+												<span class="h_tools_other_item_abs_info_top">
+													<span class="admin_btn">登录</span>
+													同步各端记录
+												</span>
+												<span class="h_tools_other_item_abs_info_btm">您在是还没有观看记录呦~</span>
+											</span>
+											<span class="arrow_abs"></span>
+										</span>
+									</span>
+								</span>
+								<span class="h_tools_other_item fl">
+									<a href="#">
+										<span class="h_tools_other_bg email icon fl">邮箱</span>
+										<span class="trangle_down angle_margin fl"></span>
+									</a>
+								</span>
+								<span class="h_tools_other_item fl">
+									<a href="#">
+										<span class="h_tools_other_bg upload icon fl">上传</span>
+										<span class="trangle_down angle_margin fl"></span>
+									</a>
+									<span class="h_tools_other_item_abs">
+										<span class="h_tools_other_item_abs_inner">
+											<span class="h_tools_other_item_abs_info">
+												<span class="h_tools_other_item_abs_info_top">
+													<a href=="#" class="h_tools_other_item_abs_info_item">
+														<span class="h_tools_other_item_abs_info_item_bg"></span>
+														<span class="h_tools_other_item_abs_info_item_txt">上传视频</span>
+													</a>
+													<a href="#" class="h_tools_other_item_abs_info_item">
+														<span class="h_tools_other_item_abs_info_item_bg"></span>
+														<span class="h_tools_other_item_abs_info_item_txt">视频管理</span>
+													</a>
+													<a href="#" class="h_tools_other_item_abs_info_item">
+														<span class="h_tools_other_item_abs_info_item_bg"></span>
+														<span class="h_tools_other_item_abs_info_item_txt">我的自频道</span>
+													</a>
+													<a href="#" class="h_tools_other_item_abs_info_item">
+														<span class="h_tools_other_item_abs_info_item_bg"></span>
+														<span class="h_tools_other_item_abs_info_item_txt">数据分析</span>
+													</a>
+												</span>
+												<a href="#" class="h_tools_other_item_abs_info_mid">
+													<span class="fish icon"></span>
+													<span class="h_tools_other_item_abs_info_mid_txt">大鱼号 一站式创作服务平台</span>
+													<span class="h_tools_other_item_abs_info_mid_cli">日即入住</span>
+												</a>
+												<span href="#" class="h_tools_other_item_abs_info_btm">
+													<span class="fish icon"></span>
+													<span class="h_tools_other_item_abs_info_btm_txt">下载PC客户端，上传视频更轻松！</span>
+													<a href="#" class="h_tools_other_item_abs_info_btm_cli">
+														<span class="download"></span>
+														<span class="h_tools_other_item_abs_info_btm_cli_txt">立即下载</span>
+													</a>
+												</span>
+											</span>
+											<span class="arrow_abs"></span>
+										</span>
+									</span>
+								</span>	
+							</div>
+						</div>
+						<div class="h_select fr">
+							<form action="" method="get" class="h_select_l fl">
+								<span class="h_select_bg_bf icon fl"></span>
+								<input type="text" name="select" id="select" value="脑大洞开" class="fl"/>
+								<span class="h_select_bg_af icon fl"></span>
+							</form>
+							<div class="h_select_r fl">
+								<a href="#">搜库</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="h_bottom_wrapper">
+					<div class="h_bottom clearfix">
+						<nav class="h_bottom_nav_wrapper fl">
+							<div class="h_bottom_nav fl">
+								<a href="#">首页</a>
+								<a href="#">剧集</a>
+								<a href="#">电影</a>
+								<a href="#">综艺</a>
+								<a href="#">音乐</a>
+								<a href="#">少儿</a>
+								<a href="#">来疯</a>
+								<a href="#">直播</a>
+								<a href="#">片库</a>
+								<a href="#">资讯</a>
+								<a href="#">纪实</a>
+								<a href="#">公益</a>
+								<a href="#">体育</a>
+								<a href="#">汽车</a>
+								<a href="#">科技</a>
+								<a href="#">财经</a>
+								<a href="#" class="active">娱乐</a>
+								<a href="#">文化</a>
+								<a href="#">动漫</a>
+								<a href="#">搞笑</a>
+								<a href="#">旅游</a>
+							</div>
+							<div class="more fl">
+								<a href="#" class="clearfix">
+									<span class="more_txt fl">更多</span>
+									<span class="trangle_down more_down fl"></span>
+								</a>
+								<span class="more_links">
+									<span class="more_links_list">
+										<a href="#">时尚</a>
+										<a href="#">亲子</a>
+										<a href="#">教育</a>
+										<a href="#">游戏</a>
+										<a href="#">VR</a>
+										<a href="#">生活</a>
+										<a href="#">原创</a>
+										<a href="#">排行</a>
+									</span>
+								</span>
+							</div>
+						</nav>
+						<div class="h_btn fr">
+							<a href="#">下载</a>
+							<span class="h_btn_info_wrapper">
+								<span class="h_btn_info">
+									<span class="h_btn_info_con">
+										<img src="" title="优酷移动APP" alt="优酷移动APP"/>
+										<a href="#" class="h_btn_info_tit">优酷移动APP</a>
+										<span class="h_btn_info_desc">轻松扫一扫，精彩随时看</span>
+										<a href="#" class="h_btn_info_cli">了解详情</a>
+									</span>
+									<span class="h_btn_info_con">
+										<img src="" title="优酷客户端" alt="优酷客户端"/>
+										<a href="#" class="h_btn_info_tit"></a>
+										<span class="h_btn_info_desc">优酷移动APP</span>
+										<a href="#" class="h_btn_info_cli">了解详情</a>
+									</span>
+								</span>	
+								<span class="pos_arrow"></span>
+							</span>
+						</div>	
+					</div>
+				</div>
+			</header>
+			<section class="main">
+				<div class="main_model">
+					<nav class="nav_film clearfix">
+						<div class="nav_film_l fl">
+							<a href="#" class="active">娱乐频道</a>
+							<a href="#">独家八卦</a>
+							<a href="#">娱乐要闻</a>
+							<a href="#">拍客爆料</a>
+							<a href="#">娱乐大事件</a>
+							<a href="#">明星资讯</a>
+							<a href="#">影视资讯</a>
+							<a href="#">音乐资讯</a>
+							<a href="#">全部娱乐</a>
+							<a href="#">绿色嘉年华</a>
+						</div>
+						<div class="nav_film_r fr">
+							<a href="">
+								<img src="../img/entertainment/nav_bg.jpg" title="广告" alt="广告"/>
+							</a>
+						</div>
+					</nav>
+					<section class="banner_area clearfix">
+						<div class="banner_area_l fl">
+							<ul class="banner_area_l_list clearfix">
+								<li class="fl">
+									<a href="#">
+										<img src="../img/entertainment/zhaoliying.jpg" title="赵丽颖" alt="赵丽颖"/>
+										<span class="banner_area_l_desc">赵丽颖素颜露逆天铅笔腿 新短发造型超减龄</span>
+									</a>
+								</li>
+							</ul>
+							<ul class="link_point clearfix">
+								<li class="fl">
+									<a href="#" class="active"></a>
+								</li>
+								<li class="fl">
+									<a href="#"></a>
+								</li>
+								<li class="fl">
+									<a href="#"></a>
+								</li>
+								<li class="fl">
+									<a href="#"></a>
+								</li>
+								<li class="fl">
+									<a href="#"></a>
+								</li>
+								<li class="fl">
+									<a href="#"></a>
+								</li>
+							</ul>
+						</div>
+						<div class="banner_area_r fr">
+							<h3 class="h_title">
+								<a href="#">热播新闻</a>
+							</h3>
+							<div class="banner_area_r_con">
+								<ul class="banner_area_r_list">
+									<li class="clearfix">
+										<a href="#" class="fl">
+											<img src="../img/entertainment/qinkaihezi.jpg" title="秦凯何姿" alt="秦凯何姿"/>
+										</a>
+										<span class="pic_desc_r fl">
+											<a href="#" class="pic_desc_tit">秦凯何姿中式婚礼温馨甜蜜</a>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">3.9万</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">0</span>
+												</span>
+											</span>
+										</span>
+									</li>
+									<li class="clearfix">
+										<a href="#" class="fl">
+											<img src="../img/entertainment/huangxiaoming.jpg" title="黄晓明" alt="黄晓明"/>
+										</a>
+										<span class="pic_desc_r fl">
+											<a href="#" class="pic_desc_tit">暖心！黄晓明捐30万救灾</a>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">25.7万</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">563</span>
+												</span>
+											</span>
+										</span>
+									</li>
+									<li class="clearfix">
+										<a href="#" class="fl">
+											<img src="../img/entertainment/doudeer.jpg" title="豆得儿" alt="豆得儿"/>
+										</a>
+										<span class="pic_desc_r fl">
+											<a href="#" class="pic_desc_tit">豆得儿当街索吻王思聪被拒</a>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">14.4万</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">60</span>
+												</span>
+											</span>
+										</span>
+									</li>
+									<li class="clearfix">
+										<a href="#" class="fl">
+											<img src="../img/entertainment/huangzitao.jpg" title="黄子韬" alt="黄子韬"/>
+										</a>
+										<span class="pic_desc_r fl">
+											<a href="#" class="pic_desc_tit">黄子韬喊话鹿晗：知道你很</a>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">22.7万</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">0</span>
+												</span>
+											</span>
+										</span>
+									</li>
+									<li class="clearfix">
+										<a href="#" class="fl">
+											<img src="../img/entertainment/zhao.jpg" title="赵丽颖" alt="赵丽颖"/>
+										</a>
+										<span class="pic_desc_r fl">
+											<a href="#" class="pic_desc_tit">赵丽颖衬衣短裙秀美腿</a>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">3.1万</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">5</span>
+												</span>
+											</span>
+										</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+					<section class="hot content clearfix">
+						<div class="content_l fl">
+							<header class="content_l_header clearfix">
+								<h3 class="content_l_header_tit fl">
+									<a href="#">娱乐要闻</a>
+								</h3>
+								<div class="yule_img fr">
+									<a href="#">
+										<img src="../img/entertainment/quanyule_img.jpg" title="优酷全娱乐" alt="优酷全娱乐"/>
+									</a>
+								</div>
+							</header>
+							<section class="content_l_info">
+								<ul class="content_l_list clearfix add_plus">
+									<li class="fl">
+										<div class="kind_top clearfix">
+											<a href="#" class="kind_topic fl">
+												<span class="kind_topic_bg youku_s"></span>
+												<span class="kind_topic_txt">优酷娱乐</span>
+											</a>
+											<span class="book_num fr">140.0万订阅</span>
+										</div>
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/tianxin.jpg" title="甜馨" alt="甜馨"/>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">甜心化身灵魂舞者秀舞技</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">1.0万</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">1</span>
+												</span>
+											</span>
+										</div>
+									</li>
+									<li class="fl">
+										<div class="kind_top clearfix">
+											<a href="#" class="kind_topic fl">
+												<span class="kind_topic_bg youku_all_s"></span>
+												<span class="kind_topic_txt">优酷全娱乐</span>
+											</a>
+											<span class="book_num fr">96.0万订阅</span>
+										</div>
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/yanji.jpg" title="演技" alt="演技"/>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">演技？成龙现场告诫杨幂</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">2.4万</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">0</span>
+												</span>
+											</span>
+										</div>
+									</li>
+									<li class="fl">
+										<div class="kind_top clearfix">
+											<a href="#" class="kind_topic fl">
+												<span class="kind_topic_bg youku_all_s"></span>
+												<span class="kind_topic_txt">优酷全娱乐</span>
+											</a>
+											<span class="book_num fr">96.0万订阅</span>
+										</div>
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/zhengshuang.jpg" title="郑爽" alt="郑爽"/>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">郑爽坐男神后座手放哪儿？</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">10.3万</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">0</span>
+												</span>
+											</span>
+										</div>
+									</li>
+									<li class="fl">
+										<div class="kind_top clearfix">
+											<a href="#" class="kind_topic fl">
+												<span class="kind_topic_bg xixi_s"></span>
+												<span class="kind_topic_txt">嘻嘻娱乐</span>
+											</a>
+											<span class="book_num fr">10.2万订阅</span>
+										</div>
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/huangxuan.jpg" title="黄轩" alt="黄轩"/>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">黄轩被疯狂粉丝逼到角落</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">383</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">0</span>
+												</span>
+											</span>
+										</div>
+									</li>
+									<li class="fl">
+										<div class="kind_top clearfix">
+											<a href="#" class="kind_topic fl">
+												<span class="kind_topic_bg youku_all_s"></span>
+												<span class="kind_topic_txt">优酷全娱乐</span>
+											</a>
+											<span class="book_num">96.0万订阅</span>
+										</div>
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/linxinru.jpg" title="林心如" alt="林心如"/>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">林心如曝婚后夫妻异地</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">2.3万</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">0</span>
+												</span>
+											</span>
+										</div>
+									</li>
+									<li class="fl">
+										<div class="kind_top clearfix">
+											<a href="#" class="kind_topic fl">
+												<span class="kind_topic_bg xixi_s"></span>
+												<span class="kind_topic_txt">嘻嘻娱乐</span>
+											</a>
+											<span class="book_num fr">10.2万订阅</span>
+										</div>
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/chenyufan.jpg" title="陈羽凡" alt="陈羽凡"/>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">陈羽凡低调现身忙聊电话</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">1,739</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">0</span>
+												</span>
+											</span>
+										</div>
+									</li>
+									<li class="fl">
+										<div class="kind_top clearfix">
+											<a href="#" class="kind_topic fl">
+												<span class="kind_topic_bg youku_s"></span>
+												<span class="kind_topic_txt">优酷娱乐</span>
+											</a>
+											<span class="book_num fr">140.0万订阅</span>
+										</div>
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/jinqujiang.jpg" title="五月天" alt="五月天"/>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">金曲奖内幕！五月天最冤？</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">7.4万</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">0</span>
+												</span>
+											</span>
+										</div>
+									</li>
+									<li class="fl">
+										<div class="kind_top clearfix">
+											<a href="#" class="kind_topic fl">
+												<span class="kind_topic_bg youku_s"></span>
+												<span class="kind_topic_txt">优酷娱乐</span>
+											</a>
+											<span class="book_num fr">140.0万订阅</span>
+										</div>
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/chenxuedong.jpg" title="陈学冬" alt="陈学冬"/>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">陈学冬杨幂玩换脸被嘲</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">2,514</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">0</span>
+												</span>
+											</span>
+										</div>
+									</li>
+								</ul>
+							</section>	
+						</div>
+						<div class="content_r fr">
+							<header class="content_r_header">
+								<h3 class="content_l_header_tit">
+									<a href="#">热点排行榜</a>
+								</h3>
+							</header>
+							<section class="content_r_info">
+								<ul class="content_r_List">
+									<li class="clearfix">
+										<a href="#" class="content_r_pic fl">
+											<img src="../img/entertainment/wukongqianzhuan.jpg" title="悟空前传" alt="悟空前传"/>
+											<span class="rank_num color_spec">1</span>
+										</a>
+										<a href="#" class="content_r_desc fl">
+											<span class="content_r_desc_txt">悟空前传</span>
+										</a>
+										<span class="evl_index fl">指数:860616</span>
+									</li>
+									<li class="clearfix">
+										<a href="#" class="content_r_pic fl">
+											<img src="../img/entertainment/kuailenansheng.jpg" title="快乐男声" alt="快乐男声"/>
+											<span class="rank_num color_spec">2</span>
+										</a>
+										<a href="#" class="content_r_desc fl">
+											<span class="content_r_desc_txt">快乐男声选手卧虎藏龙</span>
+											<span class="content_r_desc_txt">杨幂爸曝女儿在家没地</span>
+										</a>
+										<span class="evl_index fl">指数:290665</span>
+									</li>
+									<li class="clearfix">
+										<a href="#" class="content_r_pic fl">
+											<img src="../img/entertainment/huyanbin.jpg" title="胡彦斌" alt="胡彦斌"/>
+											<span class="rank_num color_spec">3</span>
+										</a>
+										<a href="#" class="content_r_desc fl">
+											<span class="content_r_desc_txt">谈与前任分手维嘉忍泪</span>
+											<span class="content_r_desc_txt">胡彦斌:它是痛苦难过</span>
+										</a>
+										<span class="evl_index fl">指数:261745</span>
+									</li>
+									<li class="clearfix">
+										<a href="#" class="content_r_pic fl">
+											<img src="../img/entertainment/xuezhiqian.jpg" title="薛之谦" alt="薛之谦"/>
+											<span class="rank_num">4</span>
+										</a>
+										<a href="#" class="content_r_desc fl">
+											<span class="content_r_desc_txt">薛之谦演唱会喊话前妻</span>
+											<span class="content_r_desc_txt">高磊鑫:我想你应该来</span>
+										</a>
+										<span class="evl_index">指数:234016</span>
+									</li>
+									<li class="clearfix">
+										<a href="#" class="content_r_pic fl">
+											<img src="../img/entertainment/liuqiwei.jpg" title="刘恺威" alt="刘恺威"/>
+											<span class="rank_num">5</span>
+										</a>
+										<a href="#" class="content_r_desc fl">
+											<span class="content_r_desc_txt">刘恺威早前受访视频被翻出 分享陪妻子进产</span>
+										</a>
+										<span class="evl_index">指数:230579</span>
+									</li>
+									<li class="clearfix">
+										<a href="#" class="content_r_pic fl">
+											<img src="../img/entertainment/shaibaitian.jpg" title="赵丽颖" alt="赵丽颖"/>
+											<span class="rank_num">6</span>
+										</a>
+										<a href="#" class="content_r_desc fl">
+											<span class="content_r_desc_txt">原来赵丽颖不仅仅只会傻白甜</span>
+										</a>
+										<span class="evl_index">指数:195608</span>
+									</li>
+								</ul>
+							</section>	
+						</div>
+					</section>
+					<section class="bid content btm_txt clearfix">
+						<div class="content_l fl">
+							<header class="content_l_header clearfix">
+								<h3 class="content_l_header_tit fl">
+									<a href="#">拍客爆料</a>
+								</h3>
+								<div class="content_more fr">
+									<a href="#">更多</a>
+								</div>
+							</header>
+							<section class="content_l_info">
+								<ul class="content_l_list add_plus clearfix">
+									<li class="fl">
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/yanqi.jpg" title="严屹宽" alt="严屹宽"/>
+											</a>
+										</div>
+										<div class="kind_bottom clearfix">
+											<a href="#" class="kind_topic fl">
+												<span class="kind_topic_bg yule2017_s"></span>
+												<span class="kind_topic_txt">全娱乐2017</span>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">严屹宽高云翔片场斗黑帮</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">64</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">0</span>
+												</span>
+											</span>
+										</div>
+									</li>
+									<li class="fl">
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/matianyu.jpg" title="马天宇" alt="马天宇"/>
+											</a>
+										</div>
+										<div class="kind_bottom clearfix">
+											<a href="#" class="kind_topic fl">
+												<span class="kind_topic_bg wangpai_s"></span>
+												<span class="kind_topic_txt">王牌星探</span>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">马天宇素颜出街携友散步</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">182</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">0</span>
+												</span>
+											</span>
+										</div>
+									</li>
+									<li class="fl">
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/mingdao.jpg" title="明道" alt="明道"/>
+											</a>
+										</div>
+										<div class="kind_bottom clearfix">
+											<a href="#" class="kind_topic fl">
+												<span class="kind_topic_bg wangpai_s"></span>
+												<span class="kind_topic_txt">王牌星探</span>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">明道帮粉丝签名停不下来</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">107</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">0</span>
+												</span>
+											</span>
+										</div>
+									</li>
+									<li class="fl">
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/pengyuyan.jpg" title="彭于晏" alt="彭于晏"/>
+											</a>
+										</div>
+										<div class="kind_bottom clearfix">
+											<a href="#" class="kind_topic fl">
+												<span class="kind_topic_bg yule2017_s"></span>
+												<span class="kind_topic_txt">全娱乐2017</span>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">彭于晏素颜现身卖萌不停</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">736</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">0</span>
+												</span>
+											</span>
+										</div>
+									</li>
+								</ul>
+							</section>	
+						</div>
+						<div class="content_r fr">
+							<header class="content_r_header">
+								<h3 class="content_l_header_tit">
+									<a href="#">热点排行榜</a>
+								</h3>
+							</header>
+							<section class="content_r_info h_190">
+								<a href="#" class="content_ad">
+									<span class="ad">广告</span>
+									<span class="content_ad_desc clearfix">
+										<span class="content_ad_desc_l fl">《再见时光》6月30日全国上映</span>
+										<span class="content_ad_desc_r fr">详细信息&gt;&gt;</span>
+									</span>
+								</a>
+							</section>	
+						</div>
+					</section>
+					<section class="production content clearfix">
+						<div class="content_l fl">
+							<header class="content_l_header clearfix">
+								<h3 class="content_l_header_tit">
+									<a href="#">娱乐出品</a>
+								</h3>
+							</header>
+							<section class="content_l_info">
+								<ul class="content_l_list clearfix">
+									<li class="icon_movie fl">
+										<a href="#">
+											<img src="../img/entertainment/yuledaguo.jpg" title="娱乐大锅" alt="娱乐大锅"/>
+											<span class="for_alone icon_movie">独播</span>
+											<span class="pic_pos">
+												<span class="pic_pos_tit">贵圈明星卖人设套路大揭秘</span>
+												<span class="pic_pos_txt clearfix">
+													<span class="pic_pos_txt_l fl">娱乐大锅FUN</span>
+													<span class="pic_pos_txt_r fr">更新至06-23</span>
+												</span>
+											</span>
+										</a>
+									</li>
+									<li class="icon_movie fl">
+										<a href="#">
+											<img src="../img/entertainment/jinzaizhong.jpg" title="金在中" alt="金在中"/>
+											<span class="pic_pos">
+												<span class="pic_pos_tit">壕！金在中运送私家车</span>
+												<span class="pic_pos_txt clearfix">
+													<span class="pic_pos_txt_l fl">韩伴FUN</span>
+													<span class="pic_pos_txt_r fr">更新至06-25</span>
+												</span>
+											</span>
+										</a>
+									</li>
+									<li class="icon_movie fl">
+										<a href="#">
+											<img src="../img/entertainment/zaobadian.jpg" title="早扒点" alt="早扒点"/>
+											<span class="pic_pos">
+												<span class="pic_pos_tit">林心如曝霍建华求婚细节</span>
+												<span class="pic_pos_txt clearfix">
+													<span class="pic_pos_txt_l fl">全娱乐早扒点</span>
+													<span class="pic_pos_txt_r fr">更新至06-26</span>
+												</span>
+											</span>
+										</a>
+									</li>
+									<li class="icon_movie fl">
+										<a href="#">
+											<img src="../img/entertainment/songxi.jpg" title="宋茜" alt="宋茜"/>
+											<span class="for_alone icon_movie">独播</span>
+											<span class="pic_pos">
+												<span class="pic_pos_tit">曝宋茜冯绍峰深陷三角恋</span>
+												<span class="pic_pos_txt clearfix">
+													<span class="pic_pos_txt_l fl">头条大明星</span>
+													<span class="pic_pos_txt_r fr">22集全</span>
+												</span>
+											</span>
+										</a>
+									</li>
+									<li class="wid_640 fl">
+										<a href="#" class="content_ad">
+											<img src="../img/entertainment/dagehaoduo.jpg" title="不做大哥好多年" alt="不做大哥好多年"/>
+											<span class="ad">广告</span>
+										</a>
+									</li>
+									<li class="icon_movie fl">
+										<a href="#">
+											<img src="../img/entertainment/wuxiubo.jpg" title="吴秀波" alt="吴秀波"/>
+											<span class="pic_pos">
+												<span class="pic_pos_tit">吴秀波微信名意外曝光</span>
+												<span class="pic_pos_txt clearfix">
+													<span class="pic_pos_txt_l fl">明星说</span>
+													<span class="pic_pos_txt_r fr">4集全</span>
+												</span>
+											</span>
+										</a>
+									</li>
+								</ul>
+							</section>	
+						</div>
+						<div class="content_r fr">
+							<header class="content_r_header">
+								<h3 class="content_l_header_tit">
+									<a href="#">娱乐大事件</a>
+								</h3>
+							</header>
+							<section class="content_r_info">
+								<ul class="content_r_List wid_210">
+									<li class="clearfix">
+										<a href="#" class="content_r_pic fl">
+											<img src="../img/entertainment/guanxiaotong.jpg" title="关晓彤" alt="关晓彤"/>
+										</a>
+										<span class="content_r_desc fl">
+											<a href="#" class="content_r_desc_txt">关晓彤爆冷拿女配惹争议</a>
+											<span class="content_r_desc_kind">上海电视节</span>
+										</span>
+									</li>
+									<li class="margin_s clearfix">
+										<a href="#" class="content_r_pic fl">
+											<img src="../img/entertainment/wubaoguang.jpg" title="吴秀波" alt="吴秀波"/>
+										</a>
+										<span class="content_r_desc fl">
+											<a href="#" class="content_r_desc_txt">吴秀波微信名意外曝光</a>
+											<span class="content_r_desc_kind">"不二"暗藏玄机</span>
+										</span>
+									</li>
+									<li class="clearfix">
+										<a href="#" class="content_r_pic fl">
+											<img src="../img/entertainment/huaeryushaonian.jpg" title="花儿与少年" alt="花儿与少年"/>
+										</a>
+										<span class="content_r_desc fl">
+											<a href="#" class="content_r_desc_txt">不作不花少！华少3再开撕</a>
+											<span class="content_r_desc_kind">花儿与少年</span>
+										</span>
+									</li>
+									<li class="margin_s clearfix">
+										<a href="#" class="content_r_pic fl">
+											<img src="../img/entertainment/luozhixiang.jpg" title="罗志祥" alt="罗志祥"/>
+										</a>
+										<span class="content_r_desc fl">
+											<a href="#" class="content_r_desc_txt">快男选手当众"挑衅"罗志祥</a>
+											<span class="content_r_desc_kind">快乐男声</span>
+										</span>
+									</li>
+								</ul>
+							</section>	
+						</div>
+					</section>
+					<section class="everyone content clearfix">
+						<div class="content_l fl">
+							<header class="content_l_header">
+								<h3 class="content_l_header_tit">
+									<a href="#">人人有娱</a>
+								</h3>
+							</header>
+							<section class="content_l_info">
+								<ul class="content_l_list clearfix">
+									<li class="fl">
+										<div class="kind_top clearfix">
+											<a href="#" class="kind_topic fl">
+												<span class="kind_topic_bg shishang_s"></span>
+												<span class="kind_topic_txt">海报时尚网</span>
+											</a>
+											<span class="book_num fr">1.3万订阅</span>
+										</div>
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/taotao.jpg" title="黄子韬" alt="黄子韬"/>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">滔滔现身时装周:颜值不重要</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">2,311</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">4</span>
+												</span>
+											</span>
+										</div>
+									</li>
+									<li class="fl">
+										<div class="kind_top clearfix">
+											<a href="#" class="kind_topic fl">
+												<span class="kind_topic_bg xingdong_s"></span>
+												<span class="kind_topic_txt">视觉星动</span>
+											</a>
+											<span class="book_num fr">469订阅</span>
+										</div>
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/jitiaoxiongdi.jpg" title="鸡条兄弟" alt="鸡条兄弟"/>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">鸡条兄弟又要组团开污</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">2,332</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">0</span>
+												</span>
+											</span>
+										</div>
+									</li>
+									<li class="fl">
+										<div class="kind_top clearfix">
+											<a href="#" class="kind_topic fl">
+												<span class="kind_topic_bg liyu_s"></span>
+												<span class="kind_topic_txt">理娱打挺疼</span>
+											</a>
+											<span class="book_num fr">2,952万订阅</span>
+										</div>
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/fengxiaogang.jpg" title="冯小刚" alt="冯小刚"/>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">揭冯小刚耿直却被骂真相</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">3,380</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">3</span>
+												</span>
+											</span>
+										</div>
+									</li>
+									<li class="fl">
+										<div class="kind_top clearfix">
+											<a href="#" class="kind_topic fl">
+												<span class="kind_topic_bg dog_s"></span>
+												<span class="kind_topic_txt">娱乐狗来了</span>
+											</a>
+											<span class="book_num fr">66订阅</span>
+										</div>
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/luhan.jpg" title="鹿晗" alt="鹿晗"/>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">揭鹿晗贵圈艰难成长之路</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">1.3万</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">8</span>
+												</span>
+											</span>
+										</div>
+									</li>
+								</ul>
+							</section>	
+						</div>
+						<div class="content_r fr">
+							<header class="content_r_header">
+								<h3 class="content_l_header_tit">
+									<a href="#">自频道精选</a>
+								</h3>
+							</header>
+							<section class="content_r_info">
+								<ul class="content_r_List wid_155">
+									<li class="clearfix">
+										<a href="#" class="content_r_pic_bg fl">
+											<img src="../img/entertainment/bagua_bg.jpg" title="八卦" alt="八卦"/>
+										</a>
+										<a href="#" class="content_r_pic fl">
+											<img src="../img/entertainment/baguasanyueyi.jpg" title="八卦三缺一" alt="八卦三缺一"/>
+										</a>
+										<a href="#" class="content_r_desc fl">
+											<span class="content_r_desc_txt">八卦三缺一：同姓荧屏PC变夫妻，一见钟情闪</span>
+										</a>
+									</li>
+									<li class="margin_s clearfix">
+										<a href="#" class="content_r_pic_bg fl">
+											<img src="../img/entertainment/daka_bg.jpg" title="大咖头条" alt="大咖头条"/>
+										</a>
+										<a href="#" class="content_r_pic fl">
+											<img src="../img/entertainment/kuainan.jpg" title="快男" alt="快男"/>
+										</a>
+										<a href="#" class="content_r_desc fl">
+											<span class="content_r_desc_txt">大咖头条 #快男FUN制造# 《快乐男声》十五</span>
+										</a>
+									</li>
+									<li class="clearfix">
+										<a href="#" class="content_r_pic_bg fl">
+											<img src="../img/entertainment/guangying_bg.jpg" title="光影海天" alt="光影海天"/>
+										</a>
+										<a href="#" class="content_r_pic fl">
+											<img src="../img/entertainment/mapodoutian.jpg" title="麻婆逗夫" alt="麻婆逗夫"/>
+										</a>
+										<a href="#" class="content_r_desc fl">
+											<span class="content_r_desc_txt">光影海天《麻婆逗夫》看你还敢不敢跟老娘分</span>
+										</a>
+									</li>
+								</ul>
+							</section>	
+						</div>
+					</section>
+					<section class="news content h_166 clearfix">
+						<div class="content_l fl">
+							<header class="content_l_header clearfix">
+								<h3 class="content_l_header_tit fl">
+									<a href="#">明星资讯</a>
+								</h3>
+								<div class="content_more fr">
+									<a href="#">更多</a>
+								</div>
+							</header>
+							<section class="content_l_info">
+								<ul class="content_l_list clearfix">
+									<li class="fl">
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/wuyifan.jpg" title="吴亦凡" alt="吴亦凡"/>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">吴亦凡深夜获粉丝苦苦守候</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">505</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">0</span>
+												</span>
+											</span>
+										</div>
+									</li>
+									<li class="fl">
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/zhoudongyu.jpg" title="周冬雨" alt="周冬雨"/>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">周冬雨碎花长裙亮相电影节</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">24.8万</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">2</span>
+												</span>
+											</span>
+										</div>
+									</li>
+									<li class="fl">
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/huke.jpg" title="胡可" alt="胡可"/>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">胡可曝小鱼儿"淘气"日常</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">7,417</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">0</span>
+												</span>
+											</span>
+										</div>
+									</li>
+									<li class="fl">
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/qianxi.jpg" title="千玺" alt="千玺"/>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">千玺过安检暴露搞笑发型</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">16.2万</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">0</span>
+												</span>
+											</span>
+										</div>
+									</li>
+									<li class="fl">
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/yangchenglin.jpg" title="杨丞琳" alt="杨丞琳"/>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">杨丞琳仙气亮相金曲奖</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">4,009</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">0</span>
+												</span>
+											</span>
+										</div>
+									</li>
+									<li class="fl">
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/zhangyixing.jpg" title="张艺兴" alt="张艺兴"/>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">张艺兴不参加EXO回归</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">18.8万</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">2</span>
+												</span>
+											</span>
+										</div>
+									</li>
+									<li class="fl">
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/yuanshanshan.jpg" title="袁姗姗" alt="袁姗姗"/>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">袁姗姗赴时装周少女十足</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">5.0万</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">0</span>
+												</span>
+											</span>
+										</div>
+									</li>
+									<li class="fl">
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/caiyilin.jpg" title="蔡依林" alt="蔡依林"/>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">蔡依林露小蛮腰秀好身材</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">8.4万</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">0</span>
+												</span>
+											</span>
+										</div>
+									</li>
+								</ul>
+							</section>	
+						</div>
+						<div class="content_r fr">
+							<header class="content_r_header">
+								<h3 class="content_l_header_tit">
+									<a href="#">明星拍客</a>
+								</h3>
+							</header>
+							<section class="content_r_info">
+								<ul class="content_r_name clearfix">
+									<li class="fl">
+										<a href="#">
+											<img src="../img/entertainment/liyifeng.jpg" title="李易峰" alt="李易峰"/>
+											<span class="content_r_name_desc">李易峰</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/entertainment/linzhiying.jpg" title="林志颖" alt="林志颖"/>
+											<span class="content_r_name_desc">梦想实现家林...</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/entertainment/guotao.jpg" title="郭涛" alt="郭涛"/>
+											<span class="content_r_name_desc">郭涛</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/entertainment/lichen.jpg" title="李晨" alt="李晨"/>
+											<span class="content_r_name_desc">李晨</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/entertainment/langlang.jpg" title="郎朗" alt="郎朗"/>
+											<span class="content_r_name_desc">郎朗</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/entertainment/liuqi.jpg" title="刘恺" alt="刘恺"/>
+											<span class="content_r_name_desc">刘恺</span>
+										</a>
+									</li>
+								</ul>
+								<div class="ad_info">
+									<a href="#" class="content_ad">
+										<img src="../img/entertainment/cheshuai.jpg" title="车帅" alt="车帅"/>
+										<span class="ad">广告</span>
+									</a>
+								</div>
+							</section>	
+						</div>
+					</section>
+					<section class="korea content h_166 clearfix">
+						<div class="content_l fl">
+							<header class="content_l_header clearfix">
+								<h3 class="content_l_header_tit fl">
+									<a href="#">韩伴FUN</a>
+								</h3>
+								<div class="content_more fr">
+									<a href="#">更多</a>
+								</div>
+							</header>
+							<section class="content_l_info">
+								<ul class="content_l_list clearfix">
+									<li class="fl">
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/jinyubin.jpg" title="金宇彬" alt="金宇彬"/>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">金宇彬复诊申敏儿陪伴</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">1.5万</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">0</span>
+												</span>
+											</span>
+										</div>
+									</li>
+									<li class="fl">
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/quanzhilong.jpg" title="权志龙" alt="权志龙"/>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">权志龙全新画报公开</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">3,265</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">0</span>
+												</span>
+											</span>
+										</div>
+									</li>
+									<li class="fl">
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/kongliu.jpg" title="孔刘" alt="孔刘"/>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">孔刘帅气亮相巴黎时装周</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">3,613</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">0</span>
+												</span>
+											</span>
+										</div>
+									</li>
+									<li class="fl">
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/niaoshu.jpg" title="鸟叔" alt="鸟叔"/>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">鸟叔现身好友婚礼献唱</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">4,618</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">2</span>
+												</span>
+											</span>
+										</div>
+									</li>
+								</ul>
+							</section>	
+						</div>
+						<div class="content_r fr">
+							<header class="content_r_header">
+								<h3 class="content_l_header_tit">
+									<a href="#">韩娱精选</a>
+								</h3>
+							</header>
+							<section class="content_r_info">
+								<ul class="content_r_List wid_155">
+									<li class="clearfix">
+										<a href="#" class="content_r_pic_bg fl">
+											<img src="../img/entertainment/exo_bg.jpg" title="EXO" alt="EXO"/>
+										</a>
+										<a href="#" class="content_r_pic fl">
+											<img src="../img/entertainment/exo.jpg" title="lotto" alt="lotto"/>
+										</a>
+										<a href="#" class="content_r_desc fl">
+											<span class="content_r_desc_txt">好带感！EXO新曲《lotto》混音BLACKPINK</span>
+										</a>
+									</li>
+									<li class="margin_s clearfix">
+										<a href="#" class="content_r_pic_bg fl">
+											<img src="../img/entertainment/fun_bg.jpg" title="韩伴FUN" alt="韩伴FUN"/>
+										</a>
+										<a href="#" class="content_r_pic fl">
+											<img src="../img/entertainment/hanban.jpg" title="金在中" alt="金在中"/>
+										</a>
+										<a href="#" class="content_r_desc fl">
+											<span class="content_r_desc_txt">有钱人玩的就是不一样金在中曝运私家车去</span>
+										</a>
+									</li>
+								</ul>
+							</section>	
+						</div>
+					</section>
+					<section class="film content clearfix">
+						<div class="content_l fl">
+							<header class="content_l_header clearfix">
+								<h3 class="content_l_header_tit">
+									<a href="#">影视资讯</a>
+								</h3>
+							</header>
+							<section class="content_l_info">
+								<ul class="content_l_list clearfix">
+									<li class="fl">
+										<a href="#">
+											<img src="../img/entertainment/duanyihong.jpg" title="段奕宏" alt="段奕宏"/>
+											<span class="pic_pos">
+												<span class="pic_pos_tit">段奕宏花式夸赞搭档余男</span>
+												<span class="pic_desc_tit_txt clearfix">
+													<span class="play_num fl">
+														<span class="play_num_bg icon_movie fl"></span>
+														<span class="play_num_txt fl">6,359</span>
+													</span>
+													<span class="evalue_num fl">
+														<span class="evalue_num_bg icon_movie fl"></span>
+														<span class="evalue_num_txt fl">0</span>
+													</span>
+												</span>
+											</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/entertainment/wangyuan.jpg" title="王源" alt="王源"/>
+											<span class="pic_pos">
+												<span class="pic_pos_tit">王源大片实力诠释失落王子</span>
+												<span class="pic_desc_tit_txt clearfix">
+													<span class="play_num fl">
+														<span class="play_num_bg icon_movie fl"></span>
+														<span class="play_num_txt fl">9.5万</span>
+													</span>
+													<span class="evalue_num fl">
+														<span class="evalue_num_bg icon_movie fl"></span>
+														<span class="evalue_num_txt fl">1</span>
+													</span>
+												</span>
+											</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/entertainment/jiangyiyan.jpg" title="江一燕" alt="江一燕"/>
+											<span class="pic_pos">
+												<span class="pic_pos_tit">江一燕深V黑裙露蛮腰</span>
+												<span class="pic_desc_tit_txt clearfix">
+													<span class="play_num fl">
+														<span class="play_num_bg icon_movie fl"></span>
+														<span class="play_num_txt fl">10.7万</span>
+													</span>
+													<span class="evalue_num fl">
+														<span class="evalue_num_bg icon_movie fl"></span>
+														<span class="evalue_num_txt fl">0</span>
+													</span>
+												</span>
+											</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/entertainment/sunli.jpg" title="孙俪" alt="孙俪"/>
+											<span class="pic_pos">
+												<span class="pic_pos_tit">孙俪拍戏时对驴保护有加</span>
+												<span class="pic_desc_tit_txt clearfix">
+													<span class="play_num fl">
+														<span class="play_num_bg icon_movie fl"></span>
+														<span class="play_num_txt fl">5.8万</span>
+													</span>
+													<span class="evalue_num fl">
+														<span class="evalue_num_bg icon_movie fl"></span>
+														<span class="evalue_num_txt fl">0</span>
+													</span>
+												</span>
+											</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/entertainment/zhiyeguanzhong.jpg" title="职业观众" alt="职业观众"/>
+											<span class="pic_pos">
+												<span class="pic_pos_tit">职业观众收费价码曝光</span>
+												<span class="pic_desc_tit_txt clearfix">
+													<span class="play_num fl">
+														<span class="play_num_bg icon_movie fl"></span>
+														<span class="play_num_txt fl">4.7万</span>
+													</span>
+													<span class="evalue_num fl">
+														<span class="evalue_num_bg icon_movie fl"></span>
+														<span class="evalue_num_txt fl">6</span>
+													</span>
+												</span>
+											</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/entertainment/wuyifanmingyu.jpg" title="吴亦凡" alt="吴亦凡"/>
+											<span class="pic_pos">
+												<span class="pic_pos_tit">吴亦凡名誉权案再胜诉</span>
+												<span class="pic_desc_tit_txt clearfix">
+													<span class="play_num fl">
+														<span class="play_num_bg icon_movie fl"></span>
+														<span class="play_num_txt fl">3.1万</span>
+													</span>
+													<span class="evalue_num fl">
+														<span class="evalue_num_bg icon_movie fl"></span>
+														<span class="evalue_num_txt fl">1</span>
+													</span>
+												</span>
+											</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/entertainment/jingxiuweiyang.jpg" title="锦绣未央" alt="锦绣未央"/>
+											<span class="pic_pos">
+												<span class="pic_pos_tit">"锦绣未央"抄袭案再开审</span>
+												<span class="pic_desc_tit_txt clearfix">
+													<span class="play_num fl">
+														<span class="play_num_bg icon_movie fl"></span>
+														<span class="play_num_txt fl">14.6万</span>
+													</span>
+													<span class="evalue_num fl">
+														<span class="evalue_num_bg icon_movie fl"></span>
+														<span class="evalue_num_txt fl">0</span>
+													</span>
+												</span>
+											</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/entertainment/caiguoqing.jpg" title="蔡国庆" alt="蔡国庆"/>
+											<span class="pic_pos">
+												<span class="pic_pos_tit">蔡国庆郭采洁放飞自我</span>
+												<span class="pic_desc_tit_txt clearfix">
+													<span class="play_num fl">
+														<span class="play_num_bg icon_movie fl"></span>
+														<span class="play_num_txt fl">5.5万</span>
+													</span>
+													<span class="evalue_num fl">
+														<span class="evalue_num_bg icon_movie fl"></span>
+														<span class="evalue_num_txt fl">0</span>
+													</span>
+												</span>
+											</span>
+										</a>
+									</li>
+								</ul>
+							</section>	
+						</div>
+						<div class="content_r fr">
+							<header class="content_r_header">
+								<h3 class="content_l_header_tit">
+									<a href="#">官方频道</a>
+								</h3>
+							</header>
+							<section class="content_r_info">
+								<ul class="content_r_List wid_155">
+									<li class="clearfix">
+										<a href="#" class="content_r_pic_bg fl">
+											<img src="../img/entertainment/youlule.jpg" title="优酷娱乐" alt="优酷娱乐"/>
+										</a>
+										<a href="#" class="content_r_pic fl">
+											<img src="../img/entertainment/chenyu.jpg" title="陈羽凡" alt="陈羽凡"/>
+										</a>
+										<a href="#" class="content_r_desc fl">
+											<span class="content_r_desc_txt">八卦：陈羽凡低调现身电话打不停 独自光顾</span>
+										</a>
+									</li>
+									<li class="margin_s clearfix">
+										<a href="#" class="content_r_pic_bg fl">
+											<img src="../img/entertainment/wangjunkai_bg.jpg" title="黑历史" alt="黑历史"/>
+										</a>
+										<a href="#" class="content_r_pic fl">
+											<img src="../img/entertainment/wangjunkai.jpg" title="王俊凯" alt="王俊凯"/>
+										</a>
+										<a href="#" class="content_r_desc fl">
+											<span class="content_r_desc_txt">王俊凯面对唱歌破音黑历史无法直视！</span>
+										</a>
+									</li>
+								</ul>
+								<div class="ad_info">
+									<a href="#" class="content_ad">
+										<img src="../img/entertainment/zuilinglong.jpg" title="醉玲珑" alt="醉玲珑"/>
+										<span class="ad">广告</span>
+									</a>
+								</div>
+							</section>	
+						</div>
+					</section>
+					<section class="music content clearfix">
+						<div class="content_l fl">
+							<header class="content_l_header clearfix">
+								<h3 class="content_l_header_tit">
+									<a href="#">音乐资讯</a>
+								</h3>
+							</header>
+							<section class="content_l_info">
+								<ul class="content_l_list clearfix">
+									<li class="fl">
+										<a href="#">
+											<img src="../img/entertainment/wuyue.jpg" title="五月天" alt="五月天"/>
+											<span class="pic_pos">
+												<span class="pic_pos_tit">五月天夺金曲奖最佳专辑</span>
+												<span class="pic_desc_tit_txt clearfix">
+													<span class="play_num fl">
+														<span class="play_num_bg icon_movie fl"></span>
+														<span class="play_num_txt fl">9,812</span>
+													</span>
+													<span class="evalue_num fl">
+														<span class="evalue_num_bg icon_movie fl"></span>
+														<span class="evalue_num_txt fl">0</span>
+													</span>
+												</span>
+											</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/entertainment/zaoanshaonv.jpg" title="早安少女" alt="早安少女"/>
+											<span class="pic_pos">
+												<span class="pic_pos_tit">早安少女现身机场被围堵</span>
+												<span class="pic_desc_tit_txt clearfix">
+													<span class="play_num fl">
+														<span class="play_num_bg icon_movie fl"></span>
+														<span class="play_num_txt fl">28.9万</span>
+													</span>
+													<span class="evalue_num fl">
+														<span class="evalue_num_bg icon_movie fl"></span>
+														<span class="evalue_num_txt fl">0</span>
+													</span>
+												</span>
+											</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/entertainment/deng.jpg" title="邓紫棋" alt="邓紫棋"/>
+											<span class="pic_pos">
+												<span class="pic_pos_tit">邓紫棋自曝常幻想婚礼场景</span>
+												<span class="pic_desc_tit_txt clearfix">
+													<span class="play_num fl">
+														<span class="play_num_bg icon_movie fl"></span>
+														<span class="play_num_txt fl">7,805</span>
+													</span>
+													<span class="evalue_num fl">
+														<span class="evalue_num_bg icon_movie fl"></span>
+														<span class="evalue_num_txt fl">2</span>
+													</span>
+												</span>
+											</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/entertainment/liwen.jpg" title="李玟" alt="李玟"/>
+											<span class="pic_pos">
+												<span class="pic_pos_tit">李玟上海酷炫开场</span>
+												<span class="pic_desc_tit_txt clearfix">
+													<span class="play_num fl">
+														<span class="play_num_bg icon_movie fl"></span>
+														<span class="play_num_txt fl">6,486</span>
+													</span>
+													<span class="evalue_num fl">
+														<span class="evalue_num_bg icon_movie fl"></span>
+														<span class="evalue_num_txt fl">2</span>
+													</span>
+												</span>
+											</span>
+										</a>
+									</li>
+									<li class="fl wid_640">
+										<a href="#" class="content_ad">
+											<img src="../img/entertainment/ruxizhuang.jpg" title="如懿装" alt="如懿装"/>
+											<span class="ad">广告</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/entertainment/chensicheng.jpg" title="陈思成" alt="陈思成"/>
+											<span class="pic_pos">
+												<span class="pic_pos_tit">陈思成与小童星high翻</span>
+												<span class="pic_desc_tit_txt clearfix">
+													<span class="play_num fl">
+														<span class="play_num_bg icon_movie fl"></span>
+														<span class="play_num_txt fl">4.8万</span>
+													</span>
+													<span class="evalue_num fl">
+														<span class="evalue_num_bg icon_movie fl"></span>
+														<span class="evalue_num_txt fl">0</span>
+													</span>
+												</span>
+											</span>
+										</a>
+									</li>
+								</ul>
+							</section>	
+						</div>
+						<div class="content_r fr">
+							<header class="content_r_header">
+								<h3 class="content_l_header_tit">
+									<a href="#">特别推荐</a>
+								</h3>
+							</header>
+							<section class="content_r_info">
+								<ul class="content_r_List wid_210">
+									<li class="clearfix">
+										<a href="#" class="content_r_pic fl">
+											<img src="../img/entertainment/aihuanbao.jpg" title="爱环保" alt="爱环保"/>
+										</a>
+										<span class="content_r_desc fl">
+											<a href="#" class="content_r_desc_txt">爱环保！众星呼吁绿色行动</a>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">3.6万</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">2</span>
+												</span>
+											</span>
+										</span>
+									</li>
+									<li class="margin_s clearfix">
+										<a href="#" class="content_r_pic fl">
+											<img src="../img/entertainment/nazha.jpg" title="郑爽" alt="郑爽"/>
+										</a>
+										<span class="content_r_desc fl">
+											<a href="#" class="content_r_desc_txt">郑爽娜扎走红前旧照曝光</a>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">7.8万</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">32</span>
+												</span>
+											</span>
+										</span>
+									</li>
+									<li class="clearfix">
+										<a href="#" class="content_r_pic fl">
+											<img src="../img/entertainment/sanshengsanshi.jpg" title="三生三世" alt="三生三世"/>
+										</a>
+										<span class="content_r_desc fl">
+											<a href="#" class="content_r_desc_txt">"三生三世"杨洋遭阿离嫌弃</a>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">2.6万</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">5</span>
+												</span>
+											</span>
+										</span>
+									</li>
+									<li class="margin_s clearfix">
+										<a href="#" class="content_r_pic fl">
+											<img src="../img/entertainment/houminghao.jpg" title="侯明昊" alt="侯明昊"/>
+										</a>
+										<span class="content_r_desc fl">
+											<a href="#" class="content_r_desc_txt">羞耻play!侯明昊狂撩大姐姐</a>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">65.1万</span>
+												</span>
+												<span class="evalue_num fl">
+													<span class="evalue_num_bg icon_movie fl"></span>
+													<span class="evalue_num_txt fl">323</span>
+												</span>
+											</span>
+										</span>
+									</li>
+								</ul>
+							</section>	
+						</div>
+					</section>
+					<section class="favor content btm_txt clearfix">
+						<div class="content_l fl">
+							<header class="content_l_header clearfix">
+								<h3 class="content_l_header_tit fl">
+									<a href="#">网友最爱</a>
+								</h3>
+								<div class="content_tab fl">
+									<a href="#" class="active fl">最多评论</a>
+									<a href="#" class="fl">最多播放</a>
+									<a href="#" class="fl">最多收藏</a>
+								</div>
+							</header>
+							<section class="content_l_info">
+								<ul class="content_l_list clearfix add_plus">
+									<li class="fl">
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/zhoubichang.jpg" title="周笔畅" alt="周笔畅"/>
+												<span class="duration">00:20</span>
+											</a>
+										</div>
+										<div class="kind_bottom clearfix">
+											<a href="#" class="kind_topic fl">
+												<span class="kind_topic_bg youku_34"></span>
+												<span class="kind_topic_txt">优酷娱乐</span>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">真维斯娱乐大典优酷宣传片 周笔畅</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">471万</span>
+												</span>
+											</span>
+										</div>
+									</li>
+									<li class="fl">
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/chenguanxi.jpg" title="陈冠希" alt="陈冠希"/>
+												<span class="duration">02:13</span>
+											</a>
+										</div>
+										<div class="kind_bottom clearfix">
+											<a href="#" class="kind_topic fl">
+												<span class="kind_topic_bg huazhuang_s"></span>
+												<span class="kind_topic_txt">化妆不化脸_taotao</span>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">陈冠希携手ADIDAS三叶草分享潮人搭配</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">4.0万</span>
+												</span>
+											</span>
+										</div>
+									</li>
+									<li class="fl">
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/guanba.jpg" title="关八" alt="关八"/>
+												<span class="duration">10:02</span>
+											</a>
+										</div>
+										<div class="kind_bottom clearfix">
+											<a href="#" class="kind_topic fl">
+												<span class="kind_topic_bg guanba_s"></span>
+												<span class="kind_topic_txt">关八</span>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">错过了这条视频你就错过了几个亿！by关爱八</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">26.9万</span>
+												</span>
+											</span>
+										</div>
+									</li>
+									<li class="fl">
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/zuixingfu.jpg" title="最幸福的工作" alt="最幸福的工作"/>
+												<span class="duration">01:57</span>
+											</a>
+										</div>
+										<div class="kind_bottom clearfix">
+											<a href="#" class="kind_topic fl">
+												<span class="kind_topic_bg huazhuang_s"></span>
+												<span class="kind_topic_txt">彩虹中的男人</span>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">最幸福的工作</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">308万</span>
+												</span>
+											</span>
+										</div>
+									</li>
+									<li class="fl">
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/fengshaofeng.jpg" title="冯绍峰" alt="冯绍峰"/>
+												<span class="duration">00:20</span>
+											</a>
+										</div>
+										<div class="kind_bottom clearfix">
+											<a href="#" class="kind_topic fl">
+												<span class="kind_topic_bg youku_34"></span>
+												<span class="kind_topic_txt">优酷娱乐</span>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">真维斯娱乐大典优酷宣传片 冯绍峰</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">17.0万</span>
+												</span>
+											</span>
+										</div>
+									</li>
+									<li class="fl">
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/chenchusheng.jpg" title="陈楚生" alt="陈楚生"/>
+												<span class="duration">00:20</span>
+											</a>
+										</div>
+										<div class="kind_bottom clearfix">
+											<a href="#" class="kind_topic fl">
+												<span class="kind_topic_bg youku_34"></span>
+												<span class="kind_topic_txt">优酷娱乐</span>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">真维斯娱乐大典优酷宣传片 陈楚生</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">1.0万</span>
+												</span>
+											</span>
+										</div>
+									</li>
+									<li class="fl">
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/zhuxunmengxiang.jpg" title="追寻梦想" alt="追寻梦想"/>
+												<span class="duration">02:55</span>
+											</a>
+										</div>
+										<div class="kind_bottom clearfix">
+											<a href="#" class="kind_topic fl">
+												<span class="kind_topic_bg dingfuzhuang_s"></span>
+												<span class="kind_topic_txt">定福庄东街1号</span>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">全视频之夜备播片</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">6,626</span>
+												</span>
+											</span>
+										</div>
+									</li>
+									<li class="fl">
+										<div class="pic">
+											<a href="#">
+												<img src="../img/entertainment/huanghaibo.jpg" title="黄海波" alt="黄海波"/>
+												<span class="duration">00:30</span>
+											</a>
+										</div>
+										<div class="kind_bottom clearfix">
+											<a href="#" class="kind_topic fl">
+												<span class="kind_topic_bg yesheng_s"></span>
+												<span class="kind_topic_txt">野生救援</span>
+											</a>
+										</div>
+										<div class="pic_desc">
+											<span class="pic_desc_tit">黄海波：请支持“大象的眼泪”</span>
+											<span class="pic_desc_tit_txt clearfix">
+												<span class="play_num fl">
+													<span class="play_num_bg icon_movie fl"></span>
+													<span class="play_num_txt fl">8.9万</span>
+												</span>
+											</span>
+										</div>
+									</li>
+								</ul>
+							</section>	
+						</div>
+						<div class="content_r fr">
+							<header class="content_r_header">
+								<h3 class="content_l_header_tit">
+									<a href="#">演出情报站</a>
+								</h3>
+							</header>
+							<section class="content_r_info">
+								<ul class="content_r_name clearfix">
+									<li class="fl">
+										<a href="#">
+											<img src="../img/entertainment/luodayou.jpg" title="假如我是罗大佑" alt="假如我是罗大佑"/>
+											<span class="content_r_name_desc">假如我是罗大佑</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/entertainment/lironghao.jpg" title="李荣浩" alt="李荣浩"/>
+											<span class="content_r_name_desc">李荣浩有理...</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/entertainment/liyuchun.jpg" title="李宇春" alt="李宇春"/>
+											<span class="content_r_name_desc">李宇春野蛮...</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/entertainment/yinweizouxinzhi.jpg" title="音为走心致" alt="音为走心致"/>
+											<span class="content_r_name_desc">音为走心致...</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/entertainment/xiongmuxingli.jpg" title="熊木杏里" alt="熊木杏里"/>
+											<span class="content_r_name_desc">熊木杏里巡演</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/entertainment/sudalv.jpg" title="苏打绿" alt="苏打绿"/>
+											<span class="content_r_name_desc">苏打绿世界巡演</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/entertainment/lishenzhan.jpg" title="李荣浩" alt="李荣浩"/>
+											<span class="content_r_name_desc">李荣浩深圳...</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/entertainment/yadanglanbote.jpg" title="亚当兰伯特" alt="亚当兰伯特"/>
+											<span class="content_r_name_desc">亚当兰伯特...</span>
+										</a>
+									</li>
+									<li class="fl">
+										<a href="#">
+											<img src="../img/entertainment/cnblue.jpg" title="CNBLUE" alt="CNBLUE"/>
+											<span class="content_r_name_desc">CNBLUE上海...</span>
+										</a>
+									</li>
+								</ul>
+							</section>	
+						</div>
+					</section> 
+				</div>
+			</section>
+			<footer class="footer">
+				<div class="footer_top clearfix">
+					<div class="about fl">
+						<div class="foot_top_tit clearfix">
+							<a href="#">大优酷事业群</a>
+							<a href="#">关于优酷</a>
+						</div>
+						<div class="foot_top_links clearfix">
+							<a href="#">Youku Tudou Inc.</a>
+							<a href="#">Youku.com</a>
+							<a href="#">友情链接</a>
+							<a href="#">广告服务</a>
+						</div>
+					</div>
+					<div class="youku_hot fl">
+						<div class="foot_top_tit clearfix">
+							<a href="#">优酷热门</a>
+						</div>
+						<div class="foot_top_links clearfix">
+							<a href="#">剧集</a>
+							<a href="#">电影</a>
+							<a href="#">综艺</a>
+							<a href="#">音乐</a>
+							<a href="#">少儿</a>
+							<a href="#">资讯</a>
+							<a href="#">纪实</a>
+							<a href="#">公益</a>
+							<a href="#">体育</a>
+							<a href="#">汽车</a>
+							<a href="#">科技</a>
+							<a href="#">财经</a>
+							<a href="#">娱乐</a>
+							<a href="#">文化</a>
+							<a href="#">动漫</a>
+							<a href="#">搞笑</a>
+							<a href="#">旅游</a>
+							<a href="#">时尚</a>
+							<a href="#">亲子</a>
+							<a href="#">教育</a>
+							<a href="#">游戏</a>
+							<a href="#">会员</a>
+							<a href="#">发现</a>
+							<a href="#">片库</a>
+						</div>
+					</div>
+					<div class="pro_center fl">
+						<div class="foot_top_tit clearfix">
+							<a href="#">产品中心</a>
+						</div>
+						<div class="foot_top_links clearfix">
+							<a href="#">PC客户端</a>
+							<a href="#">手机客户端</a>
+							<a href="#">智能硬件</a>
+							<a href="#">视频云</a>
+						</div>
+					</div>
+					<div class="user fl">
+						<div class="foot_top_tit clearfix">
+							<a href="#">用户</a>
+						</div>
+						<div class="foot_top_links clearfix">
+							<a href="#">开通大鱼号</a>
+						</div><div class="foot_top_tit clearfix">
+							<a href="#">支持</a>
+						</div>
+						<div class="foot_top_links clearfix">
+							<a href="#">蘩體版</a>
+							<a href="#">在线反馈</a>
+						</div>
+					</div>
+				</div>
+				<div class="footer_middle clearfix">
+					<div class="net_culture fl">
+						<div class="net_culture_desc">网络文化经营许可证 京网文[2014]0934-236号</div>
+						<div class="net_culture_desc clearfix">
+							<span class="net_culture_desc_l fl">京卫网审[2013]第0209号</span>
+							<span class="net_culture_desc_r fl">网络110报警服务</span>
+						</div>
+						<div class="net_culture_desc">药品服务许可证(京)-经营-2015-0029</div>
+						<div class="net_culture_desc">节目制作经营许可证京字670号</div>
+						<div class="net_culture_desc">营业执照</div>
+					</div>	
+					<div class="copyright fl">
+						<div class="net_culture_desc">请使用者仔细阅读优酷使用协议、版权声明、反盗版盗链声明</div>
+						<div class="net_culture_desc">Copyright&copy;2017 优酷youku.com版权所有</div>
+						<div class="net_culture_desc">不良信息举报电话：4008100580</div>
+						<div class="net_culture_desc">信息网络传播视听节目许可证0108283号</div>
+						<div class="net_culture_desc">出版物经营许可证</div>
+					</div>
+					<div class="jingIcp fl">
+						<div class="net_culture_desc">京ICP证060288号</div>
+						<div class="net_culture_desc">新出网证(京)字160号</div>
+						<div class="net_culture_desc">北京互联网举报中心</div>
+						<div class="net_culture_desc">北京12318文化市场举报热线</div>
+					</div>
+					<div class="seek_wrapper fl">
+						<a href="#" class="seek_bg fl">
+							<img src="../img/index/you_seek.jpg" alt="优酷扫一扫" title="优酷扫一扫"/>
+						</a>
+						<span class="seek_bg_desc fl">
+							<img src="../img/index/seek_desc.jpg"/>
+						</span>
+					</div>
+				</div>
+				<div class="footer_bottom">
+					<ul class="confirm_list clearfix">
+						<li class="fl">
+							<a href="#" class="clearfix">
+								<img src="../img/index/records.jpg" title="备案信息" alt="备案信息" class="fl"/>
+								<span class="confirm_list_desc fl">
+									<span class="confirm_list_desc_txt">经营性网站</span>
+									<span class="confirm_list_desc_txt">备案信息</span>
+								</span>	
+							</a>
+						</li>
+						<li class="fl">
+							<a href="#" class="clearfix">
+								<img src="../img/index/belife.jpg" title="诚信联盟" alt="诚信联盟" class="fl"/>
+								<span class="confirm_list_desc fl">
+									<span class="confirm_list_desc_txt">中国互联网</span>
+									<span class="confirm_list_desc_txt">诚信联盟</span>
+								</span>
+							</a>
+						</li>
+						<li class="fl">
+							<a href="#" class="clearfix">
+								<img src="../img/index/report.jpg" title="举报中心" alt="举报中心" class="fl"/>
+								<span class="confirm_list_desc fl">
+									<span class="confirm_list_desc_txt">中国互联网</span>
+									<span class="confirm_list_desc_txt">举报中心</span>
+								</span>
+							</a>
+						</li>
+						<li class="fl">
+							<a href="#" class="clearfix">
+								<img src="../img/index/down_app.jpg" title="APP下载" alt="APP下载" class="fl"/>
+								<span class="confirm_list_desc fl">
+									<span class="confirm_list_desc_txt">网络举报</span>
+									<span class="confirm_list_desc_txt">APP下载</span>
+								</span>
+							</a>
+						</li>
+						<li class="fl">
+							<a href="#" class="clearfix">
+								<img src="../img/index/police.jpg" title="京公网安备" alt="京公网安备" class="fl"/>
+								<span class="confirm_list_desc fl">
+									<span class="confirm_list_desc_txt">京公网安备</span>
+									<span class="confirm_list_desc_txt">11000002000017</span>
+								</span>
+							</a>
+						</li>
+						<li class="fl">
+							<a href="#" class="clearfix">
+								<img src="../img/index/net_culture.jpg" title="网络文化" alt="网络文化" class="fl"/>
+								<span class="confirm_list_desc fl">
+									<span class="confirm_list_desc_txt">网络文化</span>
+									<span class="confirm_list_desc_txt">经营单位</span>
+								</span>
+							</a>
+						</li>
+						<li class="fl">
+							<a href="#" class="clearfix">
+								<img src="../img/index/audio.jpg" title="暴恐音视频" alt="暴恐音视频" class="fl"/>
+								<span class="confirm_list_desc fl">
+									<span class="confirm_list_desc_txt">暴恐音视频</span>
+									<span class="confirm_list_desc_txt">举报专区</span>
+								</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</footer>
+		</section>
+		<div class="customer_service">
+			<a href="#">
+				<img src="../img/index/server.jpg" title="联系客服" alt="联系客服"/>
+				<div class="customer_txt">联系客服</div>
+			</a>
+		</div>
+	</body>
+</html>

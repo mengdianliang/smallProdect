@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>classList</title>
+</head>
+<body>
+    <!--
+        获取class列表属性
+        classList:
+            -length:  class的长度
+            -add(): 添加class方法
+            -remove(): 删除class方法
+            -toggle(): 切换class方法
+    -->
+    <div id="div1" class="box1 box2 box3">div</div>
+</body>
+<script>
+    window.onload = function(){
+        var div1 = document.getElementById('div1');
+        alert(div1.classList);   //类似于数组的对象
+        alert(div1.classList.length); //3
+        div1.add('box4');
+        div1.remove('box2');
+        div1.toggle('box3');
+    };
+</script>
+</html>

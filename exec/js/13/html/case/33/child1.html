@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>insertBefore</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: #ffffff;
+        }
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        .clearfix{
+            *zoom: 1;
+        }
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .list{
+            width: 500px;
+            margin: 50px auto 0;
+            position: relative;
+        }
+        .list li{
+            width: 100%;
+            height: 34px;
+            line-height: 34px;
+            background-color: #ff8080;
+            padding: 5px 10px;
+            position: absolute;
+            left: 0;
+        }
+        .txt{
+            text-indent: 20px;
+            color: #ffffff;
+            font-size: 16px;
+        }
+        .btns a{
+            width: 80px;
+            height: 32px;
+            border: 1px solid #ffffff;
+            margin-right: 5px;
+            text-align: center;
+            line-height: 38px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="list">
+        <li class="clearfix">
+            <span class="txt fl">漫漫人生路</span>
+            <span class="btns fr">
+                <a href="javascript:void(0);" class="prev fl">上移</a>
+                <a href="javascript:void(0);" class="next fl">下移</a>
+            </span>
+        </li>
+        <li class="clearfix">
+            <span class="txt fl">告白气球</span>
+           <span class="btns fr">
+                <a href="javascript:void(0);" class="prev fl">上移</a>
+                <a href="javascript:void(0);" class="next fl">下移</a>
+            </span>
+        </li>
+        <li class="clearfix">
+            <span class="txt fl">唐人</span>
+            <span class="btns fr">
+                <a href="javascript:void(0);" class="prev fl">上移</a>
+                <a href="javascript:void(0);" class="next fl">下移</a>
+            </span>
+        </li>
+        <li class="clearfix">
+            <span class="txt fl">漂洋过海</span>
+            <span class="btns fr">
+                <a href="javascript:void(0);" class="prev fl">上移</a>
+                <a href="javascript:void(0);" class="next fl">下移</a>
+            </span>
+        </li>
+        <li class="clearfix">
+            <span class="txt fl">小星星</span>
+            <span class="btns fr">
+                <a href="javascript:void(0);" class="prev fl">上移</a>
+                <a href="javascript:void(0);" class="next fl">下移</a>
+            </span>
+        </li>
+    </ul>
+</body>
+<script src="js/MTween.js"></script>
+<script>
+    window.onload = function(){
+        var list = document.querySelector('.list');
+        var lis = list.querySelectorAll('li');
+        var prev = list.querySelectorAll('.prev');
+        var next = list.querySelectorAll('.next');
+        for(var i =0;i < lis.length;i++){
+            lis[i].style.top = (i * 46) + 'px';
+        }
+        list.style.height = (lis.length * 46) + 'px';
+
+        for(var i = 0;i < lis.length;i++){
+            lis[i].onmouseover = function(){
+                this.style.backgroundColor = '#e56d76';
+            };
+            lis[i].onmouseout = function(){
+                this.style.backgroundColor = '';
+            };
+            prev[i].onclick = function(){
+                if(this.parentNode.parentNode.previousElementSibling){ //如果有前一个节点，则只移动自己和前一个节点
+                    MTween(this.parentNode.parentNode,'-46',500,'top','linear');
+                    MTween(this.parentNode.parentNode.previousElementSibling,'46',500,'top','linear');
+                    list.insertBefore(this.parentNode.parentNode,this.parentNode.parentNode.previousElementSibling);
+
+                }else{  //如果没有前一个节点,则所有节点移动
+                    MTween(this.parentNode.parentNode,'184',500,'top','linear');
+                    for(var i = 1;i < this.parentNode.parentNode.parentNode.children.length;i++){
+                        MTween(this.parentNode.parentNode.parentNode.children[i],'-46',500,'top','linear');
+                    }
+                    list.insertBefore(this.parentNode.parentNode,this.parentNode.parentNode.parentNode.children[this.parentNode.parentNode.parentNode.children.length]);
+                }
+
+            };
+           next[i].onclick = function(){
+                if(this.parentNode.parentNode.nextElementSibling){ //如果有后一个节点，则只移动自己和后一个节点
+                    MTween(this.parentNode.parentNode,'46',500,'top','linear');
+                    MTween(this.parentNode.parentNode.nextElementSibling,'-46',500,'top','linear');
+                    list.insertBefore(this.parentNode.parentNode,this.parentNode.parentNode.nextElementSibling.nextElementSibling);
+                }else{   //如果没有后一个节点，移动所有节点
+                    var _this = this;
+                    MTween(this.parentNode.parentNode,'-184',500,'top','linear');
+                    for(var i = 0;i < this.parentNode.parentNode.parentNode.children.length - 1;i++){
+                        MTween(this.parentNode.parentNode.parentNode.children[i],'46',500,'top','linear');
+                    }
+                    list.insertBefore(this.parentNode.parentNode,this.parentNode.parentNode.parentNode.children[0]);
+                }
+
+            };
+
+        }
+    };
+</script>
+</html>

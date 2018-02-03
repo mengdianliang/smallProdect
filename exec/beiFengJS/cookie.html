@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Cookie</title>
+    <!--
+        编码与解码：
+            encodeURI/decodeURI
+            encodeURIComponent/decodeURIComponent
+        访问Cookie：
+            document.cookie
+            //ASP
+            response.cookies("cookieName") = "cookieValue";
+            //PHP
+            setcookie('cookieName','cookieValue');
+
+
+        一个Cookie包含以下信息：
+            （1）Cookie名称，必须使用只能用在URL中的字符，一般为字母及数字；
+            （2）Cookie值，Cookie值同样也只能使用只能用在URL中的字符，一般需要对其进行编码；
+            （3）Expires，过期日期，一个GMT格式的时间，当过了这个日期之后，浏览器会删掉这个Cookie;如果没有设置这个属性，浏览器关闭就会消失；
+            （4）Path路径，在这个路径下面才可以访问该Cookie,一般设为“/”，以表示同一个站点的所有页面都可以访问这个cookie
+            （5）Domain，子域
+            （6）Secure，安全性，指定Cookie是否只能通过https协议访问
+    -->
+</head>
+<body>
+    <script>
+        /*解析成字符串*/
+        /*function getCookie(cookieName) {
+            var start = document.cookie.indexOf(cookieName + "=");
+            if(start == -1) {
+                return "";
+            }
+            start = start + cookieName.length + 1;
+            var end = document.cookie.indexOf(";",start);
+            if(-1 == end) {                 //最有一个可能没有分号
+                end = document.cookie.length;
+            }
+            return decodeURIComponent(document.cookie.substring(start,end));
+        }*/
+        function getCookie(cookieName) {
+            var cookies = document.cookie.split(";");
+            if(!cookies.length) {
+                return "";
+            }
+            var pair = ["",""];
+            for(var i = 0;i < cookies.length;i++) {
+                pair = cookies[i].split("=");
+                if(pair[0] == cookieName) {
+                    break;
+                }
+            }
+            return decodeURIComponent(pair[1]);
+        }
+
+        function setCookie(name,value,path,expires,domain,secure) {
+            var str = name + "=" + encodeURIComponent(value);
+            if(expires) {
+				expires.setTime(expires.getTime() + 6000000000);
+                str += ";expires=" + expires.toGMTString();
+            }
+            if(path) {
+                str += ";path=" + path;
+            }
+            if(domain) {
+                str += ";domain=" + domain;
+            }
+            if(secure) {
+                str += ";secure";
+            }
+            document.cookie = str;
+        }
+
+        function delCookie(cookieName) {
+            var expires = new Date();
+            expires.setTime(expires.getTime() - 1);
+            document.cookie = cookieName + "=;expires=" + expires.toGMTString();
+        }
+
+        window.onload = function() {
+            var dt = new Date().getTime()+120000000;
+			console.log(111111);
+			//setCookie('abc', '123','qqqqqq',dt);
+
+			//document.cookie = 'abc=123;expries='+dt;
+		
+
+			document.onclick = function(){
+				console.log(document.cookie);
+			};
+
+			
+			console.log(getCookie("abc"));
+        };
+    </script>
+</body>
+</html>

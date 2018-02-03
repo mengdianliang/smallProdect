@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>伪数组转数组</title>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+<script>
+    var lis = document.getElementsByTagName('li');
+    lis = Array.prototype.slice.call(lis);
+    lis.forEach((ele,i)=>{
+        ele.onclick = function(){
+        alert(i);
+    }
+    });
+</script>
+</html>

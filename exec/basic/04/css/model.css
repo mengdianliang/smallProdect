@@ -1,0 +1,75 @@
+html,body{
+    width:100%;
+    height:100%;
+    margin:0;
+    padding:0;
+    font-size:12px;
+    font-family: "Microsoft YaHei";
+    background: url('../img/bg.jpg') repeat-x fixed;
+}
+.box{
+    margin: 97px auto 0;
+    width: 496px;
+    border: 1px solid #beafe2;
+}
+.head{
+    position: relative;
+    height:120px;
+    background: url('../img/head.jpg') 0 0 no-repeat;
+}
+.head div{
+    width:100%;
+    height:100%;
+}
+.head .bg1{
+    position:absolute;
+    background: url('../img/head1.png') 0 0 no-repeat;
+}
+.head .bg2{
+    position:absolute;
+    background: url('../img/head2.png') 262px 0 no-repeat;
+}
+.head .bg3{
+    position:absolute;
+    background: url('../img/miaov.png') center 28px no-repeat;
+}
+.head .bg4{
+    position:absolute;
+    background: url('../img/miaov_href.png') center 72px no-repeat;
+}
+.content{
+    background-color: #ffffff;
+}
+.item{
+    border-bottom: 1px solid #ebe7f6;
+    word-spacing: 22px;
+}
+.item a{
+    text-decoration: none;
+    line-height: 40px;
+    font-size: 16px;
+    color: #333;
+    white-space: nowrap;
+}
+.item a:hover{
+    color: #f40a30;
+}
+.item:last-child{
+    border-bottom: none;
+}
+.item1{
+    padding: 30px 0 30px 106px;
+    background: url('../img/email.png') 40px 36px no-repeat;
+}
+.item2{
+    padding: 10px 0 10px 106px;
+    background: url('../img/mouse.png') 40px 36px no-repeat;
+}
+.item3{
+    padding: 10px 0 10px 106px;
+    background: url('../img/smile.png') 40px 36px no-repeat;
+}
+.item4{
+    padding: 17px 0 17px 106px;
+    background: url('../img/star.png') 40px 36px no-repeat;
+}

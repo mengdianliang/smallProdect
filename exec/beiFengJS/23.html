@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>定位</title>
+    <!--
+   元素尺寸：
+        （1）元素的style属性width,height,这些属性往往返回空值，因为他们只能返回使用行内元素style属性定义在元素上的样式
+        （2）元素的currentStyle属性width，height（IE）,getComputedStyle(obj,null)返回对象的width，height，这样可以获取实际的宽和高，但当元素没有使用CSS定义外观时，虽然元素仍然有大小，这些属性的返回值是不确定的，IE返回auto,火狐返回一个看似理想的值。
+        （3）对象的clientWidth和clientHeight属性给出了元素的可视区域的宽度和高度，当有滚动条时，只返回可见区域大小，对于块级元素，将返回元素所设置的宽度和高度加上填充。但是当元素并没有设置宽高以及填充时，就会出问题了。
+        （4）offsetWidth和offsetHeight属性用来取得对象在页面中的实际所占区域大小(所设置的宽高加边框加填充，当有滚动条时还会算上滚动条)，看似没有什么兼容性问题，但是火狐有一个BUG，火狐有一个将页面放大缩小的功能，当页面缩小时，offsetWidth/offfsetHeight会缩小几个像素。
+        （5）scrollWidth/scrollHeight
+   窗口视口宽度和高度：
+        对于窗口视口（视口是指显示页面的那部分）的大小，Mozilla提供了window.innerWidth和window.innerHeight两个属性，而IE没有对应的属性，可以使用
+        document.documentElement.clientWidth与document.documentElement.clientHeight两个属性来获取。IE6以前的版本，需要使用document.body的clientWidth和clientHeight属性来获取。
+   元素边框宽度：
+        （1）元素style属性的borderWidth，但同样它只能返回使用html行内style属性定义的边框样式
+        （2）使用currentStyle属性或getComputedStyle方法，可以获取元素CSS定义的实际边框样式，如果CSS没有定义元素的边框，一般的元素是没有边框的，但是对于表单控件，有默认边框的，所以该方法不行；
+        （3）对象的clientLeft和clientTop属性，他们只能获取元素的上边框和左边框的粗细。
+   元素坐标：
+        （1）元素的style属性的left,top属性，这种方法只用-于使用html的style属性声明样式的元素，并且元素得定位
+        （2）使用currentStyle属性或getComputedStyle方法，元素需要定位
+        （3）offsetLeft和offsetTop属性返回元素在页面中相对父元素的坐标
+   具有滚动条时的定位：
+            scrollLeft和scrollTop，他们用来获取那些具有滚动条的元素滚动条滚动的距离，而没有滚动条，他返回0
+    -->
+    <style type="text/css">
+        #oDiv {
+            width:200px;
+            height:200px;
+            border:3px ridge aqua;
+            background:blue;
+            position:absolute;
+            left:100px;
+            top:100px;
+        }
+        #innerDiv {
+            width:30px;
+            height:30px;
+            margin:4px;
+            border:10px outset yellow;
+            background:fuchsia;
+
+        }
+    </style>
+</head>
+<body class="redStyle">
+    <h1>定位</h1>
+    <div id="oDiv"></div>
+    <script>
+        function getRealStyle(obj,s){
+            var style;
+            if(window.getComputedStyle){
+                style = window.getComputedStyle(obj,null);
+            }else if(obj.currentStyle){
+                style = obj.currentStyle;
+            }
+            return style[s];
+        }
+
+        function innerSize(){
+            return {   //这里不要把{放在第二行，会报错
+                width: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
+                height: window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+            };
+        }
+
+        window.onload = function() {
+            var oDiv = document.getElementById("oDiv");
+            /*var w = getRealStyle(oDiv,'width'),   //padding值没计算在内，不设置宽高时，返回值不一样
+                h = getRealStyle(oDiv,'height');*/
+            /* var w = oDiv.clientWidth,            //不设置宽和高，浏览器显示不一样，有滚动条时，也是返回可见区域大小
+                h = oDiv.clientHeight;
+             alert("宽度：" + w + "，高度：" + h);
+            */
+            /*var sw = oDiv.scrollWidth,
+                sh = oDiv.scrollHeight,
+                ow = oDiv.offsetWidth,
+                oh = oDiv.offsetHeight;
+            alert("宽度：" + sw + "，高度：" + sh);
+            alert("宽度：" + ow + "，高度：" + oh);*/
+            var size = innerSize();
+            alert(size.width + "\n" + size.height);
+        };
+    </script>
+</body>
+</html>

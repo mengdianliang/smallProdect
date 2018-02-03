@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>no-repeat</title>
+</head>
+<body>
+    <script>
+        window.onload = function(){
+            console.log(noReat());
+            function noReat(){
+                var arr = [];
+                do{
+                    var num = Math.round(Math.random() * 10 + 10);
+                    var isContain = false;
+
+                    for(var i = 0;i < arr.length;i++){
+                        if(isCommon(arr,num) !== -1){
+
+                            isContain = true;
+                            break;
+                        }
+                    }
+                    if(!isContain){
+                        arr.push(num);
+                    }
+                }while(arr.length < 11);
+                return arr;
+            }
+            function isCommon(arr,data){
+                for(var i = 0;i< arr.length;i++){
+                    if(arr[i] == data){
+                        return i;
+                    }
+                }
+                return -1;
+            }
+        };
+    </script>
+</body>
+</html>

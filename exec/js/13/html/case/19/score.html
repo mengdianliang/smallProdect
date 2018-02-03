@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>评分</title>
+    <script src="MTween.js"></script>
+    <style>
+        body{
+            margin: 0;
+            font-size: 16px;
+        }
+        .list{
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        .clearfix{
+            *zoom: 1;
+        }
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        .wrapper{
+            margin: 200px auto 0;
+            width: 200px;
+            height: 60px;
+            border: 1px solid #dddddd;
+            position: relative;
+        }
+        .list li{
+            width: 20%;
+            height: 100%;
+            position: relative;
+            z-index: 1;
+        }
+        .txt{
+            text-align: center;
+            line-height: 60px;
+            display: block;
+            width: 100%;
+            cursor: pointer;
+        }
+        .addSc{
+            position: absolute;
+            top: 10px;
+            left: 16px;
+            color: #ff0000;
+
+        }
+        .bg{
+            width: 0;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <ul class="list clearfix">
+            <li class="fl">
+                <span class="txt">0</span>
+                <span class="addSc">+1</span>
+            </li>
+            <li class="fl">
+                <span class="txt">0</span>
+                <span class="addSc">+1</span>
+            </li>
+            <li class="fl">
+                <span class="txt">0</span>
+                <span class="addSc">+1</span>
+            </li>
+            <li class="fl">
+                <span class="txt">0</span>
+                <span class="addSc">+1</span>
+            </li>
+            <li class="fl">
+                <span class="txt">0</span>
+                <span class="addSc">+1</span>
+            </li>
+        </ul>
+        <span class="bg"></span>
+    </div>
+</body>
+<script>
+    window.onload =  function(){
+        var list = $('.list')[0];
+        var els = $('.list li');
+        var bg = $('.bg')[0];
+        init();
+        list.isClick = true;
+        function init(){
+            for(var i = 0;i < els.length;i++){
+                $('.addSc',els[i])[0].tp = 10;
+                $('.addSc',els[i])[0].lft = 16;
+                $('.addSc',els[i])[0].opcy = 100;
+            }
+            mouseEvt();
+        }
+        function mouseEvt(){
+            list.onclick = function(){
+                if(!list.isClick) return;
+                list.isClick = false;
+                init();
+                for(var i = 0;i < els.length;i++){
+                    timeList(i);
+                }
+                bgWid();
+            };
+        }
+
+        function timeList(index){
+            clearInterval($('.addSc',els[index])[0].timer);
+            var a = 3;
+            var sum = 0;
+            setTimeout(function(){
+                $('.addSc',els[index])[0].timer = setInterval(function(){
+                    $('.addSc',els[index])[0].tp -= 5;
+                    a *= 0.5;
+                    sum += a;
+                    $('.addSc',els[index])[0].lft += sum;
+                    $('.addSc',els[index])[0].opcy -= 5;
+                    $('.addSc',els[index])[0].style.top = $('.addSc',els[index])[0].tp + 'px';
+                    $('.addSc',els[index])[0].style.left = $('.addSc',els[index])[0].lft + 'px';
+                    $('.addSc',els[index])[0].style.opacity = $('.addSc',els[index])[0].opcy / 100;
+                    if($('.addSc',els[index])[0].tp <= -200){
+                        $('.addSc',els[index])[0].tp = -200;
+                    }
+                    if($('.addSc',els[index])[0].opcy <= 0){
+                        $('.addSc',els[index])[0].opcy = 0;
+                            $('.txt',els[index])[0].innerHTML = parseInt($('.txt',els[index])[0].innerHTML) + 1;
+                            clearInterval($('.addSc',els[index])[0].timer);
+                    }
+                },30);
+            },200*index);
+        }
+
+        function  bgWid() {
+            bg.style.width = '0';
+            clearInterval(bg.t);
+            bg.t = setInterval(function(){
+                bg.style.backgroundColor = getRandomColor();
+            },500);
+            MTween(bg,200,2300,'width','linear',function(){
+                list.isClick = true;
+                clearInterval(bg.t);
+            });
+        }
+        //元素获取方法的重写
+        function $(element,obj){
+            if(obj == null){
+                return document.querySelectorAll(element);
+            }else{
+                return obj.querySelectorAll(element);
+            }
+        }
+        // 随机获取颜色值
+        function getRandomColor(){
+            return '#' + (function(h) {
+                return new Array(7 - h.length).join("0") + h
+            })((Math.random() * 0x1000000 << 0).toString(16))
+        }
+    };
+</script>
+</html>

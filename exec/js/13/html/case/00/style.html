@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>样式选择</title>
+    <!--重置样式-->
+    <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+    <!--工具类样式-->
+    <link rel="stylesheet" type="text/css" href="css/tools.css"/>
+    <!--全局样式-->
+    <link rel="stylesheet" type="text/css" href="css/global.css"/>
+    <!--style页面样式-->
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <!--style页面交互-->
+    <script type="text/javascript" src="js/style.js"></script>
+</head>
+<body>
+    <div class="style_change">
+        <h3 class="h_tit">请为下面的DIV设置样式：<a href="#" id="to_set">点击设置</a></h3>
+        <div id="box"></div>
+    </div>
+    <div class="modal" id="modal">
+        <div class="in_sel">
+            <form action="" method="get" id="myForm">
+                <ul class="in_sel_list">
+                    <li class="clearfix">
+                        <label class="for_name fl">请选择背景色：</label>
+                        <div class="radio_wrapper fl">
+                            <div class="radio_box fl">
+                                <input type="radio" name="colors" id="color1" class="colors ckd" value="1"/>
+                                <label for="color1" class="show_sel_color red">红</label>
+                            </div>
+                            <div class="radio_box fl">
+                                <input type="radio" name="colors" id="color2" class="colors ckd" value="2"/>
+                                <label for="color2" class="show_sel_color yellow">黄</label>
+                            </div>
+                            <div class="radio_box fl">
+                                <input type="radio" name="colors" id="color3" class="colors ckd" value="3"/>
+                                <label for="color3" class="show_sel_color blue">蓝</label>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <label class="for_name fl">请选择宽(px)：</label>
+                        <div class="radio_wrapper fl">
+                            <div class="radio_box fl">
+                                <input type="radio" name="wid" id="wid1" class="wid ckd" value="1"/>
+                                <label for="wid1" class="show_sel">200</label>
+                            </div>
+                            <div class="radio_box fl">
+                                <input type="radio" name="wid" id="wid2" class="wid ckd" value="2"/>
+                                <label for="wid2" class="show_sel">300</label>
+                            </div>
+                            <div class="radio_box fl">
+                                <input type="radio" name="wid" id="wid3" class="wid ckd" value="3"/>
+                                <label for="wid3" class="show_sel">400</label>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="clearfix">
+                        <label class="for_name fl">请选择高(px)：</label>
+                        <div class="radio_wrapper fl">
+                            <div class="radio_box fl">
+                                <input type="radio" name="hgt" id="hgt1" class="hgt ckd" value="1"/>
+                                <label for="hgt1" class="show_sel">200</label>
+                            </div>
+                            <div class="radio_box fl">
+                                <input type="radio" name="hgt" id="hgt2" class="hgt ckd" value="2"/>
+                                <label for="hgt2" class="show_sel">300</label>
+                            </div>
+                            <div class="radio_box fl">
+                                <input type="radio" name="hgt" id="hgt3" class="hgt ckd" value="3"/>
+                                <label for="hgt3" class="show_sel">400</label>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div class="btn">
+                    <a href="#" id="btn_reset">恢复</a>
+                    <a href="#" id="btn_confirm">确定</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

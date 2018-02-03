@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>数据串联化</title>
+    <script src="js/jquery-1.10.1.min.js"></script>
+</head>
+<body>
+    <form>
+        <input type="text" name="a" value="1"/>
+        <input type="text" name="b" value="2"/>
+        <input type="text" name="c" value="3"/>
+    </form>
+</body>
+<script>
+    $(function(){
+        //console.log($('form').serialize());  //a=1&b=2&c=3
+        console.log($('form').serializeArray()); //json数组
+    });
+</script>
+</html>

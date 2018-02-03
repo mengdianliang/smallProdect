@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>正则表达式</title>
+</head>
+<body>
+    <script>
+        /*
+        * ( [ { \ ^ $ | ) ? * + .
+        * */
+
+       /* var str = "?";
+        var re = /\?/;
+        alert(re.test(str));*/
+
+        /* 字符类： 简单类 ，反向类，范围类，组合类，预定义类*/
+       /* //简单类
+        var re = /[abc123]/;    //将匹配abc123这6个字符中一个
+        //负向类
+        re = /[^abc]/;   //将匹配除abc以外的一个字符
+        //范围类       范围类中 只有[,],-, .是特殊字符
+        re = /[a-z]/;
+        re = /[^0-9]/;
+        //组合类
+        re = /[a-z0-9A-Z_]/;
+        re = /[\[\-\]\.]/;
+*/
+        //预定义类
+        /*
+         .   匹配除了换行符以外的任意字符
+         \d  [0-9]
+         \D  [^0-9]
+         \s  [\n\r\t\f\x0B]
+         \S
+         \w  [a-z0-9A-Z_]
+         \W
+
+
+
+
+
+         re = /^\d{1,}$/;   相当于 /^\d+/
+         */
+       /* re = /(\d+?)0/;
+        s = '1000';
+        alert(re.exec(s));*/
+
+       /* re = /(\d+)(?:[a-z])/;
+        alert(re.exec("123abc"));*/
+
+
+       /* re = /^\d{1,2}$/;
+        alert(re.test('2')); //月份*/
+
+        /*
+        * 贪婪量词   惰性量词
+        * */
+      /*  var str = "abc";
+        var re = /\w+/;  //将匹配abc
+        re = /\w+?/;  //将匹配a*/
+
+        /* re = /[a-z]$/;
+        var str = "ab\ncdef";
+        alert(str.replace(re,"#"));    //ab'ncde#
+        re = /[a-z]$/mg;
+        alert(str.replace(re,"#"));  //a#\ncdef#
+
+
+        re = /(?:if|else) (\d)/;   //或 （if/else） 9
+        alert(re.exec("if 6"));*/
+
+      /*  var re = /(A?(B?(C?)))/;      //嵌套分组，从外往内
+        var s = "ABC";
+        alert(re.exec(s));*/
+/*
+        function trim(s) {
+            var re = /^\s*(.*?)\s*$/;
+           // return re.exec(s)[1];
+            return s.replace(re,'$1');
+        }
+        alert("|"+trim(" aaa   cxv ")+"|");*/
+
+       /* re = /(\d+)-(\d+)/;
+        s = "23-45";
+        alert(s.replace(re,"$2-$1"));*/
+       /* re = /(\d{3})-(\d{3})/;
+        s = "123-456";
+        var a = re.exec(s);
+        alert(a[1]==a[2]);*/
+
+       /* re = /(\d{3})-\1/;
+        s = "123-123";
+        alert(re.test(s));*/
+
+        //反向引用也可以在正则表达式中使用\1,\2...这类的形式使用
+        /*re = /\d{4}(\D)\d{1,2}\1\d+/;
+        str = "2008-1-1";
+        alert(re.test(str));
+        str = "2008-4_3";
+        alert(re.test(str));*/
+
+        /*// ?:不触发         ?=不替换
+        //正向前瞻
+        var s = "Uuntu 8.10 is a good OS. RedHat 9.10 xxxx";
+        re = /([a-z]+)(?=\s+8\.10)/gi;    //只把出现在8.10之前的那个单词替换掉
+        alert(s.replace(re,"Debian"));*/
+
+       /* var s = "Uuntu 8.10 is a good OS. RedHat 9.10 xxxx";
+        alert(s.replace(/[a-z]+(\s+8\.10)/gi,'Debian$1'));*/
+
+        var re = /^\w{1,15}(?:@(?!-))(?:(?:[a-z0-9-]*)(?:[a-z0-9](?!-))(?:\.(?!-)))+[a-z]{2,4}$/;
+       </script>
+</body>
+</html>

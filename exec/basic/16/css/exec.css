@@ -1,0 +1,36 @@
+body{
+	margin: 0;
+}
+table{
+	border-collapse: collapse;
+}
+th,td{
+	padding: 0;
+}
+
+table,th,td{
+	border: 1px solid #dddddd;
+}
+table{
+	width: 600px;
+	height: 500px;
+	margin: 20px auto;
+}
+th{
+	height: 60px
+}
+td{
+	text-align: center;
+}
+.br{
+	height: 5px;
+}
+
+.clearfix{
+	*zoom: 1;
+}
+.clearfix:after{
+	content: "";
+	display: block;
+	clear: both;
+}

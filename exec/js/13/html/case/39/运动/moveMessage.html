@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>运动的留言版</title>
+    <style>
+        #ul1 { margin: 0; position: absolute; right: 10px; top: 8px; width: 700px; height: 500px; border: 1px solid #000; padding: 10px; overflow: hidden;}
+        li { line-height: 28px; border-bottom: 1px dotted #000; list-style: none; word-break: break-all; overflow: hidden;}
+    </style>
+</head>
+<body>
+    <textarea id="content" rows="10" cols="50"></textarea>
+    <input type="button" value="留言" id="btn" />
+    <ul id="ul1"></ul>
+</body>
+    <script src="move.js"></script>
+    <script>
+        var content = document.getElementById('content');
+        var btn = document.getElementById('btn');
+        var ul1 = document.getElementById('ul1');
+
+        btn.onclick = function () {
+            var li = document.createElement('li');
+            li.innerHTML = content.value;
+
+            ul1.insertBefore(li,ul1.children[0]);
+            var hgt = parseInt( css(li, 'height') );
+
+            li.style.height = '0px';
+            li.style.opacity = '0';
+            li.style.filter = 'alpha(opacity=0)';
+
+            startMove(li,{
+                height: hgt,
+                opacity: 100
+            });
+        };
+    </script>
+</html>

@@ -1,0 +1,15 @@
+/*工具类样式*/
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.clearfix{
+    *zooom: 1;
+}
+.clearfix:after{
+    content: '';
+    display: block;
+    clear: both;
+}

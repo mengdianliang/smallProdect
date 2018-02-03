@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>ECMAScript</title>
+</head>
+<body>
+    <script>
+        /*
+            ECMAScript概念：
+            (1)区分大小写
+            (2)变量弱类型
+            (3)每行结尾的分号可有可无
+            (4)注释与Java、C和PHP语言的注释相同
+            (5)括号表明代码块
+        */
+
+        /*
+            原始值(primitive value)：存储在栈中的简单数据段，也就是说，他们的值直接存储在变量访问的位置
+            引用值(reference value)：存储在堆中的对象，也就是说，存储在变量处的值是一个指针，指向存储对象的内存处。
+
+            原始类型：Number.String,Boolean,undefined,null,对象引用(内存地址)
+            引用类型：数组，对象，函数
+
+            用来判断原始类型的方法：typeof
+        */
+
+        var str = 'some thing';
+        var num = 123;
+        var str2 = function(){};
+        //alert(typeof str2);
+       //alert(typeof str);
+       //alert(typeof num);
+       //alert(typeof num*3); //输出NAN，因为 typeof优先于*         ??????????
+       //alert(typeof (num*3));
+
+        /*var a = [1,'String',null,undefined,new Object];
+        for(var i = 0; i < a.length;i++){
+            console.log(a[i] + ':' + typeof a[i]);
+        }*/
+
+      /* var undefined = 123; //undefined 是一个变量，值为undefined;当我们给他赋完值后，值仍然是undefined
+       var s;
+       alert(s == undefined); //为true*/
+
+       /* alert(null == undefined);    //true   因为undefined是从null派生出来的，但不严格相等
+        alert(null === undefined);   //false  */
+
+       /* alert(true == 1);   //true
+        alert(false == 0);  //false
+        alert(false == "");  //true 这里的true会转换为1；false会转换为0或空字符串
+
+        var b = "";
+        if(b == false){  // ===严格相等
+            alert("False");
+        }*/
+
+        /*// Infinity   无限大  -Infinity无限小
+        alert(Number.MAX_VALUE);
+        alert(Number.MIN_VALUE);      //并不等于Infinity
+        alert(Number.POSITIVE_INFINITY);
+        alert(Number.NEGATIVE_INFINITY);
+
+        alert(a == Infinity || a== -Infinity)  //判断有穷数
+        alert(isFinite(a));   //判断是不是有穷数
+        */
+
+
+        /* \n 换行符  Unix   这是标准，常用
+            \r回车符 ，Mac OS
+            \n\r   Windows   ???????????
+
+            \t
+            \b
+            \\
+            \'
+            \"
+            \0nnn  八进制
+            \0xnn   十六进制
+            \unnnn 十六进制的Unicode字符
+          */
+
+       /* alert('A\nB');
+        //alert('A\rB');
+        //alert('A\n\rB');*/
+
+
+
+
+
+
+        /*类型转换*/
+        // toString()     所有对象都有的方法,除了undefined,null，所有对象都可以转化为字符串
+       /* alert("".toString()); //""
+        alert(true.toString()); // true
+        alert(false.toString()); //false
+        alert((123).toString());  //"123"
+        alert((0xFF).toString(16));    // 2    8    10(默认)   16
+        alert({}.toString());   //[object,Object]*/
+        //alert(" ".toString()); // " "
+        //([].toString());  //""
+        //alert([1,2,3].toString());//"1,2,3"
+
+        /*var s = '123';
+        alert(s*1);*/
+        //alert(Number('f123'));  //NaN
+        var s = "234A";    // parseInt()    parseFloat();(没有基模式)     把非数字前边的数字返回
+       // alert(typeof parseInt(s));
+        //alert(parseInt(s,16)); //number
+        //alert(parseInt(s,16));  //9034
+       // alert(parseInt("012"));  // 12
+        //alert(parseInt("018"));  // 18
+        //alert(parseInt("0x18")); //24
+        //alert(parseInt("0189",10)); // 189
+
+
+
+       // Number()函数转换所有的值
+        //alert(Number(false));           //0
+        //alert(Number(true));            //1
+        //alert(Number(undefined));      //NaN
+        //alert(Number(null));            //0
+        //alert(Number("1.2"));           //1.2
+        //alert(Number('1.2.3'));         //NaN
+        //alert(Number(new Object()));    //NaN*/
+        //alert(11111111111111111);
+        //alert(Number('1f3'));     //NaN
+        //console.log([]);
+        //alert(Number([]));     //0
+        //alert(Number([1,2]));  //NaN
+        //alert(Number('')); //0
+        //alert(Number(' ')); //0
+        alert(Number('  '));
+
+        var s1 = String(null);   //"null"
+        //alert(s1);
+        console.log(typeof s1);
+
+        //var oNull = null;
+        //var oNull = undefined;
+        //var oNull;
+        var oNull = NaN;   //NaN
+        var s2 = oNull.toString();   //会引发错误   因为null，undefined本身没有toString()方法
+        console.log(s2);
+
+
+        //Boolean类型：
+
+        console.log(1 + 'a');   //1a
+        console.log(1 + 'a'.charCodeAt(0));  //98
+    </script>
+</body>
+</html>

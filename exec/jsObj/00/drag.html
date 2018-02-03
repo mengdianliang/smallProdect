@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>拖拽</title>
+    <style>
+        #div1,#div2{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+        #div2{
+            top: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+</body>
+<script>
+    /*var div = document.getElementById('div1');
+    window.onload = function(){
+        init();
+    };
+    function init(){
+        div.onmousedown = fnDown;
+    }
+    function fnDown(evt){
+        evt = evt || window.event;
+        div.setCapture && div.setCapture();
+
+        var prevl = evt.clientX - this.offsetLeft;
+        var prevt = evt.clientY - this.offsetTop;
+
+        document.onmousemove  = function(){
+            fnMove();
+        };
+        document.onmouseup = function(){
+            fnUp();
+        };
+        return false;
+    }
+    function fnMove(evt){
+        evt = evt || window.event;
+
+        var lft = evt.clientX - prevl;
+        var tp = evt.clientY - prevt;
+
+        div.style.left = lft + "px";
+        div.style.top = tp + "px";
+    }
+
+    function fnUp(){
+        document.onmousemove = null;
+        document.onmouseup = null;
+        div.releaseCapture && div.releaseCapture();
+    }*/
+
+    window.onload = function(){
+        var dr1 = new Drag('div1');
+        dr1.init();
+        var dr2 = new Drag('div2');
+        dr2.init();
+    };
+    function Drag(id){
+        this.div = document.getElementById(id);
+    }
+    Drag.prototype.init = function(){
+        var _this = this;
+        this.div.onmousedown = function(){
+            _this.fnDown();
+        };
+    };
+    Drag.prototype.fnDown = function(evt){
+        var _this = this;
+        evt = evt || window.event;
+        this.div.setCapture && this.div.setCapture();
+
+        var prevl = evt.clientX - this.div.offsetLeft;
+        var prevt = evt.clientY - this.div.offsetTop;
+
+        document.onmousemove  = function(evt){
+            evt = evt || window.event;
+            _this.fnMove(evt,prevl,prevt);
+        };
+        document.onmouseup = function(){
+            _this.fnUp();
+        };
+        return false;
+    };
+    Drag.prototype.fnMove = function(evt,prevl,prevt){
+        var lft = evt.clientX - prevl;
+        var tp = evt.clientY - prevt;
+
+        this.div.style.left = lft + "px";
+        this.div.style.top = tp + "px";
+    };
+    Drag.prototype.fnUp = function(){
+        document.onmousemove = null;
+        document.onmouseup = null;
+        this.div.releaseCapture && this.div.releaseCapture();
+    };
+</script>
+</html>

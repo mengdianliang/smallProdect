@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>计算字节</title>
+</head>
+<body>
+
+</body>
+<script>
+    //计算下面字符串中的字节总数是多少，假设一个汉字为2个字节，字母为1个字节
+    //[\u4e00-\u9fa5] 中文的区间范围
+    var str = 'hello!欢迎大家来带妙味课程!';//27
+
+    var sum = 0;
+    var re = /[\u4e00-\u9fa5]/;
+    for(var i = 0;i < str.length;i++){
+        if(re.test(str[i])){
+            sum += 2;
+        }else{
+            sum += 1;
+        }
+    }
+    console.log(sum);
+</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>三维圆周运动</title>
+    <style>
+        #div1{
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            position: absolute;
+            left: 800px;
+            top: 300px;
+        }
+        .box{
+            position: absolute;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+<script>
+    window.onload = function(){
+        var div = document.getElementById('div1');
+        var r = 100;
+        var x = 700;
+        var y = 300;
+
+        var num = 0;
+
+        setInterval(function(){
+            num++;
+
+            var a = Math.sin( num * Math.PI/180 ) * r;
+            var b = Math.cos( num * Math.PI/180 ) * r;
+
+            div.style.left = x + b + 'px';
+            //div.style.top = y + a + 'px';
+            div.style.width = a/100 * 30 + 50 + 'px';
+            div.style.height = a/100 * 30 + 50 + 'px';
+
+            var box = document.createElement('div');
+            box.className = 'box';
+            document.body.appendChild( box );
+
+            box.style.left = div.offsetLeft + 'px';
+            box.style.top = div.offsetTop + 'px';
+        },30);
+    };
+</script>
+</body>
+</html>

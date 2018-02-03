@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>原型</title>
+</head>
+<body>
+
+</body>
+<script>
+    /*var srr = [1,2,3,4,5];
+
+    arr.sum = function(){
+        var result = 0;
+        for(var i = 0;i < arr.length;i++){
+            result += this[i];
+        }
+        return result;
+    };
+    alert(arr.sum());*/
+
+    var arr = [1,2,3,4,5];
+
+    Array.prototype.sum = function(){
+        var result = 0;
+        for(var i = 0;i < arr.length;i++){
+            result += this[i];
+        }
+        return result;
+    };
+    alert(arr.sum());
+
+
+
+</script>
+</html>

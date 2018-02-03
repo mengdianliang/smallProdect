@@ -1,0 +1,49 @@
+body{
+    background-color: #f1f1f1;
+}
+.wrapper{
+    width: 790px;
+    margin: 50px auto 0;
+}
+.tit{
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: normal;
+    color: #ffffff;
+}
+.con{
+    height:425px;
+    position: relative;
+    overflow: hidden;
+}
+.pic_list li{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.pic_l,.pic_r{
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+}
+.pic_r img{
+    margin-left: -395px;
+}
+.desc{
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    bottom: -60px;
+    left: 0;
+    background-image: -webkit-linear-gradient(top,rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.8) 100%);
+    line-height: 60px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 16px;
+    z-index: 9;
+    cursor: pointer;
+}

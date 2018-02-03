@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>排序</title>
+    <style>
+        div{
+            background-color: #ff0000;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div style="height:20px;"></div>
+    <div style="height:50px;"></div>
+    <div style="height:30px;"></div>
+    <div style="height:10px;"></div>
+    <div style="height:100px;"></div>
+    <div style="height:60px;"></div>
+    <div style="height:80px;"></div>
+</body>
+<script>
+    window.onload = function(){
+        var dives = document.querySelectorAll('div');
+
+        var eArr  = [];
+
+        for(var i = 0;i < dives.length;i++){
+            eArr.push(dives[i]);
+        }
+
+       eArr.sort(function(a,b){
+            var h1 = parseInt(a.style.height);
+            var h2 = parseInt(b.style.height);
+           console.log(h1,h2);
+
+            return h1 - h2;
+        });
+        console.dir(eArr);
+        var str = '';
+        for(var i = 0;i < eArr.length;i++){
+            str += eArr[i].outerHTML;
+        }
+        document.body.innerHTML = str;
+
+
+    };
+</script>
+</html>

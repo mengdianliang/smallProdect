@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>自定义属性</title>
+    <style>
+        p{
+            height: 30px;
+            border: 1px solid #000000;
+        }
+        /*p[miaov]{background-color: #ff0000;}*/
+        /*p[miaov='leo']{background-color: #ff0000;}*/
+        /*p[miaov~='leo']{background-color: #ff0000;}*/
+        /*p[miaov^='d']{background-color: #ff0000;}*/
+        /*p[miaov$='m']{background-color: #ff0000;}*/
+       /* p[miaov^='d']{background-color: #ff0000;}*/
+        /*p[miaov*='o']{background-color: #ff0000;}*/
+        p[miaov|='l']{background-color: #ff0000;}
+    </style>
+</head>
+<body>
+    <p miaov = 'leo old'>leo</p>
+    <p miaov = 'dp'>dp</p>
+    <p miaov = 'zm'>zm</p>
+    <p miaov = 'xm'>xm</p>
+</body>
+</html>

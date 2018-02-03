@@ -1,0 +1,23 @@
+a{
+    color:#333333;
+}
+a:link{
+    color:#e56b75;
+}
+a:visited{
+    color:#beafe2;
+}
+a:hover{
+    color:#faec4d;
+}
+a:active{
+    color:#ff0000;
+}
+span{
+    color:#206f96;
+    text-decoration: underline;
+}
+img{
+    vertical-align: top;
+    border:none;
+}

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>弹出菜单--面向对象</title>
+    <style>
+        .menu li{
+            float: left;
+            width: 80px;
+            height: 20px;
+            background-color: yellow;
+            border: 2px solid #aaaaaa;
+            list-style: none;
+            margin: 0 2px;
+            text-align: center;
+        }
+        .menu li a{
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .clearfix{
+            *zoom: 1;
+        }
+        .clearfix:after{
+            content:"";
+            display: block;
+            clear: both;
+        }
+        .menu li div{
+            display: none;
+            width: 80px;
+            height: 60px;
+            background-color: pink;
+        }
+    </style>
+    <script>
+
+        window.onload = function(){
+            var ul = getByClass('menu')[0];
+            var btns = ul.getElementsByTagName('A'),
+                items = ul.getElementsByTagName('DIV');
+            new popMenu(btns,items,function(o){
+                setOpacity(o,0);
+                o.style.display = "block";
+                opacityAnimate(o,0,100,1000,easeIn);
+            });
+        };
+        function $(id) {
+            return document.getElementById(id);
+        }
+        function popMenu(btns,items,show,hide){
+            if(arguments.length == 1){
+                    /////////
+            }else{
+                this.btns = btns;
+                this.items = items;
+            }
+            show = show || function(o) {o.style.display = "block"; };
+            hide = hide || function(o) {o.style.display = "none"; };
+            for(var i= 0;i < btns.length;i++){
+                (function(a){
+                    btns[a].onmouseover = function(){
+                        show(items[a]);
+                    };
+                    btns[a].onmouseout = function(){
+                        hide(items[a]);
+                    };
+                })(i);
+
+            }
+        }
+        /*new popMenu(buttons.menus);
+        new popMenu([btn1,btn2],[item1,item2]);
+        new popMenu(ul);*/
+        function opacityAnimate(o,start,alter,dur,fx){
+            var curTime = 0;
+            var t = setInterval(function(){
+                if(curTime >= dur) clearInterval(t);
+                setOpacity(o,fx(start,alter,curTime,dur));
+                curTime += 50;
+            },50);
+        }
+        var setOpacity = (document.documentElement.filters)?function(obj,val) {
+            obj.style.filter = "alpha(opacity=" + val + ")";
+        }:function(obj,val) {
+            obj.style.opacity = val/100 + "";
+        };
+        function easeIn(start,alter,curTime,dur) {
+            return start + Math.pow(curTime/dur,2)*alter;
+        }
+        function getByClass(className,context) {
+            context = context || document;
+            if(context.getElementsByClassName) {
+                return context.getElementsByClassName(className);
+            }
+            var nodes = context.getElementsByTagName('*'),
+                    ret = [];
+            for(var i= 0;i < nodes.length;i++) {
+                if(hasClass(nodes[i],className)){
+                    ret.push(nodes[i]);
+                }
+            }
+            return ret;
+        }
+        function hasClass(node,className){
+            var names = node.className.split(/\s+/);
+            for(var i = 0;i < names.length;i++){
+                if(names[i]==className) return true;
+            }
+            return false;
+        }
+        function firstChild(node){
+            var n = node.firstChild;
+            if(n){
+                if(n.nodeType == 1){
+                    return n;
+                }else{
+                    while(n=n.nextSibling) {
+                        if(n.nodeType == 1) return n;
+                    }
+                    return null;
+                }
+            }
+            return null;
+        }
+        function lastChild(node){
+
+        }
+        function next(node) {
+            var n = node.nextSibling;
+            if(n){
+                if(n.nodeType == 1){
+                    return n;
+                }else{
+                    while(n=n.nextSibling) {
+                        if(n.nodeType == 1) return n;
+                    }
+                    return null;
+                }
+            }
+            return null;
+        }
+    </script>
+</head>
+<body>
+    <h1>弹出菜单</h1>
+    <ul class="menu clearfix">
+        <li>
+            <a href="#">按钮A</a>
+            <div>内容A</div>
+        </li>
+        <li>
+            <a href="#">按钮B</a>
+            <div>内容B</div>
+        </li>
+        <li>
+            <a href="#">按钮C</a>
+            <div>内容C</div>
+        </li>
+        <li>
+            <a href="#">按钮D</a>
+            <div>内容D</div>
+        </li>
+        <li>
+            <a href="#">按钮E</a>
+            <div>内容E</div>
+        </li>
+    </ul>
+
+
+</body>
+</html>

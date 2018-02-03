@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>一些问题</title>
+</head>
+<body>
+
+</body>
+<script>
+    window.onload = function(){
+        /*//问题一
+        setTimeout(function(num){
+            alert(num);
+        },1000,123);   //可以传多个参数*/
+
+        /*//问题二
+        //Es6  或 使用反斜杠
+        document.body.innerHTML = `<div>div</div>
+                                      <span>span</span>`;
+        document.body.innerHTML = '<div>div</div>\
+                                      <span>span</span>';*/
+
+        /*//问题三
+        var a = 'hello';
+        console.log('%c'+ a,'font-size:400%;background-color:blue;');*/
+
+        /*//问题四
+        //typeof instanceof in
+        var arr = [];
+        arr.num = 10;
+        alert(typeof arr);
+        alert(typeof (arr));
+        alert(arr instanceof Object);
+        alert(arr instanceof(Object));
+        alert('num' in arr);
+        alert('num' in(arr));*/
+
+        /*//问题五  call（），apply()
+        var obj = {
+            aaa: function(){
+                alert(this);
+            }
+        };
+
+        //obj.aaa();
+
+        var arr = [1,2,3];
+        obj.aaa.call(arr);
+        obj.aaa.call();  //默认指向window*/
+
+
+        //问题六
+        //匿名函数自执行
+
+        /*(function(){
+            alert(123);
+        })();*/
+
+        //+ ! ~
+        /*+function(){
+            alert(123);
+        }();*/
+
+
+    };
+</script>
+</html>

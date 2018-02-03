@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>多级列表</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .wrap{
+            width: 200px;
+            margin: 50px auto;
+        }
+        ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            margin-top: 2px;
+        }
+        h2{
+
+            background-color: #ff8080;
+            color:#ffffff;
+            margin: 0;
+            font-size: 16px;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        span{
+            display: inline-block;
+            width: 20px;
+            text-align: center;
+        }
+        .list ul{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <ul class="list">
+            <li>
+                <h2><span index="1">+</span>一级列表</h2>
+                <ul>
+                    <li>
+                        <h2><span  index="2">+</span>二级级列表</h2>
+                        <ul>
+                            <li>
+                                <h2><span  index="3"> </span>三级列表</h2>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2><span index="2">+</span>二级级列表</h2>
+                        <ul>
+                            <li>
+                                <h2><span index="3"> </span>三级列表</h2>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h2><span index="1">+</span>一级列表</h2>
+                <ul>
+                    <li>
+                        <h2><span index="2">+</span>二级级列表</h2>
+                        <ul>
+                            <li>
+                                <h2><span index="3">+</span>三级列表</h2>
+                                <ul>
+                                    <li>
+                                        <h2><span index="4"> </span>四级级列表</h2>
+                                    </li>
+                                    <li>
+                                        <h2><span index="4"> </span>四级级列表</h2>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <h2><span index="3"> </span>三级列表</h2>
+                            </li>
+                            <li>
+                                <h2><span index="3"> </span>三级列表</h2>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    window.onload = function(){
+        var h2s = document.querySelectorAll('h2');   //获取所有要点击的元素
+        //遍历要点击的元素
+        for(var i = 0;i< h2s.length;i++){
+            var spans = h2s[i].firstElementChild;
+            spans.style.width = Number(spans.getAttribute('index')) * 20 +'px';
+            h2s[i].isShow = false;      //默认点击元素是不显示状态
+            h2s[i].onclick = function(){
+                var sliing = this.nextElementSibling;
+                if( sliing &&  sliing.nodeName.toLowerCase() == 'ul'){   //判断是否有下一个兄弟元素
+                    if(this.isShow){   //如果是显示状态，点击后隐藏
+                        sliing.style.display = '';
+                        this.firstElementChild.innerHTML = '+';
+                        this.isShow = false;
+                        for(var j = 0;j < sliing.children.length;j++){  //再次遍历他的子元素，让子元素也关闭
+                            sibling( sliing.children[j]);
+                        }
+
+                    }else{    //否则，点击后显示
+                        sliing.style.display = 'block';
+                        this.firstElementChild.innerHTML = '-';
+                        this.isShow = true;
+                        var pare = this.parentNode.parentNode;
+                        for(var j = 0;j < pare.children.length;j++){  //再次遍历兄弟元素的子元素，让其他同级元素关闭
+                            if(pare.children[j] != this.parentNode){
+                                //console.log(pare.children[j]);
+                                sibling(pare.children[j]);
+                            }
+                        }
+                    }
+                }
+            };
+            h2s[i].onmouseover = function(){
+                this.style.backgroundColor = '#ffff00';
+                this.style.color = '#000000';
+            };
+            h2s[i].onmouseout = function(){
+                this.style.backgroundColor = '';
+                this.style.color = '';
+            };
+        }
+        function sibling(obj){
+            var sm = obj.firstElementChild;
+            if(sm.nextElementSibling && sm.nextElementSibling.nodeName.toLowerCase() == 'ul'){
+                sm.nextElementSibling.style.display = '';
+                sm.firstElementChild.innerHTML = '+';
+                sm.isShow = false;
+                for(var m = 0;m < sm.nextElementSibling.children.length;m++){
+                    sibling(sm.nextElementSibling.children[m]);
+                }
+
+            }
+        }
+    };
+</script>
+</html>

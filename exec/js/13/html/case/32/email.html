@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>邮件拖拽</title>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+    <div class="wrap" id="box">
+        <header class="head clear">
+            <h1 class="left">
+                <a class="logo" href="javascript:;"></a>
+                |
+                <a href="javascript:;">邮箱</a>
+            </h1>
+            <nav  class="left">
+                <a href="javascript:;">邮箱首页</a>|<a href="javascript:;">设置</a>
+            </nav>
+            <p class="hint1 left"></p>
+            <p class="hint2 left"></p>
+        </header>
+        <div class="section clear">
+            <div class="fuList left">
+                <ul class="fuListBig">
+                    <li class="writeLetter">写信</li>
+                    <li class="collectLetter">收信</li>
+                    <li class="address">通讯录</li>
+                </ul>
+                <ul class="fuListSmall">
+                    <li class="inbox active">收件箱</li>
+                    <li class="StarMail">星标邮件</li>
+                    <li class="groupMail">群邮件</li>
+                    <li class="draftBox">草稿箱</li>
+                    <li class="beenSent">已发送</li>
+                    <li class="beenDel hover">已删除<a class="clearBtn" href="#">清空</a></li>
+                    <li class="dustbin">垃圾箱<a class="clearBtn" href="#">清空</a></li>
+                </ul>
+            </div>
+            <div class="tBody left">
+                <div class="title">
+                    收件箱(共96封,其中<a href="javascript:;">未读邮件</a>9封)
+                </div>
+                <div class="emailFunctions">
+                    <a id="delet" href="javascript:;">删除</a>
+                    <a href="javascript:;">彻底删除</a>
+                    <a href="javascript:;">转发</a>
+                    <a href="javascript:;">举报</a>
+                    <a href="javascript:;">全部标为已读</a>
+                    <a class="selectIcon" href="javascript:;">标记为...</a>
+                    <a class="selectIcon" href="javascript:;">移动到...</a>
+                </div>
+                <div class="emailList" id="emailCheckList">
+                    <header class="emailHead">
+                        <input type="checkbox" />
+                        <p><span></span><span></span></p>
+                    </header>
+                    <ul class="emailListUl">
+                        <!-- <li>
+                            <input type="checkbox">
+                            <div>
+                                <span>秒味课堂1</span>
+                                <span>2015-12-30</span>
+                            </div>
+                            <p>JS拖拽的进一步学习,移动与拉伸JS拖拽的进一步练习</p>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="hint3" style="display:none;">选中2封邮件</div>
+</body>
+<script src="js/data.js"></script>
+<script src="js/utils.js"></script>
+<script>
+    window.onload = function(){
+        var html = list.map(function(item){
+            //console.log(item);  //循环便利到了每一层数据，返回一个新数组
+            return `<li>
+                        <input type="checkbox" data-id="${item.id}"/>
+                        <div>
+                            <span>${item.caption}</span>
+                            <span>${item.time}</span>
+                        </div>
+                        <p>${item.desc}</p>
+                    </li>`;
+        }).join(' ');
+        //console.log(html);
+
+        var emailListUl = document.querySelector('.emailListUl');
+
+        emailListUl.innerHTML = html;
+
+        //全选功能
+        var checkboxAll = document.querySelector('.emailHead input');
+        var checkboxSingle = emailListUl.querySelectorAll('input');
+
+        var singleLen = checkboxSingle.length;
+
+        checkboxAll.onclick = function(){
+
+            for(var i = 0;i < singleLen;i++){
+                checkboxSingle[i].checked = this.checked;
+
+                if(this.checked){
+                    checkboxSingle[i].parentNode.style.backgroundColor = '#f2f6f9';
+                }else{
+                    checkboxSingle[i].parentNode.style.backgroundColor = '';
+                }
+            }
+        };
+         for(var j = 0;j < singleLen;j++){
+             checkboxSingle[j].onclick = function(){
+                 if(!this.checked){
+                     checkboxAll.checked = false;
+                 }else{
+                     var n = 0;
+                     for(var k = 0;k < singleLen;k++){
+                         if(checkboxSingle[k].checked){
+                             n++;
+                         }
+                     }
+                     if(n == singleLen){
+                         checkboxAll.checked = true;
+                     }
+
+                     this.parentNode.style.backgroundColor = "#f2f6f9";
+                 }
+             };
+             checkboxSingle[j].onmousedown = function (evt){
+                 // 阻止冒泡
+                 evt.stopPropagation();
+             }
+         }
+
+        function whoSelect(){
+            var emailListUl = document.querySelector('.emailListUl');
+            var checkboxSingle = emailListUl.querySelectorAll('input');
+            var singleLen = checkboxSingle.length;
+            var arr = [];
+            for(var i = 0;i < singleLen;i++){
+                if(checkboxSingle[i].checked){
+                    arr.push(checkboxSingle[i]);
+                }
+            }
+            return arr;
+        }
+
+        //删除的按钮
+        var delet = document.getElementById('delet');
+        delet.onclick = function(){
+
+            delectHtml();
+        };
+
+        //删除封装
+        function delectHtml(){
+            var selectArr = whoSelect();
+            for(var j= 0;j< selectArr.length;j++){
+                selectArr[j].parentNode.remove();
+
+                //同步数据
+                for(var i= 0;i < list.length;i++){
+                    if(list[i].id == selectArr[j].dataset.id){
+                        list.splice(i,1);
+                    }
+                }
+                console.log(list);
+            }
+        }
+
+
+        //提示框功能
+        var tip = document.querySelector('#hint3');
+        var lis = emailListUl.querySelectorAll('li');
+        var beenDel = document.querySelector('.beenDel');
+
+        for(var j = 0;j < lis.length;j++){
+            lis[j].onmousedown = function(evt){
+                evt = evt || window.event;
+                var input = this.querySelector('input');
+                if(!input.checked){
+                    return;
+                }
+
+                var isCollision = false; // 默认没碰上
+                var selectArr = whoSelect();
+
+                tip.style.display = 'block';
+                tip.style.left = evt.clientX + 1 + "px";
+                tip.style.top = evt.clientY + 1 + "px";
+                tip.innerHTML = `选中${selectArr.length}封邮件`;
+                document.onmousemove = function(evt){
+                    evt = evt || window.event;
+                    tip.style.left = evt.clientX + "px";
+                    tip.style.top = evt.clientY + "px";
+
+                    if(collision(tip,beenDel)){
+                        isCollision = true;
+                    }
+
+                    //取消默认行为
+                    evt.preventDefault();
+                };
+                document.onmouseup = function(){
+                    tip.style.display = 'none';
+
+                    if(isCollision){
+                        delectHtml();
+                    }
+                    document.onmousemove = document.onmouseup = null;
+                };
+            };
+        }
+
+    };
+</script>
+</html>

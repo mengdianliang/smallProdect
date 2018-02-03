@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>对象</title>
+	</head>
+	<body>
+		<script>
+			/*var obj = new Object();
+			obj.name = "CJ";
+			obj.age = 18;
+			alert(obj.name);
+			alert(obj.age);*/
+			
+			var obj = {
+				"name": "CJ",
+				"age": 18,
+				"weight": 123
+			};
+			
+			obj.abc = 456;
+			//alert(obj["abc"]);
+			
+			/*var obj = {
+				"name": "CJ",
+				"age": 18,
+				"weight": 128
+			};
+			for(var i in obj){ // for...in循环 :forEach
+				console.log(i + ":" +obj[i]);
+			}*/
+			
+			
+			var myClass = [];
+			myClass[1] = {
+				'name': 'HUXP',
+				'Chinese': 60,
+				'English': 70,
+				'Math': 80,
+				'Grade': 'C'
+			};
+			myClass[2] = {
+				'name': '发哥',
+				'Chinese': 80,
+				'English': 80,
+				'Math': 80,
+				'Grade': 'A'
+			};
+			myClass[3] = {
+				'name': 'CP',
+				'Chinese': 70,
+				'English': 80,
+				'Math': 80,
+				'Grade': 'B'
+			};
+			myClass[4] = {
+				'name': 'ZS',
+				'Chinese': 90,
+				'English': 90,
+				'Math': 80,
+				'Grade': 'S'
+			};
+			var num = 4;
+			//alert(myClass[num].name);
+			/*Object比Array少一些功能           少：length属性，push，join...*/
+			var a = []; //Array是Object的一个扩展
+			a.abc = 1234;
+			//alert(a.abc);
+			
+			a.length = 123;
+			//alert(a.length);
+			//alert(a);
+			
+			/*var name = prompt("请输入名称","");
+			for(var i = 1;i < myClass.length;i++){
+				if(myClass[i].name == name){
+					alert("Math:"+myClass[i].Math);
+					break;
+				}
+			}*/
+			/*function searchByName(name){
+				for(var i = 1;i < myClass.length;i++){
+					if(myClass[i].name == name){
+						return myClass[i].Math;
+					}
+				}
+			}
+			searchByName(prompt("请输入名称",""));*/
+
+
+           /* var s = "string";
+            alert(s.length);
+            alert(s[s.length - 1]);
+			//alert(s[0]); //IE下不支持 用charAt()
+            alert(s.charAt(0));*/
+
+            /*var str = new String();
+            alert(str);
+            str = new String("some string here");
+            alert(str);
+            str = "some thing here";
+            alert(str);
+            alert(str.length);
+            alert(str.indexOf("s"));
+            alert(str.lastIndexOf("e"));
+            alert(str.charCodeAt(0)); //小写s的Unicode编码
+            alert(String.fromCharCode(65,66,67,68)); //返回Unicode编码所对应的字符
+            alert(str.replace("some","much"));
+            alert(str.substr(1,2)); //从下标1开始往后截取2个字符
+            alert(str.substring(1,2));
+            alert(str.toLowerCase());
+            alert(str.toUpperCase());
+            alert(str.split("")); //把字符串分割成数组*/
+            //str.substr(1,9999);
+            //str.substring(1,-1);   //负值在在substr(),substring()中没有作用
+
+            var a = ["A","B","C"];
+             // alert(a.join(",").split(','));
+
+             // 'ABC'.split('B'); //['A','C']
+             //"ABC".split(""); //转换成了数组 ['A','B','C']    好用
+            var s =  '滚动的字符串';
+             setInterval(function(){
+                //document.title = new Date();
+                 s = s.substring(1,s.length) + s.substring(0,1);
+                document.title = s;
+              } ,1000);
+
+
+		</script>
+	</body>
+</html>

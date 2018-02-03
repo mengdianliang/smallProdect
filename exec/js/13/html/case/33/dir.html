@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>文件夹</title>
+    <style>
+        body{
+            margin: 0;
+            font-family: 'MICROSOFT YAHEI';
+            font-size: 12px;
+            color: #ffffff;
+        }
+        h3{
+            margin: 0;
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        img{
+            vertical-align: top;
+            border: none;
+        }
+        a{
+            text-decoration: none;
+            color: #ffffff;
+        }
+        input{
+            padding: 0;
+            border:none;
+            outline: none;
+        }
+        .fl{
+            float: left;
+        }
+        .fr{
+            float: right;
+        }
+        .clearfix{
+            *zoom: 1;
+        }
+        .clearfix:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .wrap{
+            margin: 50px auto 0;
+            width: 680px;
+            padding: 50px;
+            background-image: -webkit-linear-gradient(45deg, #4D83C4 0%,#DE4E43 100%);
+        }
+        .tit{
+            font-size: 28px;
+            font-weight: normal;
+            text-align: center;
+            line-height: 50px;
+        }
+        .list li{
+            width: 140px;
+            height: 140px;
+            position: relative;
+            margin-left: 30px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .list li a{
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .list img{
+            margin-top: 30px;
+            margin-left: 30px;
+        }
+        .txt{
+            display: block;
+            width: 100px;
+            margin: 0 auto;
+            text-align: center;
+            line-height: 40px;
+            font-size: 16px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .dirName{
+            width: 100px;
+            height: 32px;
+            border-radius: 3px;
+            margin: 10px auto 0;
+            padding: 0 5px;
+            color: #333333;
+            display: none;
+        }
+        .cli{
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            width: 20px;
+            height: 20px;
+            background-color: #ffffff;
+            border-radius: 3px;
+            cursor: pointer;
+            text-align: center;
+            line-height: 20px;
+            display: none;
+        }
+        .btns a{
+            display: block;
+            margin: 10px auto;
+            width: 120px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .add{
+            border: 2px solid #ffffff;
+        }
+        .del{
+            color: #333333;
+            background-color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h3 class="tit">文件夹</h3>
+        <ul class="list clearfix">
+            <!--<li class="fl">
+                <a href="javascript:void(0)">
+                    <img src="img/dir.jpg"/>
+                    <span class="txt">新建文件夹</span>
+                    <input type="text" class="dirName"/>
+                    <span class="cli">√</span>
+                </a>
+            </li>-->
+        </ul>
+        <div class="btns">
+            <a href="javascript:void(0);" class="add">新建文件夹</a>
+            <a href="javascript:void(0);" class="del">删除文件夹</a>
+        </div>
+    </div>
+
+</body>
+<script>
+    window.onload = function(){
+
+        var btns = $('.btns a');  //获取创建和删除文件夹的按钮
+        var arr = []; //存储选中的元素
+
+        init();
+
+        /*//代码初始化
+        function init(){
+            lisCli();
+            mouseEvt();
+        }*/
+        function init(){
+            newFile();
+            delFile();
+        }
+        //新建文件夹
+        function newFile(){
+            btns[0].onclick = function(){
+                var list = $('.list')[0];   //获取ul
+
+                var img = document.createElement('img');
+                img.src = './img/dir.jpg';
+                var span1 = document.createElement('span');
+                span1.className = "txt";
+                span1.innerHTML = '新建文件夹';
+                var input = document.createElement('input');
+                input.type = 'text';
+                input.className = 'dirName';
+                var span2 = document.createElement('span');
+                span2.className = "cli";
+                span2.innerHTML = '√';
+                var a = document.createElement('a');
+                a.href="javascript:void(0);";
+                var li = document.createElement('li');
+                li.className = 'fl';
+
+                a.appendChild(img);
+                a.appendChild(span1);
+                a.appendChild(input);
+                a.appendChild(span2);
+                li.appendChild(a);
+                list.appendChild(li);
+
+                isClick(span2);
+                mouseEvt(li);
+
+                editName(span1);
+                showName(input);
+
+            };
+        }
+
+        //文件夹选中
+        function isClick(obj){
+            obj.isClick = false;
+            obj.onclick = function(){
+                if(this.isClick){
+                    this.isClick = false;
+                    this.style.backgroundColor = '';
+                    for(var i = 0;i < arr.length;i++){
+                        if(arr[i] == this){
+                            arr.splice(i,1);
+                        }
+                    }
+                }else{
+                    this.isClick = true;
+                    this.style.backgroundColor = '#0096D8';
+                    arr.push(this.parentNode.parentNode);
+                }
+            };
+        }
+
+        //删除文件夹
+        function delFile(){
+            var list = $('.list')[0];
+            btns[1].onclick = function(){
+                for(var i = 0;i < arr.length;i++){
+                    list.removeChild(arr[i]);
+                }
+                arr = [];
+            };
+        }
+
+        //鼠标移入移出事件
+        function mouseEvt(obj){
+            obj.onmouseover = function(){
+                this.style.backgroundColor = 'rgba(0,0,0,0.4)';
+                $('.cli',this)[0].style.display = 'block';
+            };
+            obj.onmouseout = function(){
+                if(!$('.cli',this)[0].isClick){
+                    this.style.backgroundColor = '';
+                    $('.cli',this)[0].style.display = '';
+                }
+            };
+        }
+
+        //编辑文件名
+        function editName(obj){
+            obj.ondblclick = function(){
+                this.style.display = 'none';
+                this.nextElementSibling.value = this.innerHTML;
+                this.nextElementSibling.style.display = 'block';
+                return false;
+            }
+        }
+
+        //显示文件名
+        function showName(obj){
+            obj.onblur = function(){
+                this.style.display = '';
+                this.previousElementSibling.innerHTML = this.value;
+                this.previousElementSibling.style.display = '';
+            };
+        }
+
+        /*//添加/删除事件
+        function mouseEvt(){
+            //新建文件夹
+            btns[0].onclick = function(){
+                var list = $('.list')[0];   //获取ul
+
+                var img = document.createElement('img');
+                img.src = './img/dir.jpg';
+                var span1 = document.createElement('span');
+                span1.className = "txt";
+                span1.innerHTML = '新建文件夹';
+                var input = document.createElement('input');
+                input.type = 'text';
+                input.className = 'dirName';
+                var span2 = document.createElement('span');
+                span2.className = "cli";
+                span2.innerHTML = '√';
+                var a = document.createElement('a');
+                a.href="javascript:void(0);";
+                var li = document.createElement('li');
+                li.className = 'fl';
+
+                a.appendChild(img);
+                a.appendChild(span1);
+                a.appendChild(input);
+                a.appendChild(span2);
+                li.appendChild(a);
+                list.appendChild(li);
+
+                lisCli();
+
+
+            };
+
+            //删除文件夹
+            btns[1].onclick = function(){
+                var lis = $('.list li');  //获取文件夹列表
+
+                for(var i = 0;i < lis.length;i++){
+                    if($('.cli',lis[i])[0].isClick){
+                        lis[i].parentNode.removeChild(lis[i]);
+                    }
+                }
+            };
+        }
+
+
+        //元素点击效果
+        function lisCli(){
+            var lis = $('.list li');  //获取文件夹列表
+
+            for(var i = 0;i < lis.length;i++){
+                lis[i].onmouseover = function(){
+                    this.style.backgroundColor = 'rgba(0,0,0,0.4)';
+                    $('.cli',this)[0].style.display = 'block';
+                };
+                lis[i].onmouseout = function(){
+                    if(!$('.cli',this)[0].isClick){
+                        this.style.backgroundColor = '';
+                        $('.cli',this)[0].style.display = '';
+                    }
+
+                };
+                $('.cli',lis[i])[0].isClick = false;
+                $('.cli',lis[i])[0].onclick = function(){
+                    if(this.isClick){
+                        this.isClick = false;
+                        this.style.backgroundColor = '';
+                    }else{
+                        this.isClick = true;
+                        this.style.backgroundColor = '#0096D8';
+                    }
+                };
+
+                $('.txt',lis[i])[0].ondblclick = function(){
+                    this.style.display = 'none';
+                    this.nextElementSibling.value = this.innerHTML;
+                    this.nextElementSibling.style.display = 'block';
+                };
+                $('.dirName',lis[i])[0].onblur = function(){
+                    this.style.display = '';
+                    this.previousElementSibling.innerHTML = this.value;
+                    this.previousElementSibling.style.display = '';
+                };
+            }
+        }*/
+
+        //获取元素方法的重写
+        function $(element,obj){
+            if(obj == null){
+                return document.querySelectorAll(element);
+            }else{
+                return obj.querySelectorAll(element);
+            }
+        }
+    };
+</script>
+</html>

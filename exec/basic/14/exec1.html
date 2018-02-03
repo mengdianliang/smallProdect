@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--
+        z-index适用于 relative,absolute,fixed
+        被a标签包括的文字颜色，只能写在a标签上，其他标签的颜色可以继承
+        层级最高为： z-index: 9999999999
+        层级关系只存在于兄弟之间
+
+        层级分类：
+        1.0`9;
+        2.10`99
+        3.100`999
+    -->
+    <style>
+        body,p{
+            margin: 0;
+        }
+        div{
+            width:80px;
+            height:80px;
+            background-color: #00a3d8;
+            float: left;
+            margin-left: 20px;;
+        }
+        .div4{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .b{
+            position: relative;
+            top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="div1">1</div>
+    <div class="div2">2</div>
+    <div class="div3">3</div>
+    <div class="div4">
+        <!--<span class="a">123433</span>-->
+        <p class="b">123433</p>
+    </div>
+</body>
+</html>

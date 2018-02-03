@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>引用类型</title>
+</head>
+<body>
+    <script>
+        /*
+        * 1. 引用类型通常叫做类(并不是真正的类)，也就是说，遇到引用值，所处理的就是对象。
+        * 2. ()不是必需的，但是为了避免混乱，最好使用括号。
+        *
+        * 3. Object对象具有的
+        *   属性：
+        *    （1）constructor：对创建对象的函数的引用（指针）。 该指针指向原始的Object()函数
+        *    （2）prototype：对该对象的对象原型的引用。对于所有的对象，它默认返回Object对象的一个实例。
+        *
+        *   方法：
+         *   （1）hasOwnProperty(property):判断对象是否有某个特定的属性。必须用字符串指定该属性。
+         *   （2）isPropertyOf(object): 判断该对象是否为另一个对象的原型；
+         *   （3）propertyIsEnumerable(property)：判断给定的属性是否可以用for...in语句进行枚举。
+         *   （4）toString() 返回对象的原始字符串表示。
+         *   （5）valueOf() 返回最适合该对象的原始值。对于许多对象，该方法返回的值都与toString()的返回值相同。
+        * */
+
+       /* var object = new Object();
+        var a = new Array();*/
+
+        //var d = +new Date(); //创建一个Date对象，返回时间的毫秒数
+
+        /*Boolean对象,最好还是使用原始值*/
+       /* var bool = true;
+        bool = new Boolean(); //创建一个Boolean对象。
+
+        alert(!!bool);*/
+
+        /*Number对象:
+        *     var oNum = new Number(68);
+        *   （1）Number.MAX_VALUE, Number.MIN_VALUE
+        *   （2）要得到数字对象的Number 原始值，只需要使用valueOf()方法
+        *       var iNumber = oNum.valueOf();
+        *   （3）toFixed();  指定的小数位数
+        *   （4）toPercision() 方法返回数字的预定形式或指数形式。它有一个参数，即用于表示数的数字总数(不包括指数)(会自动进行四舍五入)。
+        *
+        *
+        * */
+
+        /*var n = 68;
+         n = new Number(68);
+        alert(n.toFixed(2));
+        alert(n.toPrecision(3));*/
+
+
+       /*String类型：
+       *      (1) localeCompare()方法，对字符串进行排序。
+       *           如果对象按照字母顺序排在参数中字符串之前，返回负数；
+       *            如果对象等于参数中的字符串，返回0；
+       *             如果对象按照字母顺序排在参数中字符串之后，返回正数；
+       *     （2）var oStringObject = new String("yellow");
+       *          alert(oStringObject.localeCompare("brick));   // 1
+       *          alert(oStringObject.localeCompare("yellow));   // 0
+       *          alert(oStringObject.localeCompare("zoo));   // -1
+       *     （3）slice(): 截取 两个参数(起始位置，结束位置)  如果结束位置不存在，默认为字符串长度
+       *                   负数 则表示倒着数
+       *          var str = "hello world!!!";
+       *          alert(str.slice(3));
+       *          alert(str.slice(3,-4));
+       *     （4）charAt(): 返回在指定位置的字符；
+       *          charCodeAt(): 返回在指定的位置的字符的Unicode编码；
+       *          concat(): 连接字符串
+       *          fromCharCode() : 从字符编码创建一个字符串
+       *          indexOf(): 检索字符串
+       *          lastIndexOf()： 从后向前检索字符串
+       *          localeCompare(): 用本地特定的顺序来比较两个字符串
+       *          match(): 找到一个或多个正则表达式的匹配
+       *          replace(): 替换与正则表达式匹配的子串
+       *          search(): 检索与正则表达式相匹配的值
+       *          slice(): 提取字符串片段，并在新的字符串中返回被提取的部分
+       *          split(): 把字符串分割成字符串数组
+       *          substr(): 从起始索引号提取字符串中指定数目的字符
+       *          substring(): 提取字符串中两个指定索引号之间的字符
+       *          toLocaleLowerCase()     toLocaleUpperCase()    toLowerCase()   toUpperCase()
+       *          toString()     valueOf()
+       *
+       *
+       * */
+
+
+    /*
+    *   Global ：是一个特殊的对象，因为它实际上根本不存在！如果尝试输出Global对象将报错：
+    *                       所有的全局函数都是Global对象的方法
+     *          isNaN() ,parseInt()
+    *           编码与解码：
+    *           encodeURI() 和decodeURI()
+    *
+    *           对什么编码 ?   转换为Unicode码
+    *
+    * */
+           /* var url = "htttp://www.g.cn/trend page";
+            alert(encodeURI(url));
+            alert(decodeURI(encodeURI(url)));*/
+       </script>
+</body>
+</html>

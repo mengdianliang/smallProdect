@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>transition的事件</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transition: 1s;
+        }
+        .addCss{
+            width: 400px;
+            height: 400px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        var box = document.getElementById('box');
+        document.onclick = function(){
+           box.className = 'addCss';
+        };
+
+        box.addEventListener('transitionend',function(){
+           alert(1);
+        },false);
+    </script>
+</body>
+</html>

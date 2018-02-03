@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>组建开发之自定义事件--选项卡</title>
+    <style>
+        #div1 div,#div2 div,#div3 div,#div4 div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000000;
+            display: none;
+        }
+        .active{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+     <div id="div1">
+         <input type="button" value="1" class="active"/>
+         <input type="button" value="2"/>
+         <input type="button" value="3"/>
+         <div style="display: block">111111111111</div>
+         <div>22222222222</div>
+         <div>3333333333333</div>
+     </div>
+     <div id="div2">
+         <input type="button" value="1" class="active"/>
+         <input type="button" value="2"/>
+         <input type="button" value="3"/>
+         <div style="display: block">111111111111</div>
+         <div>22222222222</div>
+         <div>3333333333333</div>
+     </div>
+     <div id="div3">
+         <input type="button" value="1" class="active"/>
+         <input type="button" value="2"/>
+         <input type="button" value="3"/>
+         <div style="display: block">111111111111</div>
+         <div>22222222222</div>
+         <div>3333333333333</div>
+     </div>
+     <div id="div4">
+         <input type="button" value="1" class="active"/>
+         <input type="button" value="2"/>
+         <input type="button" value="3"/>
+         <div style="display: block">111111111111</div>
+         <div>22222222222</div>
+         <div>3333333333333</div>
+     </div>
+
+     <input type="button" value="获取内容" id="input1"/>
+<script src="jquery-1.10.2.min.js"></script>
+<script>
+    /*
+    * title: 基于选项卡的组件
+    * Options: event  delay
+    * Methods: nowSel() getContent()
+    * Events: beforeClick  afterClick
+    *
+    *
+    *
+    * jQ: 主动触发trigger()
+    * */
+
+    $(function(){
+        var t1 = new Tab();
+        t1.init('div1',{});
+        var t2 = new Tab();
+        t2.init('div2',{
+            event: 'mouseover'
+        });
+        var t3 = new Tab();
+        t3.init('div3',{
+            event: 'mouseover',
+            delay: 200
+        });
+        var t4 = new Tab();
+        t4.init('div4',{});
+        t4.nowSel(2);
+
+        $('#input1').click(function(){
+            alert(t4.getContent());
+        });
+
+        $(t4).on('beforeClick',function(){
+            alert( t4.getContent() );
+        });
+        $(t4).on('afterClick',function(){
+            alert( t4.getContent() );
+        });
+    });
+
+    function Tab(){
+        this.parent = null;
+        this.input = null;
+        this.div = null;
+        this.num = 0;
+        this.settings = {  //默认参数
+            event: 'click',
+            delay: 0
+        };
+    }
+    Tab.prototype.init = function(parent,opt){
+        $.extend(this.settings,opt);
+        this.parent = $('#' + parent);
+        this.input = this.parent.find('input');
+        this.div = this.parent.find('div');
+
+        this.change();
+    };
+    Tab.prototype.change = function(){
+        var _this = this;
+        var timer = null;
+        this.input.on(this.settings.event,function(){
+
+            var This = this;
+            if(_this.settings.event == 'mouseover' && _this.settings.delay){
+                timer = setTimeout(function(){
+                    show(This);
+                },_this.settings.delay);
+            }else{
+                show(this);
+            }
+        }).mouseout(function(){
+            clearTimeout(timer);
+        });
+        function show(obj){
+            $(_this).trigger('beforeClick');
+            _this.input.attr('class','');
+            $(obj).attr('class','active');
+            _this.div.css('display','');
+            _this.div.eq($(obj).index()).css('display','block');
+            _this.num = $(obj).index();
+            $(_this).trigger('afterClick');
+        }
+    };
+    Tab.prototype.nowSel = function(index){
+        this.input.attr('class','');
+        this.input.eq(index).attr('class','active');
+        this.div.css('display','');
+        this.div.eq(index).css('display','block');
+        this.num = index;
+    };
+    Tab.prototype.getContent = function(){
+        return this.div.eq(this.num).html();
+    };
+</script>
+</body>
+</html>
